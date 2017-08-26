@@ -1,11 +1,15 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.SqlServer;
 using System.Diagnostics;
 using VnStyle.Services.Data.Domain;
 
 namespace VnStyle.Services.Data
 {
-    public class VnStyleContext : DbContext
+    public class VnStyleContext : DbContext, IDbContext
     {
         public VnStyleContext() : this("Name=VnStyleContext")
         {
@@ -28,12 +32,104 @@ namespace VnStyle.Services.Data
             Configuration.LazyLoadingEnabled = true;
         }
 
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<MetaTag> MetaTags { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Post>().HasKey(p => p.Id);
+            #region "Article"
+            modelBuilder.Entity<Article>().HasKey(p => p.Id);
+            modelBuilder.Entity<Article>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            #endregion
+
+
+            modelBuilder.Entity<ArticleLanguage>().HasKey(p => p.Id);
+            modelBuilder.Entity<ArticleLanguage>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<Language>().HasKey(p => p.Id);
+            modelBuilder.Entity<Language>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<MetaTag>().HasKey(p => p.Id);
+            modelBuilder.Entity<MetaTag>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
         }
+
+        #region "Public functions"
+        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        {
+            return base.Set<TEntity>();
+        }
+
+        public new DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class
+        {
+            return base.Entry(entity);
+        }
+
+        public IList<TEntity> ExecuteStoredProcedureList<TEntity>(string commandText, params object[] parameters) where TEntity : class, new()
+        {
+            throw new NotImplementedException();
+
+            //if (parameters != null && parameters.Length > 0)
+            //{
+            //    for (var i = 0; i <= parameters.Length - 1; i++)
+            //    {
+            //        var p = parameters[i] as DbParameter;
+            //        if (p == null)
+            //        {
+            //            throw new Exception("Not support parameter type");
+            //        }
+
+            //        commandText += i == 0 ? " " : ", ";
+
+            //        commandText += "@" + p.ParameterName;
+            //        if (p.Direction == ParameterDirection.InputOutput || p.Direction == ParameterDirection.Output)
+            //        {
+            //            //output parameter
+            //            commandText += " output";
+            //        }
+            //    }
+            //}
+            //var result = Database.SqlQuery<TEntity>(commandText, parameters).ToList();
+            //return result;
+        }
+
+        public IEnumerable<TElement> SqlQuery<TElement>(string sql, params object[] parameters)
+        {
+            return Database.SqlQuery<TElement>(sql, parameters);
+        }
+
+        public int ExecuteSqlCommand(string sql, bool doNotEnsureTransaction = false, int? timeout = null, params object[] parameters)
+        {
+            throw new NotImplementedException();
+
+            //int? previousTimeout = null;
+            //if (timeout.HasValue)
+            //{
+            //    //store previous timeout
+            //    previousTimeout = ((IObjectContextAdapter)this).ObjectContext.CommandTimeout;
+            //    ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = timeout;
+            //}
+
+            //var transactionalBehavior = doNotEnsureTransaction
+            //    ? TransactionalBehavior.DoNotEnsureTransaction
+            //    : TransactionalBehavior.EnsureTransaction;
+            //var result = Database.ExecuteSqlCommand(transactionalBehavior, sql, parameters);
+
+            //if (timeout.HasValue)
+            //{
+            //    //Set previous timeout back
+            //    ((IObjectContextAdapter)this).ObjectContext.CommandTimeout = previousTimeout;
+            //}
+
+            ////return result
+            //return result;
+        }
+        #endregion
     }
 }

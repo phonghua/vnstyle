@@ -34,6 +34,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Extended.6.1.0.168\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
@@ -49,13 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Domain\Post.cs" />
+    <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\Domain\ArticleLanguage.cs" />
+    <Compile Include="Data\Domain\Language.cs" />
+    <Compile Include="Data\Domain\MetaTag.cs" />
+    <Compile Include="Data\Domain\Article.cs" />
+    <Compile Include="Data\Enum\ArticleState.cs" />
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
     <Compile Include="Migrations\201708261351064_InitDb.cs" />
     <Compile Include="Migrations\201708261351064_InitDb.Designer.cs">
       <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261524317_Article.cs" />
+    <Compile Include="Migrations\201708261524317_Article.Designer.cs">
+      <DependentUpon>201708261524317_Article.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,7 +81,11 @@
     <EmbeddedResource Include="Migrations\201708261351064_InitDb.resx">
       <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261524317_Article.resx">
+      <DependentUpon>201708261524317_Article.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

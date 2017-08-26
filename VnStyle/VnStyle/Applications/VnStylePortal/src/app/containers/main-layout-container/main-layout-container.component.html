@@ -1,0 +1,56 @@
+<div class="page-wrapper">
+  <app-top-nav></app-top-nav>
+  <div class="page-container">
+    <app-sider-bar></app-sider-bar>
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <ul class="page-breadcrumb">
+            <li *ngFor="let breadcrumb of breadcrumbs">              
+              <a *ngIf="breadcrumb.url" [routerLink]="breadcrumb.url">{{breadcrumb.name}}</a>
+              <i *ngIf="breadcrumb.url" class="fa fa-circle"></i>
+
+              <span *ngIf="!breadcrumb.url">{{breadcrumb.name}}</span>
+            </li>
+            <!--<li>
+              <a href="#">Blank Page</a>
+              <i class="fa fa-circle"></i>
+            </li>
+            <li>
+              <span>Page Layouts</span>
+            </li>-->
+          </ul>
+          <div class="page-toolbar" *ngIf="actions && actions.length > 0">
+            <div class="btn-group pull-right">
+              <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions
+                  <i class="fa fa-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu pull-right" role="menu">
+                <li *ngFor="let action of actions">
+                  <a href="#" (click)="callAction($event, action)" ><i class="{{action.icon}}"></i>{{action.name}}</a>
+                </li>
+                <!--<li>
+                  <a href="#">
+                    <i class="icon-shield"></i> Another action</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-user"></i> Something else here</a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                  <a href="#">
+                    <i class="icon-bag"></i> Separated link</a>
+                </li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--<h1 class="page-title"> Blank Page Layout
+          <small>blank page layout</small>
+        </h1>        -->
+        <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

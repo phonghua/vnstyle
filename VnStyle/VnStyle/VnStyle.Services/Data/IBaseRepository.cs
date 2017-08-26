@@ -79,11 +79,7 @@ namespace VnStyle.Services.Data
         /// <param name="entity">entity to delete</param>
         void Delete(TEntity entity);
 
-        /// <summary>
-        /// Delete an entity in DbSet by set Deleted to true or remove from DbSet
-        /// </summary>
-        /// <param name="id">id of entity to delete</param>
-        void Delete(long id);
+        
 
         /// <summary>
         /// Batch delete based on condition
@@ -119,13 +115,7 @@ namespace VnStyle.Services.Data
         /// <returns></returns>
         bool Any(Expression<Func<TEntity, bool>> filter = null);
 
-        /// <summary>
-        ///     Check is exists any entry in database by keys
-        /// </summary>
-        /// <param name="ids"></param>
-        /// <returns></returns>
-        bool Any(params object[] ids);
-
+        
         /// <summary>
         /// Reload the entity from database
         /// </summary>
