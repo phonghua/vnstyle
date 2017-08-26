@@ -1,9 +1,11 @@
-﻿using Autofac;
+﻿using System.Data.Entity;
+using Autofac;
 using Microsoft.AspNet.Identity;
 using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.Caching;
 using Ricky.Infrastructure.Core.ObjectContainer;
 using Ricky.Infrastructure.Core.ObjectContainer.Autofac.DependencyManagement;
+using VnStyle.Services.Data;
 
 namespace VnStyle.Web.Infrastructure.Dependency
 {
@@ -26,12 +28,15 @@ namespace VnStyle.Web.Infrastructure.Dependency
                 //.WithParameter("httpContext", httpContextBase)
                 .InstancePerRequest();
 
-            //builder.RegisterType<DbContext>().As<IDbContext>()
-            //    //.WithParameter("connectionString", ApplicationConfiguration.BizConnectionString)
-            //    .InstancePerRequest();
+            builder.RegisterType<VnStyleContext>().As<IDbContext>()
+                //.WithParameter("connectionString", ApplicationConfiguration.BizConnectionString)
+                .InstancePerRequest();
+
+
+            builder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>)).InstancePerDependency();
 
             //builder.RegisterAssemblyTypes(System.AppDomain.CurrentDomain.GetAssemblies())
-            //       .Where(t => t.Name.EndsWith("Repository")) 
+            //       .Where(t => t.Name.EndsWith("Repository"))
             //       .AsImplementedInterfaces()
             //       .InstancePerRequest();
 
@@ -49,7 +54,7 @@ namespace VnStyle.Web.Infrastructure.Dependency
             //builder.RegisterType<AppContextUrlRouting>().As<IAppContextUrlRouting>()
             //    .InstancePerRequest();
 
-            
+
 
         }
 
