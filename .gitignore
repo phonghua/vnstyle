@@ -1,0 +1,12 @@
+packages/
+bin/
+obj/
+.svn/
+.vs/
+dist/
+node_modules/
+npm-debug.log
+*.bak
+*.log
+.vscode/
+
