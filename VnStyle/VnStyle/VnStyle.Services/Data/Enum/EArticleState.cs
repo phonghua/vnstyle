@@ -1,6 +1,6 @@
 namespace VnStyle.Services.Data.Enum
 {
-    public enum ArticleState
+    public enum EArticleState
     {
         Live = 0,
         Approval,

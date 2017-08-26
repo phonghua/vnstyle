@@ -53,12 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\IUserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\Language.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetClient.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetRefreshToken.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetRegisters.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetRoles.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetUserClaims.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetUserLogins.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetUserProfile.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetUserRoles.cs" />
+    <Compile Include="Data\Domain\Memberships\AspNetUsers.cs" />
     <Compile Include="Data\Domain\MetaTag.cs" />
     <Compile Include="Data\Domain\Article.cs" />
-    <Compile Include="Data\Enum\ArticleState.cs" />
+    <Compile Include="Data\Enum\EArticleState.cs" />
+    <Compile Include="Data\Enum\EAspNetApplicationTypes.cs" />
+    <Compile Include="Data\Enum\EBookingType.cs" />
+    <Compile Include="Data\Enum\EGender.cs" />
+    <Compile Include="Data\Enum\EMaritalStatus.cs" />
+    <Compile Include="Data\Enum\EMediaFileSourceTarget.cs" />
+    <Compile Include="Data\Enum\ENoteBean.cs" />
+    <Compile Include="Data\Enum\EReviewObjectType.cs" />
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
@@ -69,6 +86,10 @@
     <Compile Include="Migrations\201708261524317_Article.cs" />
     <Compile Include="Migrations\201708261524317_Article.Designer.cs">
       <DependentUpon>201708261524317_Article.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261611208_AddedMembership.cs" />
+    <Compile Include="Migrations\201708261611208_AddedMembership.Designer.cs">
+      <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708261524317_Article.resx">
       <DependentUpon>201708261524317_Article.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261611208_AddedMembership.resx">
+      <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

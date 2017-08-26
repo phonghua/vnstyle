@@ -11,7 +11,7 @@ namespace VnStyle.Services.Data.Domain
         public DateTime ModifiedDate { get; set; }
         public DateTime PublishDate { get; set; }
         public int CreatedBy { get; set; }
-        public ArticleState State { get; set; }
+        public EArticleState State { get; set; }
 
         public virtual IEnumerable<ArticleLanguage> ArticleLanguages { get; set; }
     }

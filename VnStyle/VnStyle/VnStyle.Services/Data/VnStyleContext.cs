@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.SqlServer;
 using System.Diagnostics;
 using VnStyle.Services.Data.Domain;
+using VnStyle.Services.Data.Domain.Memberships;
 
 namespace VnStyle.Services.Data
 {
@@ -38,6 +39,19 @@ namespace VnStyle.Services.Data
         public DbSet<MetaTag> MetaTags { get; set; }
 
 
+        public DbSet<AspNetClient> AspNetClients { get; set; }
+        public DbSet<AspNetRefreshToken> AspNetRefreshTokens { get; set; }
+        public DbSet<AspNetRegister> AspNetRegisters { get; set; }
+        public DbSet<AspNetRole> AspNetRoles { get; set; }
+        public DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
+        public DbSet<AspNetUser> AspNetUsers { get; set; }
+        public DbSet<AspNetUserLogin> AspNetUserLogin { get; set; }
+        public DbSet<AspNetUserProfile> AspNetUserProfiles { get; set; }
+        public DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
+
+
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -58,7 +72,36 @@ namespace VnStyle.Services.Data
             modelBuilder.Entity<MetaTag>().HasKey(p => p.Id);
             modelBuilder.Entity<MetaTag>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-        }
+
+            modelBuilder.Entity<AspNetClient>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetClient>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<AspNetRefreshToken>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetRefreshToken>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<AspNetRegister>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetRegister>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<AspNetRole>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetRole>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<AspNetUserClaim>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetUserClaim>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<AspNetUser>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetUser>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<AspNetUserLogin>().HasKey(p => new {p.LoginProvider, p.ProviderKey});
+            
+
+            modelBuilder.Entity<AspNetUserProfile>().HasKey(p => p.Id);
+            modelBuilder.Entity<AspNetUserProfile>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<AspNetUserRole>().HasKey(p => new {p.RoleId, p.UserId});
+           
+    }
 
         #region "Public functions"
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
