@@ -44,6 +44,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\libs\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\libs\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\libs\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -202,6 +211,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IoC.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -239,6 +249,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Dependency\AppDependency.cs" />
+    <Compile Include="Infrastructure\Security\Hash\HashIds.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -317,6 +329,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core.ObjectContainer.Autofac\Ricky.Infrastructure.Core.ObjectContainer.Autofac.csproj">
+      <Project>{cf1a45ea-9c3a-4f4f-a32e-09fc21d081f2}</Project>
+      <Name>Ricky.Infrastructure.Core.ObjectContainer.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core\Ricky.Infrastructure.Core.csproj">
+      <Project>{3ef53831-7dc1-43f1-adf5-3761454db462}</Project>
+      <Name>Ricky.Infrastructure.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VnStyle.Services\VnStyle.Services.csproj">
+      <Project>{efc2de21-dea0-4d54-8c02-e39ae9bd3788}</Project>
+      <Name>VnStyle.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

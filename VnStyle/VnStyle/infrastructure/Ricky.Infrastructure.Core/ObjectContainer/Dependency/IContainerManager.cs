@@ -1,0 +1,78 @@
+﻿using System;
+
+namespace Ricky.Infrastructure.Core.ObjectContainer.Dependency
+{
+    public interface IContainerManager : IDisposable
+    {
+        #region AddResolvingObserver
+        void AddResolvingObserver(IResolvingObserver observer);
+        #endregion
+
+        #region AddComponent
+        /// <summary>
+        /// Adds the component.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <param name="key">The key.</param>
+        /// <param name="lifeStyle">The life style.</param>
+        void AddComponent<TService>(string key = "", ComponentLifeStyle lifeStyle = ComponentLifeStyle.Transient);
+
+        /// <summary>
+        /// Adds the component.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="lifeStyle">The life style.</param>
+        void AddComponent(Type service, string key = "", ComponentLifeStyle lifeStyle = ComponentLifeStyle.Transient);
+
+        /// <summary>
+        /// Adds the component.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        /// <param name="key">The key.</param>
+        /// <param name="lifeStyle">The life style.</param>
+        void AddComponent<TService, TImplementation>(string key = "", ComponentLifeStyle lifeStyle = ComponentLifeStyle.Transient);
+
+        void AddComponent(Type service, Type implementation, string key = "", ComponentLifeStyle lifeStyle = ComponentLifeStyle.Singleton, params Parameter[] parameters);
+
+        void AddComponentInstance<TService>(object instance, string key = "");
+
+        void AddComponentInstance(object instance, string key = "");
+
+        void AddComponentInstance(Type service, object instance, string key = "");
+        #endregion
+
+        #region Resolve
+        T Resolve<T>(string key = "", params Parameter[] parameters) where T : class;
+
+        object Resolve(Type type, string key = "", params Parameter[] parameters);
+        #endregion
+
+        #region ResolveGeneric
+        object ResolveGeneric(Type genericType, params Type[] genericTypeParameters);
+        #endregion
+
+        #region ResolveAll
+        T[] ResolveAll<T>(string key = "");
+        object[] ResolveAll(Type type, string key = "");
+        #endregion
+
+        #region TryResolve
+        T TryResolve<T>(string key = "", params Parameter[] parameters);
+
+        object TryResolve(Type type, string key = "", params Parameter[] parameters);
+
+        #endregion
+
+        #region ResolveUnregistered
+        T ResolveUnregistered<T>() where T : class;
+
+        object ResolveUnregistered(Type type);
+        #endregion
+
+        #region InjectProperties
+        void InjectProperties(object instance);
+        #endregion
+    }
+}
