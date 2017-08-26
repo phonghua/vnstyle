@@ -13,12 +13,12 @@ namespace VnStyle.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ICacheManager _cacheManager;
-        private readonly IBaseRepository<Post> _postRepository;
+        private readonly IBaseRepository<Article> _postRepository;
 
         public HomeController()
         {
             _cacheManager = EngineContext.Current.Resolve<ICacheManager>();
-            _postRepository = EngineContext.Current.Resolve<IBaseRepository<Post>>();
+            _postRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
         }
         public ActionResult Index()
         {

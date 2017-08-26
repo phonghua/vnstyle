@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.SqlServer;
@@ -31,12 +32,32 @@ namespace VnStyle.Services.Data
             Configuration.LazyLoadingEnabled = true;
         }
 
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<MetaTag> MetaTags { get; set; }
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Post>().HasKey(p => p.Id);
+            #region "Article"
+            modelBuilder.Entity<Article>().HasKey(p => p.Id);
+            modelBuilder.Entity<Article>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            #endregion
+
+
+            modelBuilder.Entity<ArticleLanguage>().HasKey(p => p.Id);
+            modelBuilder.Entity<ArticleLanguage>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<Language>().HasKey(p => p.Id);
+            modelBuilder.Entity<Language>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            modelBuilder.Entity<MetaTag>().HasKey(p => p.Id);
+            modelBuilder.Entity<MetaTag>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
         }
 
         #region "Public functions"

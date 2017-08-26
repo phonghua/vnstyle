@@ -54,13 +54,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\Domain\Post.cs" />
+    <Compile Include="Data\Domain\ArticleLanguage.cs" />
+    <Compile Include="Data\Domain\Language.cs" />
+    <Compile Include="Data\Domain\MetaTag.cs" />
+    <Compile Include="Data\Domain\Article.cs" />
+    <Compile Include="Data\Enum\ArticleState.cs" />
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
     <Compile Include="Migrations\201708261351064_InitDb.cs" />
     <Compile Include="Migrations\201708261351064_InitDb.Designer.cs">
       <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261524317_Article.cs" />
+    <Compile Include="Migrations\201708261524317_Article.Designer.cs">
+      <DependentUpon>201708261524317_Article.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,7 +81,11 @@
     <EmbeddedResource Include="Migrations\201708261351064_InitDb.resx">
       <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261524317_Article.resx">
+      <DependentUpon>201708261524317_Article.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

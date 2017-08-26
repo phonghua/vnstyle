@@ -1,0 +1,52 @@
+<div class="row mr-top-15">
+    <div class="col-md-12">
+        <div class="portlet box blue-hoki">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-map-marker"></i>Markup listing
+                </div>
+            </div>
+            <div class="portlet-body">
+                <textarea [(ngModel)]="foodyJsonRequest" class="form-control" rows="10"></textarea>
+
+                <table class="table table-hover table-light" >
+                    <!--<thead>
+                        <tr>
+                            <th style="width: 40px">No.</th>
+                            <th style="width: 70px">Image</th>
+                            <th>Name</th>
+                            <th>Created date</th>
+                            <th></th>
+                        </tr>
+                    </thead>-->
+                    <tr *ngFor="let item of foodyData.Items; let i = index">
+                      <td>{{i + 1}}</td>
+                      <td><img style="width: 120px" [src]="item.PhotoUrl" /></td>
+                      <td>[{{item.Id}}] {{item.Name}}</td>
+                      <td>{{item.Address}}</td>
+                      <td>Lat: {{item.Latitude}} - Long: {{item.Longitude}}</td>
+                      <td>{{item.Phone}}</td>
+                      <td>{{item.status ? item.status : 'Waiting...'}}</td>
+
+                    </tr>
+                    <!--<tr *ngFor="let item of markupGridState.data| paginate: {id:'markup-grid-pagination', itemsPerPage: markupGridState.pagination.pageSize, currentPage : (markupGridState.pagination.pageIndex + 1) , totalItems: markupGridState.pagination.totalCount }; let i = index; ">
+                        <td>{{i + 1}}</td>
+                        <td>
+                            <img src="{{item.image}}?w=70" class="img-responsive" alt="">
+                        </td>
+                        <td>[{{item.id}}] <a [routerLink]="['/markup/' + item.id]">{{item.name}}</a></td>
+                        <td>{{item.createdDate|date:'yMMMdjms'}}</td>
+                        <td>
+                            <i class="clickable fa fa-trash"></i>
+                        </td>
+                    </tr>-->
+                </table>
+                <div>
+                    <button class="btn btn-primary" (click)="transferFoody()">Foody</button>
+                    <button class="btn btn-primary" (click)="fetchFoody()">Fetch Foody</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

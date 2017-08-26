@@ -1,0 +1,8 @@
+<div class="alert alert-danger" role="alert" *ngIf="errors && errors.length > 0">
+  <strong>Error!</strong>
+  <div *ngFor="let error of errors">
+    <div *ngFor="let m of error.Messages">
+      {{m}}
+    </div>
+  </div>
+</div>
