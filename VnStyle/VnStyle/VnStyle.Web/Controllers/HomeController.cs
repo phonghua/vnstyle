@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Ricky.Infrastructure.Core.Caching;
 using Ricky.Infrastructure.Core.ObjectContainer;
+using VnStyle.Services.Data.Domain;
 
 namespace VnStyle.Web.Controllers
 {
