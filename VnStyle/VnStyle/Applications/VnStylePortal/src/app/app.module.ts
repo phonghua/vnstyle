@@ -28,6 +28,7 @@ import { GeneralService } from './services/general.service';
 import { MarkupCommentService } from './services/markup-comment.service';
 import { ShopService } from './services/shop.service';
 import { FlowerService } from './services/flower.service';
+import { ArticleService } from './services/articles.service';
 
 import { PictureFormControlComponent } from './components/shared/picture-form-control/picture-form-control.component';
 import { RIcheckDirective } from './components/shared/r-icheck/r-icheck.directive';
@@ -76,8 +77,8 @@ import { SHARED_SERVICES } from './services/';
     CurrencyEditorComponent,
     DecimalEditorComponent,
     LoginComponent,
-    
- 
+
+
   ],
   imports: [
     BrowserModule,
@@ -107,7 +108,8 @@ import { SHARED_SERVICES } from './services/';
     HttpService,
     AuthService,
     SettingsService,
-    GeneralService,    
+    GeneralService,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })

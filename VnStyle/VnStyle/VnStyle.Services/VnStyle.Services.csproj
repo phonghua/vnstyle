@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201708270333467_UpdatedMembership.Designer.cs">
       <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708270834417_AddedLanguageDefault.cs" />
+    <Compile Include="Migrations\201708270834417_AddedLanguageDefault.Designer.cs">
+      <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708270333467_UpdatedMembership.resx">
       <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708270834417_AddedLanguageDefault.resx">
+      <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
