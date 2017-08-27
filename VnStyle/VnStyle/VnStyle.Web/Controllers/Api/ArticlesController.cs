@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace VnStyle.Web.Controllers.Api
         [Route("")]
         public async Task<HttpResponseMessage> GetArticles()
         {
-            var articles = _articles.Table.ToList();
+            var articles = await _articles.Table.ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
     }
