@@ -5,10 +5,10 @@ namespace Ricky.Infrastructure.Core
     public interface IWorkContext
     {
         bool IsAuthenticated { get; }
-        long CurrentUserId { get; }
+        int CurrentUserId { get; }
 
-        long? CurrentCompanyId { get; }
-        long? CurrentMarkupId { get; }
+        int? CurrentCompanyId { get; }
+        int? CurrentMarkupId { get; }
 
 
         //MerchantInfo Merchant { get; }
@@ -19,7 +19,7 @@ namespace Ricky.Infrastructure.Core
         bool IsAuthorized(string permissionName);
         bool IsAuthorized(int userId, string permissionName);
         int Gmt { get;  }
-        UserBaseInfo GetUserBaseInfo(long userId);
+        UserBaseInfo GetUserBaseInfo(int userId);
     }
 
     public class MerchantInfo
@@ -38,7 +38,7 @@ namespace Ricky.Infrastructure.Core
 
     public class UserBaseInfo
     {
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         public string DisplayName { get; set; }
         //public DateTime? Birthday { get; set; }
         public string Avatar { get; set; }

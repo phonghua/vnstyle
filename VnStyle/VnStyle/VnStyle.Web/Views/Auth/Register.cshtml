@@ -1,0 +1,155 @@
+﻿@model RegisterModelView
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/Layouts/Fe/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 hidden-xs hidden-sm">
+        <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+        <div>
+            @Html.ValidationSummary(false, "", new { @class = "login" })
+        </div>
+        <div class="well no-padding">
+            <form action='@Url.Action("Register", "Auth", new { area = "App"})' id="login-form" class="smart-form client-form" method="post" novalidate="novalidate">
+                @Html.AntiForgeryToken()
+                <header>
+                    Thông tin sử dụng
+                </header>
+                <fieldset>
+                    <section>
+                        <label class="label">Họ tên &nbsp;<span class="frm-required">*</span></label>
+                        <label class="input">
+                            <i class="icon-append fa fa-user"></i>
+                            @*<input type="text" name="fullName">*@
+                            @Html.TextBoxFor(p => p.RegisterRequest.FullName, new { placeholder = "Họ tên" })
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Vui lòng nhập họ tên</b>
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Điện thoại &nbsp;<span class="frm-required">*</span></label>
+                        <label class="input">
+                            <i class="icon-append fa fa-phone"></i>
+                            @*<input type="text" name="phoneNumber">*@
+                            @Html.TextBoxFor(p => p.RegisterRequest.PhoneNumber, new { placeholder = "Số điện thoại" })
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Nhập số điện thoại</b>
+                        </label>
+                    </section>
+                    <section>
+                        <label class="label">Địa chỉ email&nbsp;<span class="frm-required">*</span></label>
+                        <label class="input">
+                            <i class="icon-append fa fa-envelope"></i>
+                            @*<input type="text" name="email">*@
+                            @Html.TextBoxFor(p => p.RegisterRequest.Email, new { placeholder = "Email" })
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Nhập email</b>
+                        </label>
+                    </section>
+
+                    @*<section>
+                            <label class="label">Tài khoản đăng nhập</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                <input type="text" name="userName">
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Vui lòng nhập tên tài khoản đăng nhập</b>
+                            </label>
+                        </section>*@
+                    <section>
+                        <label class="label">Tên cửa hàng&nbsp;<span class="frm-required">*</span></label>
+                        <label class="input">
+                            <i class="icon-append fa fa-home"></i>
+                            @*<input type="text" name="phoneNumber">*@
+                            @Html.TextBoxFor(p => p.RegisterRequest.MerchantName, new { placeholder = "Tên cửa hàng" })
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Nhập tên cửa hàng</b>
+                        </label>
+                    </section>
+                    <div class="row">
+                        <section class="col col-6">
+                            <label class="label">Mật khẩu&nbsp;<span class="frm-required">*</span></label>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @*<input type="password" name="password" placeholder="Mật khẩu">*@
+                                @Html.PasswordFor(p => p.RegisterRequest.Password, new { placeholder = "Mật khẩu" })
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Nhập mật khẩu</b>
+                            </label>
+                        </section>
+                        <section class="col col-6">
+                            <label class="label">Nhập lại mật khẩu&nbsp;<span class="frm-required">*</span></label>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @*<input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu">*@
+                                @Html.PasswordFor(p => p.RegisterRequest.ConfirmPassword, new { placeholder = "Nhập lại mật khẩu" })
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Nhập lại mật khẩu</b>
+                            </label>
+                        </section>
+                    </div>
+
+
+                    <section>
+                        @*<label class="label">Tỉnh/ thành phố</label>*@
+                        <label class="select">
+                            @*<i class="icon-append fa fa-user"></i>*@
+
+                            @Html.DropDownListFor(p=> p.RegisterRequest.CityCustomerId, new SelectList(Model.Cities, "Id" , "Name"), "-- Chọn tỉnh/ thành phố --")
+
+                            @*<select name="cityId">
+                                <option value="0">-- Chọn tỉnh/ thành phố --</option>
+                                @foreach (var city in Model.Cities)
+                                {
+                                    <option value="@city.Id">@city.Name</option>
+                                }
+                            </select>*@
+                            <i></i>
+                            @*<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Nhập số điện thoại</b>*@
+                        </label>
+                    </section>
+                    <section>
+                        @*<label class="label">Địa chỉ</label>*@
+                        <label class="input">
+                            <i class="icon-append fa fa-home"></i>
+                            @*<input type="text" name="address" placeholder="Nhập địa chỉ cửa hàng">*@
+                            @Html.TextBoxFor(p => p.RegisterRequest.Address, new { placeholder = "Nhập địa chỉ cửa hàng" })
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>Nhập địa chỉ cửa hàng</b>
+                        </label>
+                    </section>
+                    @if (Model.GoogleCaptchaSetting.Enable)
+                    {
+                        <section>
+                            <div class="g-recaptcha" data-sitekey="@Model.GoogleCaptchaSetting.SiteKey"></div>
+                        </section>
+                    }
+                    <section>
+                        @*<label class="checkbox">
+                            <input type="checkbox" name="subscription" id="subscription">
+                            <i></i>I want to receive news and special offers
+                        </label>*@
+                        <label class="checkbox">
+                            @*<input type="checkbox" name="terms" id="terms">*@
+                            @Html.CheckBoxFor(p=> p.RegisterRequest.AgreeTermAndConditions)
+                            <i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a>
+                        </label>
+                    </section>
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary">
+                        Bắt đầu sử dụng
+                    </button>
+                </footer>
+            </form>
+
+        </div>
+        <section>            
+            <div class="note">
+                <a href="@Url.Action("Login","Auth", new { area = "App" })">Bạn đã có tài khoản, đăng nhập tại đây.</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section jsBottom{
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+}
+

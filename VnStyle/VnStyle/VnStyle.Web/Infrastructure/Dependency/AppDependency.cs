@@ -5,6 +5,7 @@ using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.Caching;
 using Ricky.Infrastructure.Core.ObjectContainer;
 using Ricky.Infrastructure.Core.ObjectContainer.Autofac.DependencyManagement;
+using VnStyle.Services.Business;
 using VnStyle.Services.Data;
 
 namespace VnStyle.Web.Infrastructure.Dependency
@@ -45,14 +46,13 @@ namespace VnStyle.Web.Infrastructure.Dependency
                    .AsImplementedInterfaces()
                    .InstancePerRequest();
 
-            //builder.RegisterType<FakeWorkContext>().As<IWorkContext>()
-            //   .InstancePerRequest();
+            builder.RegisterType<FakeWorkContext>().As<IWorkContext>().InstancePerRequest();
 
             //builder.RegisterType<UserStore<ApplicationUser>>().As<IUserStore<ApplicationUser, long>>()
             //    .InstancePerRequest();
 
-            //builder.RegisterType<AppContextUrlRouting>().As<IAppContextUrlRouting>()
-            //    .InstancePerRequest();
+            builder.RegisterType<AppContextUrlRouting>().As<IAppContextUrlRouting>()
+                .InstancePerRequest();
 
 
 

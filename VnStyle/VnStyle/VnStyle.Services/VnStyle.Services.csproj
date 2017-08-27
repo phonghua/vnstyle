@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CachingKey.cs" />
+    <Compile Include="Business\IAppContextUrlRouting.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
@@ -93,6 +94,10 @@
     <Compile Include="Migrations\201708261611208_AddedMembership.Designer.cs">
       <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708270333467_UpdatedMembership.cs" />
+    <Compile Include="Migrations\201708270333467_UpdatedMembership.Designer.cs">
+      <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -109,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708261611208_AddedMembership.resx">
       <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708270333467_UpdatedMembership.resx">
+      <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

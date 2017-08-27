@@ -5,13 +5,13 @@ namespace Ricky.Infrastructure.Core
         
 
         public bool IsAuthenticated { get { return true; } }
-        public long CurrentUserId { get { return 1; } }
-        public long? CurrentCompanyId { get { return 1; } }
-        public long? CurrentMarkupId { get { return 5; } }
+        public int CurrentUserId { get { return 1; } }
+        public int? CurrentCompanyId { get { return 1; } }
+        public int? CurrentMarkupId { get { return 5; } }
         public bool IsAuthorized(string permissionName) { return true; }
         public bool IsAuthorized(int userId, string permissionName) { return true; }
         public int Gmt { get { return 7; } }
-        public UserBaseInfo GetUserBaseInfo(long userId)
+        public UserBaseInfo GetUserBaseInfo(int userId)
         {
             return new UserBaseInfo
             {

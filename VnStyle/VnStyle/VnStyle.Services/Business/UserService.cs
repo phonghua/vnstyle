@@ -109,7 +109,9 @@ namespace VnStyle.Services.Business
             user.CreatedDate = DateTimeHelper.GetCurrentDateTime();
             user.Email = user.Email.Trim().ToLower();
             user.UserName = user.UserName.Trim().ToLower();
-            InstanceHelper.EnsureCubeDateInfo(user);
+            user.CreatedDate = DateTimeHelper.GetCurrentDateTime();
+            user.ModifiedDate = DateTimeHelper.GetCurrentDateTime();
+            
             _userRepository.Insert(user);
             _userRepository.SaveChanges();
             if (cacheNull)

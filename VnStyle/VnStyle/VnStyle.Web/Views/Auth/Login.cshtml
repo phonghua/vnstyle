@@ -1,0 +1,72 @@
+﻿@model VnStyle.Web.Models.Auth.LoginRequest
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="mg-page-title parallax" style="background-position: 50% 0px;">
+
+    <div style="padding-top: 167px">
+        <h2>Index</h2>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+            <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+            <div>
+                @Html.ValidationSummary(false, "", new {@class = "login"})
+            </div>
+            <div class="well no-padding">
+                <form action='@Url.Action("Login", "Auth", new {area = "Fe"})' id="login-form" class="smart-form client-form" method="post" novalidate="novalidate">
+                    @Html.AntiForgeryToken()
+                    <header>
+                        Đăng nhập hệ thống
+                    </header>
+
+                    <fieldset>
+                        <section>
+                            <label class="label">Email đăng nhập</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                <input type="text" name="userName" value="@Model.UserName">
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Vui lòng nhập tên tài khoản đăng nhập</b>
+                            </label>
+                        </section>
+
+                        <section>
+                            <label class="label">Mật khẩu</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                <input type="password" name="password">
+                                <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Nhập mật khẩu</b>
+                            </label>
+                        </section>
+                        <section>
+                            <div class="note">
+                                <a href="javascript:;">Bạn quên mật khẩu?</a>
+                            </div>
+                            <div class="note">
+                                <a href="@Url.Action("Register", "Auth", new {area = "Fe"})">Đăng ký sử dụng mới?</a>
+                            </div>
+                        </section>
+                    </fieldset>
+                    <footer>
+                        <button type="submit" class="btn btn-primary">
+                            Đăng nhập
+                        </button>
+                    </footer>
+                </form>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
