@@ -14,20 +14,20 @@ namespace VnStyle.Web.Controllers.Api
     public class ArticlesController : BaseController
     {
         #region "Fields and Property"
-        private readonly IBaseRepository<Article> _articles;
+        private readonly IBaseRepository<Article> _articleRepository;
         #endregion
 
 
         public ArticlesController()
         {
-            _articles = EngineContext.Current.Resolve<IBaseRepository<Article>>();
+            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
         }
 
         
         [Route("")]
         public async Task<HttpResponseMessage> GetArticles()
         {
-            var articles = await _articles.Table.ToListAsync();
+            var articles = await _articleRepository.Table.ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
     }

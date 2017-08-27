@@ -30,6 +30,7 @@ import { ShopService } from './services/shop.service';
 import { FlowerService } from './services/flower.service';
 import { ArticleService } from './services/articles.service';
 
+
 import { PictureFormControlComponent } from './components/shared/picture-form-control/picture-form-control.component';
 import { RIcheckDirective } from './components/shared/r-icheck/r-icheck.directive';
 import { RIcheckComponent } from './components/shared/r-icheck/r-icheck.component';
@@ -49,6 +50,8 @@ import { AuthLayoutModule } from './containers/auth-layout-container/';
 import { MainLayoutModule } from './containers/main-layout-container/main-layout-container.module';
 
 import { SHARED_SERVICES } from './services/';
+
+
 
 
 
@@ -76,10 +79,8 @@ import { SHARED_SERVICES } from './services/';
     SpinnerComponent,
     CurrencyEditorComponent,
     DecimalEditorComponent,
-    LoginComponent,
-
-
-  ],
+    LoginComponent
+    ],
   imports: [
     BrowserModule,
     FormsModule,

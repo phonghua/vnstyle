@@ -6,6 +6,8 @@ import { CityService } from './city.service';
 import { DistrictService } from './district.service';
 import { HttpService } from './http.service';
 import { ArticleService } from './articles.service';
+import { LanguageService } from './language.service';
+
 
 export const SHARED_SERVICES = [
     ShopService,
@@ -15,7 +17,8 @@ export const SHARED_SERVICES = [
     CityService,
     DistrictService,
     HttpService,
-    ArticleService
+    ArticleService,
+    LanguageService
 
 ];
 
@@ -27,4 +30,5 @@ export * from './city.service';
 export * from './district.service';
 export * from './http.service';
 export * from './articles.service';
+export * from './language.service';
 

@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label for="">Headline</label>
+  <input type="text" class="form-control" [(ngModel)]="articleLanguageValue.headLine">
+</div>
+
+
+<div class="form-group">
+  <label for="">Extract</label>
+  <textarea class="form-control" [(ngModel)]="articleLanguageValue.extract" rows="5"></textarea>
+</div>
+
+
+<div class="form-group">
+  <label for="">Content</label>
+  <div [froalaEditor]="editorOptions" [(froalaModel)]="articleLanguageValue.content"></div>
+</div>
+
+
+
+
+
+
+<!-- <div [froalaView]="articleLanguageValue.content"></div> -->

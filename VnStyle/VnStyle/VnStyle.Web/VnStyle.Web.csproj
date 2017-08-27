@@ -270,6 +270,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\ArticlesController.cs" />
     <Compile Include="Controllers\Api\BaseController.cs" />
+    <Compile Include="Controllers\Api\LanguagesController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -323,6 +324,8 @@
     <Content Include="Content\images\81.jpg" />
     <Content Include="Content\images\86.jpg" />
     <Content Include="Content\images\banner340.jpg" />
+    <Content Include="Content\images\flag\United-Kingdom-flag-icon.png" />
+    <Content Include="Content\images\flag\Vietnam-icon.png" />
     <Content Include="Content\images\g.gif" />
     <Content Include="Content\images\logo-big-dark.png" />
     <Content Include="Content\images\logo-big-light.png" />
