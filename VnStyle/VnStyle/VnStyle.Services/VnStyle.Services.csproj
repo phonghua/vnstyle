@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\CachingKey.cs" />
     <Compile Include="Business\IUserService.cs" />
+    <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\Language.cs" />
@@ -109,7 +111,12 @@
       <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core\Ricky.Infrastructure.Core.csproj">
+      <Project>{3ef53831-7dc1-43f1-adf5-3761454db462}</Project>
+      <Name>Ricky.Infrastructure.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

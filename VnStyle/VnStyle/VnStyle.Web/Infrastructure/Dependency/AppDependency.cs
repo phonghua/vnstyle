@@ -40,10 +40,10 @@ namespace VnStyle.Web.Infrastructure.Dependency
             //       .AsImplementedInterfaces()
             //       .InstancePerRequest();
 
-            //builder.RegisterAssemblyTypes(System.AppDomain.CurrentDomain.GetAssemblies())
-            //       .Where(t => t.Name.EndsWith("Service"))
-            //       .AsImplementedInterfaces()
-            //       .InstancePerRequest();
+            builder.RegisterAssemblyTypes(System.AppDomain.CurrentDomain.GetAssemblies())
+                   .Where(t => t.Name.EndsWith("Service"))
+                   .AsImplementedInterfaces()
+                   .InstancePerRequest();
 
             //builder.RegisterType<FakeWorkContext>().As<IWorkContext>()
             //   .InstancePerRequest();
