@@ -19,18 +19,6 @@ const routes: Routes = [
 
     { path: 'auth/callback', component: AuthCallbackComponent },
     { path: 'auth/silent-renew', component: AuthSilentRenewComponent },
-
-    // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-    // { path: 'markup', component: MarkupComponent, canActivate: [AuthGuard] },
-    // { path: 'markup/promotions', component: MarkupPromotionComponent, canActivate: [AuthGuard] },
-    // { path: 'markup/promotions/:id', component: MarkupPromotionDetailComponent, canActivate: [AuthGuard] },
-    // { path: 'markup/new', component: MarkupNewComponent, canActivate: [AuthGuard] },
-    // { path: 'markup/:id', component: MarkupDetailComponent, canActivate: [AuthGuard] },
-
-    // { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
-    // { path: 'fetch-markup', component: FetchMarkupComponent, canActivate: [AuthGuard] },
-
     {
         path: '', component: MainLayoutContainerComponent, canActivate: [AuthGuard],
         children: [
@@ -38,12 +26,7 @@ const routes: Routes = [
             {
                 path: 'dashboard',
                 component: DashboardComponent
-                //loadChildren: './+user-management/user-management.module#UserManagementModule'
             },
-            // {
-            //     path: 'university',
-            //     loadChildren: './+university/university.module#UniversityModule'
-            // },
             {
                 path: 'shop',
                 loadChildren: './components/+shop/shop.module#ShopModule'
@@ -55,6 +38,10 @@ const routes: Routes = [
             {
                 path: 'markup',
                 loadChildren: './components/+markup/markup.module#MarkupModule'
+            },
+            {
+                path: 'cms',
+                loadChildren: './components/+cms/cms.module#CmsModule'
             },
         ]
     },
