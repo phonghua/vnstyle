@@ -112,8 +112,8 @@ const settings: any = {
   // filterProtocolClaims: true,
   // loadUserInfo: true
 
-  authority: 'http://localhost:55555/oauth/token',
-  client_id: '1979D284-55DA-41A0-A13E-2D3778B83128',
-  client_secret: '6217BEBB-0043-4C3E-A29D-1F25D0C490AF'
+  authority: 'http://localhost:56847/oauth/token',
+  client_id: 'fe3429036f404047865a48a5f8739c94',
+  client_secret: '67b4b438cc37427792a2b1521f10cba4'
 
 };

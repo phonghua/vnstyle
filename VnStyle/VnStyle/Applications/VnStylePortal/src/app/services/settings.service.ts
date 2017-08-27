@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SettingsService {
 
-  private _portal = 'http://localhost:55555/';
+  private _portal = 'http://localhost:56847/';
 
   
   public get portal() {
