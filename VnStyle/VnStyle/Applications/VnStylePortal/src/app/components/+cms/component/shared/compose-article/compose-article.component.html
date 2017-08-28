@@ -1,28 +1,3 @@
-<!-- <ul class="nav nav-tabs" role="tablist">
-  <ng-container *ngFor="let item of languages; let i = index">
-    <li role="presentation" [class]="item.isDefault ? 'active' : ''"><a [href]="'#tab-' + item.id" aria-controls="settings" role="tab" data-toggle="tab">{{item.name}}</a></li>
-  </ng-container>
-</ul>
-
-
-<div class="tab-content">
-  <ng-container *ngFor="let item of languages; let i = index">
-    <div role="tabpanel" [class]="'tab-pane ' + (item.isDefault ? 'active' : '')" [id]="'tab-' + item.id">
-      <app-compose-article-language [language]="item"></app-compose-article-language>
-    </div>
-  </ng-container>
-</div> -->
-
-
-
-<!-- <ng-container *ngFor="let item of languages; let i = index">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>{{item.name}}</h3>
-      <app-compose-article-language  [language]="item" [(model)]="article.articleLanguages[i]"></app-compose-article-language>
-    </div>
-  </div>
-</ng-container> -->
 
 <ng-container *ngFor="let articleLanguage of article.articleLanguages">
   <div class="row">
@@ -34,4 +9,4 @@
 </ng-container>
 
 
-{{article | json}}
+

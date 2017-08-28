@@ -19,19 +19,32 @@ export class ArticleNewComponent implements OnInit {
 
   private languages: Array<any> = [];
   private article: any = {};
+  private get selectedLanguage() {
+    return this.languages.filter(p => p.selected)[0];
+  }
 
 
   constructor(private articleService: ArticleService, private languageService: LanguageService) { }
 
   ngOnInit() {
     Observable.forkJoin(this.languageService.getLanguages()).subscribe(res => {
-      console.log("res", res);
-      this.languages = res[0];
 
-      this.article.articleLanguages = this.languages.map(p=> { return {
-        languageId : p.id,
-        content : "default content"
-      }});
+      this.pageState.fetched = true;
+      this.pageState.fetching = false;
+      this.pageState.initialized = true;
+
+      this.languages = res[0].map(p => {
+        p.selected = p.isDefault;
+        return p;
+      });
+
+
+      this.article.articleLanguages = this.languages.map(p => {
+        return {
+          languageId: p.id,
+          content: ""
+        }
+      });
     });
   }
 

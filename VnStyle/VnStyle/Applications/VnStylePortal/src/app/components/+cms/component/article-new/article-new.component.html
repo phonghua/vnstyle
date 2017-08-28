@@ -1,6 +1,6 @@
 <div class="row mr-top-15">
   <div class="" *ngIf="!pageState.initialized">
-    <!--<app-spinner class="text-center"></app-spinner>-->
+    <!-- <app-spinner class="text-center"></app-spinner> -->
   </div>
   <div class="" *ngIf="pageState.initialized">
     <div class="col-xs-12">
@@ -14,11 +14,13 @@
               <i class="fa fa-pencil"></i> Edit </a>
           </div>
         </div>
-        <div class="portlet-body form">
+        <div class="portlet-body">
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8">
-
-
+              <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+              sdf g 
             </div>
           </div>
         </div>
@@ -29,7 +31,3 @@
 
 
 </div>
-
-<app-compose-article [languages]="languages" [article]="article"></app-compose-article>
-
-
