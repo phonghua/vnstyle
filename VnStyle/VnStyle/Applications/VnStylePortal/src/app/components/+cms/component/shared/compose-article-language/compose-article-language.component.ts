@@ -29,9 +29,6 @@ export class ComposeArticleLanguageComponent implements OnInit {
   ngOnInit() {
   }
 
-  froalaModelChange(event){
-    console.log(event);
-    this.articleLanguage.content = event;
-  }
+ 
 
 }

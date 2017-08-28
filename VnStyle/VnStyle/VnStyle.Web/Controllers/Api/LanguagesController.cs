@@ -17,12 +17,14 @@ namespace VnStyle.Web.Controllers.Api
     {
         #region "Fields and Property"
         private readonly IBaseRepository<Language> _languagesRepository;
+        private readonly IBaseRepository<Article> _articleRepository;
         #endregion
 
 
         public LanguagesController()
         {
             _languagesRepository = EngineContext.Current.Resolve<IBaseRepository<Language>>();
+            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
         }
 
 
@@ -32,5 +34,7 @@ namespace VnStyle.Web.Controllers.Api
             var languages = await _languagesRepository.Table.ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, languages);
         }
+
+        
     }
 }

@@ -30,6 +30,7 @@ namespace VnStyle.Services.Data
             // Fixed "Provider not loaded" error
             //var ensureDLLIsCopied = SqlProviderServices.Instance;
 
+            Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = true;
         }
 

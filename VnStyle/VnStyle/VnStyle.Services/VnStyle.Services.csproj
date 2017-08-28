@@ -58,6 +58,7 @@
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\Domain\ArticleCategory.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\Language.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetClient.cs" />
@@ -102,6 +103,10 @@
     <Compile Include="Migrations\201708270834417_AddedLanguageDefault.Designer.cs">
       <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708281438038_AddedArticleHeadLine.cs" />
+    <Compile Include="Migrations\201708281438038_AddedArticleHeadLine.Designer.cs">
+      <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708270834417_AddedLanguageDefault.resx">
       <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708281438038_AddedArticleHeadLine.resx">
+      <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

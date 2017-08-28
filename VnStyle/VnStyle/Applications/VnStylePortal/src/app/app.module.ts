@@ -54,7 +54,6 @@ import { SHARED_SERVICES } from './services/';
 
 
 
-
 // Application wide
 // const APP_PROVIDERS = [
 //   ...SHARED_SERVICES,
@@ -79,8 +78,8 @@ import { SHARED_SERVICES } from './services/';
     SpinnerComponent,
     CurrencyEditorComponent,
     DecimalEditorComponent,
-    LoginComponent
-    ],
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,

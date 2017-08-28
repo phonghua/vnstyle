@@ -39,13 +39,18 @@ export class ArticleNewComponent implements OnInit {
       });
 
 
-      this.article.articleLanguages = this.languages.map(p => {
+      this.article.articleLanguages = this.languages.filter(p=> p.isDefault).map(p => {
         return {
           languageId: p.id,
-          content: ""
+          content: "",
+          metaTag: {}
         }
       });
     });
+  }
+
+  saveArticle() {
+    this.articleService.createArticle(this.article).subscribe(data => { }, err => { });
   }
 
 }

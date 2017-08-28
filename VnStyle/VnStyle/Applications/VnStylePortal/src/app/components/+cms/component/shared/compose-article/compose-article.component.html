@@ -1,12 +1,43 @@
+<ul class="nav nav-tabs" role="tablist">
+  <!-- <ng-container *ngFor="let item of languages; let i = index">
+    <li role="presentation" [class]="item.isDefault ? 'active' : ''"><a [href]="'#tab-' + item.id" aria-controls="settings" role="tab" data-toggle="tab">{{item.name}}</a></li>
+  </ng-container> -->
 
-<ng-container *ngFor="let articleLanguage of article.articleLanguages">
+  <ng-container *ngFor="let articleLanguage of article.articleLanguages; let i = index">
+    <li role="presentation" [class]="getLanguageById(articleLanguage.languageId).isDefault ? 'active' : ''"><a [href]="'#'+ tabId + i" aria-controls="settings" role="tab" data-toggle="tab">{{getLanguageById(articleLanguage.languageId).name}}</a></li>
+  </ng-container>
+
+</ul>
+
+
+<div class="tab-content">
+  <ng-container *ngFor="let articleLanguage of article.articleLanguages; let i = index">
+    <div class="row" role="tabpanel" [class]="'tab-pane ' + (getLanguageById(articleLanguage.languageId).isDefault ? 'active' : '')" [id]="tabId + i">
+      <div class="col-xs-12">
+        <app-compose-article-language [language]="getLanguageById(articleLanguage.languageId)" [articleLanguage]="articleLanguage"></app-compose-article-language>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
+<!-- <ng-container *ngFor="let item of languages; let i = index">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>{{item.name}}</h3>
+      <app-compose-article-language  [language]="item" [(model)]="article.articleLanguages[i]"></app-compose-article-language>
+    </div>
+  </div>
+</ng-container> -->
+
+
+
+<!-- <ng-container *ngFor="let articleLanguage of article.articleLanguages">
   <div class="row">
     <div class="col-xs-12">
       <h3>{{getLanguageById(articleLanguage.languageId).name}}</h3>
-      <app-compose-article-language  [language]="getLanguageById(articleLanguage.languageId)" [articleLanguage]="articleLanguage"></app-compose-article-language>
+      <app-compose-article-language [language]="getLanguageById(articleLanguage.languageId)" [articleLanguage]="articleLanguage"></app-compose-article-language>
     </div>
   </div>
-</ng-container>
-
-
-
+</ng-container> -->

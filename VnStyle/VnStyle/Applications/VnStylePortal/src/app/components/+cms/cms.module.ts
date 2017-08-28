@@ -11,8 +11,10 @@ import { ArticleNewComponent } from './component/article-new/article-new.compone
 import { ArticleDetailComponent } from './component/article-detail/article-detail.component';
 import { ComposeArticleComponent } from './component/shared/compose-article/compose-article.component';
 import { ComposeArticleLanguageComponent } from './component/shared/compose-article-language/compose-article-language.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SeoMetaComponent } from './component/shared/seo-meta/seo-meta.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdatePipe } from './../../pipes/adate.pipe';
 @NgModule({
     imports: [
         // SharedCommonModule,
@@ -31,7 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ArticleNewComponent,
         ArticleDetailComponent,
         ComposeArticleComponent,
-        ComposeArticleLanguageComponent
+        ComposeArticleLanguageComponent,
+        SeoMetaComponent,
+        AdatePipe
     ],
     entryComponents: [
 
