@@ -31,5 +31,30 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
+        public ActionResult Detail()
+        {
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
+        }
+        public ActionResult XamTv()
+        {
+            return View();
+        }
+        public ActionResult Events()
+        {
+            return View();
+        }
+        public ActionResult Courses()
+        {
+            return View();
+        }
+        public ActionResult Images()
+        {
+            return View();
+        }
+
     }
 }

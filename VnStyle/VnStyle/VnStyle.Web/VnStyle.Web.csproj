@@ -310,6 +310,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fonts.css" />
     <Content Include="Content\css\hovercard.css" />
+    <Content Include="Content\js\retina.js" />
     <Content Include="Content\css\services.css" />
     <Content Include="Content\css\video.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -412,6 +413,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\XamTv.cshtml" />
+    <Content Include="Views\Home\Events.cshtml" />
+    <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\Home\Images.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
