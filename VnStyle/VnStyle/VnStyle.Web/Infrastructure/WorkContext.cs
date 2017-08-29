@@ -18,7 +18,8 @@ namespace VnStyle.Web.Infrastructure
         }
 
         public bool IsAuthenticated { get { return _httpContext.User.Identity.IsAuthenticated; } }
-        public int CurrentUserId {
+        public int CurrentUserId
+        {
             get
             {
                 if (!IsAuthenticated) throw new UnauthorizedAccessException();
@@ -41,6 +42,15 @@ namespace VnStyle.Web.Infrastructure
         public UserBaseInfo GetUserBaseInfo(int userId)
         {
             throw new NotImplementedException();
+        }
+
+        public string CurrentLanguage
+        {
+            get
+            {
+                if (_httpContext.Request.RequestContext.RouteData.Values["lang"] != null && _httpContext.Request.RequestContext.RouteData.Values["lang"] as string != "null") return _httpContext.Request.RequestContext.RouteData.Values["lang"] as string;
+                return "vi";
+            }
         }
     }
 }

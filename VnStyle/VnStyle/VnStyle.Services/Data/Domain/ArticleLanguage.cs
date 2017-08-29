@@ -7,8 +7,8 @@ namespace VnStyle.Services.Data.Domain
         public string Content { get; set; }
         public string Extract { get; set; }
 
-        public int LanguageId { get; set; }
-        public virtual Language Language { get; set; }
+        public string LanguageId { get; set; }
+        
 
         public int MetaTagId { get; set; }
         public virtual MetaTag MetaTag { get; set; }

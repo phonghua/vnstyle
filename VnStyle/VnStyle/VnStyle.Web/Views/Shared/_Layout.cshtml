@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Ricky.Infrastructure.Core.ObjectContainer
+@{
+    var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
+
+    var languages = resourceService.GetLanguages().Select(p => new {p.Name, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png"}).ToList();
+}
+
+<!DOCTYPE html>
 
 <html lang="en-US" itemscope="" itemtype="http://schema.org/WebPage" class="nlg-loaded">
 <head>
@@ -42,13 +49,19 @@
                         </li>
                     </ul>
                     <ul id="menu-top-bar-menu-2" class="nlg-top-right-menu nlg-top-bar-menu">
-                        <li id="menu-item-284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-284">
-                            <a href="#"><img class="flag-english" src="~/Content/images/flag/United-Kingdom-flag-icon.png" alt="flag-english" /> Tiếng Anh </a>
+                        @foreach (var language in languages)
+                        {
+                            <li>
+                                <a href="#"><img class="flag-english" src="@Url.Content(language.Flag)" alt="@language.Name"/> @language.Name </a>
+                            </li>
+                        }
+                        @*<li id="menu-item-284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-284">
+                            <a href="#"><img class="flag-english" src="~/Content/images/flag/United-Kingdom-flag-icon.png" alt="flag-english"/> Tiếng Anh </a>
                         </li>
-                        
+
                         <li id="menu-item-284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-284">
-                            <a href="#"><img class="flag-vietnamese" src="~/Content/images/flag/Vietnam-icon.png" alt="flag-vietnamese" /> Tiếng Việt </a>
-                        </li>
+                            <a href="#"><img class="flag-vietnamese" src="~/Content/images/flag/Vietnam-icon.png" alt="flag-vietnamese"/> Tiếng Việt </a>
+                        </li>*@
                     </ul>
                 </div>
                 <!-- .container -->
@@ -64,6 +77,7 @@
                             <span class="nlg-logo nlg-main-logo">
                                 <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light attachment-full size-full lazyload agg-fade-in" alt="logo-big-light">
                                 <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark attachment-full size-full agg-fade-in lazyloaded" alt="logo-big-dark">
+                                
                             </span>
                         </a>
                     </div>

@@ -2,7 +2,7 @@ namespace Ricky.Infrastructure.Core
 {
     public class FakeWorkContext : IWorkContext
     {
-        
+
 
         public bool IsAuthenticated { get { return true; } }
         public int CurrentUserId { get { return 1; } }
@@ -20,5 +20,7 @@ namespace Ricky.Infrastructure.Core
                 DisplayName = "Hua Dai Phong"
             };
         }
+
+        public string CurrentLanguage => "vi";
     }
 }

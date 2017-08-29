@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -16,22 +17,21 @@ namespace VnStyle.Web.Controllers.Api
     public class LanguagesController : BaseController
     {
         #region "Fields and Property"
-        private readonly IBaseRepository<Language> _languagesRepository;
-        private readonly IBaseRepository<Article> _articleRepository;
+
+        private readonly VnStyle.Services.Business.IResourceService _resourceService;
         #endregion
 
 
         public LanguagesController()
         {
-            _languagesRepository = EngineContext.Current.Resolve<IBaseRepository<Language>>();
-            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
+            _resourceService = EngineContext.Current.Resolve<Services.Business.IResourceService>();
         }
 
 
         [Route("")]
         public async Task<HttpResponseMessage> Get()
         {
-            var languages = await _languagesRepository.Table.ToListAsync();
+            var languages = _resourceService.GetLanguages();
             return Request.CreateResponse(HttpStatusCode.OK, languages);
         }
 

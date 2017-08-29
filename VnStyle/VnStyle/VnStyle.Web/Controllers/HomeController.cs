@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Ricky.Infrastructure.Core;
@@ -11,7 +14,7 @@ using VnStyle.Services.Data.Domain;
 
 namespace VnStyle.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ICacheManager _cacheManager;
         private readonly IBaseRepository<Article> _postRepository;
@@ -25,8 +28,13 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult Index()
         {
-            var posts = _postRepository.Table.ToList();
+            
 
+
+            
+            
+
+            var language = _workContext.CurrentLanguage;
             ViewBag.Title = "Home Page";
 
             return View();

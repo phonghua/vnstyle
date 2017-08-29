@@ -36,7 +36,6 @@ namespace VnStyle.Services.Data
 
         public DbSet<Article> Articles { get; set; }
         public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
-        public DbSet<Language> Languages { get; set; }
         public DbSet<MetaTag> MetaTags { get; set; }
 
 
@@ -66,9 +65,7 @@ namespace VnStyle.Services.Data
             modelBuilder.Entity<ArticleLanguage>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 
-            modelBuilder.Entity<Language>().HasKey(p => p.Id);
-            modelBuilder.Entity<Language>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
+           
 
             modelBuilder.Entity<MetaTag>().HasKey(p => p.Id);
             modelBuilder.Entity<MetaTag>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

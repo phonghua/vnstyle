@@ -46,7 +46,7 @@ namespace VnStyle.Web.Infrastructure.Dependency
                    .AsImplementedInterfaces()
                    .InstancePerRequest();
 
-            builder.RegisterType<FakeWorkContext>().As<IWorkContext>().InstancePerRequest();
+            builder.RegisterType<WorkContext>().As<IWorkContext>().InstancePerRequest();
 
             //builder.RegisterType<UserStore<ApplicationUser>>().As<IUserStore<ApplicationUser, long>>()
             //    .InstancePerRequest();

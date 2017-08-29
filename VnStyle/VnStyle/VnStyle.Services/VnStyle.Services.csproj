@@ -42,6 +42,15 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ServiceStack">
+      <HintPath>..\libs\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\libs\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\libs\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -55,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Business\CachingKey.cs" />
     <Compile Include="Business\IAppContextUrlRouting.cs" />
+    <Compile Include="Business\IResourceService.cs" />
+    <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
@@ -107,6 +118,10 @@
     <Compile Include="Migrations\201708281438038_AddedArticleHeadLine.Designer.cs">
       <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708291130207_RemovedLanguage.cs" />
+    <Compile Include="Migrations\201708291130207_RemovedLanguage.Designer.cs">
+      <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,12 +148,18 @@
     <EmbeddedResource Include="Migrations\201708281438038_AddedArticleHeadLine.resx">
       <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708291130207_RemovedLanguage.resx">
+      <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core\Ricky.Infrastructure.Core.csproj">
       <Project>{3ef53831-7dc1-43f1-adf5-3761454db462}</Project>
       <Name>Ricky.Infrastructure.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

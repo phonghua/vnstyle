@@ -18,8 +18,9 @@ namespace Ricky.Infrastructure.Core
         //MerchantInfo LoadWorkingMerchant();
         bool IsAuthorized(string permissionName);
         bool IsAuthorized(int userId, string permissionName);
-        int Gmt { get;  }
+        int Gmt { get; }
         UserBaseInfo GetUserBaseInfo(int userId);
+        string CurrentLanguage { get; }
     }
 
     public class MerchantInfo
