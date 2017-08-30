@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Ricky.Infrastructure.Core;
 using VnStyle.Services.Business;
 using VnStyle.Web.Infrastructure.Helpers;
@@ -12,16 +13,20 @@ namespace VnStyle.Web.Infrastructure
     /// </summary>
     public class AppContextUrlRouting : IAppContextUrlRouting
     {
+
+
+        public AppContextUrlRouting()
+        {
+
+        }
         /// <summary>
         /// Get Salon Detail page url
         /// </summary>
         /// <param name="hashId"></param>
         /// <param name="salonName"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public string SalonDetail(string hashId, string salonName)
         {
-            //return UrlHelper.GenerateUrl("FE_default", "Detail", "Home", null, HttpContext.Current.Reques, null, false);
             var urlhelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
 
             var path = urlhelper.Action("Detail", "Home", new { area = "FE", id = hashId, title = CommonHelper.FriendlyUrl(salonName) });
@@ -31,7 +36,39 @@ namespace VnStyle.Web.Infrastructure
         public string Home()
         {
             var urlhelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
-            return urlhelper.Action("Index", "Home");
+            return urlhelper.BaseUrl() + urlhelper.Action("Index", "Home");
         }
+
+        //public string SwitchLanguage(string language)
+        //{
+        //    var urlhelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+        //    urlhelper.HostAction()
+        //}
+
+        //public string Url(string actionName, RouteData routeData)
+        //{
+            
+        //    var urlhelper = new UrlHelper(HttpContext.Current.Request.RequestContext);
+        //    return urlhelper.Action(actionName, routeData);
+        //}
+
+        //public string Url(string actionName, string controllerName)
+        //{
+        //    //var routeValueDictionary = new RouteValueDictionary(routeData.Values);
+        //    //if (routeValueDictionary.ContainsKey("lang"))
+        //    //{
+        //    //    if (routeData.Values["lang"] as string == lang)
+        //    //    {
+        //    //        liTagBuilder.AddCssClass("active");
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        routeValueDictionary["lang"] = lang;
+        //    //    }
+        //    //}
+        //}
+
+        
+
     }
 }

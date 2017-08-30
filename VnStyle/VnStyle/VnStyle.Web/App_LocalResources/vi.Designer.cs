@@ -65,7 +65,7 @@ namespace VnStyle.Web.App_LocalResources {
         /// </summary>
         public static string Global_Contact {
             get {
-                return ResourceManager.GetString("Global.Contact", resourceCulture);
+                return ResourceManager.GetString("Global_Contact", resourceCulture);
             }
         }
         
@@ -74,7 +74,7 @@ namespace VnStyle.Web.App_LocalResources {
         /// </summary>
         public static string Global_Home {
             get {
-                return ResourceManager.GetString("Global.Home", resourceCulture);
+                return ResourceManager.GetString("Global_Home", resourceCulture);
             }
         }
     }

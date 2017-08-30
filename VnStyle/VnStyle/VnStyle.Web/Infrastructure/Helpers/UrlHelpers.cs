@@ -4,15 +4,13 @@ namespace VnStyle.Web.Infrastructure.Helpers
 {
     public static class UrlHelpers
     {
-        public static string ApiHost(this UrlHelper url)
-        {
-            return url.Content("~/");
-        }
-
+        
         public static string BaseUrl(this UrlHelper url)
         {
             var request = url.RequestContext.HttpContext.Request;
-            return string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, url.Content("~"));
+            var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, url.Content("~"));
+
+            return baseUrl.TrimEnd('/');
         }
 
         public static string Hashtag(this UrlHelper url, string hashTag)
@@ -29,6 +27,8 @@ namespace VnStyle.Web.Infrastructure.Helpers
         {
             return url.Action(actionName, controllerName, route) + "/#/" + hashtag;
         }
+
+        
     }
 
     

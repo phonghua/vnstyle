@@ -4,5 +4,6 @@
     {
         string SalonDetail(string hashId, string salonName);
         string Home();
+        
     }
 }

@@ -431,6 +431,7 @@
     <Content Include="Views\Home\Courses.cshtml" />
     <Content Include="Views\Home\Images.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

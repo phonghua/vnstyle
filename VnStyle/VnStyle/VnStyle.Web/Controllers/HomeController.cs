@@ -64,5 +64,11 @@ namespace VnStyle.Web.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            return PartialView();
+        }
+
     }
 }
