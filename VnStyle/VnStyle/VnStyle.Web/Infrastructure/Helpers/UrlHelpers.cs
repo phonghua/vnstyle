@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace VnStyle.Web.Infrastructure.Helpers
 {
@@ -9,7 +10,6 @@ namespace VnStyle.Web.Infrastructure.Helpers
         {
             var request = url.RequestContext.HttpContext.Request;
             var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, url.Content("~"));
-
             return baseUrl.TrimEnd('/');
         }
 

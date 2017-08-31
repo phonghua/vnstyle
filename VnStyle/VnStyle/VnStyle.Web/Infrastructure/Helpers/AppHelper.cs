@@ -10,9 +10,12 @@ namespace VnStyle.Web.Infrastructure.Helpers
 {
     public static class AppHelper
     {
+        
+
         public static string HostAction(this UrlHelper url, string actionName, string controllerName, object routeValues)
         {
-            return url.BaseUrl() + url.Action(actionName, controllerName, routeValues);
+            var routeValueDictionary = new RouteValueDictionary(url.RequestContext.RouteData.Values);
+            return url.BaseUrl() + url.Action(actionName, controllerName, routeValueDictionary);
         }
 
         public static string HostAction(this UrlHelper url, string actionName)
@@ -25,11 +28,13 @@ namespace VnStyle.Web.Infrastructure.Helpers
             return url.BaseUrl() + url.Action(actionName, controllerName);
         }
 
+        public static string HomePage(this UrlHelper url)
+        {
+            return url.BaseUrl() + url.Action("Index", "Home");
+        }
+
         public static string Language(this UrlHelper url, string lang)
         {
-            var resourceService = EngineContext.Current.Resolve<IResourceService>();
-            var isDefault = resourceService.GetLanguages().Any(p => p.IsDefault && p.Code == lang);
-
             var routeValueDictionary = new RouteValueDictionary(url.RequestContext.RouteData.Values);
             if (routeValueDictionary.ContainsKey("lang")) routeValueDictionary.Remove("lang");
             routeValueDictionary["lang"] = lang;
