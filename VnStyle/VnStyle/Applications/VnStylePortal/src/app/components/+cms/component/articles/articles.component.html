@@ -17,7 +17,7 @@
             <tbody>
                 <tr *ngFor="let article of articleGrid.data; let i = index">
                   <td>{{i + 1}}</td>
-                  <td>{{article.headLine}}</td>
+                  <td><a [routerLink]="['/cms/articles/' + article.id]">{{article.headLine}}</a></td>
                   <td>{{article.createdDate | date:'dd/MM/yyyy H:m'}}</td>
                 </tr>
             </tbody>

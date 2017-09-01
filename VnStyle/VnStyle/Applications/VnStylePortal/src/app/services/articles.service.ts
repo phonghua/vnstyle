@@ -21,4 +21,9 @@ export class ArticleService {
       .catch(err => Observable.throw(err));
   }
 
+  getArticleById(articleId): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles/${articleId}`)
+      .map(res => res.json()).catch(err => Observable.throw(err));
+  }
+
 }

@@ -22,16 +22,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log("ngOnInit");
-
-    // this.loadedUserSub = this.authService.userLoadededEvent
-    //   .subscribe(user => {
-    //     console.log("loadedUserSub", user);
-    //     this._user = user;
-    //     this.authService.loggedIn = true;
-
-    //     console.log("current user", this.authService.currentUser);
-    //   });
+    console.log("ngOnInit");    
   }
 
 
@@ -41,7 +32,6 @@ export class AppComponent implements OnInit {
   onActivate(event) {}
 
   private isIComponent(arg: any): arg is IComponent {
-    //return arg.getBreadcrumb !== undefined;
     return false;
   }
 
