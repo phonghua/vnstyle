@@ -130,13 +130,13 @@
     <Compile Include="Migrations\201708291130207_RemovedLanguage.Designer.cs">
       <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709030816019_ArticleCategories.cs" />
-    <Compile Include="Migrations\201709030816019_ArticleCategories.Designer.cs">
-      <DependentUpon>201709030816019_ArticleCategories.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201709030629280_AddedFile.cs" />
     <Compile Include="Migrations\201709030629280_AddedFile.Designer.cs">
       <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709030827265_AddedArticleCategories.cs" />
+    <Compile Include="Migrations\201709030827265_AddedArticleCategories.Designer.cs">
+      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,8 +170,8 @@
     <EmbeddedResource Include="Migrations\201709030629280_AddedFile.resx">
       <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030816019_ArticleCategories.resx">
-      <DependentUpon>201709030816019_ArticleCategories.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709030827265_AddedArticleCategories.resx">
+      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

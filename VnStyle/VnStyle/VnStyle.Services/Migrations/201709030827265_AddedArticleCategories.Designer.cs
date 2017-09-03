@@ -7,13 +7,13 @@ namespace VnStyle.Services.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ArticleCategories : IMigrationMetadata
+    public sealed partial class AddedArticleCategories : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ArticleCategories));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedArticleCategories));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709030816019_ArticleCategories"; }
+            get { return "201709030827265_AddedArticleCategories"; }
         }
         
         string IMigrationMetadata.Source
