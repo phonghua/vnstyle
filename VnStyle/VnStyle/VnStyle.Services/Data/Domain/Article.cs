@@ -13,6 +13,7 @@ namespace VnStyle.Services.Data.Domain
         public int CreatedBy { get; set; }
         public EArticleState State { get; set; }
         public string HeadLine { get; set; }
+        public long? FeatureImageId { get; set; }
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
     }

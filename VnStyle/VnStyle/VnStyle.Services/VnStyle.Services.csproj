@@ -142,6 +142,10 @@
     <Compile Include="Migrations\201709030834006_RenameCategoryArticle.Designer.cs">
       <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709031055191_AddedArticleFeatureImage.cs" />
+    <Compile Include="Migrations\201709031055191_AddedArticleFeatureImage.Designer.cs">
+      <DependentUpon>201709031055191_AddedArticleFeatureImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709030834006_RenameCategoryArticle.resx">
       <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709031055191_AddedArticleFeatureImage.resx">
+      <DependentUpon>201709031055191_AddedArticleFeatureImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
