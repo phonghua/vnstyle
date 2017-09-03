@@ -280,6 +280,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\ArticlesController.cs" />
     <Compile Include="Controllers\Api\BaseController.cs" />
+    <Compile Include="Controllers\Api\CategoriesController.cs" />
     <Compile Include="Controllers\Api\LanguagesController.cs" />
     <Compile Include="Controllers\Api\MediaController.cs" />
     <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />
@@ -447,6 +448,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
