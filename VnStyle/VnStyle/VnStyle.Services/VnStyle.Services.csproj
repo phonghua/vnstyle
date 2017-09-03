@@ -70,13 +70,12 @@
     <Compile Include="Business\IAppContextUrlRouting.cs" />
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
-    <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\MediaService.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\Domain\ArticleCategory.cs" />
+    <Compile Include="Data\Domain\Category.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\File.cs" />
     <Compile Include="Data\Domain\Language.cs" />
@@ -138,6 +137,10 @@
     <Compile Include="Migrations\201709030827265_AddedArticleCategories.Designer.cs">
       <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709030834006_RenameCategoryArticle.cs" />
+    <Compile Include="Migrations\201709030834006_RenameCategoryArticle.Designer.cs">
+      <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -172,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709030827265_AddedArticleCategories.resx">
       <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709030834006_RenameCategoryArticle.resx">
+      <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

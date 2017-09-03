@@ -53,6 +53,10 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\libs\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="FluentValidation">
       <HintPath>..\libs\FluentValidation.dll</HintPath>
     </Reference>
@@ -244,6 +248,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>vi.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IoC.cs" />
