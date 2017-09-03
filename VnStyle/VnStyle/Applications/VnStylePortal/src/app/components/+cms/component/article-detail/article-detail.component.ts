@@ -46,7 +46,7 @@ export class ArticleDetailComponent implements OnInit {
     ]).subscribe(res => {
       this.languages = res[0];
       this.article = res[1];
-      //this.selectedLanguage = 
+      this.selectedLanguage = this.languages.filter(p=> p.isDefault)[0].id;
     });
   }
 

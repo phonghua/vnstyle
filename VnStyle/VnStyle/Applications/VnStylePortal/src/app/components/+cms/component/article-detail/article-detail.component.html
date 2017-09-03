@@ -1,5 +1,10 @@
 <div class="row" *ngIf="!(!(selectedArticleLanguage))">
     <div class="col-xs-12">
-        <h2>{{selectedArticleLanguage.headLine}}</h2>
+        <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
+        <div class="bold">
+            {{selectedArticleLanguage.extract}}
+        </div>
+
+        <div [froalaView]="selectedArticleLanguage.content"></div>
     </div>
 </div>
