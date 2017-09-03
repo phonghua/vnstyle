@@ -15,7 +15,7 @@ import { SeoMetaComponent } from "./component/shared/seo-meta/seo-meta.component
 import { CategoriesComponent } from "./component/categories/categories.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
-
+import { PictureFormControlComponent } from '../../components/shared/picture-form-control/picture-form-control.component';
 
 @NgModule({
   imports: [
@@ -40,7 +40,8 @@ import { AdatePipe } from "./../../pipes/adate.pipe";
     ComposeArticleLanguageComponent,
     SeoMetaComponent,
     AdatePipe,
-    CategoriesComponent
+    CategoriesComponent,
+    PictureFormControlComponent
   ],
   entryComponents: []
 })

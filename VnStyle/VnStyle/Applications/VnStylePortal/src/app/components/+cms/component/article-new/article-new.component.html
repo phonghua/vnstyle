@@ -9,6 +9,7 @@
         <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4">
+        <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="false"></app-picture-form-control>
         <div class="">
           <a href="javascript:;" class="btn btn-default btn-sm" (click)="browseFiles();">Upload file</a>
           <input type="file" style="display: none" multiple #fileInput (change)="fileOnChanged($event)" />

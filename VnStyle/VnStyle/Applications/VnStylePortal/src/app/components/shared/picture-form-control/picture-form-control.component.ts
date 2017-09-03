@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl, Validator, AbstractControl } from '@angular/forms';
-import { FileUploader } from 'ng2-file-upload';
+//import { FileUploader } from 'ng2-file-upload';
 import { SettingsService } from './../../../services/settings.service';
 import { HttpService } from './../../../services/http.service';
 import { Observable } from 'rxjs/Observable';
@@ -59,8 +59,8 @@ export class PictureFormControlComponent implements OnInit, ControlValueAccessor
         console.log("onProgress", processEvent);
       },
       onFinished: (result) => {
-        this.imageUrl = result.Data.images[0].FileUrl;
-        this.imageId = result.Data.images[0].PhotoId;
+        this.imageUrl = result.data.images[0].fileUrl;
+        this.imageId = result.data.images[0].id;
 
         this.propagateChange({
           imageId: this.imageId,
