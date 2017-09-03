@@ -1,10 +1,21 @@
 <div class="row" *ngIf="!(!(selectedArticleLanguage))">
-    <div class="col-xs-12">
-        <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
-        <div class="bold">
-            {{selectedArticleLanguage.extract}}
-        </div>
-
-        <div [froalaView]="selectedArticleLanguage.content"></div>
+  <div class="col-sm-12 col-md-8">
+    <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
+    <div class="bold">
+      {{selectedArticleLanguage.extract}}
     </div>
+
+    <div [froalaView]="selectedArticleLanguage.content"></div>
+  </div>
+
+  <div class="col-sm-12 col-md-4">
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-primary"><i class="fa fa-pencil"></i>  Edit</button>
+        <button class="btn btn-danger"><i class="fa fa-trash"></i>  Delete</button>
+      </div>
+    </div>
+    <div>Cate</div>
+    <div>Function: Edit, Delete</div>
+  </div>
 </div>

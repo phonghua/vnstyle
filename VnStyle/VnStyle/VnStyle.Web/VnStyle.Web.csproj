@@ -281,6 +281,7 @@
     <Compile Include="Controllers\Api\ArticlesController.cs" />
     <Compile Include="Controllers\Api\BaseController.cs" />
     <Compile Include="Controllers\Api\LanguagesController.cs" />
+    <Compile Include="Controllers\Api\MediaController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

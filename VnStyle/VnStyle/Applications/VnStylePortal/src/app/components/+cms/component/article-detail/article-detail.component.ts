@@ -38,8 +38,6 @@ export class ArticleDetailComponent implements OnInit {
 
 
   initializePage(articleId) {
-    console.log("init", this.count++);
-    //this.articleService.getArticleById(articleId).subscribe(data => {});
     Observable.forkJoin([
       this.languageService.getLanguages(),
       this.articleService.getArticleById(articleId)
