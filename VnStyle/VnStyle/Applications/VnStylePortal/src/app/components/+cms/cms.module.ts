@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { FroalaEditorModule, FroalaViewModule } from "angular-froala-wysiwyg";
 
+
 import { CmsComponent } from "./cms.component";
 import { ArticlesComponent } from "./component/articles/articles.component";
 import { ArticleNewComponent } from "./component/article-new/article-new.component";
@@ -14,6 +15,8 @@ import { SeoMetaComponent } from "./component/shared/seo-meta/seo-meta.component
 import { CategoriesComponent } from "./component/categories/categories.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
+
+
 @NgModule({
   imports: [
     // SharedCommonModule,
@@ -24,7 +27,9 @@ import { AdatePipe } from "./../../pipes/adate.pipe";
     FormsModule,
     ReactiveFormsModule,
     FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    FroalaViewModule.forRoot(),
+    
+    
   ],
   declarations: [
     CmsComponent,
@@ -39,4 +44,4 @@ import { AdatePipe } from "./../../pipes/adate.pipe";
   ],
   entryComponents: []
 })
-export class CmsModule {}
+export class CmsModule { }

@@ -30,8 +30,6 @@ namespace VnStyle.Web.Controllers.Api
         [Route("")]
         public async Task<HttpResponseMessage> GetArticles()
         {
-
-
             var articles = (from a in _articleRepository.Table select a).AsNoTracking().ToList();
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
@@ -65,7 +63,8 @@ namespace VnStyle.Web.Controllers.Api
             article.HeadLine = article.ArticleLanguages.Select(p => p.HeadLine).FirstOrDefault();
             _articleRepository.Insert(article);
             _articleRepository.SaveChanges();
-            return Request.CreateResponse(HttpStatusCode.OK);
+
+            return CreateResponseMessage();
         }
     }
 }
