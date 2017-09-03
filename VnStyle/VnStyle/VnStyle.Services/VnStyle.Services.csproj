@@ -63,14 +63,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CachingKey.cs" />
+    <Compile Include="Business\Dtos\FileDto.cs" />
     <Compile Include="Business\IAppContextUrlRouting.cs" />
+    <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
     <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
+    <Compile Include="Business\MediaService.cs" />
+    <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\ArticleCategory.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
+    <Compile Include="Data\Domain\File.cs" />
     <Compile Include="Data\Domain\Language.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetClient.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetRefreshToken.cs" />
@@ -122,6 +127,10 @@
     <Compile Include="Migrations\201708291130207_RemovedLanguage.Designer.cs">
       <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709030629280_AddedFile.cs" />
+    <Compile Include="Migrations\201709030629280_AddedFile.Designer.cs">
+      <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -151,6 +160,9 @@
     <EmbeddedResource Include="Migrations\201708291130207_RemovedLanguage.resx">
       <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709030629280_AddedFile.resx">
+      <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core\Ricky.Infrastructure.Core.csproj">
@@ -158,9 +170,7 @@
       <Name>Ricky.Infrastructure.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

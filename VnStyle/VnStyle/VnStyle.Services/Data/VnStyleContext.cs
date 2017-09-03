@@ -37,6 +37,7 @@ namespace VnStyle.Services.Data
         public DbSet<Article> Articles { get; set; }
         public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
         public DbSet<MetaTag> MetaTags { get; set; }
+        public DbSet<File> Files { get; set; }
 
 
         public DbSet<AspNetClient> AspNetClients { get; set; }
@@ -98,8 +99,10 @@ namespace VnStyle.Services.Data
 
 
             modelBuilder.Entity<AspNetUserRole>().HasKey(p => new {p.RoleId, p.UserId});
-           
-    }
+
+            modelBuilder.Entity<File>().HasKey(p => new { p.Id });
+
+        }
 
         #region "Public functions"
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
