@@ -7,7 +7,13 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.css"]
 })
+
+
 export class CategoriesComponent implements OnInit {
+  private categories = {
+    loading: false,
+    data: [],
+  }
   constructor(
     private categoryService: CategoryService,
     private route: ActivatedRoute
@@ -24,8 +30,11 @@ export class CategoriesComponent implements OnInit {
   }
 
   initializePage(rootCateId){
+    this.categories.loading = false;
     this.categoryService.getCategories(rootCateId).subscribe( data => {
-      console.log("categories", data);
+      // console.log("categories", data);
+      this.categories.loading = false,
+      this.categories.data = data
     });
   }
 }
