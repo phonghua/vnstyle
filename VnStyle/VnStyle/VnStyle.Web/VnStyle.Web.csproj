@@ -282,6 +282,7 @@
     <Compile Include="Controllers\Api\BaseController.cs" />
     <Compile Include="Controllers\Api\LanguagesController.cs" />
     <Compile Include="Controllers\Api\MediaController.cs" />
+    <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -290,9 +291,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppContextUrlRouting.cs" />
+    <Compile Include="Infrastructure\ApplicationSettings.cs" />
     <Compile Include="Infrastructure\Dependency\AppDependency.cs" />
+    <Compile Include="Infrastructure\ErrorMessage.cs" />
     <Compile Include="Infrastructure\Helpers\AppHelper.cs" />
     <Compile Include="Infrastructure\Helpers\UrlHelpers.cs" />
+    <Compile Include="Infrastructure\JsonDataResult.cs" />
     <Compile Include="Infrastructure\ResourceService.cs" />
     <Compile Include="Infrastructure\Security\ApplicationUser.cs" />
     <Compile Include="Infrastructure\Security\BizAuthorizeAttribute.cs" />

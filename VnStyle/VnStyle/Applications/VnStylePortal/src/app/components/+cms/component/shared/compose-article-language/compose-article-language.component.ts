@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-compose-article-language',
@@ -10,7 +10,7 @@ export class ComposeArticleLanguageComponent implements OnInit {
 
 
   private articleLanguageValue = {
-    content : ""
+    content: ""
   };
 
   private editorOptions = {};
@@ -24,11 +24,17 @@ export class ComposeArticleLanguageComponent implements OnInit {
     this.articleLanguageValue = val;
   }
 
+  @ViewChild('fileInput') _elFileInput: ElementRef;
+
   constructor() { }
 
   ngOnInit() {
   }
 
- 
+  browseFiles() {
+
+  }
+
+
 
 }
