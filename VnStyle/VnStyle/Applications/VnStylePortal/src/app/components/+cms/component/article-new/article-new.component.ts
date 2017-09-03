@@ -51,6 +51,9 @@ export class ArticleNewComponent implements OnInit {
   }
 
   saveArticle() {
+    if(this.article.featureImage){
+      this.article.featureImageId = this.article.featureImage.imageId;
+    }
     this.articleService.createArticle(this.article).subscribe(data => { }, err => { });
   }
 

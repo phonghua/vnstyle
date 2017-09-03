@@ -31,7 +31,6 @@ import { FlowerService } from './services/flower.service';
 import { ArticleService } from './services/articles.service';
 
 
-import { PictureFormControlComponent } from './components/shared/picture-form-control/picture-form-control.component';
 import { RIcheckDirective } from './components/shared/r-icheck/r-icheck.directive';
 import { RIcheckComponent } from './components/shared/r-icheck/r-icheck.component';
 import { FormSummaryErrorComponent } from './components/shared/form-summary-error/form-summary-error.component';
@@ -71,7 +70,6 @@ import { SHARED_SERVICES } from './services/';
     AuthCallbackComponent,
     DashboardComponent,
     AuthSilentRenewComponent,
-    PictureFormControlComponent,
     RIcheckDirective,
     RIcheckComponent,
     FormSummaryErrorComponent,
