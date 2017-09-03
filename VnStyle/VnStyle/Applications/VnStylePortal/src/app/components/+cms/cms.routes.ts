@@ -13,7 +13,7 @@ export const routes: Route[] = [
       { path: "articles", component: ArticlesComponent },
       { path: "articles/new", component: ArticleNewComponent },
       { path: "articles/:id", component: ArticleDetailComponent },
-      { path: "1/categories", component: CategoriesComponent }
+      { path: ":rootCateId/categories", component: CategoriesComponent }
     ]
   }
 ];

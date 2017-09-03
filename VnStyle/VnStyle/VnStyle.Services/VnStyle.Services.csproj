@@ -98,6 +98,7 @@
     <Compile Include="Data\Enum\EMediaFileSourceTarget.cs" />
     <Compile Include="Data\Enum\ENoteBean.cs" />
     <Compile Include="Data\Enum\EReviewObjectType.cs" />
+    <Compile Include="Data\Enum\ERootCategory.cs" />
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
