@@ -35,6 +35,7 @@ namespace VnStyle.Services.Data
         }
 
         public DbSet<Article> Articles { get; set; }
+        public DbSet<ArticleCategory> ArticleCategories { get; set; }
         public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
         public DbSet<MetaTag> MetaTags { get; set; }
 

@@ -78,8 +78,7 @@ import { SHARED_SERVICES } from './services/';
     SpinnerComponent,
     CurrencyEditorComponent,
     DecimalEditorComponent,
-    LoginComponent,
-  ],
+    LoginComponent,  ],
   imports: [
     BrowserModule,
     FormsModule,

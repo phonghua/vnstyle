@@ -27,11 +27,7 @@ namespace VnStyle.Web.Controllers
             _postRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
         }
         public ActionResult Index()
-        {
-            
-
-
-            
+        {                    
             
 
             var language = _workContext.CurrentLanguage;
