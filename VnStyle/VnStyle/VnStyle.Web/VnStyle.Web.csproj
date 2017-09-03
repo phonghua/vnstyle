@@ -288,6 +288,9 @@
     <Compile Include="Controllers\Api\CategoriesController.cs" />
     <Compile Include="Controllers\Api\LanguagesController.cs" />
     <Compile Include="Controllers\Api\MediaController.cs" />
+    <Compile Include="Controllers\Api\Models\ArticleLanguageModelView.cs" />
+    <Compile Include="Controllers\Api\Models\ArticleModelView.cs" />
+    <Compile Include="Controllers\Api\Models\ImageModelView.cs" />
     <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
