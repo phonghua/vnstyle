@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using Ricky.Infrastructure.Core;
+using Ricky.Infrastructure.Core.ObjectContainer;
 using VnStyle.Services.Business;
 using VnStyle.Services.Business.Messages;
 using VnStyle.Services.Data.Enum;
@@ -15,7 +16,7 @@ using VnStyle.Web.Infrastructure;
 
 namespace VnStyle.Web.Controllers.Api
 {
-    [RoutePrefix("api/articles")]
+    [RoutePrefix("api/media")]
     public class MediaController : BaseController
     {
         #region "Fields and Properties"
@@ -28,10 +29,10 @@ namespace VnStyle.Web.Controllers.Api
         #endregion
 
         #region "Constructor"
-        public MediaController(IMediaService mediaService, IWebHelper webHelper)
+        public MediaController()
         {
-            _mediaService = mediaService;
-            _webHelper = webHelper;
+            _mediaService = EngineContext.Current.Resolve<IMediaService>();
+            _webHelper = EngineContext.Current.Resolve<IWebHelper>();
         }
         #endregion
 

@@ -78,7 +78,7 @@ export class HttpService {
 
     };
 
-    xhr.open('POST', this.settingService.portal + "webapi/media/photo/", true);
+    xhr.open('POST', this.settingService.portal + "api/media/photo/", true);
     xhr.setRequestHeader("Authorization", this.authService.currentUser.token_type + " " + this.authService.currentUser.access_token);
     xhr.send(formData);
   }
