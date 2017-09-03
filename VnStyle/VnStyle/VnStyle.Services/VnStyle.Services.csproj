@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201709030629280_AddedFile.Designer.cs">
       <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709030827265_AddedArticleCategories.cs" />
+    <Compile Include="Migrations\201709030827265_AddedArticleCategories.Designer.cs">
+      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709030629280_AddedFile.resx">
       <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709030827265_AddedArticleCategories.resx">
+      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
