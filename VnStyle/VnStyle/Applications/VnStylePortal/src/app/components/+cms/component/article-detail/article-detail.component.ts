@@ -27,6 +27,10 @@ export class ArticleDetailComponent implements OnInit {
     originalModel: null
   }
 
+  private releatedArticles = {
+    data: []
+  }
+
   private languages = [];
   private get selectedArticleLanguage() {
     return this.article.articleLanguages.filter(p => p.languageId == this.selectedLanguage)[0];
@@ -57,21 +61,28 @@ export class ArticleDetailComponent implements OnInit {
   initializePage(articleId) {
     Observable.forkJoin([
       this.languageService.getLanguages(),
-      this.articleService.getArticleById(articleId)
+      this.articleService.getArticleById(articleId),
+      this.articleService.getRelatedArticles(articleId)
     ]).subscribe(res => {
       this.languages = res[0];
       this.article = res[1];
       this.selectedLanguage = this.languages.filter(p => p.isDefault)[0].id;
+      this.releatedArticles.data = res[2];
     });
+
+    this.articleService.searchArticles("").subscribe(data => {
+      this.allArticles = data;
+    });
+
   }
 
   deleteArticle() {
     this.confirmModal.open();
-    
-    
+
+
     this.confirmModal.ok = () => {
       this.articleService.deleteArticle(this.article.id).subscribe(() => {
-        this.router.navigate(["cms","articles"]);
+        this.router.navigate(["cms", "articles"]);
       });
     }
   }
@@ -95,5 +106,18 @@ export class ArticleDetailComponent implements OnInit {
   cancelEdit() {
     this.article = Object.assign({}, this.editArticleState.originalModel);
     this.editArticleState.editing = false;
+  }
+
+
+
+  allArticles: any[] = [];
+  private get suggestRelatedArticles() {
+    return this.allArticles.filter(p => p.id != this.article.id);
+  }
+  selectedArticle = {};
+
+  public relatedArticleSelected(article) {
+    console.log("relatedArticleSelected", article, this.selectedArticle);
+
   }
 }

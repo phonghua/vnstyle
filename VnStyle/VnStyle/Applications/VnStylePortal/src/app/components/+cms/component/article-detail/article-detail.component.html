@@ -16,6 +16,27 @@
     <div *ngIf="editArticleState.editing">
       <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
     </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table table-tripped">
+          <tr *ngFor="let i of releatedArticles.data">
+            <td>{{i.headerLine}}</td>
+          </tr>
+          <tfoot>
+            <tr>
+              <td>
+                <typeahead [(ngModel)]="selectedArticle" [list]="suggestRelatedArticles" [searchProperty]="'headLine'" [displayProperty]="'headLine'" [maxSuggestions]="10"
+                  (suggestionSelected)="relatedArticleSelected($event)" placeholder="Search article">
+                </typeahead>
+
+                <p>You selected {{ fruitName }}</p>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
   </div>
 
   <div class="col-sm-12 col-md-4">
@@ -25,14 +46,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12"  *ngIf="!editArticleState.editing">
+      <div class="col-xs-12" *ngIf="!editArticleState.editing">
         <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Edit</button>
         <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Delete</button>
       </div>
-      <div class="col-xs-12"  *ngIf="editArticleState.editing">
-          <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Save</button>
-          <button class="btn btn-default" (click)="cancelEdit();"> Cancel</button>
-        </div>
+      <div class="col-xs-12" *ngIf="editArticleState.editing">
+        <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Save</button>
+        <button class="btn btn-default" (click)="cancelEdit();"> Cancel</button>
+      </div>
     </div>
     <div>Cate</div>
     <div>Function: Edit, Delete</div>

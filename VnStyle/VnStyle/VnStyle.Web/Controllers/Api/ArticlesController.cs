@@ -40,7 +40,7 @@ namespace VnStyle.Web.Controllers.Api
         [Route("")]
         public async Task<HttpResponseMessage> GetArticles()
         {
-            var articles = (from a in _articleRepository.Table select a).AsNoTracking().ToList();
+            var articles = await (from a in _articleRepository.Table select a).AsNoTracking().ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
 
@@ -49,7 +49,8 @@ namespace VnStyle.Web.Controllers.Api
         public async Task<HttpResponseMessage> GetArticle(int id)
         {
             var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
-            var article = _articleRepository.Table.AsNoTracking().Where(p => p.Id == id).Include(p => p.ArticleLanguages)
+            var article = await _articleRepository.Table.AsNoTracking().Where(p => p.Id == id)
+                .Include(p => p.ArticleLanguages)
                 .Include("ArticleLanguages.MetaTag").Select(p => new ArticleModelView
                 {
                     Id = p.Id,
@@ -59,13 +60,31 @@ namespace VnStyle.Web.Controllers.Api
                     PublishDate = p.PublishDate,
                     State = p.State,
                     FeatureImageId = p.FeatureImageId,
-                    ArticleLanguages = p.ArticleLanguages.Select(al => new ArticleLanguageModelView { Id = al.Id, Content = al.Content, Extract = al.Extract, HeadLine = al.HeadLine, LanguageId = al.LanguageId, MetaTag = al.MetaTag, MetaTagId = al.MetaTagId })
-                }).FirstOrDefault();
+                    ArticleLanguages = p.ArticleLanguages.Select(al => new ArticleLanguageModelView
+                    {
+                        Id = al.Id,
+                        Content = al.Content,
+                        Extract = al.Extract,
+                        HeadLine = al.HeadLine,
+                        LanguageId = al.LanguageId,
+                        MetaTag = al.MetaTag,
+                        MetaTagId = al.MetaTagId
+                    })
+                }).FirstOrDefaultAsync();
             if (article != null && article.FeatureImageId.HasValue)
             {
                 article.FeatureImage = new ImageModelView { ImageUrl = $"{currentHosting}{ _mediaService.GetPictureUrl(article.FeatureImageId.Value)}", ImageId = article.FeatureImageId.Value };
             }
             return Request.CreateResponse(HttpStatusCode.OK, article);
+        }
+
+        [Route("{id}/related")]
+        public async Task<HttpResponseMessage> GetRelatedArticles(int id)
+        {
+            var relatedArticles = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Include(p => p.Article1).AsNoTracking()
+                .Select(p => new { p.Article1.Id, p.Article1.HeadLine }).ToListAsync();
+
+            return Request.CreateResponse(HttpStatusCode.OK, relatedArticles);
         }
 
         [Route("")]
@@ -124,10 +143,28 @@ namespace VnStyle.Web.Controllers.Api
         public HttpResponseMessage Delete(int id)
         {
             _articleLanguageRepository.DeleteRange(p => p.ArticleId == id);
-            _relatedArticleRepository.DeleteRange(p=> p.Article2Id == id || p.Article1Id == id);
-            
-            _articleRepository.DeleteRange(p=> p.Id == id);
+            _relatedArticleRepository.DeleteRange(p => p.Article2Id == id || p.Article1Id == id);
+
+            _articleRepository.DeleteRange(p => p.Id == id);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        [Route("search")]
+        [HttpGet]
+        public async Task<HttpResponseMessage> Search(string query)
+        {
+            var articles = await this._articleRepository.Table.AsNoTracking().Select(p => new { p.Id, p.HeadLine }).ToListAsync();
+            return Request.CreateResponse(HttpStatusCode.OK, articles);
+        }
+
+        [Route("{id}/related/{relatedArticleId}")]
+        [HttpPut]
+        public HttpResponseMessage PutRelatedArticle(int id, int relatedArticleId)
+        {
+            _relatedArticleRepository.Insert(new RelatedArticle {Article1Id = id, Article2Id = relatedArticleId});
+            _relatedArticleRepository.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
     }
 }

@@ -35,4 +35,19 @@ export class ArticleService {
     return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}`).catch(err => Observable.throw(err));
   }
 
+
+  getRelatedArticles(articleId): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles/${articleId}/related`)
+      .map(res => res.json()).catch(err => Observable.throw(err));
+  }
+
+  searchArticles(query): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles/search?query=`)
+      .map(res => res.json()).catch(err => Observable.throw(err));
+  }
+
+  addRelatedArticle(articleId, relatedArticleId): Observable<any> {
+    return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
+      .catch(err => Observable.throw(err));
+  }
 }
