@@ -3,6 +3,7 @@ import { ArticleService, LanguageService } from '../../../../services';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { HttpService } from '../../../../services';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-article-new',
@@ -24,7 +25,7 @@ export class ArticleNewComponent implements OnInit {
     return this.languages.filter(p => p.selected)[0];
   }
 
-  constructor(private articleService: ArticleService, private languageService: LanguageService, private httpService: HttpService) { }
+  constructor(private articleService: ArticleService, private languageService: LanguageService, private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
     Observable.forkJoin(this.languageService.getLanguages()).subscribe(res => {
@@ -50,11 +51,13 @@ export class ArticleNewComponent implements OnInit {
   }
 
   saveArticle() {
-    if(this.article.featureImage){
+    if (this.article.featureImage) {
       this.article.featureImageId = this.article.featureImage.imageId;
     }
-    this.articleService.createArticle(this.article).subscribe(data => { }, err => { });
+    this.articleService.createArticle(this.article).subscribe(data => {
+      this.router.navigate(["cms", "articles"]);
+    }, err => { });
   }
 
- 
+
 }
