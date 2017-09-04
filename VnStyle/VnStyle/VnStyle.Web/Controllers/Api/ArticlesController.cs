@@ -16,11 +16,12 @@ namespace VnStyle.Web.Controllers.Api
     [RoutePrefix("api/articles")]
     public class ArticlesController : BaseController
     {
-        #region "Fields and Property"
+        #region "Fields and Properties"
         private readonly IBaseRepository<Article> _articleRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IMediaService _mediaService;
         private readonly IWebHelper _webHelper;
+        private readonly IResourceService _resourceService;
         #endregion
 
 
@@ -30,6 +31,7 @@ namespace VnStyle.Web.Controllers.Api
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
             _webHelper = EngineContext.Current.Resolve<IWebHelper>();
+            _resourceService = EngineContext.Current.Resolve<IResourceService>();
         }
 
 
@@ -73,9 +75,51 @@ namespace VnStyle.Web.Controllers.Api
             article.PublishDate = DateTimeHelper.GetCurrentDateTime();
 
             article.HeadLine = article.ArticleLanguages.Select(p => p.HeadLine).FirstOrDefault();
+
             _articleRepository.Insert(article);
             _articleRepository.SaveChanges();
 
+            return CreateResponseMessage();
+        }
+
+
+        [Route("")]
+        [HttpPut]
+        public HttpResponseMessage Put(Article article)
+        {
+
+            //_articleRepository.Update(article);
+            var entity = _articleRepository.Table.Where(p => p.Id == article.Id).Include(p=> p.ArticleLanguages)
+                .Include("ArticleLanguages.MetaTag")
+                .FirstOrDefault();
+            if (entity == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+
+
+            entity.HeadLine = article.ArticleLanguages.Where(p => p.LanguageId == _resourceService.DefaultLanguageId())
+                .Select(p => p.HeadLine).FirstOrDefault();
+
+            //entity.ArticleLanguages = article.ArticleLanguages;
+
+            foreach (var entityArticleLanguage in entity.ArticleLanguages)
+            {
+                var obj = article.ArticleLanguages.FirstOrDefault(p => p.Id == entityArticleLanguage.Id);
+                if (obj != null)
+                {
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                    entityArticleLanguage.Content = obj.Content;
+                    entityArticleLanguage.Extract = obj.Extract;
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                    entityArticleLanguage.HeadLine = obj.HeadLine;
+                }
+            }
+
+            _articleRepository.Update(entity);
+            _articleRepository.SaveChanges();
             return CreateResponseMessage();
         }
     }

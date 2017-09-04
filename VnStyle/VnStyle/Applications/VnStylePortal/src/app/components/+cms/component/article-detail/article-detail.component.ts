@@ -14,11 +14,19 @@ export class ArticleDetailComponent implements OnInit {
   constructor(private articleService: ArticleService, private languageService: LanguageService,
     private route: ActivatedRoute) { }
 
+
+
   private selectedLanguage = null;
+
   private article = {
     articleLanguages: []
   };
+
   private count = 0;
+  private editArticleState = {
+    editing: false,
+    originalModel: null
+  }
 
   private languages = [];
   private get selectedArticleLanguage() {
@@ -44,8 +52,29 @@ export class ArticleDetailComponent implements OnInit {
     ]).subscribe(res => {
       this.languages = res[0];
       this.article = res[1];
-      this.selectedLanguage = this.languages.filter(p=> p.isDefault)[0].id;
+      this.selectedLanguage = this.languages.filter(p => p.isDefault)[0].id;
     });
   }
 
+  deleteArticle() {
+
+  }
+
+  editArticle() {
+    this.editArticleState.originalModel = JSON.parse(JSON.stringify(this.article));
+    this.editArticleState.editing = true;
+  }
+
+  saveArticle() {
+    this.articleService.updateArticle(this.article).subscribe(data => {
+
+    }, err => {
+
+    });
+  }
+
+  cancelEdit() {
+    this.article = Object.assign({}, this.editArticleState.originalModel);
+    this.editArticleState.editing = false;
+  }
 }

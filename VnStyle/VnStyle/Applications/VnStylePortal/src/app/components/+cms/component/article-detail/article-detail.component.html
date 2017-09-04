@@ -1,27 +1,38 @@
 <div class="row" *ngIf="!(!(selectedArticleLanguage))">
   <div class="col-sm-12 col-md-8">
-    <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
-    <div class="bold">
-      {{selectedArticleLanguage.extract}}
+    <div *ngIf="!editArticleState.editing">
+      <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
+      <div class="bold">
+        {{selectedArticleLanguage.extract}}
+      </div>
+
+      <div [froalaView]="selectedArticleLanguage.content"></div>
+
+      <h3>Search Engine</h3>
+      {{selectedArticleLanguage.metaTag.keywords}} {{selectedArticleLanguage.metaTag.description}}
+
     </div>
 
-    <div [froalaView]="selectedArticleLanguage.content"></div>
-
-    <h2>Search Engine</h2>
-    
+    <div *ngIf="editArticleState.editing">
+      <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
+    </div>
   </div>
 
   <div class="col-sm-12 col-md-4">
     <div class="row">
       <div class="col-xs-12">
-          <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="true"></app-picture-form-control>
+        <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="true"></app-picture-form-control>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12">
-        <button class="btn btn-primary"><i class="fa fa-pencil"></i>  Edit</button>
-        <button class="btn btn-danger"><i class="fa fa-trash"></i>  Delete</button>
+      <div class="col-xs-12"  *ngIf="!editArticleState.editing">
+        <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Edit</button>
+        <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Delete</button>
       </div>
+      <div class="col-xs-12"  *ngIf="editArticleState.editing">
+          <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Save</button>
+          <button class="btn btn-default" (click)="cancelEdit();"> Cancel</button>
+        </div>
     </div>
     <div>Cate</div>
     <div>Function: Edit, Delete</div>

@@ -23,7 +23,6 @@ export class ArticleNewComponent implements OnInit {
   private get selectedLanguage() {
     return this.languages.filter(p => p.selected)[0];
   }
-  @ViewChild('fileInput') _elFileInput: ElementRef;
 
   constructor(private articleService: ArticleService, private languageService: LanguageService, private httpService: HttpService) { }
 
@@ -57,32 +56,5 @@ export class ArticleNewComponent implements OnInit {
     this.articleService.createArticle(this.article).subscribe(data => { }, err => { });
   }
 
-  browseFiles() {
-    console.log("browseFiles");
-    this._elFileInput.nativeElement.click();
-  }
-
-
-  fileOnChanged(event) {
-    let files = this._elFileInput.nativeElement.files;
-    this.httpService.postGeneralFile(files, {
-      onProgress: (processEvent) => {
-        console.log("onProgress", processEvent);
-      },
-      onFinished: (result) => {
-        // this.imageUrl = result.Data.images[0].FileUrl;
-        // this.imageId = result.Data.images[0].PhotoId;
-
-        // this.propagateChange({
-        //   imageId: this.imageId,
-        //   imageUrl: this.imageUrl
-        // });
-
-      },
-      error: () => { }
-    });
-
-    console.log("fileOnChanged", event, this._elFileInput, files);
-
-  }
+ 
 }

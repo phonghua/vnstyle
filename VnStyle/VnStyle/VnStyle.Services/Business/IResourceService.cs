@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using ServiceStack.Common;
-using VnStyle.Services.Data;
+﻿using System.Collections.Generic;
 using VnStyle.Services.Data.Domain;
 
 namespace VnStyle.Services.Business
@@ -12,5 +7,6 @@ namespace VnStyle.Services.Business
     {
         List<Language> GetLanguages();
         string T(string text, params object[] arg);
+        string DefaultLanguageId();
     }
 }

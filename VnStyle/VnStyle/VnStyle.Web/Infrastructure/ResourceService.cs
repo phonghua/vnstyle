@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
+using System.Linq;
 using System.Resources;
 using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.Caching;
@@ -38,6 +38,9 @@ namespace VnStyle.Web.Infrastructure
             return string.Format(myString, arg);
         }
 
-
+        public string DefaultLanguageId()
+        {
+            return GetLanguages().Where(p => p.IsDefault).Select(p => p.Id).FirstOrDefault();
+        }
     }
 }
