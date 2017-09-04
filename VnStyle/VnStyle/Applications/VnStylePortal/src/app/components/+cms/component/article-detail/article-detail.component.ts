@@ -36,7 +36,7 @@ export class ArticleDetailComponent implements OnInit {
   @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
 
   constructor(private articleService: ArticleService, private languageService: LanguageService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private router: Router) { }
 
 
 
@@ -67,8 +67,12 @@ export class ArticleDetailComponent implements OnInit {
 
   deleteArticle() {
     this.confirmModal.open();
+    
+    
     this.confirmModal.ok = () => {
-      alert(this.article.id);
+      this.articleService.deleteArticle(this.article.id).subscribe(() => {
+        this.router.navigate(["cms","articles"]);
+      });
     }
   }
 
