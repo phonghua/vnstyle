@@ -21,14 +21,18 @@ export class ArticleService {
       .catch(err => Observable.throw(err));
   }
 
-  updateArticle(article) : Observable<any>{
+  updateArticle(article): Observable<any> {
     return this.httpService.put(this.settingService.portal + 'api/articles', article)
-    .catch(err => Observable.throw(err));
+      .catch(err => Observable.throw(err));
   }
 
   getArticleById(articleId): Observable<any> {
     return this.httpService.get(this.settingService.portal + `api/articles/${articleId}`)
       .map(res => res.json()).catch(err => Observable.throw(err));
+  }
+
+  deleteArticle(articleId): Observable<any> {
+    return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}`).catch(err => Observable.throw(err));
   }
 
 }

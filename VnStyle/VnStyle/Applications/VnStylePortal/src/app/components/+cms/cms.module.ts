@@ -16,6 +16,9 @@ import { CategoriesComponent } from "./component/categories/categories.component
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
 import { PictureFormControlComponent } from '../../components/shared/picture-form-control/picture-form-control.component';
+import { ConfirmModalComponent } from '../../components/shared/confirm-modal/confirm-modal.component';
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 
 @NgModule({
   imports: [
@@ -28,7 +31,7 @@ import { PictureFormControlComponent } from '../../components/shared/picture-for
     ReactiveFormsModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
-    
+    Ng2Bs3ModalModule
     
   ],
   declarations: [
@@ -41,7 +44,8 @@ import { PictureFormControlComponent } from '../../components/shared/picture-for
     SeoMetaComponent,
     AdatePipe,
     CategoriesComponent,
-    PictureFormControlComponent
+    PictureFormControlComponent,
+    ConfirmModalComponent
   ],
   entryComponents: []
 })

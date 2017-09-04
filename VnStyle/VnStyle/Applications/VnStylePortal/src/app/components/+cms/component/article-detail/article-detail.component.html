@@ -21,7 +21,7 @@
   <div class="col-sm-12 col-md-4">
     <div class="row">
       <div class="col-xs-12">
-        <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="true"></app-picture-form-control>
+        <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="!editArticleState.editing"></app-picture-form-control>
       </div>
     </div>
     <div class="row">
@@ -38,3 +38,5 @@
     <div>Function: Edit, Delete</div>
   </div>
 </div>
+
+<app-confirm-modal #confirmModal></app-confirm-modal>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArticleService, LanguageService } from '../../../../services';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+import { ConfirmModalComponent } from '../../../shared/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-article-detail',
@@ -11,15 +12,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ArticleDetailComponent implements OnInit {
 
-  constructor(private articleService: ArticleService, private languageService: LanguageService,
-    private route: ActivatedRoute) { }
-
-
-
   private selectedLanguage = null;
 
   private article = {
-    articleLanguages: []
+    id: 0,
+    articleLanguages: [],
+    featureImage: null,
+    featureImageId: null
   };
 
   private count = 0;
@@ -32,6 +31,16 @@ export class ArticleDetailComponent implements OnInit {
   private get selectedArticleLanguage() {
     return this.article.articleLanguages.filter(p => p.languageId == this.selectedLanguage)[0];
   }
+
+
+  @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
+
+  constructor(private articleService: ArticleService, private languageService: LanguageService,
+    private route: ActivatedRoute) { }
+
+
+
+
 
   ngOnInit() {
     console.log("on init")
@@ -57,7 +66,10 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   deleteArticle() {
-
+    this.confirmModal.open();
+    this.confirmModal.ok = () => {
+      alert(this.article.id);
+    }
   }
 
   editArticle() {
@@ -66,6 +78,9 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   saveArticle() {
+    if (this.article.featureImage) {
+      this.article.featureImageId = this.article.featureImage.imageId;
+    }
     this.articleService.updateArticle(this.article).subscribe(data => {
 
     }, err => {
