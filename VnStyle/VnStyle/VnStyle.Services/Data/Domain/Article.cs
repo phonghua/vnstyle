@@ -16,5 +16,7 @@ namespace VnStyle.Services.Data.Domain
         public long? FeatureImageId { get; set; }
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
+        public virtual ICollection<RelatedArticle> RelatedArticles1 { get; set; }
+        public virtual ICollection<RelatedArticle> RelatedArticles2 { get; set; }
     }
 }

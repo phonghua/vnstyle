@@ -90,6 +90,7 @@
     <Compile Include="Data\Domain\Memberships\AspNetUsers.cs" />
     <Compile Include="Data\Domain\MetaTag.cs" />
     <Compile Include="Data\Domain\Article.cs" />
+    <Compile Include="Data\Domain\RelatedArticle.cs" />
     <Compile Include="Data\Enum\EArticleState.cs" />
     <Compile Include="Data\Enum\EAspNetApplicationTypes.cs" />
     <Compile Include="Data\Enum\EBookingType.cs" />
@@ -102,49 +103,13 @@
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
-    <Compile Include="Migrations\201708261351064_InitDb.cs" />
-    <Compile Include="Migrations\201708261351064_InitDb.Designer.cs">
-      <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
+    <Compile Include="Migrations\201709031345552_InitDb.cs" />
+    <Compile Include="Migrations\201709031345552_InitDb.Designer.cs">
+      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708261524317_Article.cs" />
-    <Compile Include="Migrations\201708261524317_Article.Designer.cs">
-      <DependentUpon>201708261524317_Article.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708261611208_AddedMembership.cs" />
-    <Compile Include="Migrations\201708261611208_AddedMembership.Designer.cs">
-      <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270333467_UpdatedMembership.cs" />
-    <Compile Include="Migrations\201708270333467_UpdatedMembership.Designer.cs">
-      <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708270834417_AddedLanguageDefault.cs" />
-    <Compile Include="Migrations\201708270834417_AddedLanguageDefault.Designer.cs">
-      <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708281438038_AddedArticleHeadLine.cs" />
-    <Compile Include="Migrations\201708281438038_AddedArticleHeadLine.Designer.cs">
-      <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708291130207_RemovedLanguage.cs" />
-    <Compile Include="Migrations\201708291130207_RemovedLanguage.Designer.cs">
-      <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030629280_AddedFile.cs" />
-    <Compile Include="Migrations\201709030629280_AddedFile.Designer.cs">
-      <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030827265_AddedArticleCategories.cs" />
-    <Compile Include="Migrations\201709030827265_AddedArticleCategories.Designer.cs">
-      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709030834006_RenameCategoryArticle.cs" />
-    <Compile Include="Migrations\201709030834006_RenameCategoryArticle.Designer.cs">
-      <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709031055191_AddedArticleFeatureImage.cs" />
-    <Compile Include="Migrations\201709031055191_AddedArticleFeatureImage.Designer.cs">
-      <DependentUpon>201709031055191_AddedArticleFeatureImage.cs</DependentUpon>
+    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.cs" />
+    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.Designer.cs">
+      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,47 +119,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708261351064_InitDb.resx">
-      <DependentUpon>201708261351064_InitDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708261524317_Article.resx">
-      <DependentUpon>201708261524317_Article.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708261611208_AddedMembership.resx">
-      <DependentUpon>201708261611208_AddedMembership.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270333467_UpdatedMembership.resx">
-      <DependentUpon>201708270333467_UpdatedMembership.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708270834417_AddedLanguageDefault.resx">
-      <DependentUpon>201708270834417_AddedLanguageDefault.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708281438038_AddedArticleHeadLine.resx">
-      <DependentUpon>201708281438038_AddedArticleHeadLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708291130207_RemovedLanguage.resx">
-      <DependentUpon>201708291130207_RemovedLanguage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030629280_AddedFile.resx">
-      <DependentUpon>201709030629280_AddedFile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030827265_AddedArticleCategories.resx">
-      <DependentUpon>201709030827265_AddedArticleCategories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709030834006_RenameCategoryArticle.resx">
-      <DependentUpon>201709030834006_RenameCategoryArticle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709031055191_AddedArticleFeatureImage.resx">
-      <DependentUpon>201709031055191_AddedArticleFeatureImage.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\infrastructure\Ricky.Infrastructure.Core\Ricky.Infrastructure.Core.csproj">
       <Project>{3ef53831-7dc1-43f1-adf5-3761454db462}</Project>
       <Name>Ricky.Infrastructure.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709031345552_InitDb.resx">
+      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709040038544_UpdateAspNetClients.resx">
+      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

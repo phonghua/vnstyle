@@ -7,13 +7,13 @@ namespace VnStyle.Services.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RenameCategoryArticle : IMigrationMetadata
+    public sealed partial class UpdateAspNetClients : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameCategoryArticle));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateAspNetClients));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709030834006_RenameCategoryArticle"; }
+            get { return "201709040038544_UpdateAspNetClients"; }
         }
         
         string IMigrationMetadata.Source

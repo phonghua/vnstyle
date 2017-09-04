@@ -3,10 +3,67 @@ namespace VnStyle.Services.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedMembership : DbMigration
+    public partial class InitDb : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.ArticleLanguages",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        HeadLine = c.String(),
+                        Content = c.String(),
+                        Extract = c.String(),
+                        LanguageId = c.String(),
+                        MetaTagId = c.Int(nullable: false),
+                        ArticleId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Articles", t => t.ArticleId, cascadeDelete: true)
+                .ForeignKey("dbo.MetaTags", t => t.MetaTagId, cascadeDelete: true)
+                .Index(t => t.MetaTagId)
+                .Index(t => t.ArticleId);
+            
+            CreateTable(
+                "dbo.Articles",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        CreatedDate = c.DateTime(nullable: false),
+                        ModifiedDate = c.DateTime(nullable: false),
+                        PublishDate = c.DateTime(nullable: false),
+                        CreatedBy = c.Int(nullable: false),
+                        State = c.Int(nullable: false),
+                        HeadLine = c.String(),
+                        FeatureImageId = c.Long(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.RelatedArticles",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Article1Id = c.Int(nullable: false),
+                        Article2Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Articles", t => t.Article1Id, cascadeDelete: true)
+                .ForeignKey("dbo.Articles", t => t.Article2Id)
+                .Index(t => t.Article1Id)
+                .Index(t => t.Article2Id);
+            
+            CreateTable(
+                "dbo.MetaTags",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Description = c.String(),
+                        Keywords = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.AspNetClients",
                 c => new
@@ -74,7 +131,7 @@ namespace VnStyle.Services.Migrations
                     {
                         LoginProvider = c.String(nullable: false, maxLength: 128),
                         ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.Long(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey });
             
@@ -99,8 +156,8 @@ namespace VnStyle.Services.Migrations
                 "dbo.AspNetUserRoles",
                 c => new
                     {
-                        RoleId = c.Long(nullable: false),
-                        UserId = c.Long(nullable: false),
+                        RoleId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.RoleId, t.UserId });
             
@@ -122,6 +179,34 @@ namespace VnStyle.Services.Migrations
                         UserName = c.String(),
                         UserProfileId = c.Long(nullable: false),
                         IsExternal = c.Boolean(nullable: false),
+                        CreatedDate = c.DateTime(nullable: false),
+                        ModifiedDate = c.DateTime(nullable: false),
+                        IsDeleted = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Categories",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Parent = c.Int(),
+                        Seq = c.Int(nullable: false),
+                        InActive = c.Boolean(nullable: false),
+                        RootCategory = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Files",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        MimeType = c.String(),
+                        Path = c.String(),
+                        SourceTarget = c.Int(nullable: false),
+                        IsUsed = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -129,6 +214,16 @@ namespace VnStyle.Services.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.ArticleLanguages", "MetaTagId", "dbo.MetaTags");
+            DropForeignKey("dbo.ArticleLanguages", "ArticleId", "dbo.Articles");
+            DropForeignKey("dbo.RelatedArticles", "Article2Id", "dbo.Articles");
+            DropForeignKey("dbo.RelatedArticles", "Article1Id", "dbo.Articles");
+            DropIndex("dbo.RelatedArticles", new[] { "Article2Id" });
+            DropIndex("dbo.RelatedArticles", new[] { "Article1Id" });
+            DropIndex("dbo.ArticleLanguages", new[] { "ArticleId" });
+            DropIndex("dbo.ArticleLanguages", new[] { "MetaTagId" });
+            DropTable("dbo.Files");
+            DropTable("dbo.Categories");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserProfiles");
@@ -138,6 +233,10 @@ namespace VnStyle.Services.Migrations
             DropTable("dbo.AspNetRegisters");
             DropTable("dbo.AspNetRefreshTokens");
             DropTable("dbo.AspNetClients");
+            DropTable("dbo.MetaTags");
+            DropTable("dbo.RelatedArticles");
+            DropTable("dbo.Articles");
+            DropTable("dbo.ArticleLanguages");
         }
     }
 }

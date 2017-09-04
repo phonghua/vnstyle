@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using System;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -35,10 +37,11 @@ namespace VnStyle.Services.Data
         }
 
         public DbSet<Article> Articles { get; set; }
-        public DbSet<Category> ArticleCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<ArticleLanguage> ArticleLanguages { get; set; }
         public DbSet<MetaTag> MetaTags { get; set; }
         public DbSet<File> Files { get; set; }
+        public DbSet<RelatedArticle> RelatedArticles { get; set; }
 
 
         public DbSet<AspNetClient> AspNetClients { get; set; }
@@ -65,16 +68,16 @@ namespace VnStyle.Services.Data
 
             modelBuilder.Entity<ArticleLanguage>().HasKey(p => p.Id);
             modelBuilder.Entity<ArticleLanguage>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<ArticleLanguage>().HasRequired(p => p.Article).WithMany(p => p.ArticleLanguages).HasForeignKey(p => p.ArticleId).WillCascadeOnDelete(true);
 
 
-           
 
             modelBuilder.Entity<MetaTag>().HasKey(p => p.Id);
             modelBuilder.Entity<MetaTag>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 
             modelBuilder.Entity<AspNetClient>().HasKey(p => p.Id);
-            modelBuilder.Entity<AspNetClient>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<AspNetClient>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             modelBuilder.Entity<AspNetRefreshToken>().HasKey(p => p.Id);
             modelBuilder.Entity<AspNetRefreshToken>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -92,18 +95,29 @@ namespace VnStyle.Services.Data
             modelBuilder.Entity<AspNetUser>().HasKey(p => p.Id);
             modelBuilder.Entity<AspNetUser>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            modelBuilder.Entity<AspNetUserLogin>().HasKey(p => new {p.LoginProvider, p.ProviderKey});
-            
+            modelBuilder.Entity<AspNetUserLogin>().HasKey(p => new { p.LoginProvider, p.ProviderKey });
+
 
             modelBuilder.Entity<AspNetUserProfile>().HasKey(p => p.Id);
             modelBuilder.Entity<AspNetUserProfile>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 
-            modelBuilder.Entity<AspNetUserRole>().HasKey(p => new {p.RoleId, p.UserId});
+            modelBuilder.Entity<AspNetUserRole>().HasKey(p => new { p.RoleId, p.UserId });
 
             modelBuilder.Entity<File>().HasKey(p => new { p.Id });
 
             modelBuilder.Entity<Category>().HasKey(p => new { p.Id });
+
+            modelBuilder.Entity<RelatedArticle>().HasKey(p => new { p.Id });
+            modelBuilder.Entity<RelatedArticle>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<RelatedArticle>().HasRequired(p => p.Article1).WithMany(p => p.RelatedArticles1).HasForeignKey(p => p.Article1Id).WillCascadeOnDelete(true);
+            modelBuilder.Entity<RelatedArticle>().HasRequired(p => p.Article2).WithMany(p => p.RelatedArticles2).HasForeignKey(p => p.Article2Id).WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Student>().HasRequired(m => m.BirthCity)
+            //    .WithMany(m => m.Students).HasForeignKey(m => m.BirthCityId);
+            //modelBuilder.Entity<Student>().HasRequired(m => m.LivingCity)
+            //    .WithMany().HasForeignKey(m => m.LivingCityId);
 
         }
 

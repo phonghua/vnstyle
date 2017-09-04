@@ -1,3 +1,6 @@
+using VnStyle.Services.Data.Domain.Memberships;
+using VnStyle.Services.Data.Enum;
+
 namespace VnStyle.Services.Migrations
 {
     using System;
@@ -26,6 +29,19 @@ namespace VnStyle.Services.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+
+            context.AspNetClients.AddOrUpdate(p => new { p.Id }, new AspNetClient
+            {
+                Id = "fe3429036f404047865a48a5f8739c94",
+                Active = true,
+                AllowedOrigin = "*",
+                ApplicationType = EAspNetApplicationTypes.JavaScript,
+                Name = "Js",
+                Secret = "67b4b438cc37427792a2b1521f10cba4",
+                RefreshTokenLifeTime = 1
+            });
+            context.SaveChanges();
         }
     }
 }
