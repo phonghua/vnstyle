@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.SqlServer;
 using System.Diagnostics;
 using VnStyle.Services.Data.Domain;
@@ -114,10 +115,10 @@ namespace VnStyle.Services.Data
             modelBuilder.Entity<RelatedArticle>().HasRequired(p => p.Article1).WithMany(p => p.RelatedArticles1).HasForeignKey(p => p.Article1Id).WillCascadeOnDelete(true);
             modelBuilder.Entity<RelatedArticle>().HasRequired(p => p.Article2).WithMany(p => p.RelatedArticles2).HasForeignKey(p => p.Article2Id).WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<Student>().HasRequired(m => m.BirthCity)
-            //    .WithMany(m => m.Students).HasForeignKey(m => m.BirthCityId);
-            //modelBuilder.Entity<Student>().HasRequired(m => m.LivingCity)
-            //    .WithMany().HasForeignKey(m => m.LivingCityId);
+            modelBuilder.Entity<RelatedArticle>().Property(p => p.Article1Id).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IDX_RelatedArticle_U") { IsUnique = true, Order = 1 })).IsRequired();
+            modelBuilder.Entity<RelatedArticle>().Property(p => p.Article2Id).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IDX_RelatedArticle_U") { IsUnique = true, Order = 2 })).IsRequired();
+            modelBuilder.Entity<RelatedArticle>().Property(p => p.ModifiedDate).HasColumnType("datetime2");
+
 
         }
 

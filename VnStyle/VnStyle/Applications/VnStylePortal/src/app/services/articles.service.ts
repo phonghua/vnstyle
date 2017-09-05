@@ -50,4 +50,16 @@ export class ArticleService {
     return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
       .catch(err => Observable.throw(err));
   }
+
+  deleteRelatedArticle(articleId, relatedArticleId): Observable<any> {
+    return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
+      .catch(err => Observable.throw(err));
+  }
+
+  //{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}
+
+  swapRelatedArticle(articleId, relatedArticleId1, relatedArticleId2){
+    return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId1}/swap/${relatedArticleId2}`)
+    .catch(err => Observable.throw(err));
+  }
 }

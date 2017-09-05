@@ -81,8 +81,8 @@ namespace VnStyle.Web.Controllers.Api
         [Route("{id}/related")]
         public async Task<HttpResponseMessage> GetRelatedArticles(int id)
         {
-            var relatedArticles = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Include(p => p.Article1).AsNoTracking()
-                .Select(p => new { p.Article1.Id, p.Article1.HeadLine }).ToListAsync();
+            var relatedArticles = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Include(p => p.Article2).AsNoTracking().OrderBy(p => p.Seq).ThenBy(p => p.ModifiedDate)
+                .Select(p => new { p.Article2.Id, p.Article2.HeadLine }).ToListAsync();
 
             return Request.CreateResponse(HttpStatusCode.OK, relatedArticles);
         }
@@ -161,10 +161,35 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPut]
         public HttpResponseMessage PutRelatedArticle(int id, int relatedArticleId)
         {
-            _relatedArticleRepository.Insert(new RelatedArticle {Article1Id = id, Article2Id = relatedArticleId});
+            var nextSeq = _relatedArticleRepository.Any(p => p.Article1Id == id) ? _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Max(p => p.Seq) + 1 : 1;
+            _relatedArticleRepository.Insert(new RelatedArticle { Article1Id = id, Article2Id = relatedArticleId, Seq = nextSeq, ModifiedDate = DateTimeHelper.GetCurrentDateTime() });
             _relatedArticleRepository.SaveChanges();
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [Route("{id}/related/{relatedArticleId}")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteRelatedArticle(int id, int relatedArticleId)
+        {
+            _relatedArticleRepository.DeleteRange(p => p.Article1Id == id && p.Article2Id == relatedArticleId);
+            _relatedArticleRepository.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [Route("{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}")]
+        [HttpPut]
+        public async Task<HttpResponseMessage> PutRelatedArticleSwap(int id, int relatedArticleId1, int relatedArticleId2)
+        {
+            var seq1 = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id && p.Article2Id == relatedArticleId1).Select(p => p.Seq).FirstOrDefaultAsync();
+            var seq2 = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id && p.Article2Id == relatedArticleId2).Select(p => p.Seq).FirstOrDefaultAsync();
+
+            _relatedArticleRepository.Update(p => p.Article1Id == id && p.Article2Id == relatedArticleId2, p => new RelatedArticle() { Seq = seq1 });
+            _relatedArticleRepository.Update(p => p.Article1Id == id && p.Article2Id == relatedArticleId1, p => new RelatedArticle() { Seq = seq2 });
+
+
+
+            _relatedArticleRepository.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }

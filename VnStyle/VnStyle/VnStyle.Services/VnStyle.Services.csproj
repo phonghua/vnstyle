@@ -103,13 +103,9 @@
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
-    <Compile Include="Migrations\201709031345552_InitDb.cs" />
-    <Compile Include="Migrations\201709031345552_InitDb.Designer.cs">
-      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.cs" />
-    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.Designer.cs">
-      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
+    <Compile Include="Migrations\201709051520207_InitDb.cs" />
+    <Compile Include="Migrations\201709051520207_InitDb.Designer.cs">
+      <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,11 +121,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709031345552_InitDb.resx">
-      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040038544_UpdateAspNetClients.resx">
-      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709051520207_InitDb.resx">
+      <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
