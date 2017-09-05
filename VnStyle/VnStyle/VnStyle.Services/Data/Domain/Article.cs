@@ -14,6 +14,7 @@ namespace VnStyle.Services.Data.Domain
         public EArticleState State { get; set; }
         public string HeadLine { get; set; }
         public long? FeatureImageId { get; set; }
+        public int? CategoryId { get; set; }
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
         public virtual ICollection<RelatedArticle> RelatedArticles1 { get; set; }

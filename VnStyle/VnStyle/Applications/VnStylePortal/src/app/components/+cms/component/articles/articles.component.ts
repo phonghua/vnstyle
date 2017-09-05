@@ -6,12 +6,8 @@ import { ArticleService } from './../../../../services';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit {
-  // private pageState: any = {
-  //   fetched: false,
-  //   fetching: false,
-  //   initialized: false,
-  //   data: null
-  // };
+
+  
 
   private articleGrid = {
     loading: false,

@@ -18,6 +18,7 @@ namespace VnStyle.Web.Controllers.Api
     {
         #region "Fields and Properties"
         private readonly IBaseRepository<Article> _articleRepository;
+        private readonly IBaseRepository<Category> _categoryRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IBaseRepository<RelatedArticle> _relatedArticleRepository;
         private readonly IMediaService _mediaService;
@@ -29,6 +30,7 @@ namespace VnStyle.Web.Controllers.Api
         public ArticlesController()
         {
             _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
+            _categoryRepository = EngineContext.Current.Resolve<IBaseRepository<Category>>();
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
             _webHelper = EngineContext.Current.Resolve<IWebHelper>();
@@ -38,9 +40,18 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [Route("")]
-        public async Task<HttpResponseMessage> GetArticles()
+        public async Task<HttpResponseMessage> GetArticles(int? rootCateId = null)
         {
-            var articles = await (from a in _articleRepository.Table select a).AsNoTracking().ToListAsync();
+            var query = from a in _articleRepository.Table select a;
+            if (rootCateId.HasValue && rootCateId.Value > 0)
+            {
+                var cateIds = _categoryRepository.Table.Where(p => (int)p.RootCategory == rootCateId).Select(p => p.Id).ToList();
+                if (cateIds.Any())
+                    query = query.Where(p => p.CategoryId.HasValue && cateIds.Contains(p.CategoryId.Value));
+                else query = query.Take(0);
+            }
+
+            var articles = await query.AsNoTracking().ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
 
