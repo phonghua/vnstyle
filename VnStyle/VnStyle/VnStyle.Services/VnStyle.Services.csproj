@@ -107,6 +107,10 @@
     <Compile Include="Migrations\201709051520207_InitDb.Designer.cs">
       <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709051630131_AddCateIntoArticle.cs" />
+    <Compile Include="Migrations\201709051630131_AddCateIntoArticle.Designer.cs">
+      <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -123,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709051520207_InitDb.resx">
       <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709051630131_AddCateIntoArticle.resx">
+      <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
