@@ -34,9 +34,12 @@ namespace VnStyle.Services.Migrations
                         ModifiedDate = c.DateTime(nullable: false),
                         PublishDate = c.DateTime(nullable: false),
                         CreatedBy = c.Int(nullable: false),
-                        State = c.Int(nullable: false),
                         HeadLine = c.String(),
                         FeatureImageId = c.Long(),
+                        CategoryId = c.Int(),
+                        RootCate = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        IsShowHomepage = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

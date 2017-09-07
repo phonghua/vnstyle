@@ -13,7 +13,7 @@ namespace VnStyle.Services.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709051520207_InitDb"; }
+            get { return "201709070711552_InitDb"; }
         }
         
         string IMigrationMetadata.Source
