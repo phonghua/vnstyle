@@ -27,9 +27,8 @@ namespace VnStyle.Web.Controllers
             _postRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
         }
         public ActionResult Index()
-        {                    
+        {                 
             
-
             var language = _workContext.CurrentLanguage;
             ViewBag.Title = "Home Page";
 
@@ -65,6 +64,9 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView();
         }
-
+        public ActionResult Footer()
+        {
+            return PartialView();
+        }
     }
 }
