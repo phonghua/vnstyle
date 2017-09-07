@@ -48,7 +48,7 @@ namespace VnStyle.Web.Controllers.Api
             {
                 HttpPostedFile file = HttpContext.Current.Request.Files[i];
                 var fileName = Path.GetFileName(file.FileName);
-
+                
                 var data = StreamHelper.ReadToEnd(file.InputStream);
                 var pictureId = _mediaService.InsertPicture(new UploadFileRequest
                 {

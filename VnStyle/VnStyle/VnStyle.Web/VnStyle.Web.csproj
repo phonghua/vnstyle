@@ -447,6 +447,7 @@
     <Content Include="Content\css\video.css" />
     <Content Include="Content\css\woocommerce-smallscreen.css" />
     <Content Include="Content\css\woocommerce.css" />
+    <Content Include="Content\images\a1.jpg" />
     <Content Include="Content\js\retina.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\100.jpg" />
