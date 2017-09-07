@@ -69,7 +69,6 @@ namespace VnStyle.Web.Controllers.Api
                     HeadLine = p.HeadLine,
                     ModifiedDate = p.ModifiedDate,
                     PublishDate = p.PublishDate,
-                    State = p.State,
                     FeatureImageId = p.FeatureImageId,
                     ArticleLanguages = p.ArticleLanguages.Select(al => new ArticleLanguageModelView
                     {

@@ -72,7 +72,6 @@ import { BlockUIModule } from 'ng-block-ui';
     DashboardComponent,
     AuthSilentRenewComponent,
     RIcheckDirective,
-    RIcheckComponent,
     FormSummaryErrorComponent,
     SpinnerComponent,
     CurrencyEditorComponent,
