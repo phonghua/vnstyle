@@ -1,7 +1,8 @@
-﻿
+﻿@model VnStyle.Web.Models.Home.ArticleViewerModelView
+
 @{
     ViewBag.Title = "Intro";
 }
 
-<h2>Intro</h2>
+@Html.Action("ArticleViewer", Model)
 

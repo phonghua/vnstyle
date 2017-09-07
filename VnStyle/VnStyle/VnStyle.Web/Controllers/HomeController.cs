@@ -101,14 +101,14 @@ namespace VnStyle.Web.Controllers
                 Headline = articleLanguage.HeadLine,
                 Content = articleLanguage.Content
             };
-            return View("ArticleViewer", model);
+            return View(model);
         }
 
 
-        //[ChildActionOnly]
-        //public ActionResult ArticleViewer(ArticleViewerModelView model)
-        //{
-        //    return PartialView(model);
-        //}
+        [ChildActionOnly]
+        public ActionResult ArticleViewer(ArticleViewerModelView model)
+        {
+            return PartialView(model);
+        }
     }
 }
