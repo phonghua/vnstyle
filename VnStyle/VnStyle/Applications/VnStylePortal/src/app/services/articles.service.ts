@@ -10,8 +10,8 @@ export class ArticleService {
 
   constructor(private httpService: HttpService, private settingService: SettingsService) { }
 
-  getArticles(): Observable<any> {
-    return this.httpService.get(this.settingService.portal + `api/articles`)
+  getArticles(rootCateId?): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles?rootCateId=${rootCateId}`)
       .map(res => res.json())
       .catch(err => Observable.throw(err));
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from './../../../../services';
+import { Route, ActivatedRoute } from '@angular/router'
+
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
@@ -7,25 +9,31 @@ import { ArticleService } from './../../../../services';
 })
 export class ArticlesComponent implements OnInit {
 
-  
 
+  private rootCateId = null;
   private articleGrid = {
     loading: false,
     data: [],
     pagination: {}
   }
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.articleGrid.loading = true;
-    this.articleService.getArticles().subscribe(data => {
-      console.log("articles", data);
+    this.route.params.subscribe(params => {
+      this.rootCateId = params["rootCateId"];
 
-      this.articleGrid.loading = false;
-      this.articleGrid.data = data;
-    })
+      this.articleGrid.loading = true;
+      this.articleService.getArticles(this.rootCateId).subscribe(data => {
+        console.log("articles", data);
+
+        this.articleGrid.loading = false;
+        this.articleGrid.data = data;
+      })
+    });
+
+
   }
 
 }

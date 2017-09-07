@@ -46,9 +46,9 @@ namespace VnStyle.Web.Controllers.Api
             if (rootCateId.HasValue && rootCateId.Value > 0)
             {
                 var cateIds = _categoryRepository.Table.Where(p => (int)p.RootCategory == rootCateId).Select(p => p.Id).ToList();
-                if (cateIds.Any())
-                    query = query.Where(p => p.CategoryId.HasValue && cateIds.Contains(p.CategoryId.Value));
-                else query = query.Take(0);
+                //if (cateIds.Any())
+                    query = query.Where(p => (cateIds.Any() && p.CategoryId.HasValue && cateIds.Contains(p.CategoryId.Value) || p.RootCate == rootCateId ));
+                //else query = query.Take(0);
             }
 
             var articles = await query.AsNoTracking().ToListAsync();

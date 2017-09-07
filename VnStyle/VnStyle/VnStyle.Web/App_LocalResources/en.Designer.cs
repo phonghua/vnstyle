@@ -77,5 +77,68 @@ namespace VnStyle.Web.App_LocalResources {
                 return ResourceManager.GetString("Global_Home", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Article.
+        /// </summary>
+        public static string RootCate_Article {
+            get {
+                return ResourceManager.GetString("RootCate_Article", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course.
+        /// </summary>
+        public static string RootCate_Course {
+            get {
+                return ResourceManager.GetString("RootCate_Course", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event.
+        /// </summary>
+        public static string RootCate_Event {
+            get {
+                return ResourceManager.GetString("RootCate_Event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Photo.
+        /// </summary>
+        public static string RootCate_Image {
+            get {
+                return ResourceManager.GetString("RootCate_Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Intro.
+        /// </summary>
+        public static string RootCate_Intro {
+            get {
+                return ResourceManager.GetString("RootCate_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Piercing.
+        /// </summary>
+        public static string RootCate_Piercing {
+            get {
+                return ResourceManager.GetString("RootCate_Piercing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tattoo.
+        /// </summary>
+        public static string RootCate_Tattoo {
+            get {
+                return ResourceManager.GetString("RootCate_Tattoo", resourceCulture);
+            }
+        }
     }
 }

@@ -78,7 +78,7 @@ import { BlockUIModule } from 'ng-block-ui';
     CurrencyEditorComponent,
     DecimalEditorComponent,
     LoginComponent,
-    SpinnerDirective
+    // SpinnerDirective
   ],
   imports: [
     BrowserModule,
@@ -94,7 +94,8 @@ import { BlockUIModule } from 'ng-block-ui';
 
     AuthLayoutModule,
     MainLayoutModule,
-    BlockUIModule
+    BlockUIModule,
+    
   ],
   exports: [
     AuthLayoutModule,

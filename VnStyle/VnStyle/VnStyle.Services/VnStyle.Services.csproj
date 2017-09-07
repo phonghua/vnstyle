@@ -70,9 +70,11 @@
     <Compile Include="Business\IAppContextUrlRouting.cs" />
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
+    <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\MediaService.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
+    <Compile Include="Business\RootCategoryService.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\Category.cs" />
@@ -111,6 +113,10 @@
     <Compile Include="Migrations\201709051630131_AddCateIntoArticle.Designer.cs">
       <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709070932435_ArticleRootCate.cs" />
+    <Compile Include="Migrations\201709070932435_ArticleRootCate.Designer.cs">
+      <DependentUpon>201709070932435_ArticleRootCate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709051630131_AddCateIntoArticle.resx">
       <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709070932435_ArticleRootCate.resx">
+      <DependentUpon>201709070932435_ArticleRootCate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

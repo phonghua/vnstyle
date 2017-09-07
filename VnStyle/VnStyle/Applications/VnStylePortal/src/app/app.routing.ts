@@ -28,18 +28,6 @@ const routes: Routes = [
                 component: DashboardComponent
             },
             {
-                path: 'shop',
-                loadChildren: './components/+shop/shop.module#ShopModule'
-            },
-            {
-                path: 'flower',
-                loadChildren: './components/+flower/flower.module#FlowerModule'
-            },
-            {
-                path: 'markup',
-                loadChildren: './components/+markup/markup.module#MarkupModule'
-            },
-            {
                 path: 'cms',
                 loadChildren: './components/+cms/cms.module#CmsModule'
             },

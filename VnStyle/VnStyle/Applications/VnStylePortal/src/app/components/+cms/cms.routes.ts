@@ -9,7 +9,7 @@ export const routes: Route[] = [
     path: "",
     component: CmsComponent,
     children: [
-      { path: "", pathMatch: "full", redirectTo: "articles" },
+      // { path: "", pathMatch: "full", redirectTo: "articles" },
       //{ path: "articles", component: ArticlesComponent },
       { path: ":rootCateId/articles", component: ArticlesComponent },
       { path: ":rootCateId/articles/new", component: ArticleNewComponent },

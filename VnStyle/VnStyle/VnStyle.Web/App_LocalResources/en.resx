@@ -123,4 +123,25 @@
   <data name="Global_Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="RootCate_Article" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="RootCate_Course" xml:space="preserve">
+    <value>Course</value>
+  </data>
+  <data name="RootCate_Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="RootCate_Image" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="RootCate_Intro" xml:space="preserve">
+    <value>Intro</value>
+  </data>
+  <data name="RootCate_Piercing" xml:space="preserve">
+    <value>Piercing</value>
+  </data>
+  <data name="RootCate_Tattoo" xml:space="preserve">
+    <value>Tattoo</value>
+  </data>
 </root>
