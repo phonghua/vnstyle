@@ -10,10 +10,12 @@ export const routes: Route[] = [
     component: CmsComponent,
     children: [
       { path: "", pathMatch: "full", redirectTo: "articles" },
-      { path: "articles", component: ArticlesComponent },
-      { path: "articles/new", component: ArticleNewComponent },
-      { path: "articles/:id", component: ArticleDetailComponent },
-      { path: ":rootCateId/categories", component: CategoriesComponent }
+      //{ path: "articles", component: ArticlesComponent },
+      { path: ":rootCateId/articles", component: ArticlesComponent },
+      { path: ":rootCateId/articles/new", component: ArticleNewComponent },
+      { path: ":rootCateId/articles/:id", component: ArticleDetailComponent },
+      { path: ":rootCateId/categories", component: CategoriesComponent },
+      
     ]
   }
 ];

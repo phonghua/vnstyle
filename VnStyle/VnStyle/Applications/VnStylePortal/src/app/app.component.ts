@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   loadedUserSub: any;
   private breadcrumbs: Breadcrumb[] = [];
   private actions: Action[] = [];
+  private loading : boolean = true;
 
   @ViewChild(RouterOutlet) routerOutlet: RouterOutlet;
 
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log("ngOnInit");    
+    console.log("ngOnInit");
   }
 
 
