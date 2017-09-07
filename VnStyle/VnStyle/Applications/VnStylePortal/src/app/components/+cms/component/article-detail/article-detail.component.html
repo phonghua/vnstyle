@@ -95,11 +95,11 @@
     </div>
     <div class="row">
       <div class="col-xs-12" *ngIf="!editArticleState.editing">
-        <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Edit</button>
-        <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Delete</button>
+        <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Chỉnh sửa</button>
+        <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Xóa</button>
       </div>
       <div class="col-xs-12" *ngIf="editArticleState.editing">
-        <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Save</button>
+        <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Lưu lại</button>
         <button class="btn btn-default" (click)="cancelEdit();"> Cancel</button>
       </div>
     </div>
