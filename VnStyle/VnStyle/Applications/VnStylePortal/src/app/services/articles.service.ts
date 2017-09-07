@@ -10,8 +10,8 @@ export class ArticleService {
 
   constructor(private httpService: HttpService, private settingService: SettingsService) { }
 
-  getArticles(): Observable<any> {
-    return this.httpService.get(this.settingService.portal + `api/articles`)
+  getArticles(rootCateId?): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles?rootCateId=${rootCateId}`)
       .map(res => res.json())
       .catch(err => Observable.throw(err));
   }
@@ -49,5 +49,17 @@ export class ArticleService {
   addRelatedArticle(articleId, relatedArticleId): Observable<any> {
     return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
       .catch(err => Observable.throw(err));
+  }
+
+  deleteRelatedArticle(articleId, relatedArticleId): Observable<any> {
+    return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
+      .catch(err => Observable.throw(err));
+  }
+
+  //{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}
+
+  swapRelatedArticle(articleId, relatedArticleId1, relatedArticleId2){
+    return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId1}/swap/${relatedArticleId2}`)
+    .catch(err => Observable.throw(err));
   }
 }

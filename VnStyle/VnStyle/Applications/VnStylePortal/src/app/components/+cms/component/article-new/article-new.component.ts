@@ -18,16 +18,24 @@ export class ArticleNewComponent implements OnInit {
     initialized: false,
     data: null
   };
-
+  private rootCateId;
   private languages: Array<any> = [];
   private article: any = {};
   private get selectedLanguage() {
     return this.languages.filter(p => p.selected)[0];
   }
 
-  constructor(private articleService: ArticleService, private languageService: LanguageService, private httpService: HttpService, private router: Router) { }
+  constructor(private articleService: ArticleService, private languageService: LanguageService, private httpService: HttpService, private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.rootCateId = params["rootCateId"];
+      this.initializePage();
+    });
+  }
+
+  initializePage() {
     Observable.forkJoin(this.languageService.getLanguages()).subscribe(res => {
 
       this.pageState.fetched = true;
@@ -39,6 +47,7 @@ export class ArticleNewComponent implements OnInit {
         return p;
       });
 
+      this.article.rootCate = this.rootCateId;
 
       this.article.articleLanguages = this.languages.filter(p => p.isDefault).map(p => {
         return {
@@ -55,7 +64,7 @@ export class ArticleNewComponent implements OnInit {
       this.article.featureImageId = this.article.featureImage.imageId;
     }
     this.articleService.createArticle(this.article).subscribe(data => {
-      this.router.navigate(["cms", "articles"]);
+      this.router.navigate(["cms", this.rootCateId, "articles"]);
     }, err => { });
   }
 

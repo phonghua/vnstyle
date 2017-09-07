@@ -8,6 +8,7 @@ import { HttpService } from "./http.service";
 import { ArticleService } from "./articles.service";
 import { LanguageService } from "./language.service";
 import { CategoryService } from "./category.service";
+import { AppService } from './app.service';
 
 export const SHARED_SERVICES = [
   ShopService,
@@ -19,7 +20,8 @@ export const SHARED_SERVICES = [
   HttpService,
   ArticleService,
   LanguageService,
-  CategoryService
+  CategoryService,
+  AppService
 
 ];
 
@@ -33,3 +35,4 @@ export * from "./http.service";
 export * from "./articles.service";
 export * from "./language.service";
 export * from "./category.service";
+export * from "./app.service";

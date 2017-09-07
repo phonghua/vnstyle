@@ -123,4 +123,25 @@
   <data name="Global_Home" xml:space="preserve">
     <value>Trang chủ</value>
   </data>
+  <data name="RootCate_Article" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="RootCate_Course" xml:space="preserve">
+    <value>Khóa học</value>
+  </data>
+  <data name="RootCate_Event" xml:space="preserve">
+    <value>Sự kiện</value>
+  </data>
+  <data name="RootCate_Image" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="RootCate_Intro" xml:space="preserve">
+    <value>Giới thiệu</value>
+  </data>
+  <data name="RootCate_Piercing" xml:space="preserve">
+    <value>Xỏ khuyên</value>
+  </data>
+  <data name="RootCate_Tattoo" xml:space="preserve">
+    <value>Xăm</value>
+  </data>
 </root>

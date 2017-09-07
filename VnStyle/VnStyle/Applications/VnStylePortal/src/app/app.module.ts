@@ -49,8 +49,8 @@ import { AuthLayoutModule } from './containers/auth-layout-container/';
 import { MainLayoutModule } from './containers/main-layout-container/main-layout-container.module';
 
 import { SHARED_SERVICES } from './services/';
-
-
+import { SpinnerDirective } from './directives/spinner.directive';
+import { BlockUIModule } from 'ng-block-ui';
 
 
 
@@ -72,13 +72,13 @@ import { SHARED_SERVICES } from './services/';
     DashboardComponent,
     AuthSilentRenewComponent,
     RIcheckDirective,
-    RIcheckComponent,
     FormSummaryErrorComponent,
     SpinnerComponent,
     CurrencyEditorComponent,
     DecimalEditorComponent,
     LoginComponent,
-    ],
+    // SpinnerDirective
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -93,6 +93,8 @@ import { SHARED_SERVICES } from './services/';
 
     AuthLayoutModule,
     MainLayoutModule,
+    BlockUIModule,
+    
   ],
   exports: [
     AuthLayoutModule,

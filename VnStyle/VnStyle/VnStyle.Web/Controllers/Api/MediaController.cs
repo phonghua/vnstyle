@@ -69,5 +69,44 @@ namespace VnStyle.Web.Controllers.Api
             JsonDataResult.Data = new { images = images };
             return this.CreateResponseMessage();
         }
+
+
+        [HttpPost]
+        [Route("photo/{album}/{cateId}")]
+        public HttpResponseMessage UploadAlbumPhoto(int cateId)
+        {
+            var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
+
+            List<UploadPhotoModelView> images = new List<UploadPhotoModelView>();
+            int fileCount = HttpContext.Current.Request.Files.Count;
+            for (int i = 0; i < fileCount; i++)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[i];
+                var fileName = Path.GetFileName(file.FileName);
+
+                var data = StreamHelper.ReadToEnd(file.InputStream);
+                var pictureId = _mediaService.InsertPicture(new UploadFileRequest
+                {
+                    SourceTarget = EMediaFileSourceTarget.ImageDisk,
+                    Binary = data,
+                    MimeType = file.ContentType,
+                    StoragePath = ApplicationSettings.ImageStoragePath,
+                    Path = $"{Guid.NewGuid()}{Path.GetExtension(fileName)}"
+                });
+                var imageUrl = _mediaService.GetPictureUrl(pictureId);
+                images.Add(new UploadPhotoModelView
+                {
+                    Id = pictureId,
+                    FilePath = imageUrl,
+                    FileUrl = $"{currentHosting}{imageUrl}",
+                });
+            }
+
+            // save to album
+            //images.ForEach(p=> p.);
+
+            JsonDataResult.Data = new { images = images };
+            return this.CreateResponseMessage();
+        }
     }
 }

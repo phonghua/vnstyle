@@ -5,9 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
-// import {
-//   SharedCommonModule
-// } from '../../common';
+import { SpinnerDirective } from '../../directives/spinner.directive';
+
 
 import {
   MainLayoutContainerComponent
@@ -27,6 +26,7 @@ import {
     MainLayoutContainerComponent,
     TopNavComponent,
     SiderBarComponent,
+    SpinnerDirective
   ],
   providers: [],
   entryComponents: [],

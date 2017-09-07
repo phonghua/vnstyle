@@ -6,26 +6,38 @@
   </div>
   <div class="portlet-body">
     <div class="form-group">
-      <label for="">Headline</label>
+      <label for="">Tiêu đề</label>
       <input type="text" class="form-control" [(ngModel)]="articleLanguageValue.headLine">
     </div>
 
 
     <div class="form-group">
-      <label for="">Extract</label>
+      <label for="">Tóm tắt</label>
       <textarea class="form-control" [(ngModel)]="articleLanguageValue.extract" rows="5"></textarea>
     </div>
 
 
     <div class="form-group">
-      <label for="">Content</label>
+      <label for="">Nội dung</label>
       <div [froalaEditor]="editorOptions" [(froalaModel)]="articleLanguageValue.content"></div>
     </div>
 
 
-    
+
+    <div class="form-group">
+      <label for="">Kích hoạt</label>
+      <app-r-icheck [(ngModel)]="articleLanguageValue.isActive"></app-r-icheck>
+    </div>
+
+    <div class="form-group">
+      <label for="">Hiển thị trang chủ</label>
+      <app-r-icheck [(ngModel)]="articleLanguageValue.isShowHomePage"></app-r-icheck>
+    </div>
+
   </div>
 </div>
+
+
 
 
 <div class="portlet light">
@@ -38,12 +50,3 @@
     <app-seo-meta [(seoMeta)]="articleLanguageValue.metaTag"></app-seo-meta>
   </div>
 </div>
-
-
-
-
-
-
-
-
-<!-- <div [froalaView]="articleLanguageValue.content"></div> -->

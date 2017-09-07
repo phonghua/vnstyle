@@ -70,9 +70,11 @@
     <Compile Include="Business\IAppContextUrlRouting.cs" />
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
+    <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\MediaService.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
+    <Compile Include="Business\RootCategoryService.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\Category.cs" />
@@ -103,13 +105,21 @@
     <Compile Include="Data\IBaseRepository.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\VnStyleContext.cs" />
-    <Compile Include="Migrations\201709031345552_InitDb.cs" />
-    <Compile Include="Migrations\201709031345552_InitDb.Designer.cs">
-      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
+    <Compile Include="Migrations\201709051520207_InitDb.cs" />
+    <Compile Include="Migrations\201709051520207_InitDb.Designer.cs">
+      <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.cs" />
-    <Compile Include="Migrations\201709040038544_UpdateAspNetClients.Designer.cs">
-      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
+    <Compile Include="Migrations\201709051630131_AddCateIntoArticle.cs" />
+    <Compile Include="Migrations\201709051630131_AddCateIntoArticle.Designer.cs">
+      <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709070932435_ArticleRootCate.cs" />
+    <Compile Include="Migrations\201709070932435_ArticleRootCate.Designer.cs">
+      <DependentUpon>201709070932435_ArticleRootCate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709071054069_ArticleFlag.cs" />
+    <Compile Include="Migrations\201709071054069_ArticleFlag.Designer.cs">
+      <DependentUpon>201709071054069_ArticleFlag.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,11 +135,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709031345552_InitDb.resx">
-      <DependentUpon>201709031345552_InitDb.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709051520207_InitDb.resx">
+      <DependentUpon>201709051520207_InitDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709040038544_UpdateAspNetClients.resx">
-      <DependentUpon>201709040038544_UpdateAspNetClients.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709051630131_AddCateIntoArticle.resx">
+      <DependentUpon>201709051630131_AddCateIntoArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709070932435_ArticleRootCate.resx">
+      <DependentUpon>201709070932435_ArticleRootCate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071054069_ArticleFlag.resx">
+      <DependentUpon>201709071054069_ArticleFlag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

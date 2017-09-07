@@ -14,4 +14,17 @@ export class CategoryService {
     .map(res => res.json())
     .catch(err => Observable.throw(err));
   }
+
+  getArticleCategories(): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/categories/root-categories/article`)
+    .map(res => res.json())
+    .catch(err => Observable.throw(err));
+  }
+
+  getGalleryCategories(): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/categories/root-categories/gallery`)
+    .map(res => res.json())
+    .catch(err => Observable.throw(err));
+  }
+  
 }

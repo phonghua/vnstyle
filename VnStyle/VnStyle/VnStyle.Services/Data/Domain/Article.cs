@@ -11,9 +11,12 @@ namespace VnStyle.Services.Data.Domain
         public DateTime ModifiedDate { get; set; }
         public DateTime PublishDate { get; set; }
         public int CreatedBy { get; set; }
-        public EArticleState State { get; set; }
         public string HeadLine { get; set; }
         public long? FeatureImageId { get; set; }
+        public int? CategoryId { get; set; }
+        public int RootCate { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsShowHomepage { get; set; }
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
         public virtual ICollection<RelatedArticle> RelatedArticles1 { get; set; }

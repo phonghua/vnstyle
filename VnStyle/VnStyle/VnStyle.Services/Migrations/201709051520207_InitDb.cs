@@ -47,12 +47,13 @@ namespace VnStyle.Services.Migrations
                         Id = c.Long(nullable: false, identity: true),
                         Article1Id = c.Int(nullable: false),
                         Article2Id = c.Int(nullable: false),
+                        Seq = c.Single(nullable: false),
+                        ModifiedDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Articles", t => t.Article1Id, cascadeDelete: true)
                 .ForeignKey("dbo.Articles", t => t.Article2Id)
-                .Index(t => t.Article1Id)
-                .Index(t => t.Article2Id);
+                .Index(t => new { t.Article1Id, t.Article2Id }, unique: true, name: "IDX_RelatedArticle_U");
             
             CreateTable(
                 "dbo.MetaTags",
@@ -218,8 +219,7 @@ namespace VnStyle.Services.Migrations
             DropForeignKey("dbo.ArticleLanguages", "ArticleId", "dbo.Articles");
             DropForeignKey("dbo.RelatedArticles", "Article2Id", "dbo.Articles");
             DropForeignKey("dbo.RelatedArticles", "Article1Id", "dbo.Articles");
-            DropIndex("dbo.RelatedArticles", new[] { "Article2Id" });
-            DropIndex("dbo.RelatedArticles", new[] { "Article1Id" });
+            DropIndex("dbo.RelatedArticles", "IDX_RelatedArticle_U");
             DropIndex("dbo.ArticleLanguages", new[] { "ArticleId" });
             DropIndex("dbo.ArticleLanguages", new[] { "MetaTagId" });
             DropTable("dbo.Files");

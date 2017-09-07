@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { AuthService } from './../../services/auth.service';
-//import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { IComponent, Breadcrumb, Action } from "app/interfaces/component.interface";
+import { Observable } from 'rxjs/Observable';
+import { LanguageService, CategoryService, AppService } from '../../services';
 
 @Component({
   selector: 'app-main-layout-container',
@@ -11,15 +12,28 @@ import { IComponent, Breadcrumb, Action } from "app/interfaces/component.interfa
   styleUrls: ['./main-layout-container.component.css']
 })
 export class MainLayoutContainerComponent implements OnInit {
-_user: any;
-  loadedUserSub: any;
+
   private breadcrumbs: Breadcrumb[] = [];
   private actions: Action[] = [];
+  private loading: boolean = true;
 
   @ViewChild(RouterOutlet) routerOutlet: RouterOutlet;
-  constructor() { }
+  constructor(private languageService: LanguageService, private appService: AppService, private categoryService: CategoryService) { }
 
   ngOnInit() {
+    Observable.forkJoin([
+      this.languageService.getLanguages(),
+      this.categoryService.getArticleCategories(),
+      this.categoryService.getGalleryCategories()
+    ], ).subscribe(resp => {
+      this.loading = false;
+      this.appService.raiseAppInitlizedEvent({
+        languages: resp[0],
+        articleCategories: resp[1],
+        galleryCategories: resp[2]
+      });
+
+    });
   }
   onActivate(event) {
 
@@ -29,8 +43,6 @@ _user: any;
     this.breadcrumbs = [new Breadcrumb("Home", "/")];
     this.actions = [];
     if (this.routerOutlet != undefined && this.routerOutlet.isActivated && this.routerOutlet.component != null && this.isIComponent(this.routerOutlet.component)) {
-      // this.menus = (this.el.component as IComponent).getActions();
-      // this.title = (this.el.component as IComponent).getTitle();
       this.breadcrumbs = (this.routerOutlet.component as IComponent).getBreadcrumb();
       this.actions = (this.routerOutlet.component as IComponent).getActions();
     }
@@ -43,8 +55,8 @@ _user: any;
   private callAction($event, action) {
     $event.preventDefault();
     if (action.func && typeof (action.func) == 'function') action.func();
-    
-    //this.routerOutlet.component[action.func()]();
+
+
   }
 
   onDeactivate(event) {

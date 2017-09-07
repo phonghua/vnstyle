@@ -4,7 +4,6 @@ namespace VnStyle.Services.Data.Enum
     {
         Live = 0,
         Approval,
-        Draf,
-        Deleted
+        Draf
     }
 }

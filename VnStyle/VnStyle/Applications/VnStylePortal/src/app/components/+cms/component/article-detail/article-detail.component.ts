@@ -78,8 +78,6 @@ export class ArticleDetailComponent implements OnInit {
 
   deleteArticle() {
     this.confirmModal.open();
-
-
     this.confirmModal.ok = () => {
       this.articleService.deleteArticle(this.article.id).subscribe(() => {
         this.router.navigate(["cms", "articles"]);
@@ -90,6 +88,12 @@ export class ArticleDetailComponent implements OnInit {
   editArticle() {
     this.editArticleState.originalModel = JSON.parse(JSON.stringify(this.article));
     this.editArticleState.editing = true;
+  }
+
+  refreshRelatedArticleGrid() {
+    this.articleService.getRelatedArticles(this.article.id).subscribe(data => {
+      this.releatedArticles.data = data;
+    })
   }
 
   saveArticle() {
@@ -114,10 +118,28 @@ export class ArticleDetailComponent implements OnInit {
   private get suggestRelatedArticles() {
     return this.allArticles.filter(p => p.id != this.article.id);
   }
-  selectedArticle = {};
 
-  public relatedArticleSelected(article) {
-    console.log("relatedArticleSelected", article, this.selectedArticle);
+  private selectedArticle = null;
 
+  public relatedArticleSelected(event) {
+    // console.log("relatedArticleSelected", article, this.selectedArticle);
+    if (event && event.id && event.id > 0) {
+      this.articleService.addRelatedArticle(this.article.id, event.id).subscribe(() => {
+        this.selectedArticle = null;
+        this.refreshRelatedArticleGrid();
+      });
+    }
+  }
+
+  public removeRelatedArticle(relatedArticleId) {
+    this.articleService.deleteRelatedArticle(this.article.id, relatedArticleId).subscribe(() => {
+      this.refreshRelatedArticleGrid();
+    });
+  }
+
+  public swapRelatedArticle(relatedArticleId1, relatedArticleId2) {
+    this.articleService.swapRelatedArticle(this.article.id, relatedArticleId1, relatedArticleId2).subscribe(() => {
+      this.refreshRelatedArticleGrid();
+    });
   }
 }

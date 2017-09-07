@@ -7,13 +7,13 @@ namespace VnStyle.Services.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UpdateAspNetClients : IMigrationMetadata
+    public sealed partial class ArticleFlag : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateAspNetClients));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ArticleFlag));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709040038544_UpdateAspNetClients"; }
+            get { return "201709071054069_ArticleFlag"; }
         }
         
         string IMigrationMetadata.Source

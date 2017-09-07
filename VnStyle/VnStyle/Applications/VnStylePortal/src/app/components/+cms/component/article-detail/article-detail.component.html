@@ -1,41 +1,89 @@
-<div class="row" *ngIf="!(!(selectedArticleLanguage))">
-  <div class="col-sm-12 col-md-8">
-    <div *ngIf="!editArticleState.editing">
-      <h2 class="bold">{{selectedArticleLanguage.headLine}}</h2>
-      <div class="bold">
-        {{selectedArticleLanguage.extract}}
+<div class="row" *ngIf="!(!(selectedArticleLanguage))" style="margin-top: 15px">
+  <div class="col-sm-12 col-md-8" *ngIf="!editArticleState.editing">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="portlet light">
+          <div class="portlet-title">
+            <div class="caption">
+              {{selectedArticleLanguage.headLine}}
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div>
+              <div class="bold">
+                {{selectedArticleLanguage.extract}}
+              </div>
+
+              <div [froalaView]="selectedArticleLanguage.content"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <div [froalaView]="selectedArticleLanguage.content"></div>
-
-      <h3>Search Engine</h3>
-      {{selectedArticleLanguage.metaTag.keywords}} {{selectedArticleLanguage.metaTag.description}}
-
-    </div>
-
-    <div *ngIf="editArticleState.editing">
-      <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
     </div>
 
     <div class="row">
       <div class="col-xs-12">
-        <table class="table table-tripped">
-          <tr *ngFor="let i of releatedArticles.data">
-            <td>{{i.headerLine}}</td>
-          </tr>
-          <tfoot>
-            <tr>
-              <td>
-                <typeahead [(ngModel)]="selectedArticle" [list]="suggestRelatedArticles" [searchProperty]="'headLine'" [displayProperty]="'headLine'" [maxSuggestions]="10"
-                  (suggestionSelected)="relatedArticleSelected($event)" placeholder="Search article">
-                </typeahead>
+        <div class="portlet light">
+          <div class="portlet-title">
+            <div class="caption">
+              SEO Meta
+            </div>
+          </div>
+          <div class="portlet-body">
+            <h3>Search Engine</h3>
+            {{selectedArticleLanguage.metaTag.keywords}} {{selectedArticleLanguage.metaTag.description}}
+          </div>
+        </div>
 
-                <p>You selected {{ fruitName }}</p>
-              </td>
-            </tr>
-          </tfoot>
-        </table>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="portlet light">
+          <div class="portlet-title">
+            <div class="caption">
+              Bài viết liên quan
+            </div>
+          </div>
+          <div class="portlet-body">
+            <table class="table table-tripped">
+              <tr *ngFor="let art of releatedArticles.data;  let i = index">
+                <td>{{art.headLine}}</td>
+                <td class="text-right" style="width: 30px">
+                  <a href="javascript:;" *ngIf="i > 0" (click)="swapRelatedArticle(art.id, releatedArticles.data[i - 1].id);"><i class="fa fa-arrow-up"></i></a>
+                </td>
+                <td class="text-right" style="width: 30px">
+                  <a href="javascript:;" *ngIf="i < (releatedArticles.data.length - 1)" (click)="swapRelatedArticle(art.id, releatedArticles.data[i + 1].id);"><i class="fa fa-arrow-down"></i></a>
+                </td>
+                <td class="text-right" style="width: 50px">
+                  <a href="javascript:;" (click)="removeRelatedArticle(art.id)"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+              <tfoot>
+                <tr>
+
+                  <td colspan="4">
+                    <typeahead [list]="suggestRelatedArticles" [searchProperty]="'headLine'" [displayProperty]="'headLine'" [maxSuggestions]="10"
+                      (suggestionSelected)="relatedArticleSelected($event)" placeholder="Search article">
+                    </typeahead>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-8" *ngIf="editArticleState.editing">
+    <div>
+      <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
     </div>
   </div>
 
@@ -47,11 +95,11 @@
     </div>
     <div class="row">
       <div class="col-xs-12" *ngIf="!editArticleState.editing">
-        <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Edit</button>
-        <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Delete</button>
+        <button class="btn btn-primary" (click)="editArticle();"><i class="fa fa-pencil"></i>  Chỉnh sửa</button>
+        <button class="btn btn-danger" (click)="deleteArticle();"><i class="fa fa-trash"></i>  Xóa</button>
       </div>
       <div class="col-xs-12" *ngIf="editArticleState.editing">
-        <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Save</button>
+        <button class="btn btn-primary" (click)="saveArticle();"><i class="fa fa-save"></i>  Lưu lại</button>
         <button class="btn btn-default" (click)="cancelEdit();"> Cancel</button>
       </div>
     </div>
