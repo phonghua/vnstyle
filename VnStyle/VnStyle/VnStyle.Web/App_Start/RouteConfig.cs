@@ -13,6 +13,22 @@ namespace VnStyle.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            #region "Intro"
+            routes.MapRoute(
+                name: "Intro_Language",
+                url: "{lang}/gioi-thieu",
+                defaults: new { controller = "Home", action = "Intro", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
+
+            routes.MapRoute(
+                name: "Intro",
+                url: "gioi-thieu",
+                defaults: new { controller = "Home", action = "Intro", id = UrlParameter.Optional, lang = "vi" }
+            );
+            #endregion
+
+            #region "Default"
             routes.MapRoute(
                 name: "Language",
                 url: "{lang}/{controller}/{action}/{id}",
@@ -25,6 +41,9 @@ namespace VnStyle.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, lang = "vi" }
             );
+
+            #endregion
+
         }
     }
 }

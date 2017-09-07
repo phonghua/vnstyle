@@ -322,6 +322,7 @@
     <Compile Include="Infrastructure\WorkContext.cs" />
     <Compile Include="Models\Auth\LoginRequest.cs" />
     <Compile Include="Models\Auth\LoginRequestValidator.cs" />
+    <Compile Include="Models\Home\ArticleViewerModelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
@@ -563,6 +564,8 @@
     <Content Include="Views\Home\Images.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Intro.cshtml" />
+    <Content Include="Views\Home\ArticleViewer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
