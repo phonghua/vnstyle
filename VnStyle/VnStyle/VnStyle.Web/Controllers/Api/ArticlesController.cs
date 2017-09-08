@@ -70,6 +70,8 @@ namespace VnStyle.Web.Controllers.Api
                     ModifiedDate = p.ModifiedDate,
                     PublishDate = p.PublishDate,
                     FeatureImageId = p.FeatureImageId,
+                    IsActive = p.IsActive,
+                    IsShowHomepage = p.IsShowHomepage,
                     ArticleLanguages = p.ArticleLanguages.Select(al => new ArticleLanguageModelView
                     {
                         Id = al.Id,
@@ -128,6 +130,8 @@ namespace VnStyle.Web.Controllers.Api
 
             entity.HeadLine = article.ArticleLanguages.Where(p => p.LanguageId == _resourceService.DefaultLanguageId()).Select(p => p.HeadLine).FirstOrDefault();
             entity.ModifiedDate = DateTimeHelper.GetCurrentDateTime();
+            entity.IsActive = article.IsActive;
+            entity.IsShowHomepage = article.IsShowHomepage;
             if (article.FeatureImageId.HasValue && entity.FeatureImageId != article.FeatureImageId) entity.FeatureImageId = article.FeatureImageId;
 
             foreach (var entityArticleLanguage in entity.ArticleLanguages)

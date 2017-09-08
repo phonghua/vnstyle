@@ -10,6 +10,19 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4">
         <app-picture-form-control [(ngModel)]="article.featureImage" [readonly]="false"></app-picture-form-control>
+
+
+        <div class="form">
+          <div class="form-group">            
+            <app-r-icheck [(ngModel)]="article.isActive" ></app-r-icheck>
+            <span for="">Kích hoạt</span>
+          </div>
+
+          <div class="form-group">            
+            <app-r-icheck [(ngModel)]="article.isShowHomepage"></app-r-icheck>
+            <span for="">Hiển thị trang chủ</span>
+          </div>
+        </div>
         <div>
           <button class="btn btn-primary" (click)="saveArticle()">Lưu lại</button>
         </div>

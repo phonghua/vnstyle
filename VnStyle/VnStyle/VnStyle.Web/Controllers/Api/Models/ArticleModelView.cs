@@ -16,6 +16,8 @@ namespace VnStyle.Web.Controllers.Api.Models
         public EArticleState State { get; set; }
         public string HeadLine { get; set; }
         public long? FeatureImageId { get; set; }
+        public bool IsActive { get; set; }
+        public bool IsShowHomepage { get; set; }
         public ImageModelView FeatureImage { get; set; }
 
         public virtual IEnumerable<ArticleLanguageModelView> ArticleLanguages { get; set; }
