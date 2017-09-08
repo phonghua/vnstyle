@@ -45,8 +45,9 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail()
+        public ActionResult Detail(int? id,string rootCate)
         {
+            
             return View();
         }
         public ActionResult Contact()
@@ -59,35 +60,62 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult Events()
         {
-            return View();
+            var currentLanguage = _workContext.CurrentLanguage;
+            var defaultLanguage = _resourceService.DefaultLanguageId();
+
+            var articles = (from a in _articleRepository.Table.Where(p => p.RootCate == (int)ERootCategory.Event)
+                            join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                            select new { a.Id, a.FeatureImageId, al.Content, al.HeadLine, al.Extract, a.CreatedDate }).ToList();
+
+            
+            var query = articles.Select(p => new ArticleViewerModelView
+            {
+                Id = p.Id,
+                Content = p.Content,
+                Headline = p.HeadLine,
+                UrlImage = _mediaService.GetPictureUrl((long)p.FeatureImageId),
+                Extract = p.Extract,
+                CreatedDate = p.CreatedDate
+
+
+            }).ToList();
+
+
+
+            return View(query);
+
+            
         }
-        public ActionResult Courses()
+        public ActionResult Course()
         {
             var currentLanguage = _workContext.CurrentLanguage;
             var defaultLanguage = _resourceService.DefaultLanguageId();
 
             var articles = (from a in _articleRepository.Table.Where(p => p.RootCate == (int)ERootCategory.Course)
                            join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-                           select new {a.Id , a.FeatureImageId , al.Content,al.HeadLine}).ToList();
+                           select new {a.Id , a.FeatureImageId , al.Content,al.HeadLine,al.Extract, a.CreatedDate}).ToList();
 
-            //var query = articles.Select( p => new {
-            //    Id = p.Id,
-            //    Content = p.Content,
-            //    HeadLine = p.HeadLine,
-            //    ImageID = p.FeatureImageId
-            //}).ToList();
-            var query1 = articles.Select(p => new ArticleViewerModelView
+            if (articles == null && currentLanguage == defaultLanguage)
+            {
+                //... return NOT FOUND
+            }            
+
+            
+            var query = articles.Select(p => new ArticleViewerModelView
             {
                 Id = p.Id,
                 Content = p.Content,
                 Headline = p.HeadLine,
-                UrlImage = _mediaService.GetPictureUrl((long)p.FeatureImageId)
+                UrlImage = _mediaService.GetPictureUrl((long)p.FeatureImageId),
+                Extract = p.Extract,
+                CreatedDate = p.CreatedDate
+               
 
             }).ToList();         
             
             
             
-            return View(query1);
+            return View(query);
             
 
 

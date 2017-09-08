@@ -1,0 +1,62 @@
+﻿@model IEnumerable<VnStyle.Web.Models.Home.ArticleViewerModelView>
+@{
+    ViewBag.Title = "Courses";
+}
+@using VnStyle.Web.Infrastructure.Helpers;
+
+<div id="nlg-module-bfbf79f5-5ae0" class="nlg-module nlg-module-grid-posts">
+    <div class="container">
+
+        <div class="nlg-module-header nlg-has-tax-nav">
+            <div class="nlg-module-title">
+                <h2 class="nlg-title">@Html.T("RootCate_Course")</h2>
+               
+            </div>
+
+        </div>
+
+        <div class="nlg-col-wrap nlg-col-1">
+            @foreach (var course in Model)
+            {
+                <div class="nlg-col">
+                    <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
+                             style="padding-top: 0px;">
+                        <figure class="nlg-featured-media">
+                            <a href="#">
+                                <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
+                            </a>
+                            <div class="nlg-entry-flags">
+                                <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
+                            </div>
+
+                        </figure>
+                        <div class="nlg-entry-body">
+                            <ul class="nlg-entry-meta first no-spacing">                               
+                                <li class="nlg-date">
+                                    <a href="#">
+                                       
+                                        @String.Format("{0:dddd, MMMM d, yyyy}", course.CreatedDate)
+                                    </a>
+                                </li>
+                            </ul>
+                            <header class="nlg-entry-header">
+                                <h3 class="nlg-entry-title">
+                                    <a href="#">@course.Headline</a>
+                                </h3>
+                              
+                                <p class="nlg-entry-excerpt">@course.Extract</p>
+                            </header>
+                        </div>
+                    </article>
+                </div>
+            }
+           
+            
+           
+
+            <div class="nlg-pagination nlg-pagination-loadmore"><span data-href="" class="btn" data-load-page="2"><i class="fa fa-circle-o-notch"></i>Load More</span></div>
+           
+        </div>
+
+    </div>
+</div>

@@ -1,4 +1,6 @@
-﻿namespace VnStyle.Web.Models.Home
+﻿using System;
+
+namespace VnStyle.Web.Models.Home
 {
     public class ArticleViewerModelView
     {
@@ -6,5 +8,7 @@
         public string Headline { get; set; }
         public string Content { get; set; }
         public string UrlImage { get; set; }
+        public string Extract { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

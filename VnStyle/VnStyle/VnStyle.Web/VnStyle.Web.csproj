@@ -560,7 +560,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\XamTv.cshtml" />
     <Content Include="Views\Home\Events.cshtml" />
-    <Content Include="Views\Home\Courses.cshtml" />
+    <Content Include="Views\Home\Course.cshtml" />
     <Content Include="Views\Home\Images.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
