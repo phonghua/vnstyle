@@ -6,14 +6,14 @@
             <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
         </li>
         <li  >
-            <a href="@Url.HostAction("Detail","Home")">Xăm</a>
+            <a href="@Url.HostAction("Detail","Home")">@Html.T("RootCate_Tattoo")</a>
         </li>
-        <li >
-            <a href="#">Xỏ Khuyên</a>
-            
+        <li>
+            <a href="#">@Html.T("RootCate_Piercing")</a>
         </li>
+        
         <li id="menu-item-511" class="menu-item-has-children menu-item-mega-menu">
-            <a href="#" data-cat="28">Sự kiện</a>
+            <a href="#" data-cat="28">@Html.T("RootCate_Event")</a>
             <div class="nlg-mega-menu nlg-menu-drop">
                 <div class="nlg-module nlg-module-grid-posts nlg-mm-posts">
 
@@ -168,7 +168,7 @@
             </div>
         </li>
         <li id="menu-item-9" >
-            <a href="#">Hình ảnh</a>
+            <a href="#">@Html.T("RootCate_Image")</a>
             <div class="nlg-links-menu nlg-menu-drop">
                 <ul class="sub-menu">
                     <li >
@@ -186,12 +186,9 @@
                 </ul>
             </div>
         </li>
-        <li><a href="#">Khóa học</a></li>
+        <li><a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a></li>
         <li ><a href="#">XAMTV</a></li>
-        <li>
-            <a href="#">Xỏ Khuyên</a>
-
-        </li>
+       
           <li>
             <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 

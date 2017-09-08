@@ -24,6 +24,8 @@ namespace VnStyle.Web.Controllers
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
+        private readonly IMediaService _mediaService;
+       
 
         public HomeController()
         {
@@ -32,6 +34,8 @@ namespace VnStyle.Web.Controllers
             _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
+            
+            _mediaService = EngineContext.Current.Resolve<IMediaService>();
         }
         public ActionResult Index()
         {
@@ -59,7 +63,35 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult Courses()
         {
-            return View();
+            var currentLanguage = _workContext.CurrentLanguage;
+            var defaultLanguage = _resourceService.DefaultLanguageId();
+
+            var articles = (from a in _articleRepository.Table.Where(p => p.RootCate == (int)ERootCategory.Course)
+                           join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                           select new {a.Id , a.FeatureImageId , al.Content,al.HeadLine}).ToList();
+
+            //var query = articles.Select( p => new {
+            //    Id = p.Id,
+            //    Content = p.Content,
+            //    HeadLine = p.HeadLine,
+            //    ImageID = p.FeatureImageId
+            //}).ToList();
+            var query1 = articles.Select(p => new ArticleViewerModelView
+            {
+                Id = p.Id,
+                Content = p.Content,
+                Headline = p.HeadLine,
+                UrlImage = _mediaService.GetPictureUrl((long)p.FeatureImageId)
+
+            }).ToList();         
+            
+            
+            
+            return View(query1);
+            
+
+
+
         }
         public ActionResult Images()
         {
@@ -91,15 +123,17 @@ namespace VnStyle.Web.Controllers
                 //... return NOT FOUND
             }
             articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro).FirstOrDefault(p => p.LanguageId == defaultLanguage);
+            
             if (articleLanguage == null)
             {
                 //... return NOT FOUND
             }
-
+            
             var model = new ArticleViewerModelView
             {
                 Headline = articleLanguage.HeadLine,
                 Content = articleLanguage.Content
+                
             };
             return View(model);
         }

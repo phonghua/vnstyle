@@ -1,7 +1,15 @@
-﻿
+﻿@model IEnumerable<VnStyle.Web.Models.Home.ArticleViewerModelView>
 @{
     ViewBag.Title = "Courses";
 }
+@foreach (var course in Model)
+{
+    <p>@course.Id</p>
+    <p>@course.Headline</p>
+    <div>@Html.Raw(course.Content)</div>
+    
+    <img src="@course.UrlImage"></img>
 
+}
 <h2>Courses</h2>
 
