@@ -13,6 +13,9 @@ import { ComposeArticleComponent } from "./component/shared/compose-article/comp
 import { ComposeArticleLanguageComponent } from "./component/shared/compose-article-language/compose-article-language.component";
 import { SeoMetaComponent } from "./component/shared/seo-meta/seo-meta.component";
 import { CategoriesComponent } from "./component/categories/categories.component";
+import { GalleryPhotoComponent } from './component/gallery-photo/gallery-photo.component';
+import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-photo-new.component';
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
 import { PictureFormControlComponent } from '../../components/shared/picture-form-control/picture-form-control.component';
@@ -49,7 +52,9 @@ import { Typeahead } from './../shared/typehead/typehead.component';
     PictureFormControlComponent,
     RIcheckComponent,
     ConfirmModalComponent,
-    Typeahead
+    Typeahead,
+    GalleryPhotoComponent,
+    GalleryPhotoNewComponent
   ],
   entryComponents: []
 })

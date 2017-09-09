@@ -10,3 +10,4 @@ npm-debug.log
 *.log
 .vscode/
 VnStyle/VnStyle/VnStyle.Web/contents/uploads/
+VnStyle/VnStyle/VnStyle.Web/imagecache/

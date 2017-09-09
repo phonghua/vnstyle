@@ -9,10 +9,20 @@ import 'rxjs/Rx';
 export class AppService {
 
     appInitialized: EventEmitter<any> = new EventEmitter<any>();
+    private _data;
+    public get AllCategories() {
+        return this._data.articleCategories.concat(this._data.galleryPhotoCategories);
+    }
+
     constructor() { }
 
     raiseAppInitlizedEvent(data) {
+        //
+        this._data = data;
+        console.log("initialized", data);
         this.appInitialized.emit(data);
+
+
     }
 
 }

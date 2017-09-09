@@ -39,7 +39,7 @@
         <h3 class="uppercase">Bài viết</h3>
       </li>
       <li class="nav-item" *ngFor="let rootCate of articleCategories">
-        <a [routerLink]="'/cms/' + rootCate.id + '/articles'" class="nav-link ">
+        <a [routerLink]="'/cms/' + rootCate.id + '/' + friendlyUrl(rootCate.name) +  '/articles'" class="nav-link ">
           <i class="fa fa-file-o"></i>
             <span class="title">{{rootCate.name}}</span>
         </a>
@@ -47,10 +47,16 @@
       <li class="heading">
         <h3 class="uppercase">Bộ sưu tập</h3>
       </li>
-      <li class="nav-item" *ngFor="let rootCate of galleryCategories">
-        <a [routerLink]="'/cms/' + rootCate.id + '/gallery'" class="nav-link ">
+      <li class="nav-item" *ngFor="let rootCate of galleryPhotoCategories">
+        <a [routerLink]="'/cms/' + rootCate.id + '/' +  friendlyUrl(rootCate.name) + '/gallery-photo'" class="nav-link ">
           <i class="fa fa-file-o"></i>
             <span class="title">{{rootCate.name}}</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="" class="nav-link ">
+          <i class="fa fa-file-o"></i>
+            <span class="title">Danh mục</span>
         </a>
       </li>
     </ul>
