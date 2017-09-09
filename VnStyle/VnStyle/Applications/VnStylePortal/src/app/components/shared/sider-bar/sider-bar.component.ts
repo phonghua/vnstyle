@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './../../../services';
+import { AppService, GeneralService } from './../../../services';
+
 @Component({
   selector: 'app-sider-bar',
   templateUrl: './sider-bar.component.html',
@@ -8,18 +9,22 @@ import { AppService } from './../../../services';
 export class SiderBarComponent implements OnInit {
 
   private articleCategories = [];
-  private galleryCategories = [];
+  private galleryPhotoCategories = [];
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private generateService: GeneralService) { }
 
 
   ngOnInit() {
     this.appService.appInitialized.subscribe(data => {
       console.log("subscribe at siderbar", data);
       this.articleCategories = data.articleCategories;
-      this.galleryCategories = data.galleryCategories;
+      this.galleryPhotoCategories = data.galleryPhotoCategories;
 
     });
+  }
+
+  friendlyUrl(cateName) {
+    return this.generateService.friendlyUrl(cateName, 80);
   }
 
 }

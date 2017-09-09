@@ -39,8 +39,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK, this._rootCategoryService.GetAllRootCategories().Where(p => articleCate.Contains((ERootCategory)p.Id)));
         }
 
-        [Route("root-categories/gallery")]
-        public HttpResponseMessage GetGalleryCategories()
+        [Route("root-categories/gallery-photo")]
+        public HttpResponseMessage GetGalleryPhotoCategories()
         {
             var articleCate = new List<ERootCategory> { ERootCategory.Image };
             return Request.CreateResponse(HttpStatusCode.OK, this._rootCategoryService.GetAllRootCategories().Where(p => articleCate.Contains((ERootCategory)p.Id)));

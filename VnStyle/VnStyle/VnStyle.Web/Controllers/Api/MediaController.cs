@@ -10,6 +10,8 @@ using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.ObjectContainer;
 using VnStyle.Services.Business;
 using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Data;
+using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
 using VnStyle.Web.Controllers.Api.Models;
 using VnStyle.Web.Infrastructure;
@@ -23,7 +25,7 @@ namespace VnStyle.Web.Controllers.Api
 
         private readonly IMediaService _mediaService;
         private readonly IWebHelper _webHelper;
-
+        private readonly IBaseRepository<GalleryPhoto> _galleryPhotoRepository;
 
 
         #endregion
@@ -33,6 +35,7 @@ namespace VnStyle.Web.Controllers.Api
         {
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
             _webHelper = EngineContext.Current.Resolve<IWebHelper>();
+            _galleryPhotoRepository = EngineContext.Current.Resolve<IBaseRepository<GalleryPhoto>>();
         }
         #endregion
 
@@ -48,7 +51,7 @@ namespace VnStyle.Web.Controllers.Api
             {
                 HttpPostedFile file = HttpContext.Current.Request.Files[i];
                 var fileName = Path.GetFileName(file.FileName);
-                
+
                 var data = StreamHelper.ReadToEnd(file.InputStream);
                 var pictureId = _mediaService.InsertPicture(new UploadFileRequest
                 {
@@ -72,7 +75,7 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [HttpPost]
-        [Route("photo/{album}/{cateId}")]
+        [Route("gallery-photo/{cateId}")]
         public HttpResponseMessage UploadAlbumPhoto(int cateId)
         {
             var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
@@ -103,7 +106,17 @@ namespace VnStyle.Web.Controllers.Api
             }
 
             // save to album
-            //images.ForEach(p=> p.);
+            images.ForEach(p =>
+            {
+                this._galleryPhotoRepository.Insert(new GalleryPhoto
+                {
+                    FileId = p.Id,
+                    CategoryId = cateId,
+                    CreatedDate = DateTimeHelper.GetCurrentDateTime()
+                });
+            });
+
+            this._galleryPhotoRepository.SaveChanges();
 
             JsonDataResult.Data = new { images = images };
             return this.CreateResponseMessage();

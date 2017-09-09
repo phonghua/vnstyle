@@ -80,6 +80,7 @@
     <Compile Include="Data\Domain\Category.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\File.cs" />
+    <Compile Include="Data\Domain\GalleryPhoto.cs" />
     <Compile Include="Data\Domain\Language.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetClient.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetRefreshToken.cs" />
@@ -109,6 +110,10 @@
     <Compile Include="Migrations\201709070711552_InitDb.Designer.cs">
       <DependentUpon>201709070711552_InitDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709090241202_AddGalleryPhoto.cs" />
+    <Compile Include="Migrations\201709090241202_AddGalleryPhoto.Designer.cs">
+      <DependentUpon>201709090241202_AddGalleryPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,6 +130,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709070711552_InitDb.resx">
       <DependentUpon>201709070711552_InitDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709090241202_AddGalleryPhoto.resx">
+      <DependentUpon>201709090241202_AddGalleryPhoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,13 +24,13 @@ export class MainLayoutContainerComponent implements OnInit {
     Observable.forkJoin([
       this.languageService.getLanguages(),
       this.categoryService.getArticleCategories(),
-      this.categoryService.getGalleryCategories()
+      this.categoryService.getGalleryPhotoCategories()
     ], ).subscribe(resp => {
       this.loading = false;
       this.appService.raiseAppInitlizedEvent({
         languages: resp[0],
         articleCategories: resp[1],
-        galleryCategories: resp[2]
+        galleryPhotoCategories: resp[2]
       });
 
     });

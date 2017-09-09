@@ -43,6 +43,8 @@ namespace VnStyle.Services.Data
         public DbSet<MetaTag> MetaTags { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<RelatedArticle> RelatedArticles { get; set; }
+        public DbSet<GalleryPhoto> GalleryPhotos { get; set; }
+        
 
 
         public DbSet<AspNetClient> AspNetClients { get; set; }
@@ -119,6 +121,9 @@ namespace VnStyle.Services.Data
             modelBuilder.Entity<RelatedArticle>().Property(p => p.Article2Id).HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("IDX_RelatedArticle_U") { IsUnique = true, Order = 2 })).IsRequired();
             modelBuilder.Entity<RelatedArticle>().Property(p => p.ModifiedDate).HasColumnType("datetime2");
 
+
+            modelBuilder.Entity<GalleryPhoto>().HasKey(p => p.Id);
+            modelBuilder.Entity<GalleryPhoto>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
         }
 

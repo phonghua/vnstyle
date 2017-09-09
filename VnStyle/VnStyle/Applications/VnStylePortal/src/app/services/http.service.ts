@@ -84,7 +84,7 @@ export class HttpService {
   }
 
 
-  postMarkupGallery(markupId, files, options?) {
+  postGalleryPhoto(cateId, files, options?) {
     let formData: FormData = new FormData(),
       xhr: XMLHttpRequest = new XMLHttpRequest();
 
@@ -111,7 +111,7 @@ export class HttpService {
 
     };
 
-    xhr.open('POST', this.settingService.portal + `webadmin/markups/${markupId}/photo`, true);
+    xhr.open('POST', this.settingService.portal + `api/media/gallery-photo/${cateId}`, true);
     xhr.setRequestHeader("Authorization", this.authService.currentUser.token_type + " " + this.authService.currentUser.access_token);
     xhr.send(formData);
   }
