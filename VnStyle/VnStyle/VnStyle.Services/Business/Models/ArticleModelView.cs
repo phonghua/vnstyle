@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VnStyle.Services.Business.Messages
+namespace VnStyle.Services.Business.Models
 {
     public class ArticleModelView
     {

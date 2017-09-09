@@ -14,7 +14,7 @@ using VnStyle.Services.Data;
 using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
 using VnStyle.Web.Models.Home;
-using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Business.Models;
 
 namespace VnStyle.Web.Controllers
 {
@@ -47,9 +47,17 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int? id,string rootCate)
+        public ActionResult Detail(int? id)
         {
             
+            var request = new ArticleModelRequest
+            {
+                
+                currentLanguage = _workContext.CurrentLanguage,
+                defaultLanguage = _resourceService.DefaultLanguageId()
+
+            };
+            var article = _articleService.GetArticleById(id,request);
             return View();
         }
         public ActionResult Contact()

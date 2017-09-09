@@ -6,7 +6,7 @@ using AutoMapper.QueryableExtensions;
 using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.Caching;
 using VnStyle.Services.Business.Dtos;
-using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Business.Models;
 using VnStyle.Services.Data;
 using VnStyle.Services.Data.Enum;
 using File = VnStyle.Services.Data.Domain.File;

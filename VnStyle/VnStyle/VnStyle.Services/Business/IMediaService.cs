@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using VnStyle.Services.Business.Dtos;
-using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Business.Models;
 
 namespace VnStyle.Services.Business
 {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Business.Models;
 using VnStyle.Services.Data;
 using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
@@ -95,5 +95,32 @@ namespace VnStyle.Services.Business
             };
             return model;
         }
+
+        public ArticleModelView GetArticleById(int? id, ArticleModelRequest request)
+        {
+            //throw new NotImplementedException();
+            if (id == null)
+            {
+                // return Not Found
+            }
+            var article = _articleRepository.Table.Where(p => p.Id == id);
+            var query = (from a in article
+                         select new ArticleModelView
+                         {
+                             Id = a.Id,
+                             Headline = a.HeadLine,
+                             ImageId = a.FeatureImageId
+                         });
+            var query2 = query.FirstOrDefault();
+            if (query2.ImageId == null)
+            {
+                query2.UrlImage = "/Content/images/no-image.png";
+            }
+            query2.UrlImage = _mediaService.GetPictureUrl(query2.ImageId.Value);
+            return query2; 
+            
+        }
     }
 }
+
+// 
