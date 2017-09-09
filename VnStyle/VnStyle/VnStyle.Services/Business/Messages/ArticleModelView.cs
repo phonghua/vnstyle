@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VnStyle.Web.Models.Home
+namespace VnStyle.Services.Business.Messages
 {
-    public class ArticleViewerModelView
+    public class ArticleModelView
     {
         public int Id { get; set; }
         public string Headline { get; set; }
