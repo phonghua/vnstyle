@@ -35,7 +35,7 @@
           <span class="title">Dashboard</span>
         </a>
       </li>
-      <li class="heading">
+      <!-- <li class="heading">
         <h3 class="uppercase">Bài viết</h3>
       </li>
       <li class="nav-item" *ngFor="let rootCate of articleCategories">
@@ -58,8 +58,16 @@
           <i class="fa fa-file-o"></i>
             <span class="title">Danh mục</span>
         </a>
+      </li> -->
+      <li [class.nav-item]="!menu.heading" [class.heading]="menu.heading" *ngFor="let menu of menuItems">
+        <h3 *ngIf="menu.heading" class="uppercase">{{menu.text}}</h3>
+        <a *ngIf="!menu.heading" [routerLink]="menu.url" class="nav-link ">
+          <i class="fa fa-file-o"></i>
+            <span class="title">{{menu.text}}</span>
+        </a>
       </li>
     </ul>
+
 
   </div>
 </div>
