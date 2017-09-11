@@ -9,7 +9,7 @@ using System.Web.Http;
 using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.ObjectContainer;
 using VnStyle.Services.Business;
-using VnStyle.Services.Business.Messages;
+using VnStyle.Services.Business.Models;
 using VnStyle.Services.Data;
 using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;

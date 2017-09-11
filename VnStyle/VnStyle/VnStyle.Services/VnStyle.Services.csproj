@@ -65,14 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\ArticleService.cs" />
     <Compile Include="Business\CachingKey.cs" />
     <Compile Include="Business\Dtos\FileDto.cs" />
     <Compile Include="Business\IAppContextUrlRouting.cs" />
+    <Compile Include="Business\IArticleService.cs" />
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
     <Compile Include="Business\IRootCategoryService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\MediaService.cs" />
+    <Compile Include="Business\Models\ArticleModelView.cs" />
+    <Compile Include="Business\Models\ArticleModelRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\RootCategoryService.cs" />
     <Compile Include="Business\UserService.cs" />

@@ -1,6 +1,6 @@
 ﻿using VnStyle.Services.Data.Enum;
 
-namespace VnStyle.Services.Business.Messages
+namespace VnStyle.Services.Business.Models
 {
     public class UploadFileRequest
     {
