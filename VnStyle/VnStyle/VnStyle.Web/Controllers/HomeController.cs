@@ -47,38 +47,21 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int? id)
         {
+            var request = new ArticleModelRequest
+            {
+                
+                currentLanguage = _workContext.CurrentLanguage,
+                defaultLanguage = _resourceService.DefaultLanguageId()
 
-            //if (id == null)
-            //{
-            //    //
-            //}
-            //else
-            //{
-            //    var request = new ArticleModelRequest
-            //    {
-
-            //        currentLanguage = _workContext.CurrentLanguage,
-            //        defaultLanguage = _resourceService.DefaultLanguageId()
-
-            //    };
-            //    var article = _articleService.GetArticleById(id, request);
-            //    return View(article);
-            //}
-
-
-            //var request = new ArticleModelRequest
-            //{
-
-            //    currentLanguage = _workContext.CurrentLanguage,
-            //    defaultLanguage = _resourceService.DefaultLanguageId()
-
-            //};
-            //var article = _articleService.GetArticleById(id, request);
-            //if (article == null) return NotFound();
-
-            return View();
+            };
+            if(id == null)
+            {
+               ///
+            }
+            var article = _articleService.GetArticleById(4,request);
+            return View(article);
 
             
         }

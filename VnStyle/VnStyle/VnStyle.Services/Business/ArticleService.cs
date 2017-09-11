@@ -98,51 +98,70 @@ namespace VnStyle.Services.Business
 
         public ArticleModelView GetArticleById(int id, ArticleModelRequest request)
         {
-            ArticleModelView a = new ArticleModelView();
-            return a;
-//            //throw new NotImplementedException();
-            
-//            var article = _articleRepository.Table.Where(p => p.Id == id);
+            //var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
+            ////articleLanguage = articleLanguage.Where(p => p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
 
-//            //if (article == null)
-//            //{
-//            //    //return Not Found
-//            //}
-//            //var query = (from a in article
-//            //             select new ArticleModelView
-//            //             {
-//            //                 Id = a.Id,
-//            //                 Headline = a.HeadLine,
-                             
-//            //                 ImageId = a.FeatureImageId
-//            //             });
-//            //var query2 = query.FirstOrDefault();
-//            //if (query2.ImageId == null)
-//            //{
-//            //    query2.UrlImage = "/Content/images/no-image.png";
-//            //}
-//            //query2.UrlImage = _mediaService.GetPictureUrl(query2.ImageId.Value);
-//            return query2; 
-            
-//=======
-//            var article = _articleRepository.Table.Where(p => p.Id == id).Select(a => new ArticleModelView
-//            {
-//                Id = a.Id,
-//                Headline = a.HeadLine,
-//                ImageId = a.FeatureImageId
-//            }).FirstOrDefault();
-//            if (article == null) return null;
-//            if (!article.ImageId.HasValue)
-//            {
-//                article.UrlImage = "/Content/images/no-image.png";
-//            }
-//            else
-//            {
-//                article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
-//            }
-//            return article;
+            //if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            //{
+            //    return null;
+            //}
+            //articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
 
-//>>>>>>> 226568b45fb0e50c658ea735161ada98502ad2e4
+            //if (articleLanguage == null)
+            //{
+            //    return null;
+            //}
+
+            //var model = new ArticleModelView
+            //{
+            //    Headline = articleLanguage.HeadLine,
+            //    Content = articleLanguage.Content,
+
+
+            //};
+            //return model;
+            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
+
+            //if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            //{
+            //    return null;
+            //}
+            //articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == request.rootCate && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
+           
+            //if (articleLanguage == null)
+            //{
+            //    return null;
+            //}
+
+            var model = new ArticleModelView
+            {
+                Id = articleLanguage.Id,
+                Headline = articleLanguage.HeadLine,
+                Content = articleLanguage.Content,
+                ImageId = articleLanguage.ImageId,
+                Extract = articleLanguage.Extract,
+                CreatedDate = articleLanguage.CreatedDate
+                
+            };
+            if (model.ImageId.HasValue)
+            {
+                model.UrlImage = _mediaService.GetPictureUrl(model.ImageId.Value);
+            }
+            else
+            {
+                model.UrlImage = "/Content/images/no-image.png";
+            }
+            return model;
+
         }
     }
 }
