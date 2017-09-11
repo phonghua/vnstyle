@@ -20,7 +20,7 @@ namespace VnStyle.Services.Business
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
 
-        
+
         public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService)
         {
             _articleRepository = articleRepository;
@@ -33,8 +33,8 @@ namespace VnStyle.Services.Business
         public IEnumerable<ArticleModelView> GetArticles(ArticleModelRequest request)
         {
 
-           
-            
+
+
             var articles = (from a in _articleRepository.Table.Where(p => p.RootCate == request.rootCate && p.IsActive == true)
                             join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == request.currentLanguage) on a.Id equals al.ArticleId
                             select new { a.Id, a.FeatureImageId, al.Content, al.HeadLine, al.Extract, a.CreatedDate }).ToList();
@@ -69,7 +69,7 @@ namespace VnStyle.Services.Business
                 }
             }
             return query;
-            
+
 
         }
 
@@ -78,13 +78,13 @@ namespace VnStyle.Services.Business
             var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
             if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
             {
-                //... return NOT FOUND
+                return null;
             }
             articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
 
             if (articleLanguage == null)
             {
-                //... return NOT FOUND
+                return null;
             }
 
             var model = new ArticleModelView
@@ -96,29 +96,25 @@ namespace VnStyle.Services.Business
             return model;
         }
 
-        public ArticleModelView GetArticleById(int? id, ArticleModelRequest request)
+        public ArticleModelView GetArticleById(int id, ArticleModelRequest request)
         {
-            //throw new NotImplementedException();
-            if (id == null)
+            var article = _articleRepository.Table.Where(p => p.Id == id).Select(a => new ArticleModelView
             {
-                // return Not Found
-            }
-            var article = _articleRepository.Table.Where(p => p.Id == id);
-            var query = (from a in article
-                         select new ArticleModelView
-                         {
-                             Id = a.Id,
-                             Headline = a.HeadLine,
-                             ImageId = a.FeatureImageId
-                         });
-            var query2 = query.FirstOrDefault();
-            if (query2.ImageId == null)
+                Id = a.Id,
+                Headline = a.HeadLine,
+                ImageId = a.FeatureImageId
+            }).FirstOrDefault();
+            if (article == null) return null;
+            if (!article.ImageId.HasValue)
             {
-                query2.UrlImage = "/Content/images/no-image.png";
+                article.UrlImage = "/Content/images/no-image.png";
             }
-            query2.UrlImage = _mediaService.GetPictureUrl(query2.ImageId.Value);
-            return query2; 
-            
+            else
+            {
+                article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+            }
+            return article;
+
         }
     }
 }

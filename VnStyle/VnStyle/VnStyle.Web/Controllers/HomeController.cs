@@ -47,17 +47,17 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int? id)
+        public ActionResult Detail(int id)
         {
-            
+
             var request = new ArticleModelRequest
             {
-                
+
                 currentLanguage = _workContext.CurrentLanguage,
                 defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
-            var article = _articleService.GetArticleById(id,request);
+            var article = _articleService.GetArticleById(id, request);
             return View();
         }
         public ActionResult Contact()
@@ -91,7 +91,7 @@ namespace VnStyle.Web.Controllers
             {
                 rootCate = (int)ERootCategory.Course,
                 currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()               
+                defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
 
@@ -116,6 +116,7 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView();
         }
+
         public ActionResult Footer()
         {
             return PartialView();
