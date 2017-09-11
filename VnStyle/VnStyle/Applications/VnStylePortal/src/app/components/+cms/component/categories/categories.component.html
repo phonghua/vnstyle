@@ -1,46 +1,26 @@
 <div class="col-md-4">
-    <p class="well" style="height:135px;"><strong>Initialization optional parameters</strong>
-
-        
-
-    </p>
-    <ul id="tree3" class="tree">
-        <li class="branch"><i class="indicator glyphicon glyphicon-chevron-down"></i><a href="#">TECH</a>
-
-            <ul>
-                <li style="display: none;">Company Maintenance</li>
-                <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Employees
-                    <ul>
-                        <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Reports
-                            <ul>
-                                <li style="display: none;">Report1</li>
-                                <li style="display: none;">Report2</li>
-                                <li style="display: none;">Report3</li>
-                            </ul>
-                        </li>
-                        <li style="display: none;">Employee Maint.</li>
-                    </ul>
-                </li>
-                <li style="display: none;">Human Resources</li>
-            </ul>
+  <!-- <ul id="tree3" class="tree">
+    <li class="branch" *ngFor="let rootCate of getRootCategories()">
+      <i class="indicator glyphicon glyphicon-chevron-down"></i><a href="#">{{rootCate.name}}</a>
+      <ul>
+        <li style="display: none;">Company Maintenance</li>
+        <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Employees
+          <ul>
+            <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Reports
+              <ul>
+                <li style="display: none;">Report1</li>
+                <li style="display: none;">Report2</li>
+                <li style="display: none;">Report3</li>
+              </ul>
+            </li>
+            <li style="display: none;">Employee Maint.</li>
+          </ul>
         </li>
-        <li class="branch"><i class="indicator glyphicon glyphicon-chevron-down"></i>XRP
-            <ul>
-                <li style="display: none;">Company Maintenance</li>
-                <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Employees
-                    <ul>
-                        <li class="branch" style="display: none;"><i class="indicator glyphicon glyphicon-chevron-down"></i>Reports
-                            <ul>
-                                <li style="display: none;">Report1</li>
-                                <li style="display: none;">Report2</li>
-                                <li style="display: none;">Report3</li>
-                            </ul>
-                        </li>
-                        <li style="display: none;">Employee Maint.</li>
-                    </ul>
-                </li>
-                <li style="display: none;">Human Resources</li>
-            </ul>
-        </li>
-    </ul>
+        <li style="display: none;">Human Resources</li>
+      </ul>
+    </li>
+
+  </ul> -->
+
+  <app-treeview></app-treeview>
 </div>

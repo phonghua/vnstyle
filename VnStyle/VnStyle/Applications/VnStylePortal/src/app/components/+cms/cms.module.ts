@@ -24,6 +24,7 @@ import { RIcheckComponent } from '../../components/shared/r-icheck/r-icheck.comp
 import { ConfirmModalComponent } from '../../components/shared/confirm-modal/confirm-modal.component';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { Typeahead } from './../shared/typehead/typehead.component';
+import { TreeviewComponent } from './../shared/treeview/treeview.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { Typeahead } from './../shared/typehead/typehead.component';
     ConfirmModalComponent,
     Typeahead,
     GalleryPhotoComponent,
-    GalleryPhotoNewComponent
+    GalleryPhotoNewComponent,
+    TreeviewComponent
   ],
   entryComponents: []
 })
