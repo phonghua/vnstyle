@@ -303,6 +303,7 @@
     <Compile Include="Controllers\Api\Models\ArticleModelView.cs" />
     <Compile Include="Controllers\Api\Models\ImageModelView.cs" />
     <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -582,6 +583,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
+    <Folder Include="Views\App\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Categories\" />
   </ItemGroup>
