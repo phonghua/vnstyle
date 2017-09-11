@@ -49,16 +49,25 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult Detail(int? id)
         {
-            
-            var request = new ArticleModelRequest
+            if (id == null)
             {
-                
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
+                //
+            }
+            else
+            {
+                var request = new ArticleModelRequest
+                {
 
-            };
-            var article = _articleService.GetArticleById(id,request);
+                    currentLanguage = _workContext.CurrentLanguage,
+                    defaultLanguage = _resourceService.DefaultLanguageId()
+
+                };
+                var article = _articleService.GetArticleById(id, request);
+                return View(article);
+            }
             return View();
+
+            
         }
         public ActionResult Contact()
         {
@@ -161,7 +170,7 @@ namespace VnStyle.Web.Controllers
 
 
         [ChildActionOnly]
-        public ActionResult ArticleViewer(ArticleViewerModelView model)
+        public ActionResult ArticleViewer(ArticleModelView model)
         {
             return PartialView(model);
         }

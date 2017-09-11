@@ -80,7 +80,7 @@ namespace VnStyle.Services.Business
             {
                 //... return NOT FOUND
             }
-            articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
+            articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
 
             if (articleLanguage == null)
             {
@@ -98,25 +98,29 @@ namespace VnStyle.Services.Business
 
         public ArticleModelView GetArticleById(int? id, ArticleModelRequest request)
         {
+
             //throw new NotImplementedException();
-            if (id == null)
-            {
-                // return Not Found
-            }
+            
             var article = _articleRepository.Table.Where(p => p.Id == id);
-            var query = (from a in article
-                         select new ArticleModelView
-                         {
-                             Id = a.Id,
-                             Headline = a.HeadLine,
-                             ImageId = a.FeatureImageId
-                         });
-            var query2 = query.FirstOrDefault();
-            if (query2.ImageId == null)
-            {
-                query2.UrlImage = "/Content/images/no-image.png";
-            }
-            query2.UrlImage = _mediaService.GetPictureUrl(query2.ImageId.Value);
+
+            //if (article == null)
+            //{
+            //    //return Not Found
+            //}
+            //var query = (from a in article
+            //             select new ArticleModelView
+            //             {
+            //                 Id = a.Id,
+            //                 Headline = a.HeadLine,
+                             
+            //                 ImageId = a.FeatureImageId
+            //             });
+            //var query2 = query.FirstOrDefault();
+            //if (query2.ImageId == null)
+            //{
+            //    query2.UrlImage = "/Content/images/no-image.png";
+            //}
+            //query2.UrlImage = _mediaService.GetPictureUrl(query2.ImageId.Value);
             return query2; 
             
         }
