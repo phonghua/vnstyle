@@ -1,11 +1,5 @@
-﻿@using VnStyle.Web.Models.Home
-@{
-    var model = new ArticleViewerModelView
-    {
-        Headline = "Tiêu đề bài viết",
-        Content = "Nội dung bài viêt"
-    };
-}
-@Html.Action("ArticleViewer", model)
+﻿@model VnStyle.Services.Business.Models.ArticleModelView
+
+@Html.Action("ArticleViewer", Model)
 
 <h2>Bài viết liên quan</h2>

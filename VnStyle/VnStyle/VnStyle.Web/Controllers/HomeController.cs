@@ -50,16 +50,37 @@ namespace VnStyle.Web.Controllers
         public ActionResult Detail(int id)
         {
 
-            var request = new ArticleModelRequest
-            {
+            //if (id == null)
+            //{
+            //    //
+            //}
+            //else
+            //{
+            //    var request = new ArticleModelRequest
+            //    {
 
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
+            //        currentLanguage = _workContext.CurrentLanguage,
+            //        defaultLanguage = _resourceService.DefaultLanguageId()
 
-            };
-            var article = _articleService.GetArticleById(id, request);
-            if (article == null) return NotFound();
+            //    };
+            //    var article = _articleService.GetArticleById(id, request);
+            //    return View(article);
+            //}
+
+
+            //var request = new ArticleModelRequest
+            //{
+
+            //    currentLanguage = _workContext.CurrentLanguage,
+            //    defaultLanguage = _resourceService.DefaultLanguageId()
+
+            //};
+            //var article = _articleService.GetArticleById(id, request);
+            //if (article == null) return NotFound();
+
             return View();
+
+            
         }
         public ActionResult Contact()
         {
@@ -140,7 +161,7 @@ namespace VnStyle.Web.Controllers
         
 
         [ChildActionOnly]
-        public ActionResult ArticleViewer(ArticleViewerModelView model)
+        public ActionResult ArticleViewer(ArticleModelView model)
         {
             return PartialView(model);
         }
