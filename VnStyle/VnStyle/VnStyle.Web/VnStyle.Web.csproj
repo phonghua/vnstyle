@@ -257,6 +257,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>vi.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\App.cs" />
     <Compile Include="App_Start\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -576,6 +577,7 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\Intro.cshtml" />
     <Content Include="Views\Home\ArticleViewer.cshtml" />
+    <Content Include="Views\Shared\_NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
