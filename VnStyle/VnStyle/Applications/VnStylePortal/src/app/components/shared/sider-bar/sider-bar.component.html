@@ -65,7 +65,18 @@
           <i class="fa fa-file-o"></i>
             <span class="title">{{menu.text}}</span>
         </a>
+
+        <ul class="sub-menu" *ngIf="menu.children && menu.children.length > 0" style="display: block">
+          <li class="nav-item" *ngFor="let sub of menu.children">
+            <a [routerLink]="sub.url" class="nav-link ">
+                  <span class="title">{{sub.text}}</span>
+            </a>
+          </li>
+        </ul>
       </li>
+
+
+
     </ul>
 
 

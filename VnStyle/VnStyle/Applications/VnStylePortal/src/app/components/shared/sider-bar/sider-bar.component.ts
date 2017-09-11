@@ -17,13 +17,14 @@ export class SiderBarComponent implements OnInit {
       return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/articles' };
     });
     var galleryPhotoCategories = this.galleryPhotoCategories.map(p => {
-      //return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' };
       var heading = {
-        text: p.name, heading: true, children: [
-          { text: 'p.name', url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' },
+        text: p.name, heading: false, children: [
+          { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' },
           { text: 'Danh mục', url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/categories' }
         ]
       };
+
+      // /cms/4/hinh-anh/categories
 
       return heading;
     });
@@ -43,7 +44,6 @@ export class SiderBarComponent implements OnInit {
       console.log("subscribe at siderbar", data);
       this.articleCategories = data.articleCategories;
       this.galleryPhotoCategories = data.galleryPhotoCategories;
-
 
       console.log(this.menuItems);
     });

@@ -33,8 +33,12 @@ export class CategoriesComponent implements OnInit {
     this.categories.loading = false;
     this.categoryService.getCategories(rootCateId).subscribe( data => {
       // console.log("categories", data);
-      this.categories.loading = false,
-      this.categories.data = data
+      this.categories.loading = false;
+      this.categories.data = data;
     });
+  }
+
+  getRootCategories(){
+    return this.categories.data.filter(p=> p.parent == null);
   }
 }
