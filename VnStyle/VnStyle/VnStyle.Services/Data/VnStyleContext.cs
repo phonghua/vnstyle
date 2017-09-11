@@ -56,8 +56,9 @@ namespace VnStyle.Services.Data
         public DbSet<AspNetUserLogin> AspNetUserLogin { get; set; }
         public DbSet<AspNetUserProfile> AspNetUserProfiles { get; set; }
         public DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
-
+        
 
 
 
@@ -124,6 +125,9 @@ namespace VnStyle.Services.Data
 
             modelBuilder.Entity<GalleryPhoto>().HasKey(p => p.Id);
             modelBuilder.Entity<GalleryPhoto>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<Setting>().HasKey(p => p.Id);
+            modelBuilder.Entity<Setting>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
         }
 

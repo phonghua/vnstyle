@@ -1,9 +1,14 @@
 ﻿@using Ricky.Infrastructure.Core.ObjectContainer
+@using VnStyle.Services.Business.Settings
 @using VnStyle.Web.Infrastructure.Helpers
 @{
     var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
     var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+
+    var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+    
 }
 
 <!DOCTYPE html>
@@ -13,7 +18,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/ef542.css" media="all">
-    <title>VnstyleTatoo</title>
+    <title>@appSetting.ApplicationName</title>
     <link rel="stylesheet" href="~/Content/css/font-awesome.css">
 
     <link href="~/Content/css/woocommerce.css" rel="stylesheet" />
@@ -21,8 +26,6 @@
 
     <link href="~/Content/css/bootstrap-flex.min.css" rel="stylesheet" />
 
-
-    @*<script type="text/javascript" src="~/Content/js/be44a.js"></script>*@
     <script type="text/javascript" src="~/Content/js/118e1.js"></script>
     <script type="text/javascript" src="~/Content/js/c4be6.js"></script>
     <link rel="stylesheet" type="text/css" id="gravatar-card-css" href="~/Content/css/hovercard.css">
@@ -41,17 +44,17 @@
                 <div class="container">
                     <ul id="menu-top-bar-menu" class="nlg-top-left-menu nlg-top-bar-menu">
                         <li id="menu-item-278" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-278">
-                            <a target="_blank" href="#">Liên hệ: +84 939293186 (Phạm Mai) </a>
+                            <a target="_blank" href="#">Liên hệ: @appSetting.HomepageContact </a>
 
                         </li>
                         <li id="menu-item-281" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-281">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="@appSetting.Facebook"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li id="menu-item-282" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-282">
                             <a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li id="menu-item-283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-283">
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a target="_blank" href="@appSetting.Youtube"><i class="fa fa-youtube"></i></a>
                         </li>
                         <li id="menu-item-284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-284">
                             <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -75,11 +78,10 @@
 
                 <div class="container">
                     <div class="nlg-header-brand">
-                        <a href="#" rel="home">
+                        
+                        <a href="@Url.HomePage()" rel="@appSetting.ApplicationName">
                             <span class="nlg-logo nlg-main-logo">
-
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark attachment-full size-full agg-fade-in lazyloaded" alt="logo-big-dark">
-
+                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img" alt="@appSetting.ApplicationName">
                             </span>
                         </a>
                     </div>
@@ -99,14 +101,14 @@
                 <div class="container">
 
                     <div class="nlg-header-brand">
-                        <a href="#" rel="home">
+                        <a href="@Url.HomePage()" rel="@appSetting.ApplicationName">
                             <span class="nlg-logo nlg-sticky-logo">
-                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light attachment-full size-full lazyload agg-fade-in" alt="logo-big-light">
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark attachment-full size-full lazyload agg-fade-in" alt="logo-big-dark">
+                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
+                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
                             </span>
                             <span class="nlg-logo nlg-mobile-logo">
-                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light attachment-full size-full lazyload agg-fade-in" alt="logo-big-light">
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark attachment-full size-full lazyload agg-fade-in" alt="logo-big-dark">
+                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
+                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
                             </span>
                         </a>
                     </div>

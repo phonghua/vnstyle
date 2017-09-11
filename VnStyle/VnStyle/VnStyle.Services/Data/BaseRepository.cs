@@ -20,7 +20,7 @@ namespace VnStyle.Services.Data
         /// <summary>
         /// <see cref="DbSet"/>
         /// </summary>
-        private IDbSet<TEntity> _dbSet;
+        private readonly IDbSet<TEntity> _dbSet;
 
 
         public IQueryable<TEntity> Table => _dbSet;

@@ -64,26 +64,26 @@ export class SlideComponent implements OnInit {
 
 
   fileOnChanged(event) {
-    let files = this._elFileInput.nativeElement.files;
-    this.httpService.postMarkupGallery(this.markupId, files, {
-      onProgress: (processEvent) => {
-        console.log("onProgress", processEvent);
-      },
-      onFinished: (result) => {
-        // this.imageUrl = result.Data.images[0].FileUrl;
-        // this.imageId = result.Data.images[0].PhotoId;
+    // let files = this._elFileInput.nativeElement.files;
+    // this.httpService.postMarkupGallery(this.markupId, files, {
+    //   onProgress: (processEvent) => {
+    //     console.log("onProgress", processEvent);
+    //   },
+    //   onFinished: (result) => {
+    //     // this.imageUrl = result.Data.images[0].FileUrl;
+    //     // this.imageId = result.Data.images[0].PhotoId;
 
-        // this.propagateChange({
-        //   imageId: this.imageId,
-        //   imageUrl: this.imageUrl
-        // });
+    //     // this.propagateChange({
+    //     //   imageId: this.imageId,
+    //     //   imageUrl: this.imageUrl
+    //     // });
 
-        this.refreshSlide();
-      },
-      error: () => { }
-    });
+    //     this.refreshSlide();
+    //   },
+    //   error: () => { }
+    // });
 
-    console.log("fileOnChanged", event, this._elFileInput, files);
+    //console.log("fileOnChanged", event, this._elFileInput, files);
 
   }
 }

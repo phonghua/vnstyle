@@ -55,7 +55,7 @@ export class GeneralService {
       s4() + '-' + s4() + s4() + s4();
   }
 
-  friendlyUrl(title, maxlen) {
+  friendlyUrl(title) {
     //Đổi chữ hoa thành chữ thường
     var slug = title.toLowerCase();
 

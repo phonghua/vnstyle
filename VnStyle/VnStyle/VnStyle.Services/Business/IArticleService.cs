@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using VnStyle.Services.Business.Models;
-using VnStyle.Services.Data.Enum;
 
 namespace VnStyle.Services.Business
 {
@@ -12,7 +7,7 @@ namespace VnStyle.Services.Business
     {
         IEnumerable<ArticleModelView> GetArticles(ArticleModelRequest request);
         ArticleModelView GetArticleIntro(ArticleModelRequest request);
-        ArticleModelView GetArticleById(int? id,ArticleModelRequest request);
+        ArticleModelView GetArticleById(int id,ArticleModelRequest request);
 
     }
 }

@@ -257,6 +257,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>vi.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\App.cs" />
     <Compile Include="App_Start\AutoMapperConfiguration.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="Controllers\Api\Models\ArticleModelView.cs" />
     <Compile Include="Controllers\Api\Models\ImageModelView.cs" />
     <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -576,10 +578,12 @@
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\Intro.cshtml" />
     <Content Include="Views\Home\ArticleViewer.cshtml" />
+    <Content Include="Views\Shared\_NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
+    <Folder Include="Views\App\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Categories\" />
   </ItemGroup>

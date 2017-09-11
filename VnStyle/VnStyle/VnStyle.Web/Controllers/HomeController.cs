@@ -47,24 +47,37 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int? id)
+        public ActionResult Detail(int id)
         {
-            if (id == null)
-            {
-                //
-            }
-            else
-            {
-                var request = new ArticleModelRequest
-                {
 
-                    currentLanguage = _workContext.CurrentLanguage,
-                    defaultLanguage = _resourceService.DefaultLanguageId()
+            //if (id == null)
+            //{
+            //    //
+            //}
+            //else
+            //{
+            //    var request = new ArticleModelRequest
+            //    {
 
-                };
-                var article = _articleService.GetArticleById(id, request);
-                return View(article);
-            }
+            //        currentLanguage = _workContext.CurrentLanguage,
+            //        defaultLanguage = _resourceService.DefaultLanguageId()
+
+            //    };
+            //    var article = _articleService.GetArticleById(id, request);
+            //    return View(article);
+            //}
+
+
+            //var request = new ArticleModelRequest
+            //{
+
+            //    currentLanguage = _workContext.CurrentLanguage,
+            //    defaultLanguage = _resourceService.DefaultLanguageId()
+
+            //};
+            //var article = _articleService.GetArticleById(id, request);
+            //if (article == null) return NotFound();
+
             return View();
 
             
@@ -100,7 +113,7 @@ namespace VnStyle.Web.Controllers
             {
                 rootCate = (int)ERootCategory.Course,
                 currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()               
+                defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
 
@@ -125,6 +138,7 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView();
         }
+
         public ActionResult Footer()
         {
             return PartialView();
@@ -139,35 +153,12 @@ namespace VnStyle.Web.Controllers
                 defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
-            var result = _articleService.GetArticleIntro(request);
-            //var currentLanguage = _workContext.CurrentLanguage;
-            //var defaultLanguage = _resourceService.DefaultLanguageId();
-
-            ////var article = from a in _articleRepository.Table.Where(p => p.RootCate == (int)ERootCategory.Intro)
-            ////              join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-            ////              select new { a, al };
-
-            //var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro).FirstOrDefault(p => p.LanguageId == currentLanguage);
-            //if (articleLanguage == null && currentLanguage == defaultLanguage)
-            //{
-            //    //... return NOT FOUND
-            //}
-            //articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro).FirstOrDefault(p => p.LanguageId == defaultLanguage);
-
-            //if (articleLanguage == null)
-            //{
-            //    //... return NOT FOUND
-            //}
-
-            //var model = new ArticleViewerModelView
-            //{
-            //    Headline = articleLanguage.HeadLine,
-            //    Content = articleLanguage.Content
-
-            //};
-            return View(result);
+            var article = _articleService.GetArticleIntro(request);
+            if(article == null) return NotFound();
+            return View(article);
         }
 
+        
 
         [ChildActionOnly]
         public ActionResult ArticleViewer(ArticleModelView model)

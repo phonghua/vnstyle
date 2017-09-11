@@ -73,12 +73,15 @@
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
     <Compile Include="Business\IRootCategoryService.cs" />
+    <Compile Include="Business\ISettingService.cs" />
     <Compile Include="Business\IUserService.cs" />
     <Compile Include="Business\MediaService.cs" />
     <Compile Include="Business\Models\ArticleModelView.cs" />
     <Compile Include="Business\Models\ArticleModelRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\RootCategoryService.cs" />
+    <Compile Include="Business\SettingService.cs" />
+    <Compile Include="Business\Settings\AppSetting.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\Domain\Category.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Data\Domain\MetaTag.cs" />
     <Compile Include="Data\Domain\Article.cs" />
     <Compile Include="Data\Domain\RelatedArticle.cs" />
+    <Compile Include="Data\Domain\Setting.cs" />
     <Compile Include="Data\Enum\EArticleState.cs" />
     <Compile Include="Data\Enum\EAspNetApplicationTypes.cs" />
     <Compile Include="Data\Enum\EBookingType.cs" />
@@ -118,6 +122,14 @@
     <Compile Include="Migrations\201709090241202_AddGalleryPhoto.Designer.cs">
       <DependentUpon>201709090241202_AddGalleryPhoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709110759281_AddSetting.cs" />
+    <Compile Include="Migrations\201709110759281_AddSetting.Designer.cs">
+      <DependentUpon>201709110759281_AddSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709110800333_DropSettingIsDeleted.cs" />
+    <Compile Include="Migrations\201709110800333_DropSettingIsDeleted.Designer.cs">
+      <DependentUpon>201709110800333_DropSettingIsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,6 +149,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709090241202_AddGalleryPhoto.resx">
       <DependentUpon>201709090241202_AddGalleryPhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709110759281_AddSetting.resx">
+      <DependentUpon>201709110759281_AddSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709110800333_DropSettingIsDeleted.resx">
+      <DependentUpon>201709110800333_DropSettingIsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

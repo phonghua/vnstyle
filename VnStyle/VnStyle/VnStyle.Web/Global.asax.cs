@@ -21,6 +21,7 @@ namespace VnStyle.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfiguration.Initialize();
+            App.Intialize();
         }
     }
 }
