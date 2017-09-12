@@ -47,7 +47,7 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int? id)
+        public ActionResult Detail(int id, string title = "")
         {
             var request = new ArticleModelRequest
             {
@@ -56,6 +56,7 @@ namespace VnStyle.Web.Controllers
                 defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
+<<<<<<< HEAD
             if(id == null)
             {
                 RedirectToAction("Index");
@@ -67,6 +68,11 @@ namespace VnStyle.Web.Controllers
             }
 
             return View();
+=======
+            var article = _articleService.GetArticleById(id,request);
+            if (article == null) return NotFound();
+            return View(article);
+>>>>>>> 066d08b444ced067433e323c10f02acd6da62bbf
 
         }
         public ActionResult Contact()
@@ -107,15 +113,7 @@ namespace VnStyle.Web.Controllers
             };
 
             var result = _articleService.GetArticles(request);
-
-
             return View(result);
-
-
-
-
-
-
         }
         public ActionResult Images()
         {
