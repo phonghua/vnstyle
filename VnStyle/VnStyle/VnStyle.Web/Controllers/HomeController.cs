@@ -58,12 +58,16 @@ namespace VnStyle.Web.Controllers
             };
             if(id == null)
             {
-               ///
+                RedirectToAction("Index");
             }
-            var article = _articleService.GetArticleById(4,request);
-            return View(article);
+            else
+            {
+                var article = _articleService.GetArticleById(id.Value, request);
+                return View(article);
+            }
 
-            
+            return View();
+
         }
         public ActionResult Contact()
         {
@@ -96,8 +100,10 @@ namespace VnStyle.Web.Controllers
             {
                 rootCate = (int)ERootCategory.Course,
                 currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
-
+                defaultLanguage = _resourceService.DefaultLanguageId(),
+                PageSize = 10
+                
+               
             };
 
             var result = _articleService.GetArticles(request);
@@ -148,5 +154,22 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView(model);
         }
+        [ChildActionOnly]
+        public ActionResult ArticleNew()
+        {
+            var request = new ArticleModelRequest
+            {
+                rootCate = (int)ERootCategory.Course,
+                currentLanguage = _workContext.CurrentLanguage,
+                defaultLanguage = _resourceService.DefaultLanguageId(),
+                PageSize = 5
+
+
+            };
+
+            var result = _articleService.GetArticlesNew(request);
+            return PartialView(result);
+        }
+
     }
 }
