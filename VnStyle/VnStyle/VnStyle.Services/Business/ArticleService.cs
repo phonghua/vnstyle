@@ -30,7 +30,8 @@ namespace VnStyle.Services.Business
             _mediaService = mediaService;
         }
         #endregion
-        public IEnumerable<ArticleModelView> GetArticles(ArticleModelRequest request)
+        
+        public IPagedList<ArticleModelView> GetArticles(ArticleModelRequest request)
         {
 
 
@@ -57,6 +58,7 @@ namespace VnStyle.Services.Business
 
 
             }).ToList();
+            var total = query.Count();
             foreach (var a in query)
             {
                 if (a.ImageId.HasValue)
@@ -68,7 +70,7 @@ namespace VnStyle.Services.Business
                     a.UrlImage = "/Content/images/no-image.png";
                 }
             }
-            return query;
+            return new PagedList<ArticleModelView>(query, request.PageIndex, request.PageSize, total);
 
 
         }
@@ -95,31 +97,9 @@ namespace VnStyle.Services.Business
             };
             return model;
         }
-
+        
         public ArticleModelView GetArticleById(int id, ArticleModelRequest request)
-        {
-            //var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
-            ////articleLanguage = articleLanguage.Where(p => p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
-
-            //if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
-            //{
-            //    return null;
-            //}
-            //articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
-
-            //if (articleLanguage == null)
-            //{
-            //    return null;
-            //}
-
-            //var model = new ArticleModelView
-            //{
-            //    Headline = articleLanguage.HeadLine,
-            //    Content = articleLanguage.Content,
-
-
-            //};
-            //return model;
+        {            
             var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id).Select(p => new
             {
                 Id = p.ArticleId,
@@ -130,17 +110,24 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 LanguageId = p.LanguageId
             }).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
-
-            //if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
-            //{
-            //    return null;
-            //}
-            //articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.RootCate == request.rootCate && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
-           
-            //if (articleLanguage == null)
-            //{
-            //    return null;
-            //}
+            if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            {
+                return null;
+            }
+            articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
+            if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            {
+                return null;
+            }
 
             var model = new ArticleModelView
             {
@@ -162,6 +149,62 @@ namespace VnStyle.Services.Business
             }
             return model;
 
+        }
+
+        public IPagedList<ArticleModelView> GetArticlesNew(ArticleModelRequest request)
+        {
+            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.IsShowHomepage && p.Article.IsActive == true && p.LanguageId == request.currentLanguage).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).ToList();
+            if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            {
+                return null;
+            }
+            articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.IsShowHomepage && p.Article.IsActive == true && p.LanguageId == request.defaultLanguage).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).ToList();
+            var total = articleLanguage.Count();
+            if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
+            {
+                return null;
+            }
+
+            var model = articleLanguage.Select(p => new ArticleModelView
+            {
+                Id = p.Id,
+                Headline = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.ImageId,
+                Extract = p.Extract,
+                CreatedDate = p.CreatedDate
+            });
+            foreach (var a in model)
+            {
+                if (a.ImageId.HasValue)
+                {
+                    a.UrlImage = _mediaService.GetPictureUrl(a.ImageId.Value);
+                }
+                else
+                {
+                    a.UrlImage = "/Content/images/no-image.png";
+                }
+            }
+            return new PagedList<ArticleModelView>(model, request.PageIndex, request.PageSize, total);
+           
         }
     }
 }

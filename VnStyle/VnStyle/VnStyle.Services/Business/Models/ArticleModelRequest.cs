@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ricky.Infrastructure.Core.Generic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using VnStyle.Services.Data.Enum;
 
 namespace VnStyle.Services.Business.Models
 {
-    public class ArticleModelRequest
+    public class ArticleModelRequest : PagingRequest
     {
         public int rootCate { get; set; }
         public string currentLanguage { get; set; }
