@@ -33,9 +33,6 @@ namespace VnStyle.Services.Business
         
         public IPagedList<ArticleModelView> GetArticles(ArticleModelRequest request)
         {
-
-
-
             var articles = (from a in _articleRepository.Table.Where(p => p.RootCate == request.rootCate && p.IsActive == true)
                             join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == request.currentLanguage) on a.Id equals al.ArticleId
                             select new { a.Id, a.FeatureImageId, al.Content, al.HeadLine, al.Extract, a.CreatedDate }).ToList();
@@ -177,12 +174,12 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 LanguageId = p.LanguageId
             }).ToList();
-            var total = articleLanguage.Count();
+            
             if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
             {
                 return null;
             }
-
+            var total = articleLanguage.Count();
             var model = articleLanguage.Select(p => new ArticleModelView
             {
                 Id = p.Id,
@@ -192,15 +189,16 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 CreatedDate = p.CreatedDate
             });
-            foreach (var a in model)
+            
+            foreach (var article in model)
             {
-                if (a.ImageId.HasValue)
+                if (article.ImageId.HasValue)
                 {
-                    a.UrlImage = _mediaService.GetPictureUrl(a.ImageId.Value);
+                    article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
                 }
                 else
                 {
-                    a.UrlImage = "/Content/images/no-image.png";
+                    article.UrlImage = "/Content/images/no-image.png";
                 }
             }
             return new PagedList<ArticleModelView>(model, request.PageIndex, request.PageSize, total);
@@ -208,5 +206,3 @@ namespace VnStyle.Services.Business
         }
     }
 }
-
-// 
