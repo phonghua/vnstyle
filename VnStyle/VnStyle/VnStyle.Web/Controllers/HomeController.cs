@@ -47,7 +47,7 @@ namespace VnStyle.Web.Controllers
 
             return View();
         }
-        public ActionResult Detail(int id, string title = "")
+        public ActionResult Detail(int? id, string title = "")
         {
             var request = new ArticleModelRequest
             {

@@ -74,28 +74,58 @@ namespace VnStyle.Services.Business
 
         public ArticleModelView GetArticleIntro(ArticleModelRequest request)
         {
-            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == request.rootCate).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
+           
+            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == request.rootCate).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).FirstOrDefault(p => p.LanguageId == request.currentLanguage);
             if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
             {
                 return null;
             }
-            articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive == true).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
-
-            if (articleLanguage == null)
+            articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive == true).Select(p => new
+            {
+                Id = p.ArticleId,
+                HeadLine = p.HeadLine,
+                Content = p.Content,
+                ImageId = p.Article.FeatureImageId,
+                CreatedDate = p.Article.CreatedDate,
+                Extract = p.Extract,
+                LanguageId = p.LanguageId
+            }).FirstOrDefault(p => p.LanguageId == request.defaultLanguage);
+            if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
             {
                 return null;
             }
 
             var model = new ArticleModelView
             {
+                Id = articleLanguage.Id,
                 Headline = articleLanguage.HeadLine,
-                Content = articleLanguage.Content
+                Content = articleLanguage.Content,
+                ImageId = articleLanguage.ImageId,
+                Extract = articleLanguage.Extract,
+                CreatedDate = articleLanguage.CreatedDate
 
             };
+            if (model.ImageId.HasValue)
+            {
+                model.UrlImage = _mediaService.GetPictureUrl(model.ImageId.Value);
+            }
+            else
+            {
+                model.UrlImage = "/Content/images/no-image.png";
+            }
             return model;
         }
         
-        public ArticleModelView GetArticleById(int id, ArticleModelRequest request)
+        public ArticleModelView GetArticleById(int? id, ArticleModelRequest request)
         {            
             var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id).Select(p => new
             {
@@ -160,6 +190,7 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 LanguageId = p.LanguageId
             }).ToList();
+            
             if (articleLanguage == null && request.currentLanguage == request.defaultLanguage)
             {
                 return null;
@@ -189,7 +220,7 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 CreatedDate = p.CreatedDate
             });
-            var result = model.ToList();
+            var result = model.OrderBy(p => p.CreatedDate).ToList();
             foreach (var article in result)
             {
                 if (article.ImageId.HasValue)

@@ -8,7 +8,7 @@ namespace VnStyle.Services.Business
     {
         IPagedList<ArticleModelView> GetArticles(ArticleModelRequest request);
         ArticleModelView GetArticleIntro(ArticleModelRequest request);
-        ArticleModelView GetArticleById(int id,ArticleModelRequest request);
+        ArticleModelView GetArticleById(int? id,ArticleModelRequest request);
         IPagedList<ArticleModelView> GetArticlesNew(ArticleModelRequest request);
     }
 }
