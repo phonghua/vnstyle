@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   private get categoryTree(){
-    
+    return this.categories.data.filter(p=> p.parent == null);
   }
 
   constructor(
