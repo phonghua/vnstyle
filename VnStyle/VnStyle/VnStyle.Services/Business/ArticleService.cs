@@ -189,8 +189,8 @@ namespace VnStyle.Services.Business
                 Extract = p.Extract,
                 CreatedDate = p.CreatedDate
             });
-            
-            foreach (var article in model)
+            var result = model.ToList();
+            foreach (var article in result)
             {
                 if (article.ImageId.HasValue)
                 {
@@ -201,7 +201,7 @@ namespace VnStyle.Services.Business
                     article.UrlImage = "/Content/images/no-image.png";
                 }
             }
-            return new PagedList<ArticleModelView>(model, request.PageIndex, request.PageSize, total);
+            return new PagedList<ArticleModelView>(result, request.PageIndex, request.PageSize, total);
            
         }
     }

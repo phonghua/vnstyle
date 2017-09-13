@@ -152,16 +152,17 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult ArticleNew()
         {
-            var request = new ArticleModelRequest
-            {
-                
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId(),
-                PageSize = 5
-            };
+            //var request = new ArticleModelRequest
+            //{
 
-            var result = _articleService.GetArticlesNew(request);
-            return PartialView(result);
+            //    currentLanguage = _workContext.CurrentLanguage,
+            //    defaultLanguage = _resourceService.DefaultLanguageId(),
+            //    PageSize = 5
+            //};
+
+            //var result = _articleService.GetArticlesNew(request);
+            return PartialView();
+
         }
 
     }
