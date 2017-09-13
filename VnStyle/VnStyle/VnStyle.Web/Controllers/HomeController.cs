@@ -56,16 +56,19 @@ namespace VnStyle.Web.Controllers
                 defaultLanguage = _resourceService.DefaultLanguageId()
 
             };
+
             if(id == null)
             {
                 RedirectToAction("Index");
             }
-            
-                var article = _articleService.GetArticleById(id, request);
-                return View(article);
-            
 
-            
+            var article = _articleService.GetArticleById(id, request);
+            return View(article);
+
+
+
+
+
 
 
         }

@@ -14,6 +14,11 @@ export class CategoriesComponent implements OnInit {
     loading: false,
     data: [],
   }
+
+  private get categoryTree(){
+    return this.categories.data.filter(p=> p.parent == null);
+  }
+
   constructor(
     private categoryService: CategoryService,
     private route: ActivatedRoute

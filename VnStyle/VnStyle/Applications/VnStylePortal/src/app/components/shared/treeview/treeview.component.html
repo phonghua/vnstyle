@@ -3,10 +3,10 @@
         <span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()"    /></span> 
         <span (click)="dir.toggle()">{{ dir.name }}</span>
         <div *ngIf="dir.expanded">
-            <ul >
+            <!-- <ul >
                 <li *ngFor="let file of dir.childrend">{{file}}</li>
-            </ul>
-            <tree-view [items]="dir.items"></tree-view>
+            </ul> -->
+            <app-treeview [items]="dir.children"></app-treeview>
         </div>
     </li>
 </ul>
