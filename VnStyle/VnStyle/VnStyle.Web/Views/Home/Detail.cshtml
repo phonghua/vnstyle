@@ -3,3 +3,37 @@
 @Html.Action("ArticleViewer", Model)
 
 <h2>Bài viết liên quan</h2>
+
+<style>
+    .item {
+        border:1px solid red;
+    }
+</style>
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="item">Col 1</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+        <div class="item">Col 2.1</div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <div class="item">Col 2.2</div>
+    </div>
+
+    @*<div class="col-xs-4">
+        <div class="item">Col 2.2</div>
+    </div>
+    
+    <div class="col-xs-4">
+        <div class="item">Col 2.2</div>
+    </div>
+
+    <div class="col-xs-4">
+        <div class="item">Col 2.2</div>
+    </div>*@
+
+</div>

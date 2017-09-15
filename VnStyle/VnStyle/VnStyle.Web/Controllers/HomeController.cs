@@ -93,7 +93,7 @@ namespace VnStyle.Web.Controllers
             var result = _articleService.GetArticles(request);
             return View(result);
         }
-        public ActionResult Course()
+        public ActionResult Course(int page = 1)
         {
             var request = new ArticleModelRequest
             {
