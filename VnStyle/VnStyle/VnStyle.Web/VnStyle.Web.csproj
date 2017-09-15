@@ -580,6 +580,8 @@
     <Content Include="Views\Home\ArticleViewer.cshtml" />
     <Content Include="Views\Shared\_NotFound.cshtml" />
     <Content Include="Views\Home\ArticleNew.cshtml" />
+    <Content Include="Views\Home\Tattoo.cshtml" />
+    <Content Include="Views\Home\Piercing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
