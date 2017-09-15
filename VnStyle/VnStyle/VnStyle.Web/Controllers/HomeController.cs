@@ -97,7 +97,7 @@ namespace VnStyle.Web.Controllers
 
 
         }
-        public ActionResult Course()
+        public ActionResult Course(int page = 1)
         {
             var request = new ArticleModelRequest
             {

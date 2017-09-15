@@ -1,9 +1,11 @@
 export class TreeItem {
+    id:number;
     name: string;
     expanded: boolean;
     checked: boolean;
     children: Array<TreeItem>;
-    constructor(name, children) {
+    constructor(id, name, children) {
+        this.id = id;
         this.name = name;
         this.children = children;
     }
