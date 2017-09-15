@@ -6,9 +6,8 @@ namespace VnStyle.Services.Business
 {
     public interface IArticleService
     {
-        IPagedList<ArticleModelView> GetArticles(ArticleModelRequest request);
-        ArticleModelView GetArticleIntro(ArticleModelRequest request);
-        ArticleModelView GetArticleById(int? id,ArticleModelRequest request);
-        IPagedList<ArticleModelView> GetArticlesNew(ArticleModelRequest request);
+        IPagedList<ArticleListingModel> GetArticles(GetArticlesRequest request);
+        ArticleDetailModel GetArticleIntro();
+        ArticleDetailModel GetArticleById(int id);
     }
 }

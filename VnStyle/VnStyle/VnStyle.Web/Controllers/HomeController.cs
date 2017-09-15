@@ -49,14 +49,12 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult Detail(int id, string title = "")
         {
-            var request = new ArticleModelRequest
-            {                
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
-            };           
-
-            var article = _articleService.GetArticleById(id, request);
+            var article = _articleService.GetArticleById(id);
             if (article == null) return NotFound();
+
+            // get SEO
+            // get Related articles
+
             return View(article);
         }
         public ActionResult Contact()
@@ -68,58 +66,39 @@ namespace VnStyle.Web.Controllers
             return View();
         }
 
-        public ActionResult Piercing()
+        public ActionResult Piercing(int page = 1)
         {
-            var request = new ArticleModelRequest
-            {
-                rootCate = (int)ERootCategory.Piercing,
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
-            };
-
-            var result = _articleService.GetArticles(request);
+            IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Piercing);
             return View(result);
         }
 
-        public ActionResult Events()
+        public ActionResult Events(int page = 1)
         {
-            var request = new ArticleModelRequest
-            {
-                rootCate = (int)ERootCategory.Event,
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
-            };
-
-            var result = _articleService.GetArticles(request);
+            IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Event);
             return View(result);
         }
         public ActionResult Course(int page = 1)
         {
-            var request = new ArticleModelRequest
-            {
-                rootCate = (int)ERootCategory.Course,
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId(),
-                PageSize = 10               
-               
-            };
-
-            var result = _articleService.GetArticles(request);
+            IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Course);
             return View(result);
         }
 
-        public ActionResult Tattoo()
+        private IPagedList<ArticleListingModel> GetArticleListing(int page, ERootCategory rootCate)
         {
-            var request = new ArticleModelRequest
+            var request = new GetArticlesRequest
             {
-                rootCate = (int)ERootCategory.Tattoo,
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId(),
-                PageSize = 10
-
+                RootCate = (int)rootCate,
+                PageSize = 20,
+                PageIndex = page - 1
             };
 
             var result = _articleService.GetArticles(request);
+            return result;
+        }
+
+        public ActionResult Tattoo(int page = 1)
+        {
+            IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Tattoo);
             return View(result);
         }
 
@@ -140,27 +119,20 @@ namespace VnStyle.Web.Controllers
         }
 
         public ActionResult Intro()
-        {
-            var request = new ArticleModelRequest
-            {
-                rootCate = (int)ERootCategory.Intro,
-                currentLanguage = _workContext.CurrentLanguage,
-                defaultLanguage = _resourceService.DefaultLanguageId()
-
-            };
-            var article = _articleService.GetArticleIntro(request);
-            if(article == null) return NotFound();
+        {           
+            var article = _articleService.GetArticleIntro();
+            if (article == null) return NotFound();
             return View(article);
         }
 
 
-        
+
 
         [ChildActionOnly]
-        public ActionResult ArticleViewer(ArticleModelView model)
+        public ActionResult ArticleViewer(ArticleListingModel model)
         {
             return PartialView(model);
         }
-       
+
     }
 }

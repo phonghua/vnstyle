@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<VnStyle.Services.Business.Models.ArticleModelView>
+@model IEnumerable<VnStyle.Services.Business.Models.ArticleListingModel>
 @{
     ViewBag.Title = @Html.T("RootCate_Tattoo");
 }
@@ -36,7 +36,6 @@
                                 <li class="nlg-date">
                                     <a href="#">
 
-                                        @String.Format("{0:dddd, MMMM d, yyyy}", course.CreatedDate)
                                     </a>
                                 </li>
                             </ul>
