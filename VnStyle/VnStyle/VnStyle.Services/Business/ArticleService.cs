@@ -49,15 +49,23 @@ namespace VnStyle.Services.Business
             var total = articleQuery.Count();
             var pagedArticles = articleQuery.OrderByDescending(p => p.PushlishDate).Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
 
-            Parallel.ForEach(pagedArticles, article =>
+            //Parallel.ForEach(pagedArticles, article =>
+            //{
+            //    if (article.ImageId.HasValue)
+            //        article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+            //    else
+            //        article.UrlImage = "~/Content/images/no-image.png";
+            //});
+            foreach (var article in pagedArticles)
             {
                 if (article.ImageId.HasValue)
                     article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
-            });
+            };
+       
 
-            return new Ricky.Infrastructure.Core.PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
+            return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
 
         }
 

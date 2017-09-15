@@ -1,4 +1,5 @@
-﻿@model IEnumerable<VnStyle.Services.Business.Models.ArticleListingModel>
+﻿@*@model IEnumerable<VnStyle.Services.Business.Models.ArticleListingModel>*@
+@model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.ArticleListingModel>
 @{
     ViewBag.Title = "Courses";
 }
@@ -16,39 +17,46 @@
         </div>
 
         <div class="nlg-col-wrap nlg-col-1">
+            <div class="row">
+                
+            </div>
             @foreach (var course in Model)
             {
-                <div class="nlg-col">
-                    <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
-                             style="padding-top: 0px;">
-                        <figure class="nlg-featured-media">
-                            <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">
-                                <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
-                            </a>
-                            <div class="nlg-entry-flags">
-                                <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
-                            </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="nlg-col">
 
-                        </figure>
-                        <div class="nlg-entry-body">
-                            <ul class="nlg-entry-meta first no-spacing">                               
-                                <li class="nlg-date">
-                                    <a href="#">
-                                       
-                                        
-                                    </a>
-                                </li>
-                            </ul>
-                            <header class="nlg-entry-header">
-                                <h3 class="nlg-entry-title">
-                                    <a href="#">@course.Headline</a>
-                                </h3>
-                              
-                                <p class="nlg-entry-excerpt">@course.Extract</p>
-                            </header>
-                        </div>
-                    </article>
+                        <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
+                                 style="padding-top: 0px;">
+                            <figure class="nlg-featured-media">
+                                <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">
+                                    <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
+                                </a>
+                                <div class="nlg-entry-flags">
+                                    <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
+                                </div>
+
+                            </figure>
+                            <div class="nlg-entry-body">
+                                <ul class="nlg-entry-meta first no-spacing">
+                                    <li class="nlg-date">
+                                        <a href="#">
+
+
+                                        </a>
+                                    </li>
+                                </ul>
+                                <header class="nlg-entry-header">
+                                    <h3 class="nlg-entry-title">
+                                        <a href="#">@course.HeadLine</a>
+                                    </h3>
+
+                                    <p class="nlg-entry-excerpt">@course.Extract</p>
+                                </header>
+                            </div>
+                        </article>
+                    </div>
                 </div>
+                
             }
            
             

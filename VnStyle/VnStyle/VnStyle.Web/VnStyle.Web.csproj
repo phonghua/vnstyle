@@ -461,6 +461,7 @@
     <Content Include="Content\css\woocommerce-smallscreen.css" />
     <Content Include="Content\css\woocommerce.css" />
     <Content Include="Content\images\a1.jpg" />
+    <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\js\retina.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\100.jpg" />
@@ -579,7 +580,6 @@
     <Content Include="Views\Home\Intro.cshtml" />
     <Content Include="Views\Home\ArticleViewer.cshtml" />
     <Content Include="Views\Shared\_NotFound.cshtml" />
-    <Content Include="Views\Home\ArticleNew.cshtml" />
     <Content Include="Views\Home\Tattoo.cshtml" />
     <Content Include="Views\Home\Piercing.cshtml" />
   </ItemGroup>

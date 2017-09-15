@@ -124,12 +124,9 @@ namespace VnStyle.Web.Controllers
             if (article == null) return NotFound();
             return View(article);
         }
-
-
-
-
+        
         [ChildActionOnly]
-        public ActionResult ArticleViewer(ArticleListingModel model)
+        public ActionResult ArticleViewer(ArticleDetailModel model)
         {
             return PartialView(model);
         }
