@@ -112,6 +112,7 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView();
         }
+        
 
         public ActionResult Footer()
         {

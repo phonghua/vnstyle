@@ -8,7 +8,7 @@
 
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
-    
+
 }
 
 <!DOCTYPE html>
@@ -81,7 +81,7 @@
 
                 <div class="container">
                     <div class="nlg-header-brand">
-                        
+
                         <a href="@Url.HomePage()" rel="@appSetting.ApplicationName">
                             <span class="nlg-logo nlg-main-logo">
                                 <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img" alt="@appSetting.ApplicationName">
@@ -117,6 +117,7 @@
                     </div>
                     <!-- .nlg-header-brand -->
                     @Html.Action("Menu", "Home")
+
                     <ul class="nlg-actions">
 
                         <li class="nlg-action-search">
@@ -154,6 +155,7 @@
     <!-- .nlg-header -->
 
     <div class="nlg-sections-wrap">
+
         <div class="container">
             @RenderBody()
         </div>
@@ -169,7 +171,8 @@
                         <div class="nlg-footer-sidebar">
                             <div id="newslog-brand-box-3" class="sidebar-widget nlg-widget-brand-box">
                                 <div class="nlg-brand-box">
-                                    <div class="nlg-logo"><img src="Content/images/logo-2.png" alt=""></div><p class="nlg-description">NewsLog, News &amp; Magazine Theme. Discover new blogging standards with 6 months free support!</p>
+                                    <div class="nlg-logo"><img src="Content/images/logo-2.png" alt=""></div>
+                                    <p class="nlg-description">NewsLog, News &amp; Magazine Theme. Discover new blogging standards with 6 months free support!</p>
                                 </div><!-- .nlg-author-card -->
                             </div><div id="newslog-social-icons-3" class="sidebar-widget nlg-widget-social-icons">
                                 <ul class="nlg-social-icons nlg-social-brand-colors">
@@ -290,26 +293,45 @@
             </div>
             <nav class="nlg-main-navigation">
                 <ul id="menu-mobile-menu" class="nlg-nav-menu">
-                    <li id="menu-item-668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-234 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-668">
-                        <a href="#">Homepages</a>
-                        <ul class="sub-menu">
-                            <li id="menu-item-679" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-234 current_page_item menu-item-679"><a href="http://demo.aggressivemotions.com/newslog/">Demo Homepage</a></li>
-                            <li id="menu-item-670" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-670"><a href="http://demo.aggressivemotions.com/newslog/fullscreen-home/">Full Screen Home</a></li>
-                            <li id="menu-item-669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-669"><a href="http://demo.aggressivemotions.com/newslog/full-screen-slider-home/">Full Screen Slider Home</a></li>
-                            <li id="menu-item-672" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-672"><a href="http://demo.aggressivemotions.com/newslog/no-sidebar-home/">No Sidebar Home</a></li>
-                            <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="http://demo.aggressivemotions.com/newslog/infinite-scroll-home/">Infinite Scroll Home</a></li>
-                            <li id="menu-item-680" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-680">
-                                <a href="#">Simple Blog Styles</a>
-                                <ul class="sub-menu">
-                                    <li id="menu-item-675" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-675"><a href="http://demo.aggressivemotions.com/newslog/simple-one/">Simple One</a></li>
-                                    <li id="menu-item-677" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-677"><a href="http://demo.aggressivemotions.com/newslog/simple-two/">Simple Two</a></li>
-                                    <li id="menu-item-676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-676"><a href="http://demo.aggressivemotions.com/newslog/simple-three/">Simple Three</a></li>
-                                    <li id="menu-item-674" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-674"><a href="http://demo.aggressivemotions.com/newslog/simple-four/">Simple Four</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                    <li>
+                        <a href="@Url.HomePage()">@Html.T("Global_Home")</a>                       
                     </li>
-                    <li id="menu-item-681" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-681">
+                    <li>
+                        <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
+                    </li>
+                    <li>
+                        <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
+                    </li>
+                    <li>
+                        <a href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
+                    </li>
+                    <li id="menu-item-9">
+                        <a href="#">@Html.T("RootCate_Image")</a>
+                        <div class="nlg-links-menu nlg-menu-drop">
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#">Artist Đăng Vinh</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Post Title On Image</a></li>
+                                        <li><a href="#">Post Title Above Image</a></li>
+                                        <li><a href="#">Post Title Under Image</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#">Audio Post</a></li>
+                                <li><a href="#">Gallery Post</a></li>
+                                <li><a href="#">Paginated Post</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a></li>
+                    <li><a href="#">XAMTV</a></li>
+
+                    <li>
+                        <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
+
+                    </li>
+                    @*<li id="menu-item-681" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-681">
                         <a href="#">Post Examples</a>
                         <ul class="sub-menu">
                             <li id="menu-item-682" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-682">
@@ -362,7 +384,7 @@
                             <li id="menu-item-707" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-707"><a href="http://demo.aggressivemotions.com/newslog/?s=good">Search Results</a></li>
                         </ul>
                     </li>
-                    <li id="menu-item-708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-708"><a href="#">Hình ảnh</a></li>
+                    <li id="menu-item-708" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-708"><a href="#">Hình ảnh</a></li>*@
                     @*<li id="menu-item-751" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-751"><a href="http://demo.aggressivemotions.com/newslog/shop/">Shop</a></li>*@
                 </ul>
             </nav>
