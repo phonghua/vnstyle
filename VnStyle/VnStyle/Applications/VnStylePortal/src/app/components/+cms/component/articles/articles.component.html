@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <div class="pull-right">
         
-      <a [routerLink]="['/cms/' + rootCateId +'/articles/new/']" class="btn btn-primary">Thêm bài viết</a>
+      <a [routerLink]="['/cms/' + rootCateId +  '/' + rootCateName + '/articles/new/']" class="btn btn-primary">Thêm bài viết</a>
     </div>
   </div>
   <div class="col-xs-12" *ngIf="!articleGrid.loading">

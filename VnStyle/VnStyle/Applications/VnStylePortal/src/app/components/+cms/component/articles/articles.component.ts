@@ -11,6 +11,7 @@ export class ArticlesComponent implements OnInit {
 
 
   private rootCateId = null;
+  private rootCateName = null;
   private articleGrid = {
     loading: false,
     data: [],
@@ -23,6 +24,7 @@ export class ArticlesComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.rootCateId = params["rootCateId"];
+      this.rootCateName = params["rootCateName"];
 
       this.articleGrid.loading = true;
       this.articleService.getArticles(this.rootCateId).subscribe(data => {
