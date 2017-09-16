@@ -88,11 +88,12 @@ namespace VnStyle.Web.Controllers
             var request = new GetArticlesRequest
             {
                 RootCate = (int)rootCate,
-                PageSize = 20,
+                PageSize = 2,
                 PageIndex = page - 1
             };
-
+            
             var result = _articleService.GetArticles(request);
+            
             return result;
         }
 
@@ -128,6 +129,12 @@ namespace VnStyle.Web.Controllers
         
         [ChildActionOnly]
         public ActionResult ArticleViewer(ArticleDetailModel model)
+        {
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ArticleListingViewer(IPagedList<ArticleListingModel> model)
         {
             return PartialView(model);
         }

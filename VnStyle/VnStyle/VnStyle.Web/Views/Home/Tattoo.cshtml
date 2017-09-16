@@ -1,7 +1,7 @@
-﻿
-@model IEnumerable<VnStyle.Services.Business.Models.ArticleListingModel>
+﻿@*@model IEnumerable<VnStyle.Services.Business.Models.ArticleListingModel>*@
+@model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.ArticleListingModel>
 @{
-    ViewBag.Title = @Html.T("RootCate_Tattoo");
+    ViewBag.Title = "Tattoo";
 }
 @using VnStyle.Web.Infrastructure.Helpers;
 
@@ -17,40 +17,78 @@
         </div>
 
         <div class="nlg-col-wrap nlg-col-1">
-            @foreach (var course in Model)
-            {
-                <div class="nlg-col">
-                    <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
-                             style="padding-top: 0px;">
-                        <figure class="nlg-featured-media">
-                            <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">
-                                <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
-                            </a>
-                            <div class="nlg-entry-flags">
-                                <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
-                            </div>
+            <div class="row">
+                @foreach (var course in Model)
+                {
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class="nlg-col">
 
-                        </figure>
-                        <div class="nlg-entry-body">
-                            <ul class="nlg-entry-meta first no-spacing">
-                                <li class="nlg-date">
-                                    <a href="#">
-
+                            <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
+                                     style="padding-top: 0px;">
+                                <figure class="nlg-featured-media">
+                                    <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">
+                                        <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
                                     </a>
-                                </li>
-                            </ul>
-                            <header class="nlg-entry-header">
-                                <h3 class="nlg-entry-title">
-                                    <a href="#">@course.HeadLine</a>
-                                </h3>
+                                    <div class="nlg-entry-flags">
+                                        <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
+                                    </div>
 
-                                <p class="nlg-entry-excerpt">@course.Extract</p>
-                            </header>
+                                </figure>
+                                <div class="nlg-entry-body">
+
+                                    <header class="nlg-entry-header">
+                                        <h3 class="nlg-entry-title">
+                                            <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">@course.HeadLine</a>
+                                        </h3>
+
+                                        <p class="nlg-entry-excerpt">@course.Extract</p>
+                                    </header>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                </div>
-            }
-            <div class="nlg-pagination nlg-pagination-loadmore"><span data-href="" class="btn" data-load-page="2"><i class="fa fa-circle-o-notch"></i>Load More</span></div>
+                    </div>
+
+                }
+            </div>
+
+
+
+
+
+            @*<div class="nlg-pagination nlg-pagination-loadmore"><span data-href="" class="btn" data-load-page="2"><i class="fa fa-circle-o-notch"></i>Load More</span></div>*@
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+
+                    @if (Model.PageIndex > 0)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.HostAction("Tattoo","Home",new { page = Model.PageIndex})" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                    }
+                    @for (int i = 0; i < (Model.TotalPages); i++)
+                    {
+                        <li class="page-item"><a class="page-link" href="@Url.HostAction("Tattoo","Home",new { page = i + 1 }) ">@(i + 1)</a></li>
+                    }
+                    @*<li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>*@
+                    @if (Model.PageIndex < Model.TotalPages - 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.HostAction("Tattoo","Home",new { page = Model.PageIndex + 2 })" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+
+                    }
+
+
+                </ul>
+            </nav>
 
         </div>
 
