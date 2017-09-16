@@ -14,7 +14,7 @@ namespace VnStyle.Web.Infrastructure.Helpers
 
         public static string HostAction(this UrlHelper url, string actionName, string controllerName, object routeValues)
         {
-            var routeValueDictionary = new RouteValueDictionary(url.RequestContext.RouteData.Values);
+            var routeValueDictionary = new RouteValueDictionary(routeValues);
             return url.BaseUrl() + url.Action(actionName, controllerName, routeValueDictionary);
         }
 
