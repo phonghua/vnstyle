@@ -11,12 +11,14 @@
 <table class="table table-condensed table-striped">
   <thead>
     <tr>
+      <th style="width: 150px"></th>
       <th>Nghệ nhân</th>
       <th>Thứ tự hiển thị</th>
       <th style="width: 70px"></th>
     </tr>
   </thead>
   <tr *ngFor="let artist of artistGrid.data">
+    <td><img [src]="artist.imageUrl + '?h=100'"/></td>
     <td>{{artist.name}}</td>
     <td>{{artist.seq}}</td>
     <td>
@@ -39,16 +41,23 @@
       <div class="form-group">
         <label for="" class="col-sm-3 control-label">Tên</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" [(ngModel)]="artistModel.name"/>
+          <input type="text" class="form-control" [(ngModel)]="artistModel.name" />
         </div>
       </div>
       <div class="form-group">
         <label for="" class="col-sm-3 control-label">Thứ tự hiển thị</label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" min="1" [(ngModel)]="artistModel.seq"/>
+          <input type="number" class="form-control" min="1" [(ngModel)]="artistModel.seq" />
         </div>
       </div>
-  
+
+      <div class="form-group">
+        <label for="" class="col-sm-3 control-label">Hình đại diện</label>
+        <div class="col-xs-9">
+          <app-picture-form-control [(ngModel)]="artistModel.image" [readonly]="false"></app-picture-form-control>
+        </div>
+      </div>
+
     </div>
   </modal-body>
   <modal-footer>

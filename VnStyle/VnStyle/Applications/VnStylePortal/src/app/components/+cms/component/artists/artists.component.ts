@@ -14,7 +14,7 @@ export class ArtistsComponent implements OnInit {
     data: []
   }
 
-  private artistModel = { id: 0 };
+  private artistModel = { id: 0 , image : {imageId : 0}, imageId : 0 };
   private artistModalTitle = "Thêm mới";
 
   @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
@@ -43,7 +43,7 @@ export class ArtistsComponent implements OnInit {
   }
 
   openArtistCreatingModal() {
-    this.artistModel = { id: 0 };
+    this.artistModel = { id: 0 , image : {imageId : 0}, imageId : 0 };
     this.artistModalTitle = "Thêm mới";
     this.artistModal.open();
   }
@@ -55,7 +55,9 @@ export class ArtistsComponent implements OnInit {
   }
 
   saveArtist() {
+    this.artistModel.imageId = this.artistModel.image.imageId;
     if (this.artistModel.id && this.artistModel.id > 0) {
+
       this.artistService.updateArtist(this.artistModel.id, this.artistModel).subscribe(data => {
         this.loadArtistGrid();
         this.artistModal.close();
