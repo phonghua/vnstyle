@@ -9,7 +9,8 @@ import { AppService, GeneralService } from './../../../services';
 export class SiderBarComponent implements OnInit {
 
   private articleCategories = [];
-  private galleryPhotoCategories = [];
+  //private galleryPhotoCategories = [];
+  private artists = [];
 
   private menuItems;
 
@@ -20,8 +21,9 @@ export class SiderBarComponent implements OnInit {
     this.appService.appInitialized.subscribe(data => {
       console.log("subscribe at siderbar", data);
       this.articleCategories = data.articleCategories;
-      this.galleryPhotoCategories = data.galleryPhotoCategories;
+      //this.galleryPhotoCategories = data.galleryPhotoCategories;
 
+      this.artists = data.artists;
 
       this.menuItems = this.getMenuItems();      
     });
@@ -32,16 +34,27 @@ export class SiderBarComponent implements OnInit {
     var articleCategories = this.articleCategories.map(p => {
       return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/articles' };
     });
-    var galleryPhotoCategories = this.galleryPhotoCategories.map(p => {
-      var heading = {
-        text: p.name, heading: false, children: [
-          { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' },
-          { text: 'Danh mục', url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/categories' }
-        ]
+    // var galleryPhotoCategories = this.galleryPhotoCategories.map(p => {
+    //   var heading = {
+    //     text: p.name, heading: false, children: [
+    //       { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' },
+    //       { text: 'Danh mục', url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/categories' }
+    //     ]
+    //   };
+    //   return heading;
+    // });
+
+    var artistList = this.artists.map(p=> {
+      return {
+        text: p.name, url: '/cms/artists/' + p.id + '/' + this.generateService.friendlyUrl(p.name)
       };
-      return heading;
-    });
-    menu = menu.concat(articleCategories).concat(galleryPhotoCategories);
+    })
+    var artistMenu =  {text : "Artists", heading : false, 
+      children : [{text: 'Quản lý', url: '/cms/artists'}].concat(artistList)
+    }
+
+    console.log("artistMenu", artistMenu);
+    menu = menu.concat(articleCategories).concat(artistMenu);
     return menu;
   }
 

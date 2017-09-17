@@ -59,6 +59,7 @@
             <span class="title">Danh mục</span>
         </a>
       </li> -->
+      
       <li [class.nav-item]="!menu.heading" [class.heading]="menu.heading" *ngFor="let menu of menuItems">
         <h3 *ngIf="menu.heading" class="uppercase">{{menu.text}}</h3>
         <a *ngIf="!menu.heading" [routerLink]="menu.url" class="nav-link ">

@@ -6,6 +6,8 @@ import { ArticleDetailComponent } from "./component/article-detail/article-detai
 import { CategoriesComponent } from "./component/categories/categories.component";
 import { GalleryPhotoComponent } from './component/gallery-photo/gallery-photo.component';
 import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-photo-new.component';
+import { ArtistComponent } from './component/artist/artist.component';
+import { ArtistsComponent } from './component/artists/artists.component';
 
 export const routes: Route[] = [
   {
@@ -19,7 +21,10 @@ export const routes: Route[] = [
       { path: ":rootCateId/:rootCateName/articles/:id", component: ArticleDetailComponent },
       { path: ":rootCateId/:rootCateName/gallery-photo", component: GalleryPhotoComponent },
       { path: ":rootCateId/:rootCateName/gallery-photo/new", component: GalleryPhotoNewComponent },
-      { path: ":rootCateId/:rootCateName/categories", component: CategoriesComponent },
+      // { path: ":rootCateId/:rootCateName/categories", component: CategoriesComponent },
+
+      { path: "artists", component: ArtistsComponent },
+      { path: "artists/:id/:name", component: ArtistComponent },
 
     ]
   }

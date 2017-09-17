@@ -15,6 +15,8 @@ import { SeoMetaComponent } from "./component/shared/seo-meta/seo-meta.component
 import { CategoriesComponent } from "./component/categories/categories.component";
 import { GalleryPhotoComponent } from './component/gallery-photo/gallery-photo.component';
 import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-photo-new.component';
+import { ArtistsComponent } from './component/artists/artists.component';
+import { ArtistComponent } from './component/artist/artist.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
@@ -56,7 +58,9 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     Typeahead,
     GalleryPhotoComponent,
     GalleryPhotoNewComponent,
-    TreeviewComponent
+    TreeviewComponent,
+    ArtistsComponent,
+    ArtistComponent
   ],
   entryComponents: []
 })

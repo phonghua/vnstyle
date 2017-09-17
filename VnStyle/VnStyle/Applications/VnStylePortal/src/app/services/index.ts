@@ -11,6 +11,7 @@ import { CategoryService } from "./category.service";
 import { AppService } from './app.service';
 import { GeneralService } from './general.service';
 import { GalleryService } from './gallery.service';
+import { ArtistService } from './artist.service';
 
 export const SHARED_SERVICES = [
   ShopService,
@@ -25,8 +26,8 @@ export const SHARED_SERVICES = [
   CategoryService,
   AppService,
   GeneralService,
-  GalleryService
-
+  GalleryService,
+  ArtistService
 ];
 
 export * from "./shop.service";
@@ -42,3 +43,4 @@ export * from "./category.service";
 export * from "./app.service";
 export * from "./general.service";
 export * from "./gallery.service";
+export * from "./artist.service";
