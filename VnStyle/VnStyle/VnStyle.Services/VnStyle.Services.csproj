@@ -138,6 +138,10 @@
     <Compile Include="Migrations\201709170447026_PrepairForHomePage.Designer.cs">
       <DependentUpon>201709170447026_PrepairForHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709170458126_AddedArticleSection2.cs" />
+    <Compile Include="Migrations\201709170458126_AddedArticleSection2.Designer.cs">
+      <DependentUpon>201709170458126_AddedArticleSection2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -166,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709170447026_PrepairForHomePage.resx">
       <DependentUpon>201709170447026_PrepairForHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709170458126_AddedArticleSection2.resx">
+      <DependentUpon>201709170458126_AddedArticleSection2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

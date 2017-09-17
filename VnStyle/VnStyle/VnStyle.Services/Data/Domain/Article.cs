@@ -18,6 +18,7 @@ namespace VnStyle.Services.Data.Domain
         public bool IsActive { get; set; }
         public bool IsShowHomepage { get; set; }
         public bool Section1 { get; set; } // Trang chu, tren cung
+        public bool Section2 { get; set; }
 
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
