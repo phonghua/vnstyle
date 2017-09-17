@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public int Seq { get; set; }
         public long ImageId { get; set; }
+        public bool ShowOnHompage { get; set; }
     }
 }
