@@ -42,10 +42,10 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [Route("photo")]
-        public async Task<HttpResponseMessage> GetPhotos(int? cateId = null)
+        public async Task<HttpResponseMessage> GetPhotos(int? artistId = null)
         {
             var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
-            var photos = await _galleryPhotoRepository.Table.AsNoTracking().Where(p => p.CategoryId == cateId).ToListAsync();
+            var photos = await _galleryPhotoRepository.Table.AsNoTracking().Where(p => p.ArtistId == artistId).ToListAsync();
             var result = photos.Select(p =>
             {
                 return new { p.Id, Url = currentHosting + _mediaService.GetPictureUrl(p.FileId) };

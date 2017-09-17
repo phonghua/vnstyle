@@ -460,8 +460,13 @@
     <Content Include="Content\css\video.css" />
     <Content Include="Content\css\woocommerce-smallscreen.css" />
     <Content Include="Content\css\woocommerce.css" />
+    <Content Include="Content\images\1445054971-1445053386-940a7a51-de3b-4047-a135-c5e2fc5827de.jpg" />
+    <Content Include="Content\images\44.jpg" />
+    <Content Include="Content\images\70.jpg" />
+    <Content Include="Content\images\88.jpg" />
     <Content Include="Content\images\a1.jpg" />
     <Content Include="Content\images\logo-2.png" />
+    <Content Include="Content\images\no-image.png" />
     <Content Include="Content\js\retina.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\100.jpg" />

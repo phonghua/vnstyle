@@ -7,11 +7,30 @@ import { TreeItem } from './TreeItem';
 })
 export class TreeviewComponent implements OnInit {
 
-
   @Input() items: Array<TreeItem>;
+  @Input() showCheckbox : true;
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+  toggle(item) {
+    item.selected = true;
+    item.expanded = !item.expanded;
+    console.log(item);
+  }
+
+  check(item) {
+    let newState = !item.checked;
+    item.checked = newState;
+    this.checkRecursive(item, newState);
+  }
+  checkRecursive(item, state) {
+    item.children.forEach(d => {
+      d.checked = state;
+      d.checkRecursive(state);
+    })
   }
 
 }

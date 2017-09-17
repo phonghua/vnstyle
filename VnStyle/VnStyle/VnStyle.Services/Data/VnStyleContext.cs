@@ -44,7 +44,8 @@ namespace VnStyle.Services.Data
         public DbSet<File> Files { get; set; }
         public DbSet<RelatedArticle> RelatedArticles { get; set; }
         public DbSet<GalleryPhoto> GalleryPhotos { get; set; }
-        
+        public DbSet<HomePageFeaturedArticle> HomePageFeaturedArticles { get; set; }
+        public DbSet<Artist> Artists { get; set; }
 
 
         public DbSet<AspNetClient> AspNetClients { get; set; }

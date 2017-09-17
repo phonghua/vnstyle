@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
     data: [],
   }
 
-
+  private selectedItem = null;
 
   constructor(
     private categoryService: CategoryService,
@@ -44,14 +44,15 @@ export class CategoriesComponent implements OnInit {
 
   getCategoryTree() {
     return this.categories.data.filter(p => p.parent == null).map(p => {
-      p.children = this.getCategoryChildren(p);
+      p.children = this.getCategoryChildren(p, 5);
       return new TreeItem(p.id, p.name, p.children);
     });
   }
 
-  getCategoryChildren(cate) {
+  getCategoryChildren(cate, level) {
     return this.categories.data.filter(p => p.parent == cate.id).map(p => {
-      p.children = this.getCategoryChildren(p);
+      if(level > 0)
+        p.children = this.getCategoryChildren(p, level - 1);
       return new TreeItem(p.id, p.name, p.children);
     });
   }

@@ -80,15 +80,18 @@
     <Compile Include="Business\Models\ArticleListingModel.cs" />
     <Compile Include="Business\Models\GetArticlesRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
+    <Compile Include="Business\Models\RootCate.cs" />
     <Compile Include="Business\RootCategoryService.cs" />
     <Compile Include="Business\SettingService.cs" />
     <Compile Include="Business\Settings\AppSetting.cs" />
     <Compile Include="Business\UserService.cs" />
     <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\Domain\Artist.cs" />
     <Compile Include="Data\Domain\Category.cs" />
     <Compile Include="Data\Domain\ArticleLanguage.cs" />
     <Compile Include="Data\Domain\File.cs" />
     <Compile Include="Data\Domain\GalleryPhoto.cs" />
+    <Compile Include="Data\Domain\HomePageFeaturedArticle.cs" />
     <Compile Include="Data\Domain\Language.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetClient.cs" />
     <Compile Include="Data\Domain\Memberships\AspNetRefreshToken.cs" />
@@ -131,6 +134,14 @@
     <Compile Include="Migrations\201709110800333_DropSettingIsDeleted.Designer.cs">
       <DependentUpon>201709110800333_DropSettingIsDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709170447026_PrepairForHomePage.cs" />
+    <Compile Include="Migrations\201709170447026_PrepairForHomePage.Designer.cs">
+      <DependentUpon>201709170447026_PrepairForHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709170458126_AddedArticleSection2.cs" />
+    <Compile Include="Migrations\201709170458126_AddedArticleSection2.Designer.cs">
+      <DependentUpon>201709170458126_AddedArticleSection2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709110800333_DropSettingIsDeleted.resx">
       <DependentUpon>201709110800333_DropSettingIsDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709170447026_PrepairForHomePage.resx">
+      <DependentUpon>201709170447026_PrepairForHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709170458126_AddedArticleSection2.resx">
+      <DependentUpon>201709170458126_AddedArticleSection2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

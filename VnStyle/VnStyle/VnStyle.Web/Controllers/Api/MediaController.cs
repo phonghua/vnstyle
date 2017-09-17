@@ -75,8 +75,8 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [HttpPost]
-        [Route("gallery-photo/{cateId}")]
-        public HttpResponseMessage UploadAlbumPhoto(int cateId)
+        [Route("gallery-photo/{artistId}")]
+        public HttpResponseMessage UploadAlbumPhoto(int artistId)
         {
             var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
 
@@ -111,7 +111,7 @@ namespace VnStyle.Web.Controllers.Api
                 this._galleryPhotoRepository.Insert(new GalleryPhoto
                 {
                     FileId = p.Id,
-                    CategoryId = cateId,
+                    ArtistId = artistId,
                     CreatedDate = DateTimeHelper.GetCurrentDateTime()
                 });
             });
