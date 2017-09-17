@@ -9,5 +9,6 @@ namespace VnStyle.Services.Business
         IPagedList<ArticleListingModel> GetArticles(GetArticlesRequest request);
         ArticleDetailModel GetArticleIntro();
         ArticleDetailModel GetArticleById(int id);
+        IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
     }
 }

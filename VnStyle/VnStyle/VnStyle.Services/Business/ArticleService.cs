@@ -158,6 +158,42 @@ namespace VnStyle.Services.Business
             return articleLanguage;
         }
 
+        public IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request)
+        {
+            if (request.PageIndex < 0) request.PageIndex = 0;
+            if (request.PageSize < 1) request.PageSize = 10;
+            var currentLanguage = _workContext.CurrentLanguage;
 
+            var articleQuery = (from a in _articleRepository.Table.Where(p => p.IsActive == true && p.IsShowHomepage == true)
+                                join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                                select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
+
+
+
+
+
+
+            var total = articleQuery.Count();
+            var pagedArticles = articleQuery.OrderByDescending(p => p.PushlishDate).Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
+
+            //Parallel.ForEach(pagedArticles, article =>
+            //{
+            //    if (article.ImageId.HasValue)
+            //        article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+            //    else
+            //        article.UrlImage = "~/Content/images/no-image.png";
+            //});
+            foreach (var article in pagedArticles)
+            {
+                if (article.ImageId.HasValue)
+                    article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+                else
+                    article.UrlImage = "~/Content/images/no-image.png";
+            };
+
+
+            return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
+
+        }
     }
 }

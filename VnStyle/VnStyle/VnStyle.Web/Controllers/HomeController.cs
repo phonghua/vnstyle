@@ -88,7 +88,7 @@ namespace VnStyle.Web.Controllers
             var request = new GetArticlesRequest
             {
                 RootCate = (int)rootCate,
-                PageSize = 2,
+                PageSize = 10,
                 PageIndex = page - 1
             };
             
@@ -113,8 +113,8 @@ namespace VnStyle.Web.Controllers
         {
             return PartialView();
         }
-        
 
+        [ChildActionOnly]
         public ActionResult Footer()
         {
             return PartialView();
@@ -134,8 +134,14 @@ namespace VnStyle.Web.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult ArticleListingViewer(IPagedList<ArticleListingModel> model)
+        public ActionResult GetNewArticles(int page = 1)
         {
+            var request = new GetArticlesRequest
+            {
+                PageSize = 10,
+                PageIndex = page - 1                
+            };
+            var model = _articleService.GetNewArticles(request);
             return PartialView(model);
         }
 
