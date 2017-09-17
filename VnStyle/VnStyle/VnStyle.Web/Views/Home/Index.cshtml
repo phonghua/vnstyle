@@ -22,7 +22,18 @@
             <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
         </div>
     </div>*@
+@using Ricky.Infrastructure.Core.ObjectContainer
+@using VnStyle.Services.Business.Settings
+@using VnStyle.Web.Infrastructure.Helpers
+@{
+    var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+
+    var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+
+}
 <div class="nlg-sections-wrap">
     <div id="nlg-module-b4a0d8d0-dde3" class="nlg-module nlg-module-grid-posts">
         <div class="container">
@@ -488,36 +499,21 @@
 
                         <ul class="nlg-social-icons nlg-social-brand-colors">
                             <li class="nlg-icon-facebook">
-                                <a href="#" title="Facebook" target="_blank" style="background-color: #3b5998">
+                                <a href="@appSetting.Facebook" title="Facebook" target="_blank" style="background-color: #3b5998">
                                     <span class="fa fa-facebook"></span>
                                 </a>
                             </li>
                             <li class="nlg-icon-instagram">
-                                <a href="#" title="Instagram" target="_blank" style="background-color: #d10869">
+                                <a href="@appSetting.Instagram" title="Instagram" target="_blank" style="background-color: #d10869">
                                     <span class="fa fa-instagram"></span>
                                 </a>
                             </li>
                             <li class="nlg-icon-youtube">
-                                <a href="#" title="Youtube" target="_blank" style="background-color: #d10869">
-                                    <span class="fa fa-instagram"></span>
+                                <a href="@appSetting.Youtube" title="Youtube" target="_blank" style="background-color: #cc181e">
+                                    <span class="fa fa-youtube"></span>
                                 </a>
                             </li>
-                            <!-- <li class="nlg-icon-foursquare">
-                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Foursquare" target="_blank" style="background-color: #f94877">
-                                    <span class="fa fa-foursquare"></span>
-                                </a>
-                            </li>
-                            <li class="nlg-icon-behance">
-                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Behance" target="_blank" style="background-color: #1769ff">
-                                    <span class="fa fa-behance"></span>
-                                </a>
-                            </li>
-                            <li class="nlg-icon-tumblr">
-                                <a href="http://de
-                                mo.aggressivemotions.com/newslog/#" title="Tumblr" target="_blank" style="background-color: #35465c">
-                                    <span class="fa fa-tumblr"></span>
-                                </a>
-                            </li> -->
+                            
                         </ul>
                     </div>
                     @*<div id="text-2" class="sidebar-widget widget_text">

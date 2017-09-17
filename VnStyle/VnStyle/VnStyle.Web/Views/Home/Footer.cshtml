@@ -1,4 +1,16 @@
-﻿<footer class="nlg-footer nlg-footer-dark">
+﻿@using Ricky.Infrastructure.Core.ObjectContainer
+@using VnStyle.Services.Business.Settings
+@using VnStyle.Web.Infrastructure.Helpers
+@{
+    var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
+
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+
+    var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+
+}
+<footer class="nlg-footer nlg-footer-dark">
     <div class="nlg-footer-wrap">
 
         <div class="container">
@@ -20,28 +32,18 @@
                         <div id="newslog-social-icons-3" class="sidebar-widget nlg-widget-social-icons">
                             <ul class="nlg-social-icons nlg-social-brand-colors">
                                 <li class="nlg-icon-facebook">
-                                    <a href="http://demo.aggressivemotions.com/newslog/#" title="Facebook" target="_blank" style="background-color: #3b5998">
+                                    <a href="@appSetting.Facebook" title="Facebook" target="_blank" style="background-color: #3b5998">
                                         <span class="fa fa-facebook"></span>
                                     </a>
                                 </li>
-                                <li class="nlg-icon-twitter">
-                                    <a href="http://demo.aggressivemotions.com/newslog/#" title="Twitter" target="_blank" style="background-color: #1da1f2">
-                                        <span class="fa fa-twitter"></span>
-                                    </a>
-                                </li>
-                                <li class="nlg-icon-foursquare">
-                                    <a href="http://demo.aggressivemotions.com/newslog/#" title="Foursquare" target="_blank" style="background-color: #f94877">
-                                        <span class="fa fa-foursquare"></span>
-                                    </a>
-                                </li>
-                                <li class="nlg-icon-pinterest">
-                                    <a href="http://demo.aggressivemotions.com/newslog/#" title="Pinterest" target="_blank" style="background-color: #bd081c">
-                                        <span class="fa fa-pinterest"></span>
-                                    </a>
-                                </li>
                                 <li class="nlg-icon-instagram">
-                                    <a href="http://demo.aggressivemotions.com/newslog/#" title="Instagram" target="_blank" style="background-color: #c13584">
+                                    <a href="@appSetting.Instagram" title="Instagram" target="_blank" style="background-color: #d10869">
                                         <span class="fa fa-instagram"></span>
+                                    </a>
+                                </li>
+                                <li class="nlg-icon-youtube">
+                                    <a href="@appSetting.Youtube" title="Youtube" target="_blank" style="background-color: #cc181e">
+                                        <span class="fa fa-youtube"></span>
                                     </a>
                                 </li>
                             </ul>
@@ -59,14 +61,33 @@
                     <div class="nlg-footer-sidebar">
                         <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
                             <div class="widget-title">
-                                <h2 class="title">Discover Newslog</h2>
+                                <h2 class="title">VnStyle Tattoo & Piercing </h2>
                             </div>
                             <div class="menu-footer-menu-1-container">
                                 <ul id="menu-footer-menu-1" class="menu">
-                                    <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a href="http://demo.aggressivemotions.com/newslog/contact/">Liên Hệ</a></li>
-                                    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="https://www.aggressivemotions.com/">About Us</a></li>
-                                    <li id="menu-item-513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-513"><a target="_blank" href="https://themeforest.net/item/dortmund-clean-blog-magazine-wordpress-theme/19112795">Purchase Now</a></li>
-                                    <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-515"><a target="_blank" href="http://docs.aggressivemotions.com/newslog/?ref=demo">Online Docs</a></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Trang chủ</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Xăm</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Xỏ khuyên</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Hình ảnh</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Khóa học</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Vnstyle Tattoo TV</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="">Giới thiệu</a>
+                                    </li>
+
+                                    
                                 </ul>
                             </div>
                         </div>
