@@ -588,7 +588,8 @@
     <Content Include="Views\Shared\_NotFound.cshtml" />
     <Content Include="Views\Home\Tattoo.cshtml" />
     <Content Include="Views\Home\Piercing.cshtml" />
-    <Content Include="Views\Home\ArticleListingViewer.cshtml" />
+    <Content Include="Views\Home\GetNewArticles.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
