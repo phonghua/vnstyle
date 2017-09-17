@@ -22,11 +22,13 @@ namespace VnStyle.Web.Controllers
     {
         private readonly ICacheManager _cacheManager;
         private readonly IBaseRepository<Article> _articleRepository;
+        
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
         private readonly IArticleService _articleService;
+        private readonly IArtistsService _artistsService;
 
 
         public HomeController()
@@ -34,9 +36,11 @@ namespace VnStyle.Web.Controllers
             _workContext = EngineContext.Current.Resolve<IWorkContext>();
             _cacheManager = EngineContext.Current.Resolve<ICacheManager>();
             _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
+            
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _articleService = EngineContext.Current.Resolve<IArticleService>();
+            _artistsService = EngineContext.Current.Resolve<IArtistsService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
         }
         public ActionResult Index()
@@ -144,6 +148,14 @@ namespace VnStyle.Web.Controllers
             var model = _articleService.GetNewArticles(request);
             return PartialView(model);
         }
+        [ChildActionOnly]
+        public ActionResult GetAllArtist()
+        {
+
+            var model = _artistsService.GetAllArtists();
+            return PartialView(model);
+        }
+
 
     }
 }

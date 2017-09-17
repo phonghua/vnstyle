@@ -590,6 +590,7 @@
     <Content Include="Views\Home\Piercing.cshtml" />
     <Content Include="Views\Home\GetNewArticles.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\GetAllArtist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -66,10 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\ArticleService.cs" />
+    <Compile Include="Business\ArtistsService.cs" />
     <Compile Include="Business\CachingKey.cs" />
     <Compile Include="Business\Dtos\FileDto.cs" />
     <Compile Include="Business\IAppContextUrlRouting.cs" />
     <Compile Include="Business\IArticleService.cs" />
+    <Compile Include="Business\IArtistsService.cs" />
     <Compile Include="Business\IMediaService.cs" />
     <Compile Include="Business\IResourceService.cs" />
     <Compile Include="Business\IRootCategoryService.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Business\MediaService.cs" />
     <Compile Include="Business\Models\ArticleDetailModel.cs" />
     <Compile Include="Business\Models\ArticleListingModel.cs" />
+    <Compile Include="Business\Models\ArtistListingModel.cs" />
     <Compile Include="Business\Models\GetArticlesRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\Models\RootCate.cs" />

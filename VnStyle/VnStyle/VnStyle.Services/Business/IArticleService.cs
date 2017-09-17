@@ -1,6 +1,7 @@
 ﻿using Ricky.Infrastructure.Core;
 using System.Collections.Generic;
 using VnStyle.Services.Business.Models;
+using VnStyle.Services.Data.Domain;
 
 namespace VnStyle.Services.Business
 {
@@ -10,5 +11,6 @@ namespace VnStyle.Services.Business
         ArticleDetailModel GetArticleIntro();
         ArticleDetailModel GetArticleById(int id);
         IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
+        
     }
 }
