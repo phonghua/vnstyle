@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201709170903014_AddedArtistImage.Designer.cs">
       <DependentUpon>201709170903014_AddedArtistImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709170929036_AddedArtistShowOnHomepage.cs" />
+    <Compile Include="Migrations\201709170929036_AddedArtistShowOnHomepage.Designer.cs">
+      <DependentUpon>201709170929036_AddedArtistShowOnHomepage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -180,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709170903014_AddedArtistImage.resx">
       <DependentUpon>201709170903014_AddedArtistImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709170929036_AddedArtistShowOnHomepage.resx">
+      <DependentUpon>201709170929036_AddedArtistShowOnHomepage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
