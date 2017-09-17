@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ricky.Infrastructure.Core.Generic;
+﻿using System.Collections.Generic;
+using VnStyle.Services.Business.Models;
 
 namespace VnStyle.Services.Business
 {
     public interface IRootCategoryService
     {
-        List<BaseEntityName> GetAllRootCategories();
+        List<RootCate> GetAllRootCategories();
     }
 }
 

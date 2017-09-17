@@ -9,6 +9,7 @@ namespace VnStyle.Services.Data.Domain
         public int? Parent { get; set; }
         public int Seq { get; set; }
         public bool InActive { get; set; }
+        public long? FeaturedImageId { get; set; }
         public ERootCategory RootCategory { get; set; }
         
     }

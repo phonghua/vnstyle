@@ -17,6 +17,8 @@ namespace VnStyle.Services.Data.Domain
         public int RootCate { get; set; }
         public bool IsActive { get; set; }
         public bool IsShowHomepage { get; set; }
+        public bool Section1 { get; set; } // Trang chu, tren cung
+
 
         public virtual ICollection<ArticleLanguage> ArticleLanguages { get; set; }
         public virtual ICollection<RelatedArticle> RelatedArticles1 { get; set; }

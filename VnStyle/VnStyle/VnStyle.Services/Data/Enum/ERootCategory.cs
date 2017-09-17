@@ -8,6 +8,7 @@ namespace VnStyle.Services.Data.Enum
         Image = 4,
         Course = 5,
         Tattoo = 6,
-        Piercing = 7
+        Piercing = 7,
+        None = 8
     }
 }

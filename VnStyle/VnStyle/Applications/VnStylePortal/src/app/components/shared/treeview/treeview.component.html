@@ -1,12 +1,15 @@
-<ul>
-    <li *ngFor="let dir of items">
-        <span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()"    /></span> 
-        <span (click)="dir.toggle()">{{ dir.name }}</span>
-        <div *ngIf="dir.expanded">
-            <!-- <ul >
-                <li *ngFor="let file of dir.childrend">{{file}}</li>
-            </ul> -->
-            <app-treeview [items]="dir.children"></app-treeview>
-        </div>
-    </li>
+<ul class="tree">
+  <li *ngFor="let dir of items">
+    <div class="tree-item" [class.selected]="dir.selected">
+      <span *ngIf="showCheckbox"><input type="checkbox" [checked]="dir.checked" (click)="check(dir)"    /></span>
+      <span (click)="toggle(dir)">
+            <i class="fa fa-file-o"></i>
+            {{ dir.name }}
+        </span>
+    </div>
+
+    <div *ngIf="dir.expanded">
+      <app-treeview [items]="dir.children"></app-treeview>
+    </div>
+  </li>
 </ul>

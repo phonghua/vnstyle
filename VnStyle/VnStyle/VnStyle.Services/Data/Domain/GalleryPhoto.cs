@@ -7,6 +7,6 @@ namespace VnStyle.Services.Data.Domain
         public int Id { get; set; }
         public long FileId { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int? CategoryId { get; set; }
+        public int ArtistId { get; set; }
     }
 }
