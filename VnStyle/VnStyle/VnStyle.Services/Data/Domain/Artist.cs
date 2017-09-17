@@ -5,5 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public int Seq { get; set; }
+        public long ImageId { get; set; }
     }
 }

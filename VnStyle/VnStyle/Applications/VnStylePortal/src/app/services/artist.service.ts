@@ -22,7 +22,7 @@ export class ArtistService {
   }
 
   updateArtist(artistId, artist): Observable<any> {
-    return this.httpService.put(this.settingService.portal + 'api/artists/${artistId}', artist)
+    return this.httpService.put(this.settingService.portal + `api/artists/${artistId}`, artist)
       .catch(err => Observable.throw(err));
   }
 

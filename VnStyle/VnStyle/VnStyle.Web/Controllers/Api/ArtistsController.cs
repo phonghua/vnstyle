@@ -41,7 +41,7 @@ namespace VnStyle.Web.Controllers.Api
         }
 
         [Route("{id}")]
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
             this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq});
