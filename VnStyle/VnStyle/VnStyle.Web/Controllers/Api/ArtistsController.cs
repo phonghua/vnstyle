@@ -44,12 +44,12 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPost]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
-            
+            this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq});
             return Ok();
         }
 
         [Route("{id}")]
-        [HttpPost]
+        [HttpDelete]
         public IHttpActionResult DeleteArtist(int id)
         {
             _artistRepository.DeleteRange(p => p.Id == id);
