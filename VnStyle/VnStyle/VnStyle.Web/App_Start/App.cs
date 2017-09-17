@@ -17,8 +17,8 @@ namespace VnStyle.Web
                     ApplicationName = "VNStyle Tattoo & Piercing",
                     HomepageContact = "+84 939293186 (Phạm Mai)",
                     Facebook = "https://www.facebook.com/vnstyletattoo",
-                    Youtube = "https://www.youtube.com/",
-                    Instagram = "...."
+                    Youtube = "https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ/",
+                    Instagram = "https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/"
                 };
 
                 settingService.SaveConfiguration(appsetting);
