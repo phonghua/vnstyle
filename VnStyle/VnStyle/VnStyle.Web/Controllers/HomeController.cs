@@ -155,6 +155,13 @@ namespace VnStyle.Web.Controllers
             var model = _artistsService.GetAllArtists();
             return PartialView(model);
         }
+        [ChildActionOnly]
+        public ActionResult GetArtistInMenu()
+        {
+
+            var model = _artistsService.GetAllArtists();
+            return PartialView(model);
+        }
 
 
     }

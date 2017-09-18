@@ -14,7 +14,7 @@
         <li>
             <a href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
         </li>
-        <li id="menu-item-9" >
+        @*<li>
             <a href="#">@Html.T("RootCate_Image")</a>
             <div class="nlg-links-menu nlg-menu-drop">
                 <ul class="sub-menu">
@@ -32,13 +32,21 @@
                     <li ><a href="#">Paginated Post</a></li>
                 </ul>
             </div>
-        </li>
+        </li>*@
+       
         <li><a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a></li>
         <li ><a href="#">XAMTV</a></li>
        
           <li>
             <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 
+        </li>
+        <li id="menu-item-511" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-511 menu-item-mega-menu">
+            <a href="#" data-cat="28">@Html.T("RootCate_Image")</a>
+            <div class="nlg-mega-menu nlg-menu-drop">
+                @Html.Action("GetArtistInMenu", "Home")
+                
+            </div>
         </li>
         <li class="nlg-more menu-item-has-children nlg-hide"><a href="http://demo.aggressivemotions.com/newslog/#" class="nlg-link btn">More<i class="fa fa-angle-down"></i></a></li>
     </ul>

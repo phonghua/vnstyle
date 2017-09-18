@@ -25,7 +25,7 @@ namespace VnStyle.Services.Business
         public IEnumerable<ArtistListingModel> GetAllArtists()
         {
             
-            var query = _artistRepository.Table.Where(p => p.ShowOnHompage == true).OrderByDescending(p => p.Seq).ToList();
+            var query = _artistRepository.Table.Where(p => p.ShowOnHompage == true).OrderByDescending(p => p.Seq);
             if (query == null)
             {
                 return null;
@@ -36,7 +36,7 @@ namespace VnStyle.Services.Business
                 Id = p.Id,
                 Name = p.Name,
                 ImageId = p.ImageId
-            });
+            }).ToList();
             foreach (var artist in artists)
             {
                 if (artist.ImageId.HasValue)

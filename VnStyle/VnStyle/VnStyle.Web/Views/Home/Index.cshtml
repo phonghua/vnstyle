@@ -38,12 +38,12 @@
     <div id="nlg-module-b4a0d8d0-dde3" class="nlg-module nlg-module-grid-posts">
         <div class="container">
             @*<div class="nlg-module-header nlg-has-tax-nav">
-                <div class="nlg-module-title">
-                    <h2 class="nlg-title">Bài viết mới</h2>
+                    <div class="nlg-module-title">
+                        <h2 class="nlg-title">Bài viết mới</h2>
 
-                </div>
+                    </div>
 
-            </div>*@
+                </div>*@
             <div class="nlg-col-wrap nlg-col-5">
                 <div class="nlg-col">
                     <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-222 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-dermal tag-face tag-health" style="padding-top: 0px;">
@@ -486,7 +486,7 @@
         <div class="container">
             <div class="nlg-main" role="main">
 
-               @*New article *@
+                @*New article *@
                 @Html.Action("GetNewArticles", "Home")
             </div>
             <!-- .nlg-main -->
@@ -513,16 +513,16 @@
                                     <span class="fa fa-youtube"></span>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </div>
                     @*<div id="text-2" class="sidebar-widget widget_text">
-                        <div class="textwidget">
-                            <a href="http://demo.aggressivemotions.com/newslog/#">
-                                <img src="Content/images/banner340.jpg" width="340" height="340">
-                            </a>
-                        </div>
-                    </div>*@
+                            <div class="textwidget">
+                                <a href="http://demo.aggressivemotions.com/newslog/#">
+                                    <img src="Content/images/banner340.jpg" width="340" height="340">
+                                </a>
+                            </div>
+                        </div>*@
                     <div id="newslog-fancy-posts-2" class="sidebar-widget nlg-widget-fancy-posts">
                         <div class="widget-title">
                             <h2 class="title"><i class="fa fa-newspaper-o"></i>Weekly Top Rated Posts</h2>
@@ -687,19 +687,24 @@
         <!-- .container -->
     </div>
     <!-- .nlg-section -->
-    @Html.Action("GetAllArtist")
-   
+    <div id="nlg-section-7e848e14-c380" class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
+        <div id="nlg-module-1dd3328e-c893" class="nlg-module nlg-module-featured-posts nlg-module-fp-b nlg-module-fp-full-width">
+            <div class="container">
+                @Html.Action("GetAllArtist")
+            </div>
+        </div>
+    </div>
     <!-- .nlg-section -->
 
     <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
         <div class="container">
             <div class="nlg-main" role="main">
                 @*<script>
-                    var nlg_module_04a5c8f0_0a70_settings = { "layout": "grid_posts", "title": "
-                    
-                    
-                    ", "taxonomy_navigation": "false", "custom_html": "", "gp_posts_layout": "vertical_2_col", "fp_posts_layout": "style_d", "gp_pagination_type": "loadmore", "fp_container_layout": "none", "posts_per_page": 8, "posts_offset": 0, "post_types": ["post", "page"], "post_taxonomies": ["1_category", "3_category", "17_category", "24_category", "28_category", "38_category", "70_category", "97_category", "149_category"], "post_tags": "", "post_ids": "439,224,221,150,242,396,375,407,426,363", "excluded_post_ids": ",222,224,207,457,150,239,180,242,171,208,169,240,385,432,411,417,373", "orderby": "post_ids", "order": "desc", "meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "excerpt_length": 29, "prevent_duplication": "false", "class_name": "", "id": "04a5c8f0-0a70", "sidebar_position": "right", "position": "", "description": "", "gp_columns": "2", "gp_direction": "vertical", "gp_meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "gp_excerpt_length": 29, "image_size": "nlg-350-231" };
-                </script>*@
+                        var nlg_module_04a5c8f0_0a70_settings = { "layout": "grid_posts", "title": "
+
+
+                        ", "taxonomy_navigation": "false", "custom_html": "", "gp_posts_layout": "vertical_2_col", "fp_posts_layout": "style_d", "gp_pagination_type": "loadmore", "fp_container_layout": "none", "posts_per_page": 8, "posts_offset": 0, "post_types": ["post", "page"], "post_taxonomies": ["1_category", "3_category", "17_category", "24_category", "28_category", "38_category", "70_category", "97_category", "149_category"], "post_tags": "", "post_ids": "439,224,221,150,242,396,375,407,426,363", "excluded_post_ids": ",222,224,207,457,150,239,180,242,171,208,169,240,385,432,411,417,373", "orderby": "post_ids", "order": "desc", "meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "excerpt_length": 29, "prevent_duplication": "false", "class_name": "", "id": "04a5c8f0-0a70", "sidebar_position": "right", "position": "", "description": "", "gp_columns": "2", "gp_direction": "vertical", "gp_meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "gp_excerpt_length": 29, "image_size": "nlg-350-231" };
+                    </script>*@
 
                 @*<div id="nlg-module-6c2ab66f-7255" class="nlg-module nlg-module-featured-posts nlg-module-fp-d nlg-module-fp-classic">
                         <div class="container">
@@ -1045,7 +1050,7 @@
                         <!-- .container -->
                     </div>
                     <!-- .nlg-module -->*@
-               
+
                 <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
 
                     <div class="container">
@@ -1951,8 +1956,8 @@
 
                             </div>
                             <!-- .nlg-module -->
-                            
-                           
+
+
                         </div>
                         <!-- .nlg-main -->
 
@@ -2018,7 +2023,7 @@
                                         <a href="#" class="nlg-item" target="_blank" rel="nofollow">
                                             <img src="https://instagram.fsgn5-2.fna.fbcdn.net/t51.2885-15/e35/20687359_127485801202054_7008054285267107840_n.jpg" class="nlg-instagram-img agg-fade-in lazyloaded" alt="" width="50" height="50" sizes="(max-width: 750px) 100vw, 750px">
                                         </a>
-                                       
+
 
 
                                     </div>
@@ -2029,23 +2034,23 @@
                                         <h2 class="title">Newsletter</h2>
                                     </div>
                                     @*<div class="nlg-mc4wp-wrap">
-                                        <p class="nlg-mc4wp-title-subline">SUBSCRIBE TO OUR</p>
-                                        <h2 class="nlg-mc4wp-title">Newsletter</h2>
-                                        <p class="nlg-mc4wp-description">to be updated with all the latest trends and products</p>
+                                            <p class="nlg-mc4wp-title-subline">SUBSCRIBE TO OUR</p>
+                                            <h2 class="nlg-mc4wp-title">Newsletter</h2>
+                                            <p class="nlg-mc4wp-description">to be updated with all the latest trends and products</p>
 
-                                        <!-- MailChimp for WordPress v4.1.1 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
-                                        <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-319" method="post" data-id="319" data-name="SignUp Form">
-                                            <div class="mc4wp-form-fields">
-                                                <p>
-                                                    <input type="email" name="EMAIL" placeholder="Your email address" required="">
-                                                    <button type="submit"><i class="fa fa-paper-plane"></i><span class="label">Subscribe</span></button>
-                                                </p>
-                                                <div style="display: none;"><input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off"></div><input type="hidden" name="_mc4wp_timestamp" value="1494865106"><input type="hidden" name="_mc4wp_form_id" value="319"><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1">
-                                            </div>
-                                            <div class="mc4wp-response"></div>
-                                        </form>
-                                        <!-- / MailChimp for WordPress Plugin -->
-                                    </div>*@
+                                            <!-- MailChimp for WordPress v4.1.1 - https://wordpress.org/plugins/mailchimp-for-wp/ -->
+                                            <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-319" method="post" data-id="319" data-name="SignUp Form">
+                                                <div class="mc4wp-form-fields">
+                                                    <p>
+                                                        <input type="email" name="EMAIL" placeholder="Your email address" required="">
+                                                        <button type="submit"><i class="fa fa-paper-plane"></i><span class="label">Subscribe</span></button>
+                                                    </p>
+                                                    <div style="display: none;"><input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off"></div><input type="hidden" name="_mc4wp_timestamp" value="1494865106"><input type="hidden" name="_mc4wp_form_id" value="319"><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1">
+                                                </div>
+                                                <div class="mc4wp-response"></div>
+                                            </form>
+                                            <!-- / MailChimp for WordPress Plugin -->
+                                        </div>*@
                                 </div>
                             </div>
                             <!-- .nlg-sidebar-inner -->

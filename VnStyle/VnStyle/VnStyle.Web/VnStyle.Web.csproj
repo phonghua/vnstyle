@@ -457,6 +457,9 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fonts.css" />
     <Content Include="Content\css\hovercard.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\owl.theme.css" />
+    <Content Include="Content\css\owl.transitions.css" />
     <Content Include="Content\css\services.css" />
     <Content Include="Content\css\video.css" />
     <Content Include="Content\css\woocommerce-smallscreen.css" />
@@ -468,6 +471,8 @@
     <Content Include="Content\images\a1.jpg" />
     <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\images\no-image.png" />
+    <Content Include="Content\js\owl.carousel.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\js\retina.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\100.jpg" />
@@ -591,6 +596,7 @@
     <Content Include="Views\Home\GetNewArticles.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
     <Content Include="Views\Home\GetAllArtist.cshtml" />
+    <Content Include="Views\Home\GetArtistInMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
