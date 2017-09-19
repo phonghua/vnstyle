@@ -184,6 +184,49 @@ namespace VnStyle.Services.Business
 
         }
 
-        
+        public IList<ArticleListingModel> GetSession(bool flag) // request == true => get session1 
+        {
+            var currentLanguage = _workContext.CurrentLanguage;
+            if (flag == true)
+            {               
+                var articleQuery = (from a in _articleRepository.Table.Where(p => p.Section1 == true && p.IsActive == true && p.IsShowHomepage == true)
+                                    join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                                    select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
+
+                var total = articleQuery.Count();
+                var Articles = articleQuery.OrderByDescending(p => p.PushlishDate).Take(5).ToList();
+
+
+                foreach (var article in Articles)
+                {
+                    if (article.ImageId.HasValue)
+                        article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+                    else
+                        article.UrlImage = "~/Content/images/no-image.png";
+                };
+                return Articles;
+
+            }
+            else
+            {
+                var articleQuery = (from a in _articleRepository.Table.Where(p => p.Section2 == true && p.IsActive == true && p.IsShowHomepage == true)
+                                    join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                                    select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
+
+                var total = articleQuery.Count();
+                var Articles = articleQuery.OrderByDescending(p => p.PushlishDate).Take(5).ToList();
+
+
+                foreach (var article in Articles)
+                {
+                    if (article.ImageId.HasValue)
+                        article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+                    else
+                        article.UrlImage = "~/Content/images/no-image.png";
+                };
+                return Articles;
+            }
+            
+        }
     }
 }

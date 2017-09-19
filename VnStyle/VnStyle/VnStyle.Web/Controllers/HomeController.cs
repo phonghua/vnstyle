@@ -162,6 +162,21 @@ namespace VnStyle.Web.Controllers
             var model = _artistsService.GetAllArtists();
             return PartialView(model);
         }
+        [ChildActionOnly]
+        public ActionResult GetArticlesSession1()
+        {
+            var flag = true;
+            var model = _articleService.GetSession(flag);
+            return PartialView(model);
+        }
+        [ChildActionOnly]
+        public ActionResult GetArticlesSession2()
+        {
+            var flag = false;
+            var model = _articleService.GetSession(flag);
+            return PartialView(model);
+        }
+
 
 
     }

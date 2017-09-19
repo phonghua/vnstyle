@@ -597,6 +597,8 @@
     <Content Include="Views\Home\Footer.cshtml" />
     <Content Include="Views\Home\GetAllArtist.cshtml" />
     <Content Include="Views\Home\GetArtistInMenu.cshtml" />
+    <Content Include="Views\Home\GetArticlesSession1.cshtml" />
+    <Content Include="Views\Home\GetArticlesSession2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
