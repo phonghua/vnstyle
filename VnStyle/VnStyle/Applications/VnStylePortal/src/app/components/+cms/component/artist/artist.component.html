@@ -1,3 +1,28 @@
-<p>
-  artist works!
-</p>
+<button class="btn btn-primary" (click)="browerFiles();">    Upload</button>
+<input type="file" style="display: none" multiple #fileInput (change)="fileOnChanged($event)" />
+
+
+
+<div class="row">
+  <!-- <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let photo of photoGrid.data; let i = index">
+      <img [src]="photo.url + '?width=500'" class="thumbnail form-img" alt="">
+  </div> -->
+
+  <ng-container *ngFor="let col of cols">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div style="background: red; display: block">
+          <!-- *ngFor="let photo of photoGrid.data; let i = index" -->
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+
+<!-- <table class="table">
+  <tr *ngFor="let photo of photoGrid.data">
+    <td>
+      <img [src]="photo.url + '?height=200'" class="thumbnail form-img" alt="">
+    </td>
+  </tr>
+</table> -->

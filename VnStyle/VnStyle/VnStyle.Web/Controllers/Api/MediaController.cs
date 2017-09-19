@@ -75,7 +75,7 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [HttpPost]
-        [Route("gallery-photo/{artistId}")]
+        [Route("artist-photo/{artistId}")]
         public HttpResponseMessage UploadAlbumPhoto(int artistId)
         {
             var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');

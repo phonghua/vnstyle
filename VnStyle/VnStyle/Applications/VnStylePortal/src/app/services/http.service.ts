@@ -84,7 +84,7 @@ export class HttpService {
   }
 
 
-  postGalleryPhoto(cateId, files, options?) {
+  postArtistPhoto(artistId, files, options?) {
     let formData: FormData = new FormData(),
       xhr: XMLHttpRequest = new XMLHttpRequest();
 
@@ -111,7 +111,7 @@ export class HttpService {
 
     };
 
-    xhr.open('POST', this.settingService.portal + `api/media/gallery-photo/${cateId}`, true);
+    xhr.open('POST', this.settingService.portal + `api/media/artist-photo/${artistId}`, true);
     xhr.setRequestHeader("Authorization", this.authService.currentUser.token_type + " " + this.authService.currentUser.access_token);
     xhr.send(formData);
   }
