@@ -1,15 +1,14 @@
 ﻿@model VnStyle.Services.Business.Models.ArticleDetailModel
 
 <h2>@Model.HeadLine</h2>
-
 <div>@Html.Raw(Model.Content)</div>
 <div id="fb-root"></div>
 <script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-comments" data-href="http://localhost:56847/Home/Detail/{@Model.Id}" data-numposts="5"></div>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="http://localhost:56847/Home/Detail/@Model.Id" data-numposts="5"></div>
