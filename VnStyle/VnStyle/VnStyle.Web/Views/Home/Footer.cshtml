@@ -10,6 +10,7 @@
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
 
 }
+
 <footer class="nlg-footer nlg-footer-dark">
     <div class="nlg-footer-wrap">
 
@@ -66,25 +67,28 @@
                             <div class="menu-footer-menu-1-container">
                                 <ul id="menu-footer-menu-1" class="menu">
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Trang chủ</a>
+                                        <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Xăm</a>
+                                        <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Xỏ khuyên</a>
+                                        <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Hình ảnh</a>
+                                        <a href="@Url.HostAction("Events","Home")">@Html.T("RootCate_Event")</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Khóa học</a>
+                                        <a href="">@Html.T("RootCate_Image")</a>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
+                                        <a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
                                         <a href="">Vnstyle Tattoo TV</a>
                                     </li>
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="">Giới thiệu</a>
+                                        <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
                                     </li>
 
                                     
