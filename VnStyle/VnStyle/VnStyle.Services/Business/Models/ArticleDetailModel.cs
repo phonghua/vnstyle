@@ -17,5 +17,11 @@ namespace VnStyle.Services.Business.Models
         public DateTime PushlishDate { get; set; }
 
         public string ArticleUrl { get; set; }
+        public List<RelatedArticles> RelatedArticles { get; set; }
+    }
+    public class RelatedArticles
+    {
+        public int Id { get; set; }
+        public string HeadLine { get; set; }
     }
 }

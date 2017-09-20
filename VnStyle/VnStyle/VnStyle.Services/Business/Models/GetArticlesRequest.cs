@@ -6,4 +6,9 @@ namespace VnStyle.Services.Business.Models
     {
         public int RootCate { get; set; }
     }
+    public enum eSession
+    {
+        Session1 = 1,
+        Session2 = 2
+    }
 }

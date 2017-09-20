@@ -1,6 +1,7 @@
 ﻿using Ricky.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,18 +17,19 @@ namespace VnStyle.Services.Business
         #region
         private readonly IBaseRepository<Article> _articleRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
+        private readonly IBaseRepository<RelatedArticle> _relatedArticleRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
-
-
-        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService)
+        
+        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticle)
         {
             _articleRepository = articleRepository;
             _articleLanguageRepository = articleLanguageRepositor;
             _workContext = workContext;
             _resourceService = resourceService;
             _mediaService = mediaService;
+            _relatedArticleRepository = relatedArticle;
         }
         #endregion
 
@@ -121,6 +123,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
+                
             }).FirstOrDefault();
             if (articleLanguage == null && currentLanguage == defaultLanguage)
             {
@@ -160,7 +163,14 @@ namespace VnStyle.Services.Business
 
             var articleQuery = (from a in _articleRepository.Table.Where(p => p.IsActive == true && p.IsShowHomepage == true)
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-                                select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
+                                select new ArticleListingModel
+                                {
+                                    Id = a.Id,
+                                    ImageId = a.FeatureImageId,
+                                    HeadLine = al.HeadLine,
+                                    Extract = al.Extract,
+                                    PushlishDate = a.PublishDate
+                                });
 
 
 
@@ -228,5 +238,13 @@ namespace VnStyle.Services.Business
             }
             
         }
+
+        //public IList<ArticleListingModel> GetRelatedArticles(int id)
+        //{
+        //    var relatedArticles = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Include(p => p.Article2).AsNoTracking().OrderBy(p => p.Seq).ThenBy(p => p.ModifiedDate)
+        //        .Select(p => new { p.Article2.Id, p.Article2.HeadLine }).ToList();
+
+        //    return relatedArticles;
+        //}
     }
 }
