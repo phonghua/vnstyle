@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Ricky.Infrastructure.Core;
@@ -18,6 +20,7 @@ namespace VnStyle.Web.Controllers.Api
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
         private readonly IWebHelper _webHelper;
+        private readonly IBaseRepository<GalleryPhoto> _galleryPhotoRepository;
 
         public ArtistsController()
         {
@@ -25,6 +28,7 @@ namespace VnStyle.Web.Controllers.Api
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
             _webHelper = EngineContext.Current.Resolve<IWebHelper>();
+            _galleryPhotoRepository = EngineContext.Current.Resolve<IBaseRepository<GalleryPhoto>>();
         }
 
         #endregion
@@ -66,6 +70,18 @@ namespace VnStyle.Web.Controllers.Api
         {
             _artistRepository.DeleteRange(p => p.Id == id);
             return Ok();
+        }
+
+        [Route("{id}/photo")]
+        public async Task<HttpResponseMessage> GetPhotos(int id)
+        {
+            var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
+            var photos = await _galleryPhotoRepository.Table.AsNoTracking().Where(p => p.ArtistId == id).ToListAsync();
+            var result = photos.Select(p =>
+            {
+                return new { p.Id, Url = currentHosting + _mediaService.GetPictureUrl(p.FileId) };
+            });
+            return Request.CreateResponse(HttpStatusCode.OK, result);
         }
     }
 }

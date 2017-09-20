@@ -297,7 +297,6 @@
     <Compile Include="Controllers\Api\ArtistsController.cs" />
     <Compile Include="Controllers\Api\BaseController.cs" />
     <Compile Include="Controllers\Api\CategoriesController.cs" />
-    <Compile Include="Controllers\Api\GalleryController.cs" />
     <Compile Include="Controllers\Api\LanguagesController.cs" />
     <Compile Include="Controllers\Api\MediaController.cs" />
     <Compile Include="Controllers\Api\Models\ArticleLanguageModelView.cs" />

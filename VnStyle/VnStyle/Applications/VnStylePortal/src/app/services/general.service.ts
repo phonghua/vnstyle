@@ -10,6 +10,12 @@ export class GeneralService {
 
   constructor(private httpService: HttpService, private settingService: SettingsService) { }
 
+  public getDocumentWidth() {
+    if (document.documentElement.clientWidth < 768) return "xs";
+    if (document.documentElement.clientWidth < 991) return "sm";
+    if (document.documentElement.clientWidth < 1199) return "md";
+    return "lg";
+  }
 
   sweetAlert(config) {
     return swal(config);
@@ -80,7 +86,7 @@ export class GeneralService {
     //Xóa các ký tự gạch ngang ở đầu và cuối
     slug = '@' + slug + '@';
     return slug.replace(/\@\-|\-\@|\@/gi, '');
-    
+
   }
 
 
