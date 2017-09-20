@@ -1,4 +1,4 @@
-﻿@*<div class="jumbotron">
+﻿    @*<div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
         <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
@@ -322,61 +322,15 @@
                 @Html.Action("GetNewArticles", "Home")
             </div>
             <!-- .nlg-main -->
-            <aside class="nlg-sidebar nlg-sidebar-sticky">
-                <div class="nlg-sidebar-inner">
-                   
-                   
-                    <div id="newslog-fancy-posts-2" class="sidebar-widget nlg-widget-fancy-posts">
-                        <div class="widget-title">
-                            <h2 class="title"><i class="fa fa-newspaper-o"></i>Weekly Top Rated Posts</h2>
-                        </div>
-                        <div class="nlg-module nlg-module-grid-posts">
-                            <div class="container">
-                                @Html.Action("GetArticlesSession2", "Home")
+            
+            @Html.Action("SideBar", "Home")
 
-                               
 
-                            </div>
-                        </div>
-                    </div>
-                    <div id="newslog-social-icons-2" class="sidebar-widget nlg-widget-social-icons">
-                        <div class="widget-title">
-                            <h2 class="title"><i class="fa fa-share-alt"></i>Mạng xã hội</h2>
-                        </div>
 
-                        <ul class="nlg-social-icons nlg-social-brand-colors">
-                            <li class="nlg-icon-facebook">
-                                <a href="@appSetting.Facebook" title="Facebook" target="_blank" style="background-color: #3b5998">
-                                    <span class="fa fa-facebook"></span>
-                                </a>
-                            </li>
-                            <li class="nlg-icon-instagram">
-                                <a href="@appSetting.Instagram" title="Instagram" target="_blank" style="background-color: #d10869">
-                                    <span class="fa fa-instagram"></span>
-                                </a>
-                            </li>
-                            <li class="nlg-icon-youtube">
-                                <a href="@appSetting.Youtube" title="Youtube" target="_blank" style="background-color: #cc181e">
-                                    <span class="fa fa-youtube"></span>
-                                </a>
-                            </li>
 
-                        </ul>
-                    </div>
-                    <div id="fb-root"></div>
-                    <script>
-                    (function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) return;
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-page" data-href="https://www.facebook.com/vnstyletattoo/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vnstyletattoo/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vnstyletattoo/">VNStyle Tattoo &amp; Piercing</a></blockquote></div>	
-                    </div>
-                <!-- .nlg-sidebar-inner -->
-                
-            </aside>
+
+
+
             <!-- .nlg-sidebar -->
         </div>
         <!-- .container -->

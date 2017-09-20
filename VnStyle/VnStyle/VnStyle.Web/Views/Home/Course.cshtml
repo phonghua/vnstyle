@@ -2,75 +2,88 @@
 @{
     ViewBag.Title = "Courses";
 }
+
 @using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
 
-<div id="nlg-module-bfbf79f5-5ae0" class="nlg-module nlg-module-grid-posts">
-    <div class="container">
-        <div class="nlg-module-header nlg-has-tax-nav">
-            <div class="nlg-module-title">
-                <h2 class="nlg-title">@Html.T("RootCate_Course")</h2>
 
-            </div>
 
-        </div>
-        <div class="nlg-col-wrap nlg-col-1">
-            <div class="row">
-                @foreach (var course in Model)
-                {
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                        <div class="nlg-col">
 
-                            <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
-                                     style="padding-top: 0px;">
-                                <figure class="nlg-featured-media">
-                                    <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">
-                                        <img width="267" height="176" src="@course.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
-                                    </a>
-                                    <div class="nlg-entry-flags">
-                                        <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
-                                    </div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
 
-                                </figure>
-                                <div class="nlg-entry-body">
+        <div id="nlg-module-bfbf79f5-5ae0" class="nlg-module nlg-module-grid-posts">
+            <div class="container">
+                <div class="nlg-module-header nlg-has-tax-nav">
+                    <div class="nlg-module-title">
+                        <h2 class="nlg-title">@Html.T("RootCate_Course")</h2>
 
-                                    <header class="nlg-entry-header">
-                                        <h3 class="nlg-entry-title">
-                                            <a href="@Url.HostAction("Detail","Home",new { id = course.Id})">@course.HeadLine</a>
-                                        </h3>
+                    </div>
 
-                                        <p class="nlg-entry-excerpt">@course.Extract</p>
-                                    </header>
+                </div>
+                <div class="nlg-col-wrap nlg-col-1">
+                    <div class="row">
+                        @foreach (var article in Model)
+                        {
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="nlg-col">
+
+                                    <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
+                                             style="padding-top: 0px;">
+                                        <figure class="nlg-featured-media">
+                                            <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+                                                <img width="267" height="176" src="@article.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
+                                            </a>
+                                            <div class="nlg-entry-flags">
+                                                <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
+                                            </div>
+
+                                        </figure>
+                                        <div class="nlg-entry-body">
+
+                                            <header class="nlg-entry-header">
+                                                <h3 class="nlg-entry-title">
+                                                    <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a>
+                                                </h3>
+
+                                                <p class="nlg-entry-excerpt">@article.Extract</p>
+                                            </header>
+                                        </div>
+                                    </article>
                                 </div>
-                            </article>
+                            </div>
+                        }
+                        <div class="nlg-pagination nlg-pagination-numeric">
+                            @if (Model.PageIndex > 0)
+                            {
+                                <a class="prev page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex})">&laquo; Quay lại</a>
+                            }
+                            @for (int i = 0; i < (Model.TotalPages); i++)
+                            {
+
+
+                                if (i == Model.PageIndex)
+                                {
+                                    <span class="page-numbers current">@(i + 1)</span>
+                                }
+                                else
+                                {
+                                    <a class="page-numbers" href="@Url.HostAction("Course","Home",new { page = i + 1 })">@(i + 1)</a>
+                                }
+                            }
+                            @if (Model.PageIndex < Model.TotalPages - 1)
+                            {
+                                <a class="next page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex + 2 })">Tiếp &raquo;</a>
+                            }
+
                         </div>
                     </div>
-                }
-                <div class="nlg-pagination nlg-pagination-numeric">
-                    @if (Model.PageIndex > 0)
-                    {
-                        <a class="prev page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex})">&laquo; Quay lại</a>
-                    }
-                    @for (int i = 0; i < (Model.TotalPages); i++)
-                    {
-
-
-                        if (i == Model.PageIndex)
-                        {
-                            <span class="page-numbers current">@(i + 1)</span>
-                        }
-                        else
-                        {
-                            <a class="page-numbers" href="@Url.HostAction("Course","Home",new { page = i + 1 })">@(i + 1)</a>
-                        }
-                    }
-                    @if (Model.PageIndex < Model.TotalPages - 1)
-                    {
-                        <a class="next page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex + 2 })">Tiếp &raquo;</a>
-                    }
-
                 </div>
             </div>
         </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        @Html.Action("SideBar", "Home")
     </div>
 </div>
-   

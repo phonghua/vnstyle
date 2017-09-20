@@ -28,6 +28,23 @@ namespace VnStyle.Web
             );
             #endregion
 
+            #region "Intro"
+            //routes.MapRoute(
+            //    name: "Article",
+            //    url: "{lang}/gioi-thieu",
+            //    defaults: new { controller = "Home", action = "Intro", id = UrlParameter.Optional },
+            //    constraints: new { lang = @"en" }
+            //);
+
+            routes.MapRoute(
+                name: "Article",
+                url: "{title}-{id}",
+                defaults: new { controller = "Home", action = "Detail", lang = "vi" }
+
+                //Detail(int id, string title = "")
+            );
+            #endregion
+
             #region "Default"
             routes.MapRoute(
                 name: "Language",

@@ -29,10 +29,7 @@
 
     <link href="~/Content/css/bootstrap-flex.min.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="~/Content/js/118e1.js"></script>
-    <script type="text/javascript" src="~/Content/js/c4be6.js"></script>
-    <script src="~/Content/js/owl.carousel.js"></script>
-    <script src="~/Content/js/owl.carousel.min.js"></script>
+   
     <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
     <link href="~/Content/css/owl.theme.css" rel="stylesheet" />
     <link href="~/Content/css/owl.transitions.css" rel="stylesheet" />
@@ -59,16 +56,16 @@
                             <a target="_blank" href="@appSetting.Facebook"><i class="fa fa-facebook"></i></a>
                         </li>
                         @*<li id="menu-item-282" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-282">
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>*@
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>*@
                         <li id="menu-item-283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-283">
                             <a target="_blank" href="@appSetting.Youtube"><i class="fa fa-youtube"></i></a>
                         </li>
                         <li id="menu-item-284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-284">
-                            <a target="_blank" href="@appSetting.Instagram"><i class="fa fa-instagram"></i ></a>
+                            <a target="_blank" href="@appSetting.Instagram"><i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
-                    <ul id="menu-top-bar-menu-2" class="nlg-top-right-menu nlg-top-bar-menu">
+                    <ul id="menu-top-bar-menu-2" class="nlg-top-right-menu nlg-top-bar-menu" style="display:none">
                         @foreach (var language in languages)
                         {
                             <li>
@@ -94,12 +91,11 @@
                         </a>
                     </div>
                     <!-- .nlg-header-brand -->
-                    
                     @*<div class="nlg-header-bn-wrap nlg-header-bn-lg">
-                        <a href="#">
-                            <img src="~/Content/images/newslog-hbn-1.png" width="728" height="90" alt="#">
-                        </a>
-                    </div>*@
+                            <a href="#">
+                                <img src="~/Content/images/newslog-hbn-1.png" width="728" height="90" alt="#">
+                            </a>
+                        </div>*@
                 </div>
                 <!-- .container -->
 
@@ -169,7 +165,7 @@
     </div>
     <!-- .nlg-sections-wrapper -->
     @* Footer *@
-    @Html.Action("Footer","Home")
+    @Html.Action("Footer", "Home")
     <div style="display:none">
     </div>
 
@@ -195,7 +191,7 @@
             <nav class="nlg-main-navigation">
                 <ul id="menu-mobile-menu" class="nlg-nav-menu">
                     <li>
-                        <a href="@Url.HomePage()">@Html.T("Global_Home")</a>                       
+                        <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
                     </li>
                     <li>
                         <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
@@ -232,13 +228,27 @@
                         <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 
                     </li>
-                   
+
                 </ul>
             </nav>
         </div>
         <!-- .nlg-inner -->
     </div>
     <!-- .nlg-mobile-panel -->
+
     <script type="text/javascript" src="~/Content/js/e-201720.js" async="" defer=""></script>
+    <script type="text/javascript" src="~/Content/js/118e1.js"></script>
+    <script type="text/javascript" src="~/Content/js/c4be6.js"></script>
+    <script src="~/Content/js/owl.carousel.min.js"></script>
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=132801417343488";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

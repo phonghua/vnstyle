@@ -13,6 +13,12 @@ namespace VnStyle.Web.Infrastructure.Helpers
             return baseUrl.TrimEnd('/');
         }
 
+        public static string CurrentUrl(this UrlHelper url)
+        {
+            var request = url.RequestContext.HttpContext.Request;
+            return request.Url.AbsoluteUri;
+        }
+
         public static string Hashtag(this UrlHelper url, string hashTag)
         {
             var request = url.RequestContext.HttpContext.Request;

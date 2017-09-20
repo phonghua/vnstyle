@@ -1,5 +1,6 @@
 ﻿@model IList<VnStyle.Services.Business.Models.ArticleListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
 <div class="nlg-col-wrap nlg-col-1">
      @foreach (var article in Model)
      {
@@ -7,7 +8,7 @@
             <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-239 post type-post status-publish format-standard has-post-thumbnail hentry category-travel tag-aviation tag-travel tag-voyage"
                      style="padding-top: 0px;">
                 <figure class="nlg-featured-media">
-                    <a href="@Url.HostAction("Detail","Home",new { id = article.Id})">
+                    <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
                         <img width="144" height="95" src="@article.UrlImage" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="@article.ImageId">
                     </a>
                     <div class="nlg-entry-flags">
@@ -17,19 +18,8 @@
                 <div class="nlg-entry-body">
 
                     <header class="nlg-entry-header">
-                        <h3 class="nlg-entry-title"><a href="@Url.HostAction("Detail","Home",new { id = article.Id})">@article.HeadLine</a></h3>
-                        <ul class="nlg-entry-meta">
-                            <li class="nlg-rating">
-                                <div class="nlg-review-star">
-                                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <div class="nlg-review-result" style="width:86.6%">
-                                        <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div> <span class="nlg-label">4 stars</span>
-                            </li>
-                        </ul>
+                        <h3 class="nlg-entry-title"><a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
+                        
 
                     </header>
                 </div>

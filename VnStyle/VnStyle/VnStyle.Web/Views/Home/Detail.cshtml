@@ -3,10 +3,16 @@
 <div class="nlg-module-header nlg-has-tax-nav">
     <div class="nlg-module-title">
         <h2 class="nlg-title">@Html.T("RootCate_Course")</h2>
-
     </div>
 
 </div>
-@Html.Action("ArticleViewer", Model)
 
-<h2>Bài viết liên quan</h2>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+        @Html.Action("ArticleViewer", Model)
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        @Html.Action("SideBar", "Home")
+    </div>    
+</div>

@@ -11,5 +11,9 @@ namespace VnStyle.Services.Business.Settings
         public string Youtube { get; set; }
         public string Instagram { get; set; }
 
+
+        public string FbAppId { get; set; }
+        public string FbAppSecret { get; set; }
+
     }
 }

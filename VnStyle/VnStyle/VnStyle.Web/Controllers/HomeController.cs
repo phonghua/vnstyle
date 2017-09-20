@@ -15,7 +15,7 @@ using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
 using VnStyle.Web.Models.Home;
 using VnStyle.Services.Business.Models;
-
+using VnStyle.Web.Infrastructure.Helpers;
 namespace VnStyle.Web.Controllers
 {
     public class HomeController : BaseController
@@ -110,19 +110,7 @@ namespace VnStyle.Web.Controllers
         public ActionResult Images()
         {
             return View();
-        }
-
-        [ChildActionOnly]
-        public ActionResult Menu()
-        {
-            return PartialView();
-        }
-
-        [ChildActionOnly]
-        public ActionResult Footer()
-        {
-            return PartialView();
-        }
+        }     
 
         public ActionResult Intro()
         {           
@@ -130,12 +118,15 @@ namespace VnStyle.Web.Controllers
             if (article == null) return NotFound();
             return View(article);
         }
-        
+
+        #region "Partial"
         [ChildActionOnly]
         public ActionResult ArticleViewer(ArticleDetailModel model)
         {
+            model.ArticleUrl = Url.CurrentUrl();
             return PartialView(model);
         }
+        
 
         [ChildActionOnly]
         public ActionResult GetNewArticles(int page = 1)
@@ -143,7 +134,7 @@ namespace VnStyle.Web.Controllers
             var request = new GetArticlesRequest
             {
                 PageSize = 10,
-                PageIndex = page - 1                
+                PageIndex = page - 1
             };
             var model = _articleService.GetNewArticles(request);
             return PartialView(model);
@@ -178,6 +169,27 @@ namespace VnStyle.Web.Controllers
         }
 
 
+        [ChildActionOnly]
+        public ActionResult SideBar()
+        {
+            return PartialView();
+        }
+
+
+
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            return PartialView();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Footer()
+        {
+            return PartialView();
+        }
+
+        #endregion
 
     }
 }

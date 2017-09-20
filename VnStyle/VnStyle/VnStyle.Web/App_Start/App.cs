@@ -18,7 +18,10 @@ namespace VnStyle.Web
                     HomepageContact = "+84 939293186 (Phạm Mai)",
                     Facebook = "https://www.facebook.com/vnstyletattoo",
                     Youtube = "https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ/",
-                    Instagram = "https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/"
+                    Instagram = "https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/",
+                    
+                    FbAppSecret = "6efa00c7957b1908f99ac622e1bbb21f",
+                    FbAppId = "132801417343488"
                 };
 
                 settingService.SaveConfiguration(appsetting);

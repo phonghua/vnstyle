@@ -4,5 +4,16 @@
     ViewBag.Title = "Intro";
 }
 
-@Html.Action("ArticleViewer", Model)
 
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+        @Html.Action("ArticleViewer", Model)
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        @Html.Action("SideBar", "Home")
+    </div>
+    @*<div class="col-xs-12 col-sm-12 col-md-4">
+            .....
+        </div>*@
+
+</div>
