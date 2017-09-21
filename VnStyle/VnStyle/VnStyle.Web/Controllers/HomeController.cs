@@ -70,6 +70,7 @@ namespace VnStyle.Web.Controllers
             return View();
         }
 
+
         public ActionResult Piercing(int page = 1)
         {
             IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Piercing);
@@ -120,6 +121,13 @@ namespace VnStyle.Web.Controllers
         }
 
         #region "Partial"
+
+        [ChildActionOnly]
+        public ActionResult GetVideos()
+        {
+            return PartialView();
+        }
+
         [ChildActionOnly]
         public ActionResult ArticleViewer(ArticleDetailModel model)
         {
