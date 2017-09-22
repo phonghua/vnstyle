@@ -14,7 +14,8 @@ namespace VnStyle.Services.Business.Models
         public string Extract { get; set; }
         public long? ImageId { get; set; }
         public DateTime PushlishDate { get; set; }
+       
     }
     
-
+   
 }

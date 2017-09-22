@@ -24820,12 +24820,15 @@ a {
     text-decoration: none;
     color: inherit
 }
-
+.nlg-module-grid-posts .nlg-entry .nlg-entry-title a:hover {
+  
+    color:#004F80;
+}
 .nlg-module-grid-posts .nlg-entry .nlg-entry-excerpt {
     margin: 0 0 10px;
     line-height: 1.4;
     font-size: 14px;
-    color: #a9a9a9
+    
 }
 
 .nlg-module-grid-posts .nlg-entry .nlg-entry-header:last-child .nlg-entry-excerpt {

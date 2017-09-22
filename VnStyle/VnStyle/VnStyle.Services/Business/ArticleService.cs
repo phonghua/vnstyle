@@ -22,14 +22,14 @@ namespace VnStyle.Services.Business
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
         
-        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticle)
+        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository)
         {
             _articleRepository = articleRepository;
             _articleLanguageRepository = articleLanguageRepositor;
             _workContext = workContext;
             _resourceService = resourceService;
             _mediaService = mediaService;
-            _relatedArticleRepository = relatedArticle;
+            _relatedArticleRepository = relatedArticleRepository;
         }
         #endregion
 
@@ -41,7 +41,15 @@ namespace VnStyle.Services.Business
 
             var articleQuery = (from a in _articleRepository.Table.Where(p => p.RootCate == request.RootCate && p.IsActive == true)
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-                                select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
+
+                                select new ArticleListingModel {
+                                    Id = a.Id,
+                                    ImageId = a.FeatureImageId,
+                                    HeadLine = al.HeadLine,
+                                    Extract = al.Extract,
+                                    PushlishDate = a.PublishDate,
+                                    
+                                });
 
 
 
@@ -123,8 +131,8 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
-                
-            }).FirstOrDefault();
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine }).ToList()
+        }).FirstOrDefault();
             if (articleLanguage == null && currentLanguage == defaultLanguage)
             {
                 return null;
@@ -137,6 +145,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine }).ToList()
             }).FirstOrDefault();
             if (articleLanguage == null)
             {

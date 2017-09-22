@@ -1,5 +1,6 @@
 ﻿@model VnStyle.Services.Business.Models.ArticleDetailModel
-
+@using Ricky.Infrastructure.Core;
+@using VnStyle.Web.Infrastructure.Helpers;
 
 <h2>@Model.HeadLine</h2>
 <div class="fb-like" data-href="@Model.ArticleUrl" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -8,6 +9,17 @@
 
 <div>
     <h2>Bài viết liên quan</h2>
+    @foreach(var relatedArticles in Model.ListRelatedArticles)
+    {
+        
+        @*<h3 class="nlg-entry-title">
+            <a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })">@relatedArticles.HeadLine</a>
+        </h3>*@
+        <p>
+            <img src="~/Content/images/list-icon.jpg"><a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })" style="color: #004370" >@relatedArticles.HeadLine</a>
+        </p>
+
+    }
 </div>
 
 

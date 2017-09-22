@@ -17,9 +17,9 @@ namespace VnStyle.Services.Business.Models
         public DateTime PushlishDate { get; set; }
 
         public string ArticleUrl { get; set; }
-        public List<RelatedArticles> RelatedArticles { get; set; }
+        public List<RelatedArticlesMap> ListRelatedArticles { get; set; }
     }
-    public class RelatedArticles
+    public class RelatedArticlesMap
     {
         public int Id { get; set; }
         public string HeadLine { get; set; }
