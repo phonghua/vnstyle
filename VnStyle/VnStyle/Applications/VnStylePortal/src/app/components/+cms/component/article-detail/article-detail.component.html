@@ -102,6 +102,15 @@
               <app-r-icheck [(ngModel)]="article.isShowHomepage" [disabled]="!editArticleState.editing"></app-r-icheck>
               <span for="">Hiển thị trang chủ</span>
             </div>
+
+            <div class="form-group">            
+              <app-r-icheck [(ngModel)]="article.section1" [disabled]="!editArticleState.editing"></app-r-icheck>
+              <span for="">Hiển thị Section 1</span>
+            </div>
+            <div class="form-group">            
+              <app-r-icheck [(ngModel)]="article.section2" [disabled]="!editArticleState.editing"></app-r-icheck>
+              <span for="">Hiển thị Section 2</span>
+            </div>
           </div>
       </div>
     </div>

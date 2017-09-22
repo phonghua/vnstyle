@@ -132,6 +132,8 @@ namespace VnStyle.Web.Controllers.Api
             entity.ModifiedDate = DateTimeHelper.GetCurrentDateTime();
             entity.IsActive = article.IsActive;
             entity.IsShowHomepage = article.IsShowHomepage;
+            entity.Section1 = article.Section1;
+            entity.Section2 = article.Section2;
             if (article.FeatureImageId.HasValue && entity.FeatureImageId != article.FeatureImageId) entity.FeatureImageId = article.FeatureImageId;
 
             foreach (var entityArticleLanguage in entity.ArticleLanguages)
