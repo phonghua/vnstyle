@@ -2,13 +2,13 @@
 <nav class="nlg-main-navigation">
     <ul id="menu-main-menu" class="nlg-nav-menu">
 
-        <li class="current-menu-item">
+        <li class="@ViewBag.Active">
             <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
         </li>
-        <li>
+        <li class="@ViewBag.Active">
             <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
         </li>
-        <li>
+        <li class="@ViewBag.Active">
             <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
         </li>        
         <li>

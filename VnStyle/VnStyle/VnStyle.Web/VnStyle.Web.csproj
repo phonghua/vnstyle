@@ -449,6 +449,7 @@
     <Content Include="contents\uploads\images\d501a7db-de06-4d93-906d-72b0d8a6fba0.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\baguetteBox.css" />
     <Content Include="Content\css\bootstrap-flex.min.css" />
     <Content Include="Content\css\ef542.css" />
     <Content Include="Content\css\fb.css" />
@@ -457,6 +458,7 @@
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fonts.css" />
     <Content Include="Content\css\hovercard.css" />
+    <Content Include="Content\css\images.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\owl.transitions.css" />
@@ -471,6 +473,8 @@
     <Content Include="Content\images\a1.jpg" />
     <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\images\no-image.png" />
+    <Content Include="Content\js\baguetteBox.js" />
+    <Content Include="Content\js\highlight.min.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\js\retina.js" />

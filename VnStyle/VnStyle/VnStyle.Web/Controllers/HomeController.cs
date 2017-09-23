@@ -48,6 +48,7 @@ namespace VnStyle.Web.Controllers
 
             var language = _workContext.CurrentLanguage;
             ViewBag.Title = "Home Page";
+            
 
             return View();
         }
@@ -104,6 +105,7 @@ namespace VnStyle.Web.Controllers
 
         public ActionResult Tattoo(int page = 1)
         {
+            ViewBag.Active = "current-menu-item";
             IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Tattoo);
             return View(result);
         }
@@ -189,6 +191,7 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult Menu()
         {
+            ViewBag.Active = "current-menu-item";
             return PartialView();
         }
 

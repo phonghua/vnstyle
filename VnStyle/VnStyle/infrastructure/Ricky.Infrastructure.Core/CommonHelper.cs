@@ -458,6 +458,7 @@ namespace Ricky.Infrastructure.Core
             return _typeFullName[type];
         }
 
+        
         public static string FriendlyUrl(string title)
         {
             if (title == null) return "";
