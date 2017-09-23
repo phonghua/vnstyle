@@ -108,9 +108,10 @@ namespace VnStyle.Web.Controllers
             return View(result);
         }
 
-        public ActionResult Images()
+        public ActionResult Images(int id)
         {
-            return View();
+            var model = _artistsService.GetAllImageByArtist(id);
+            return View(model);
         }     
 
         public ActionResult Intro()

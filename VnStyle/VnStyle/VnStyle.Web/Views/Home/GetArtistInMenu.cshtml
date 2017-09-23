@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<VnStyle.Services.Business.Models.ArtistListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
-@using Ricky.Infrastructure.Core;
+
 
 <div class="nlg-module nlg-module-grid-posts nlg-mm-posts">
     <div class="container">
@@ -18,7 +18,7 @@
 
                         <figure class="nlg-featured-media">
 
-                            <a href="#">
+                            <a href="@Url.HostAction("Images","Home",new { id = artist.Id })">
                                 <img width="350" height="231" src="@artist.UrlImage">
                             </a>
 
@@ -30,13 +30,13 @@
 
                         <div class="nlg-entry-body">
                             <header class="nlg-entry-header">
-                                <h3 class="nlg-entry-title"><a href="#">@artist.Name</a></h3>
+                                <h3 class="nlg-entry-title"><a href="@Url.HostAction("Images","Home",new { id = artist.Id })">@artist.Name</a></h3>
                             </header>
                         </div>
                     </article>
                 </div>
             }
-            <!--<span class="nlg-loader nlg-spinner"></span>-->
+            
         </div>
 
 
@@ -46,8 +46,6 @@
 <ul class="sub-menu">
     @foreach(var name in Model)
     {
-        <li><a href="#">Artist @name.Name</a></li>
+        <li><a href="@Url.HostAction("Images","Home",new { id = name.Id })">@name.Name</a></li>
     }
-    
-   
 </ul>

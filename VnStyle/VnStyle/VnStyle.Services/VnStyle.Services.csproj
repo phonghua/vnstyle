@@ -83,6 +83,7 @@
     <Compile Include="Business\Models\ArtistListingModel.cs" />
     <Compile Include="Business\Models\GetArticlesRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
+    <Compile Include="Business\Models\ImagesByArtist.cs" />
     <Compile Include="Business\Models\RootCate.cs" />
     <Compile Include="Business\RootCategoryService.cs" />
     <Compile Include="Business\SettingService.cs" />

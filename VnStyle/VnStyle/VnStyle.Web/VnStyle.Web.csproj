@@ -452,6 +452,7 @@
     <Content Include="Content\css\bootstrap-flex.min.css" />
     <Content Include="Content\css\ef542.css" />
     <Content Include="Content\css\fb.css" />
+    <Content Include="Content\css\fluid-gallery.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fonts.css" />

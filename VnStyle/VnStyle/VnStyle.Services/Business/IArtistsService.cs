@@ -11,5 +11,6 @@ namespace VnStyle.Services.Business
     public interface IArtistsService
     {
         IEnumerable<ArtistListingModel> GetAllArtists();
+        IEnumerable<ImagesByArtist> GetAllImageByArtist(int id);
     }
 }
