@@ -181,7 +181,12 @@ namespace VnStyle.Web.Controllers
 
 
         [ChildActionOnly]
-        public ActionResult SideBar()
+        public ActionResult SideBar1()
+        {
+            return PartialView();
+        }
+        [ChildActionOnly]
+        public ActionResult SideBar2()
         {
             return PartialView();
         }

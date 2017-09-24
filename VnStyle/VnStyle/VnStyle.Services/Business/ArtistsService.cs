@@ -50,6 +50,25 @@ namespace VnStyle.Services.Business
 
         }
 
+        public IEnumerable<ImagesByArtist> GetAllImage()
+        {
+            
+            var queryJoin = (from g in _galleryPhoto.Table
+                             join a in _artistRepository.Table on g.ArtistId equals a.Id
+                             select new ImagesByArtist
+                             {
+                                 Name = a.Name,
+                                 ImageId = g.FileId
+                             }).ToList();
+
+           
+            foreach (var image in queryJoin)
+            {
+                image.UrlImage = _mediaService.GetPictureUrl(image.ImageId);
+            }
+            return queryJoin;
+        }
+
         public IEnumerable<ImagesByArtist> GetAllImageByArtist(int id)
         {
 
@@ -63,14 +82,7 @@ namespace VnStyle.Services.Business
                             }).ToList();
 
 
-            //var images = (from g in _galleryPhoto.Table.Where(p => p.Id == id)
-            //              join a in _artistRepository.Table on g.ArtistId equals a.Id
-            //              select new ImagesByArtist
-            //              {
-            //                  Name = a.Name,
-            //                  ImageId = g.FileId
-            //              }).ToList();
-
+           
 
 
             foreach (var image in queryJoin)
@@ -79,7 +91,7 @@ namespace VnStyle.Services.Business
             }
             return queryJoin;
 
-            //var a = _galleryPhoto.Table.Where(p => p.ArtistId == id);
+          
             
 
 

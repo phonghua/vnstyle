@@ -30,22 +30,32 @@
             }
         }
 </script>*@
-<div class="baguetteBoxTwo ">
-    <div class="gallery">
-        @foreach (var img in Model)
-        {
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+        <div class="baguetteBoxTwo ">
+            <div class="gallery">
+                @foreach (var img in Model)
+                {
 
 
-            <a href="@img.UrlImage" data-caption="...">
-                <img src="@img.UrlImage" />
-            </a>
+                    <a href="@img.UrlImage" data-caption="Hình xăm của tác giả @img.Name">
+                        <img src="@img.UrlImage" title="@img.Name" />
+                        <p>@img.Name</p>
+                    </a>
 
 
-        }
 
+                }
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        @Html.Action("SideBar1", "Home")
+    </div>
 </div>
 
-    </div>
     <script src="~/Content/js/baguetteBox.js" async></script>
     <script src="~/Content/js/highlight.min.js" async></script>
     <script>

@@ -11,6 +11,7 @@ namespace VnStyle.Services.Business.Models
         public string Name { get; set; }
         public long ImageId { get; set; }
         public string UrlImage { get; set; }
+        public int Count { get; set; }
     }
     //public List MyProperty { get; set; }
 }

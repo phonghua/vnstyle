@@ -610,6 +610,8 @@
     <Content Include="Views\Home\SideBar.cshtml" />
     <Content Include="Views\Home\GetVideos.cshtml" />
     <Content Include="Views\Home\HomePageFeaturedArticles.cshtml" />
+    <Content Include="Views\Home\SideBar1.cshtml" />
+    <Content Include="Views\Home\SideBar2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
