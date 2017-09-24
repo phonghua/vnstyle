@@ -16,15 +16,17 @@ namespace VnStyle.Services.Business
     {
         #region
         private readonly IBaseRepository<Article> _articleRepository;
+        private readonly IBaseRepository<HomePageFeaturedArticle> _homePageFeaturedArticleRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IBaseRepository<RelatedArticle> _relatedArticleRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
         
-        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository)
+        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository, IBaseRepository<HomePageFeaturedArticle> homePageFeaturedArticleRepository)
         {
             _articleRepository = articleRepository;
+            _homePageFeaturedArticleRepository = homePageFeaturedArticleRepository;
             _articleLanguageRepository = articleLanguageRepositor;
             _workContext = workContext;
             _resourceService = resourceService;
@@ -248,12 +250,23 @@ namespace VnStyle.Services.Business
             
         }
 
-        //public IList<ArticleListingModel> GetRelatedArticles(int id)
-        //{
-        //    var relatedArticles = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Include(p => p.Article2).AsNoTracking().OrderBy(p => p.Seq).ThenBy(p => p.ModifiedDate)
-        //        .Select(p => new { p.Article2.Id, p.Article2.HeadLine }).ToList();
+        public IList<ArticleListingModel> GetAllHomePageFeaturedArticles()
+        {
+            //throw new NotImplementedException();
+            var query = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).ToList();
+            foreach (var artist in query)
+            {
+                if (artist.ImageId.HasValue)
+                    artist.UrlImage = _mediaService.GetPictureUrl(artist.ImageId.Value);
+                else
+                    artist.UrlImage = "~/Content/images/no-image.png";
+            }
+            return query;
+            
 
-        //    return relatedArticles;
-        //}
+
+        }
+
+        
     }
 }

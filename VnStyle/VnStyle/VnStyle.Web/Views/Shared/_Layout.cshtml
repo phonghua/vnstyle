@@ -185,12 +185,28 @@
     </div>
     <!-- .nlg-sections-wrapper -->
     @* Footer *@
+    
     @Html.Action("Footer", "Home")
     <div style="display:none">
     </div>
 
+    <div id="btn-top">
 
-
+        <script type="text/javascript"
+                src="./contents/js/show_ads.js">
+        </script>
+        <div id="gotop"></div>
+        <script src="~/Content/js/jquery-1.12.4.min.js"></script>
+        <script src="~/Content/js/jquery.gotop.js"></script>
+        <script>
+            $('#gotop').gotop({
+                customHtml: '<i class="fa fa-angle-up fa-2x"></i>',
+                bottom: '2em',
+                right: '2em'
+            });
+        </script>
+    </div>
+    
     @* Script *@
 
     <script type="text/javascript" src="~/Content/js/c2d81.js"></script>

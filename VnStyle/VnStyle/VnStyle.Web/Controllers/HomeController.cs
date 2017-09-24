@@ -201,6 +201,14 @@ namespace VnStyle.Web.Controllers
             return PartialView();
         }
 
+
+        [ChildActionOnly]
+        public ActionResult HomePageFeaturedArticles()
+        {
+            var articles = _articleService.GetAllHomePageFeaturedArticles();
+            return PartialView(articles);
+        }
+
         #endregion
 
     }

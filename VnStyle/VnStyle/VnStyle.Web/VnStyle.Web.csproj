@@ -475,6 +475,8 @@
     <Content Include="Content\images\no-image.png" />
     <Content Include="Content\js\baguetteBox.js" />
     <Content Include="Content\js\highlight.min.js" />
+    <Content Include="Content\js\jquery-1.12.4.min.js" />
+    <Content Include="Content\js\jquery.gotop.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\js\retina.js" />
@@ -607,6 +609,7 @@
     <Content Include="Views\Home\GetArticlesSession2.cshtml" />
     <Content Include="Views\Home\SideBar.cshtml" />
     <Content Include="Views\Home\GetVideos.cshtml" />
+    <Content Include="Views\Home\HomePageFeaturedArticles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
