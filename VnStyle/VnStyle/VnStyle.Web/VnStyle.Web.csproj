@@ -514,6 +514,8 @@
     <Content Include="Content\js\e-201720.js" />
     <Content Include="Content\js\gprofiles.js" />
     <Content Include="Content\js\sdk.js" />
+    <Content Include="Content\js\sticky.compile.js" />
+    <Content Include="Content\js\sticky.min.js" />
     <Content Include="Content\js\wp-emoji-release.min.js" />
     <Content Include="Content\js\wpgroho.js" />
     <Content Include="favicon.ico" />

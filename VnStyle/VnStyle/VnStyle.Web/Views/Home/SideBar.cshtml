@@ -7,8 +7,8 @@
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
 }
-<aside class="nlg-sidebar nlg-sidebar-sticky">
-    <div class="nlg-sidebar-inner">
+<aside class="nlg-sidebar nlg-sidebar-sticky" data-sticky-container>
+    <div class="nlg-sidebar-inner" style="margin-left:15px";>
 
 
         <div id="newslog-fancy-posts-2" class="sidebar-widget nlg-widget-fancy-posts">
@@ -25,28 +25,7 @@
             </div>
         </div>
         <div id="newslog-social-icons-2" class="sidebar-widget nlg-widget-social-icons">
-            @*<div class="widget-title">
-                <h2 class="title"><i class="fa fa-share-alt"></i>Mạng xã hội</h2>
-            </div>
-
-            <ul class="nlg-social-icons nlg-social-brand-colors">
-                <li class="nlg-icon-facebook">
-                    <a href="@appSetting.Facebook" title="Facebook" target="_blank" style="background-color: #3b5998">
-                        <span class="fa fa-facebook"></span>
-                    </a>
-                </li>
-                <li class="nlg-icon-instagram">
-                    <a href="@appSetting.Instagram" title="Instagram" target="_blank" style="background-color: #d10869">
-                        <span class="fa fa-instagram"></span>
-                    </a>
-                </li>
-                <li class="nlg-icon-youtube">
-                    <a href="@appSetting.Youtube" title="Youtube" target="_blank" style="background-color: #cc181e">
-                        <span class="fa fa-youtube"></span>
-                    </a>
-                </li>
-
-            </ul>*@
+           
             <div class="widget-title">
                 <h2 class="title"><i class="fa fa-youtube"></i>YOUTUBE</h2>
             </div>
@@ -72,27 +51,14 @@
        
     </div>
 
-    <!-- .nlg-sidebar-inner -->
-    @*<div id="search-2" class="sidebar-widget widget_search">
-        <form role="search" class="search-form" method="get" action="http://demo.aggressivemotions.com/newslog/">
-            <div class="input-group">
-                <input type="text" name="s" class="form-control" autocomplete="off" placeholder="Search..." title="Search for:" value="">
-                <span class="input-group-btn">
-                    <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                </span>
-            </div>
-        </form>
-    </div>*@
+  
 
     <div id="newslog-instagram-feed-2" class="sidebar-widget nlg-widget-instagram-feed">
         <div class="widget-title">
             <h2 class="title"><i class="fa fa-instagram"></i>INSTAGRAM</h2>
         </div>
         <div class="nlg-instagram-images clearfix nlg-col-4">
-            @*<a href="https://instagram.com/p/BJ1LN3Ojl1P/" class="nlg-item" target="_blank" rel="nofollow">
-                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://scontent.cdninstagram.com/t51.2885-15/e35/14052759_1583029265332732_866826000_n.jpg" class="nlg-instagram-img agg-fade-in lazyloaded" alt="Infected � So Real It's Amazing
-                #adobe #photoshop" width="50" height="50" sizes="(max-width: 750px) 100vw, 750px" srcset="https://scontent.cdninstagram.com/t51.2885-15/e35/14052759_1583029265332732_866826000_n.jpg 50w, https://scontent.cdninstagram.com/t51.2885-15/e35/14052759_1583029265332732_866826000_n.jpg 100w, https://scontent.cdninstagram.com/t51.2885-15/e35/14052759_1583029265332732_866826000_n.jpg 200w">
-                            </a>*@
+            
             <a href="" class="nlg-item" target="_blank" rel="nofollow">
                 <img src="https://instagram.fsgn5-2.fna.fbcdn.net/t51.2885-15/e35/21576474_1073595422777481_3921958191025356800_n.jpg" class="nlg-instagram-img agg-fade-in lazyloaded" alt="" width="50" height="50" sizes="(max-width: 750px) 100vw, 750px">
             </a>
@@ -135,6 +101,9 @@
 
 
         </div>
-
+            
     </div>
 </aside>
+<script>
+    var sticky = new Sticky('.nlg-sidebar-inner', {});
+</script>

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<VnStyle.Services.Business.Models.ImagesByArtist>
 
-<div class="baguetteBoxTwo gallery">
+@*<div class="baguetteBoxTwo gallery">
     <div class="gallery">
         @foreach (var img in Model)
         {
@@ -29,4 +29,37 @@
                 hljs.initHighlighting();
             }
         }
-</script>
+</script>*@
+<div class="baguetteBoxTwo ">
+    <div class="gallery">
+        @foreach (var img in Model)
+        {
+
+
+            <a href="@img.UrlImage" data-caption="...">
+                <img src="@img.UrlImage" />
+            </a>
+
+
+        }
+
+</div>
+
+    </div>
+    <script src="~/Content/js/baguetteBox.js" async></script>
+    <script src="~/Content/js/highlight.min.js" async></script>
+    <script>
+        window.onload = function () {
+            baguetteBox.run('.gallery', {
+                captions: true,       // true|false - Hiển thị tiêu đề ảnh
+                buttons: 'auto',      // 'auto'|true|false - Hiển thị nút điều hướng
+                async: false,         // true|false - Tải file không đồng bộ
+                preload: 2,           // [number] - Tải trước (preload) bao nhiêu ảnh kể từ ảnh hiện tại
+                animation: 'slideIn'  // 'slideIn'|'fadeIn'|false - Loại chuyển động
+
+            });
+            if (typeof oldIE === 'undefined' && Object.keys) {
+                hljs.initHighlighting();
+            }
+        }
+    </script>
