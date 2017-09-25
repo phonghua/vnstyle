@@ -155,6 +155,10 @@
     <Compile Include="Migrations\201709170929036_AddedArtistShowOnHomepage.Designer.cs">
       <DependentUpon>201709170929036_AddedArtistShowOnHomepage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709250138542__AddMovie.cs" />
+    <Compile Include="Migrations\201709250138542__AddMovie.Designer.cs">
+      <DependentUpon>201709250138542__AddMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -192,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709170929036_AddedArtistShowOnHomepage.resx">
       <DependentUpon>201709170929036_AddedArtistShowOnHomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709250138542__AddMovie.resx">
+      <DependentUpon>201709250138542__AddMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
