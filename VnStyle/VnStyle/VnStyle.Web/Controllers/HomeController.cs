@@ -35,8 +35,7 @@ namespace VnStyle.Web.Controllers
         {
             _workContext = EngineContext.Current.Resolve<IWorkContext>();
             _cacheManager = EngineContext.Current.Resolve<ICacheManager>();
-            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
-            
+            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();            
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _articleService = EngineContext.Current.Resolve<IArticleService>();

@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Ricky.Infrastructure.Core.ComponentModel;
 using Ricky.Infrastructure.Core.ExtendMethods;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Ricky.Infrastructure.Core
 {
@@ -19,7 +21,30 @@ namespace Ricky.Infrastructure.Core
         {
             return Guid.NewGuid().ToString().ToLower().Replace("-", "");
         }
+        public static string IsSelected(this HtmlHelper html, string controllers = "", string actions = "", string cssClass = "current-menu-item")
+        {
+            ViewContext viewContext = html.ViewContext;
+            bool isChildAction = viewContext.Controller.ControllerContext.IsChildAction;
 
+            if (isChildAction)
+                viewContext = html.ViewContext.ParentActionViewContext;
+
+            RouteValueDictionary routeValues = viewContext.RouteData.Values;
+            string currentAction = routeValues["action"].ToString();
+            string currentController = routeValues["controller"].ToString();
+
+            if (String.IsNullOrEmpty(actions))
+                actions = currentAction;
+
+            if (String.IsNullOrEmpty(controllers))
+                controllers = currentController;
+
+            string[] acceptedActions = actions.Trim().Split(',').Distinct().ToArray();
+            string[] acceptedControllers = controllers.Trim().Split(',').Distinct().ToArray();
+
+            return acceptedActions.Contains(currentAction) && acceptedControllers.Contains(currentController) ?
+                cssClass : String.Empty;
+        }
 
         /// <summary>
         /// Ensures the subscriber email or throw.

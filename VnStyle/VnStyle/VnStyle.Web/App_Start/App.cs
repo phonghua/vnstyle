@@ -15,7 +15,8 @@ namespace VnStyle.Web
                 var appsetting = new AppSetting
                 {
                     ApplicationName = "VNStyle Tattoo & Piercing",
-                    HomepageContact = "+84 939293186 (Phạm Mai)",
+                    HomepageContact1 = "+84 939293186 (Phạm Mai)",
+                    HomepageContact2 = "+84 123456789 (Đăng Vinh)",
                     Facebook = "https://www.facebook.com/vnstyletattoo",
                     Youtube = "https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ/",
                     Instagram = "https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/",

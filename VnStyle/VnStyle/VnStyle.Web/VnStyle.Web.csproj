@@ -479,7 +479,6 @@
     <Content Include="Content\js\jquery.gotop.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
-    <Content Include="Content\js\retina.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\100.jpg" />
     <Content Include="Content\images\112.jpg" />
@@ -515,6 +514,7 @@
     <Content Include="Content\js\devicepx-jetpack.js" />
     <Content Include="Content\js\e-201720.js" />
     <Content Include="Content\js\gprofiles.js" />
+    <Content Include="Content\js\retina.js" />
     <Content Include="Content\js\sdk.js" />
     <Content Include="Content\js\sticky.compile.js" />
     <Content Include="Content\js\sticky.min.js" />
@@ -607,7 +607,6 @@
     <Content Include="Views\Home\GetArtistInMenu.cshtml" />
     <Content Include="Views\Home\GetArticlesSession1.cshtml" />
     <Content Include="Views\Home\GetArticlesSession2.cshtml" />
-    <Content Include="Views\Home\SideBar.cshtml" />
     <Content Include="Views\Home\GetVideos.cshtml" />
     <Content Include="Views\Home\HomePageFeaturedArticles.cshtml" />
     <Content Include="Views\Home\SideBar1.cshtml" />

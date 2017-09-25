@@ -108,6 +108,7 @@
     <Compile Include="Data\Domain\Memberships\AspNetUsers.cs" />
     <Compile Include="Data\Domain\MetaTag.cs" />
     <Compile Include="Data\Domain\Article.cs" />
+    <Compile Include="Data\Domain\Movie.cs" />
     <Compile Include="Data\Domain\RelatedArticle.cs" />
     <Compile Include="Data\Domain\Setting.cs" />
     <Compile Include="Data\Enum\EArticleState.cs" />

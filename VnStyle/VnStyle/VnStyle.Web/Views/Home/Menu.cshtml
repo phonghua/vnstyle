@@ -1,25 +1,31 @@
 ﻿@using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
 <nav class="nlg-main-navigation">
     <ul id="menu-main-menu" class="nlg-nav-menu">
 
-        <li class="@ViewBag.Active">
+        
+            
+        <li class="@Html.IsSelected(actions: "Index", controllers: "Home")">
             <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
         </li>
-        <li class="@ViewBag.Active">
+        
+        <li class="@Html.IsSelected(actions: "Tattoo", controllers: "Home")">
             <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
         </li>
-        <li class="@ViewBag.Active">
+        <li class="@Html.IsSelected(actions: "Piercing", controllers: "Home")">
             <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
         </li>        
-        <li>
+        <li class="@Html.IsSelected(actions: "Events", controllers: "Home")">
             <a href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
         </li>
        
        
-        <li><a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a></li>
-        <li ><a href="#">XAMTV</a></li>
+        <li class="@Html.IsSelected(actions: "Course", controllers: "Home")">
+            <a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
+        </li>
+        <li class="@Html.IsSelected(actions: "XamTv", controllers: "Home")"><a href="#">XAMTV</a></li>
        
-          <li>
+          <li class="@Html.IsSelected(actions: "Intro", controllers: "Home")">
             <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 
         </li>
