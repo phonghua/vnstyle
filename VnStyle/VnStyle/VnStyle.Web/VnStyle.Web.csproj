@@ -477,6 +477,7 @@
     <Content Include="Content\js\highlight.min.js" />
     <Content Include="Content\js\jquery-1.12.4.min.js" />
     <Content Include="Content\js\jquery.gotop.js" />
+    <Content Include="Content\js\jquery_library2.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />

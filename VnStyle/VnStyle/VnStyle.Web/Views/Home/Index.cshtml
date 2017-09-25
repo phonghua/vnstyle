@@ -1,28 +1,4 @@
-﻿    @*<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
-@using Ricky.Infrastructure.Core.ObjectContainer
+﻿@using Ricky.Infrastructure.Core.ObjectContainer
 @using VnStyle.Services.Business.Settings
 @using VnStyle.Web.Infrastructure.Helpers
 @{
@@ -37,7 +13,7 @@
 <div class="nlg-sections-wrap">
     <div id="nlg-module-b4a0d8d0-dde3" class="nlg-module nlg-module-grid-posts">
         <div class="container">
-           
+
             @Html.Action("GetArticlesSession1", "Home")
 
 
@@ -57,8 +33,6 @@
     <div class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
         <div class="nlg-module nlg-module-featured-posts nlg-module-fp-a nlg-module-fp-full-width">
             <div class="container">
-
-                
                 <!-- .nlg-col-wrap -->
                 @Html.Action("HomePageFeaturedArticles", "Home")
             </div>
@@ -66,7 +40,7 @@
         </div>
         <!-- .nlg-module -->
     </div>
-    <!-- .nlg-section -->
+    
 
     <div id="nlg-section-0ac380f8-b506" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
         <div class="container">
@@ -76,412 +50,39 @@
                 @Html.Action("GetNewArticles", "Home")
             </div>
             <!-- .nlg-main -->
-            
+
             @Html.Action("SideBar1", "Home")
-
-
-
-
-
-
-
-            <!-- .nlg-sidebar -->
+            
         </div>
-        <!-- .container -->
+        
     </div>
     <!-- .nlg-section -->
-    <div id="nlg-section-7e848e14-c380" class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-        <div id="nlg-module-1dd3328e-c893" class="nlg-module nlg-module-featured-posts nlg-module-fp-b nlg-module-fp-full-width">
-            <div class="container">
-                @Html.Action("GetAllArtist")
+    <div class="row">
+        <div id="nlg-section-7e848e14-c380" class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
+            <div id="nlg-module-1dd3328e-c893" class="nlg-module nlg-module-featured-posts nlg-module-fp-b nlg-module-fp-full-width">
+                <div class="container">
+                    @Html.Action("GetAllArtist")
+                </div>
             </div>
         </div>
-    </div>
-    <!-- .nlg-section -->
-
-    <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-        <div class="container">
-            <div class="nlg-main" role="main">
-                @*<script>
-                        var nlg_module_04a5c8f0_0a70_settings = { "layout": "grid_posts", "title": "
-
-
-                        ", "taxonomy_navigation": "false", "custom_html": "", "gp_posts_layout": "vertical_2_col", "fp_posts_layout": "style_d", "gp_pagination_type": "loadmore", "fp_container_layout": "none", "posts_per_page": 8, "posts_offset": 0, "post_types": ["post", "page"], "post_taxonomies": ["1_category", "3_category", "17_category", "24_category", "28_category", "38_category", "70_category", "97_category", "149_category"], "post_tags": "", "post_ids": "439,224,221,150,242,396,375,407,426,363", "excluded_post_ids": ",222,224,207,457,150,239,180,242,171,208,169,240,385,432,411,417,373", "orderby": "post_ids", "order": "desc", "meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "excerpt_length": 29, "prevent_duplication": "false", "class_name": "", "id": "04a5c8f0-0a70", "sidebar_position": "right", "position": "", "description": "", "gp_columns": "2", "gp_direction": "vertical", "gp_meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "gp_excerpt_length": 29, "image_size": "nlg-350-231" };
-                    </script>*@
-
-                @*<div id="nlg-module-6c2ab66f-7255" class="nlg-module nlg-module-featured-posts nlg-module-fp-d nlg-module-fp-classic">
-                        <div class="container">
-
-                            <div data-items="1" data-center="false" data-responsive="0:1,768:1,992:1" data-controls="nlg-carousel-nav" class="nlg-col-wrap nlg-col-1 nlg-carousel owl-carousel owl-loaded">
-                                <!-- .nlg-col -->
-                                <!-- .nlg-col -->
-                                <!-- .nlg-col -->
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage" style="transform: translate3d(-1460px, 0px, 0px); transition: 0s; width: 5110px;">
-                                        <div class="owl-item cloned" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-453 post type-post status-publish format-standard has-post-thumbnail hentry category-education tag-education tag-life lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/online-accounting-homework-help-to-make-the-student-life-easy/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#afce14">Education</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Petra Janna</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T17:05:19+00:00" title="April 18, 2017 5:05 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">Online Accounting Homework Help to make the Student Life Easy</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 7 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 71 views</li>
-                                                                    <li class="nlg-rating">
-                                                                        <div class="nlg-review-star">
-                                                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <div class="nlg-review-result" style="width:100%">
-                                                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </div> <span class="nlg-label">5 stars</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-430 post type-post status-publish format-standard has-post-thumbnail hentry category-business tag-business tag-social lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/how-to-overcome-shyness-and-social-anxiety-in-3-tips/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#157a99">Business</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Isabella Diana</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T15:14:11+00:00" title="April 18, 2017 3:14 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">How To Overcome Shyness And Social Anxiety In 3 Tips?</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 6 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 24 views</li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item active" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-432 post type-post status-publish format-standard has-post-thumbnail hentry category-travel tag-attraction tag-travel lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/where-to-get-the-best-shots-morzines-beautiful-natural-attractions/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#e8cd20">Travel</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Petra Janna</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T15:16:44+00:00" title="April 18, 2017 3:16 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">Where to get the Best Shots: Morzine’s Beautiful Natural Attractions</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 8 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 78 views</li>
-                                                                    <li class="nlg-rating">
-                                                                        <div class="nlg-review-star">
-                                                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <div class="nlg-review-result" style="width:86.6%">
-                                                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </div> <span class="nlg-label">4 stars</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-453 post type-post status-publish format-standard has-post-thumbnail hentry category-education tag-education tag-life lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/online-accounting-homework-help-to-make-the-student-life-easy/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#afce14">Education</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Petra Janna</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T17:05:19+00:00" title="April 18, 2017 5:05 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">Online Accounting Homework Help to make the Student Life Easy</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 7 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 71 views</li>
-                                                                    <li class="nlg-rating">
-                                                                        <div class="nlg-review-star">
-                                                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <div class="nlg-review-result" style="width:100%">
-                                                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </div> <span class="nlg-label">5 stars</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-430 post type-post status-publish format-standard has-post-thumbnail hentry category-business tag-business tag-social lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/56.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/how-to-overcome-shyness-and-social-anxiety-in-3-tips/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#157a99">Business</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Isabella Diana</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T15:14:11+00:00" title="April 18, 2017 3:14 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">How To Overcome Shyness And Social Anxiety In 3 Tips?</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 6 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 24 views</li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-432 post type-post status-publish format-standard has-post-thumbnail hentry category-travel tag-attraction tag-travel lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/ek.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/where-to-get-the-best-shots-morzines-beautiful-natural-attractions/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#e8cd20">Travel</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Petra Janna</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T15:16:44+00:00" title="April 18, 2017 3:16 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">Where to get the Best Shots: Morzine’s Beautiful Natural Attractions</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 8 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 78 views</li>
-                                                                    <li class="nlg-rating">
-                                                                        <div class="nlg-review-star">
-                                                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <div class="nlg-review-result" style="width:86.6%">
-                                                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </div> <span class="nlg-label">4 stars</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                        <div class="owl-item cloned" style="width: 730px;">
-                                            <div class="nlg-col">
-                                                <article class="nlg-entry nlg-entry-has-featured-media post-453 post type-post status-publish format-standard has-post-thumbnail hentry category-education tag-education tag-life lazyload"
-                                                         data-bgset="https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=60%2C40 60w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=144%2C95 144w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=210%2C139 210w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=234%2C154 234w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=267%2C176 267w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=350%2C231 350w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=730%2C482 730w, https://i0.wp.com/demo.aggressivemotions.com/newslog/wp-content/uploads/2017/04/24.jpg?resize=1440%2C950 1440w"
-                                                         data-sizes="(max-width: 730px) 100vw, 730px" style="padding-top: 0px;">
-                                                    <a href="http://demo.aggressivemotions.com/newslog/online-accounting-homework-help-to-make-the-student-life-easy/" class="nlg-entry-body">
-                                                        <div class="container">
-
-                                                            <ul class="nlg-entry-meta">
-                                                                <li class="nlg-category"><span style="color:#fff;background-color:#afce14">Education</span></li>
-                                                            </ul>
-                                                            <!-- .nlg-entry-meta -->
-                                                            <div class="nlg-entry-header">
-                                                                <ul class="nlg-entry-meta no-spacing">
-                                                                    <li class="nlg-byline">
-                                                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                                                            <span rel="author"><span itemprop="author">Petra Janna</span></span>
-                                                                        </span>
-                                                                    </li>
-                                                                    <li class="nlg-date">on <span><time datetime="2017-04-18T17:05:19+00:00" title="April 18, 2017 5:05 pm">April 18, 2017</time></span></li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-                                                                <h3 class="nlg-entry-title">Online Accounting Homework Help to make the Student Life Easy</h3>
-                                                                <ul class="nlg-entry-meta">
-                                                                    <li class="nlg-comments"><i class="fa fa-comment"></i> 7 comments</li>
-                                                                    <li class="nlg-views"><i class="fa fa-eye"></i> 71 views</li>
-                                                                    <li class="nlg-rating">
-                                                                        <div class="nlg-review-star">
-                                                                            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <div class="nlg-review-result" style="width:100%">
-                                                                                <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </div> <span class="nlg-label">5 stars</span>
-                                                                    </li>
-                                                                </ul>
-                                                                <!-- .nlg-entry-meta -->
-
-                                                            </div>
-                                                            <!-- .nlg-entry-header -->
-                                                        </div>
-                                                    </a>
-                                                    <!-- .nlg-entry-body -->
-                                                </article>
-                                                <!-- .nlg-entry -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-nav disabled">
-                                    <div class="owl-prev">prev</div>
-                                    <div class="owl-next">next</div>
-                                </div>
-                                <div class="owl-dots disabled"></div>
-                            </div>
-                            <!-- .nlg-col-wrap -->
-                            <div id="nlg-carousel-nav" class="nlg-carousel-nav">
-                                <button type="button" class="nlg-nav nlg-nav-left"><i class="fa fa-chevron-left"></i></button>
-                                <button type="button" class="nlg-nav nlg-nav-right"><i class="fa fa-chevron-right"></i></button>
-                            </div>
-                            <!-- .nlg-carousel-nav -->
-
-                        </div>
-                        <!-- .container -->
-                    </div>
-                    <!-- .nlg-module -->*@
-
+        <!-- .nlg-section -->
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-8">
                 <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-
                     <div class="container">
-
                         <div class="nlg-main" role="main">
-
-                            <script>
-                                var nlg_module_04a5c8f0_0a70_settings = { "layout": "grid_posts", "title": "Posts with the most points", "taxonomy_navigation": "false", "custom_html": "", "gp_posts_layout": "vertical_2_col", "fp_posts_layout": "style_d", "gp_pagination_type": "loadmore", "fp_container_layout": "none", "posts_per_page": 8, "posts_offset": 0, "post_types": ["post", "page"], "post_taxonomies": ["1_category", "3_category", "17_category", "24_category", "28_category", "38_category", "70_category", "97_category", "149_category"], "post_tags": "", "post_ids": "439,224,221,150,242,396,375,407,426,363", "excluded_post_ids": ",222,224,207,457,150,239,180,242,171,208,169,240,385,432,411,417,373", "orderby": "post_ids", "order": "desc", "meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "excerpt_length": 29, "prevent_duplication": "false", "class_name": "", "id": "04a5c8f0-0a70", "sidebar_position": "right", "position": "", "description": "", "gp_columns": "2", "gp_direction": "vertical", "gp_meta_data": ["excerpt", "date", "byline", "views", "rating", "comments", "category", "trending_icon"], "gp_excerpt_length": 29, "image_size": "nlg-350-231" };
-                            </script>
-                          
-                            <!-- .nlg-module -->
-
-
+                            @Html.Action("GetVideos", "Home")
                         </div>
-                        <!-- .nlg-main -->
-
-                        
                         <!-- .nlg-sidebar -->
-
                     </div>
                     <!-- .container -->
-
                 </div>
-                @Html.Action("GetVideos", "Home")
+
             </div>
-            <!-- .nlg-sidebar -->
-        </div>
-        <!-- .container -->
+            <!-- .nlg-section -->
+            <div class="col-xs-12 col-md-4 col-lg-4" style= "margin-top:25px">
+                @Html.Action("SideBar2", "Home")
+            </div>
+        </div>      
     </div>
-    <!-- .nlg-section -->
 </div>
