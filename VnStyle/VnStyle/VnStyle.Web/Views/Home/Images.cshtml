@@ -32,15 +32,14 @@
 </script>*@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8">
+        <h1>Hình xăm bởi Vnstyle</h1>
         <div class="baguetteBoxTwo ">
             <div class="gallery">
                 @foreach (var img in Model)
                 {
-
-
                     <a href="@img.UrlImage" data-caption="Hình xăm của tác giả @img.Name">
-                        <img src="@img.UrlImage" title="@img.Name" />
-                        <p>@img.Name</p>
+                        <img src="@img.UrlImage" title="@img.Name" style="width:100%;padding: 7px 0;"/>
+                       
                     </a>
 
 
@@ -51,7 +50,7 @@
 
         </div>
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4">
+    <div class="col-xs-12 col-sm-12 col-md-4 hidden-xs hidden-sm">
         @Html.Action("SideBar1", "Home")
     </div>
 </div>

@@ -3,7 +3,7 @@
 @using VnStyle.Web.Infrastructure.Helpers;
 
 
-<div class="row" id="owl-artists">    
+@*<div class="row" id="owl-artists">    
     @foreach (var artist in Model)
     {
         <div class="owl-item" style="width: 370px">
@@ -21,11 +21,38 @@
 
     
     
-</div>
+</div>*@
+<section class="container hidden-xs hidden-sm " >
+
+    <div id="owl-artists" class="row active-with-click">
+        @foreach (var artist in Model)
+        {
+            
+              
+                    <article class="material-card Red">
+                        <h2>
+                            <span><i class="fa fa-fw fa-star"></i>@artist.Name</span>
+                            
+                        </h2>
+                        <div class="mc-content">
+                            <div class="img-container">
+                                <img class="img-responsive" src="@artist.UrlImage">
+                            </div>
+
+                        </div>
+
+                    </article>
+                @*</div>*@
+            
+            
+        }
+       
+
+    </div>
+</section>
 
 
-
-<script src="~/Content/js/jquery_library2.js"></script>
+@*<script src="~/Content/js/jquery_library2.js"></script>*@
 <script src="~/Content/js/owl.carousel.min.js"></script>
 <script>
         $(document).ready(function () {

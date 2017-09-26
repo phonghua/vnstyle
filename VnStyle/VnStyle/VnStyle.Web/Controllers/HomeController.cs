@@ -104,7 +104,7 @@ namespace VnStyle.Web.Controllers
 
         public ActionResult Tattoo(int page = 1)
         {
-            ViewBag.Active = "current-menu-item";
+          
             IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Tattoo);
             return View(result);
         }

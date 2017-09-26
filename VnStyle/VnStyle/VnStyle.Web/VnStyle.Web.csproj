@@ -462,7 +462,9 @@
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.css" />
     <Content Include="Content\css\owl.transitions.css" />
+    <Content Include="Content\css\responsive-card.css" />
     <Content Include="Content\css\services.css" />
+    <Content Include="Content\css\style-homepage.css" />
     <Content Include="Content\css\video.css" />
     <Content Include="Content\css\woocommerce-smallscreen.css" />
     <Content Include="Content\css\woocommerce.css" />
