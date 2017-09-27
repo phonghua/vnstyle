@@ -3,50 +3,39 @@
 @using VnStyle.Web.Infrastructure.Helpers;
 
 
-@*<div class="row" id="owl-artists">    
-    @foreach (var artist in Model)
-    {
-        <div class="owl-item" style="width: 370px">
-            <a href="@Url.HostAction("Images","Home",new { id = artist.Id })">
-                <img src="@artist.UrlImage" style="padding-top: 0px; width:370px; height:450px">
-            </a>
+@*<div class="row" id="owl-artists">
+        @foreach (var artist in Model)
+        {
+            <div class="owl-item" style="width: 370px">
+                <a href="@Url.HostAction("Images","Home",new { id = artist.Id })">
+                    <img src="@artist.UrlImage" style="padding-top: 0px; width:370px; height:450px">
+                </a>
 
-            <!-- .nlg-entry-body -->
-            <!-- .nlg-entry -->
-        </div>
-    }
-  
-   
+                <!-- .nlg-entry-body -->
+                <!-- .nlg-entry -->
+            </div>
+        }
 
 
-    
-    
-</div>*@
-<section class="container hidden-xs hidden-sm " >
 
+
+
+
+    </div>*@
+<section class="container hidden-xs hidden-sm ">
     <div id="owl-artists" class="row active-with-click">
         @foreach (var artist in Model)
         {
-            
-              
-                    @*<article class="material-card Red">
-                        <h2>
-                            <span><i class="fa fa-fw fa-star"></i>@artist.Name</span>
-                            
-                        </h2>*@
-                        <div class="mc-content">
-                            <div class="img-container">
-                                <img class="img-responsive" src="@artist.UrlImage">
-                            </div>
+            <a href="@Url.HostAction("Images","Home",new { id = artist.Id })">
+                <div class="mc-content">
+                    <div class="img-container">
+                        <img class="img-responsive" src="@artist.UrlImage">
+                    </div>
 
-                        </div>
-
-                    @*</article>*@
-                @*</div>*@
-            
+                </div>
+            </a>
             
         }
-       
 
     </div>
 </section>
@@ -55,25 +44,25 @@
 @*<script src="~/Content/js/jquery_library2.js"></script>*@
 <script src="~/Content/js/owl.carousel.min.js"></script>
 <script>
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            $("#owl-artists").owlCarousel({
+        $("#owl-artists").owlCarousel({
 
-                items:3,
-                loop:true,
-                margin:10,
-                autoplay:true,
-                autoplayTimeout:1000,
-                autoplayHoverPause:true
+            items: 3,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 1000,
+            autoplayHoverPause: true
 
-                // "singleItem:true" is a shortcut for:
-                // items : 1,
-                // itemsDesktop : false,
-                // itemsDesktopSmall : false,
-                // itemsTablet: false,
-                // itemsMobile : false
-
-            });
+            // "singleItem:true" is a shortcut for:
+            // items : 1,
+            // itemsDesktop : false,
+            // itemsDesktopSmall : false,
+            // itemsTablet: false,
+            // itemsMobile : false
 
         });
+
+    });
 </script>

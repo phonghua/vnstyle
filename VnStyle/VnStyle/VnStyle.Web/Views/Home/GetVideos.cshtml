@@ -16,12 +16,25 @@
                         <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-379 post type-post status-publish format-video has-post-thumbnail hentry category-self-help tag-effective tag-relaxed post_format-post-format-video"
                                  style="padding-top: 0px;">
                             <figure class="nlg-featured-media">
-                                <a href="#">
+                                <a  onclick="loadVideo('@imgThumb.Link')">
                                     <img width="144" height="95" src="http://i3.ytimg.com/vi/@imgThumb.Link/maxresdefault.jpg" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="88">
                                 </a>
                                 <div class="nlg-entry-flags">
                                 </div>
-                                <div class="nlg-media-icon"><i class="fa fa-play"></i></div>
+                                <div class="nlg-media-icon" onclick="loadVideo('@imgThumb.Link')"><i class="fa fa-play"></i></div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <iframe id="iframeYoutube" width="100%" height="315" src="https://www.youtube.com/embed/@imgThumb.Link" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </figure>
                             <div class="nlg-entry-body">
                                 <ul class="nlg-entry-meta first no-spacing">
@@ -32,7 +45,7 @@
                                     </li>
                                 </ul>
                                 <header class="nlg-entry-header">
-                                    <h3 class="nlg-entry-title"><a href="#">@imgThumb.Title</a></h3>
+                                    <h3 class="nlg-entry-title" ><a onclick="loadVideo('@imgThumb.Link')">@imgThumb.Title</a></h3>
                                     <ul class="nlg-entry-meta"></ul>
 
                                 </header>
@@ -43,8 +56,28 @@
             
            
             <div class="nlg-pagination nlg-pagination-loadmore"><span data-href="http://demo.aggressivemotions.com/newslog/page/2/" class="btn" data-load-page="2"><i class="fa fa-circle-o-notch"></i>Load More</span></div>
-            <!--<span class="nlg-loader nlg-spinner"></span>-->
+            
         </div>
 
     </div>
 </div>
+
+
+@*<a onclick="changeVideo('e80BbX05D7Y')">video-1</a>
+<a onclick="changeVideo('ReRcHdeUG9Y')">video-2</a>*@
+
+
+<script>
+    $(document).ready(function () {
+        $("#myModal").on("hidden.bs.modal", function () {
+            $("#iframeYoutube").attr("src", "#");
+        })
+    })
+
+    function loadVideo(vId) {
+        var iframe = document.getElementById("iframeYoutube");
+        iframe.src = "https://www.youtube.com/embed/" + vId;
+
+        $("#myModal").modal("show");
+    }
+</script>
