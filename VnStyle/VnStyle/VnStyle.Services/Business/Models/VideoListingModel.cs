@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VnStyle.Services.Data.Domain
+namespace VnStyle.Services.Business.Models
 {
-    public class Movie
+    public class VideoListingModel
     {
         public int Id { get; set; }
         public string Link { get; set; }
