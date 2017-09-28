@@ -12,27 +12,27 @@ import { ConfirmModalComponent } from '../../../shared/confirm-modal/confirm-mod
 })
 export class ArticleDetailComponent implements OnInit {
 
-  private selectedLanguage = null;
+  public selectedLanguage = null;
 
-  private article = {
+  public article = {
     id: 0,
     articleLanguages: [],
     featureImage: null,
     featureImageId: null
   };
 
-  private count = 0;
-  private editArticleState = {
+  public count = 0;
+  public editArticleState = {
     editing: false,
     originalModel: null
   }
 
-  private releatedArticles = {
+  public releatedArticles = {
     data: []
   }
 
-  private languages = [];
-  private get selectedArticleLanguage() {
+  public languages = [];
+  public get selectedArticleLanguage() {
     return this.article.articleLanguages.filter(p => p.languageId == this.selectedLanguage)[0];
   }
 

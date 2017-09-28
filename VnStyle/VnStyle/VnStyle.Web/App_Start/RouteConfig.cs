@@ -11,7 +11,11 @@ namespace VnStyle.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+            routes.RouteExistingFiles = true;
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute("PortalApp", "portal/{*url}", new { controller = "Portal", action = "Index" });
+
 
             #region "Intro"
             routes.MapRoute(

@@ -12,7 +12,7 @@ export class SiderBarComponent implements OnInit {
   //private galleryPhotoCategories = [];
   private artists = [];
 
-  private menuItems;
+  public menuItems;
 
   constructor(private appService: AppService, private generateService: GeneralService) { }
 

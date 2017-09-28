@@ -7,11 +7,13 @@ import { Component, OnInit , Input} from '@angular/core';
 })
 export class SeoMetaComponent implements OnInit {
 
-  private seoMetaValue = {
-    content : ""
+  public seoMetaValue = {
+    content : "",
+    description : "",
+    keywords : ""
   };
 
-  private editorOptions = {};
+  public editorOptions = {};
 
   @Input()
   get seoMeta() {

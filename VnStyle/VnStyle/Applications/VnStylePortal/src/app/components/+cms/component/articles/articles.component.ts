@@ -10,9 +10,9 @@ import { Route, ActivatedRoute } from '@angular/router'
 export class ArticlesComponent implements OnInit {
 
 
-  private rootCateId = null;
-  private rootCateName = null;
-  private articleGrid = {
+  public rootCateId = null;
+  public rootCateName = null;
+  public articleGrid = {
     loading: false,
     data: [],
     pagination: {}

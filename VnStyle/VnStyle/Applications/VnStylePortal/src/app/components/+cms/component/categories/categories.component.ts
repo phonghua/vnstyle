@@ -11,12 +11,12 @@ import { TreeItem } from '../../../shared/treeview/TreeItem';
 
 
 export class CategoriesComponent implements OnInit {
-  private categories = {
+  public categories = {
     loading: false,
     data: [],
   }
 
-  private selectedItem = null;
+  public selectedItem = null;
 
   constructor(
     private categoryService: CategoryService,

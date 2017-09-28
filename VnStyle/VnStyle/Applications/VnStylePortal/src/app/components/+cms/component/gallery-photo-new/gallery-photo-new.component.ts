@@ -9,10 +9,10 @@ import { HttpService } from '../../../../services';
 })
 export class GalleryPhotoNewComponent implements OnInit {
 
-  private rootCate;
-  private rootCateName;
+  public rootCate;
+  public rootCateName;
 
-  private gallery = {};
+  public gallery = {};
 
   constructor(private httpService: HttpService, private route: ActivatedRoute) { }
 

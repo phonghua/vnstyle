@@ -1,0 +1,7 @@
+﻿@{
+    Layout = null;
+    var webpageContent = File.ReadAllText(Server.MapPath("~/portal/index.html"));
+}
+
+@Html.Raw(webpageContent.Replace("<!-- BOOTSTRAP SETTINGS -->", @"<script>window.bootstrapSettings = " + ViewBag.Settings + ";</script>"))
+

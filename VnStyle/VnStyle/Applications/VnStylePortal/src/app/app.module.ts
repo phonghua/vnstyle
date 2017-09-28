@@ -41,7 +41,6 @@ import { RatingModule } from 'ngx-rating';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
-import { CurrencyEditorComponent } from './components/shared/currency-editor/currency-editor.component';
 import { DecimalEditorComponent } from './components/shared/decimal-editor/decimal-editor.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -77,7 +76,6 @@ import { BlockUIModule } from 'ng-block-ui';
     RIcheckDirective,
     FormSummaryErrorComponent,
     SpinnerComponent,
-    CurrencyEditorComponent,
     DecimalEditorComponent,
     LoginComponent,
     // SpinnerDirective

@@ -307,6 +307,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PortalController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -612,6 +613,7 @@
     <Content Include="Views\Home\HomePageFeaturedArticles.cshtml" />
     <Content Include="Views\Home\SideBar1.cshtml" />
     <Content Include="Views\Home\SideBar2.cshtml" />
+    <Content Include="Views\Portal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,16 +12,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ArticleNewComponent implements OnInit {
 
-  private pageState: any = {
+  public pageState: any = {
     fetched: false,
     fetching: false,
     initialized: false,
     data: null
   };
-  private rootCateId;
-  private languages: Array<any> = [];
-  private article: any = {};
-  private get selectedLanguage() {
+  public rootCateId;
+  public languages: Array<any> = [];
+  public article: any = {};
+  public get selectedLanguage() {
     return this.languages.filter(p => p.selected)[0];
   }
 
