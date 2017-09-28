@@ -53,47 +53,47 @@ export class Typeahead implements OnInit, ControlValueAccessor {
   /**
    * Handle to the input element.
    */
-  @ViewChild('inputElement') private inputElement:any;
+  @ViewChild('inputElement') public inputElement:any;
 
   /**
    * The input element's value.
    */
-  private input:string;
+  public input:string;
 
   /**
    * The typeahead element's value. This element is displayed behind the input element.
    */
-  private typeahead:string;
+  public typeahead:string;
 
   /**
    * The previously entered input string.
    */
-  private previousInput:string;
+  public previousInput:string;
 
   /**
    * The filtered list of suggestions.
    */
-  private suggestions:any[] = [];
+  public suggestions:any[] = [];
 
   /**
    * Indicates whether the suggestions are visible.
    */
-  private areSuggestionsVisible:boolean = false;
+  public areSuggestionsVisible:boolean = false;
 
   /**
    * The currently selected suggestion.
    */
-  private selectedSuggestion:any;
+  public selectedSuggestion:any;
 
   /**
    * The active (highlighted) suggestion.
    */
-  private activeSuggestion:any;
+  public activeSuggestion:any;
 
   /**
    * Indicates whether the control is disabled.
    */
-  private isDisabled:boolean = false;
+  public isDisabled:boolean = false;
 
   /**
    * Creates and initializes a new typeahead component.

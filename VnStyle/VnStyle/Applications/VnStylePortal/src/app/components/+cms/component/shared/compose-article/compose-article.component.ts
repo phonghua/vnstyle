@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ComposeArticleComponent implements OnInit {
 
   @Input() public languages: Array<any> = [];
-  @Input() private article = null;
+  @Input() public article = null;
 
   private tabId = "article-language-tab-";
 

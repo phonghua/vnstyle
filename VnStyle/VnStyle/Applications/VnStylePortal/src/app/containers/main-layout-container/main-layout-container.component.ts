@@ -13,9 +13,9 @@ import { LanguageService, CategoryService, AppService, ArtistService } from '../
 })
 export class MainLayoutContainerComponent implements OnInit {
 
-  private breadcrumbs: Breadcrumb[] = [];
-  private actions: Action[] = [];
-  private loading: boolean = true;
+  public breadcrumbs: Breadcrumb[] = [];
+  public actions: Action[] = [];
+  public loading: boolean = true;
 
   @ViewChild(RouterOutlet) routerOutlet: RouterOutlet;
   constructor(private languageService: LanguageService, private appService: AppService, private categoryService: CategoryService,

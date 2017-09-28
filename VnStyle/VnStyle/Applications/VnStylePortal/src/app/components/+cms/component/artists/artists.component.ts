@@ -14,8 +14,8 @@ export class ArtistsComponent implements OnInit {
     data: []
   }
 
-  private artistModel = { id: 0 , image : {imageId : 0}, imageId : 0 , showOnHompage : true };
-  private artistModalTitle = "Thêm mới";
+  public artistModel = { id: 0, image: { imageId: 0 }, imageId: 0, showOnHompage: true, name: "", seq: "'" };
+  public artistModalTitle = "Thêm mới";
 
   @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
   @ViewChild('artistModal') artistModal: ModalComponent;
@@ -43,7 +43,7 @@ export class ArtistsComponent implements OnInit {
   }
 
   openArtistCreatingModal() {
-    this.artistModel = { id: 0 , image : {imageId : 0}, imageId : 0,  showOnHompage : true };
+    this.artistModel = { id: 0, image: { imageId: 0 }, imageId: 0, showOnHompage: true, name: "", seq: "'" };
     this.artistModalTitle = "Thêm mới";
     this.artistModal.open();
   }
@@ -72,5 +72,8 @@ export class ArtistsComponent implements OnInit {
 
   }
 
+  closeModal() {
+    this.artistModal.close();
+  }
 
 }

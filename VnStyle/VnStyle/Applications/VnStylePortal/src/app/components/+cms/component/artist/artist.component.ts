@@ -9,18 +9,18 @@ import { HttpService, GalleryService, ArtistService, GeneralService } from '../.
 })
 export class ArtistComponent implements OnInit {
 
-  private artistId;
-  private rootCateName;
+  public artistId;
+  public rootCateName;
   @ViewChild('fileInput') _elFileInput: ElementRef;
 
-  private get colNum (){
+  public get colNum (){
     const deviceWidth = this.generalService.getDocumentWidth();
     if(deviceWidth == 'sm')  return 2;
     if(deviceWidth == 'xs')  return 1;
     return 3;
   }
 
-  private get cols(){
+  public get cols(){
     var arr = [];
     for(let i = 0; i < this.colNum; i++){
       arr.push(i);
@@ -30,7 +30,7 @@ export class ArtistComponent implements OnInit {
 
   
 
-  private photoGrid = {
+  public photoGrid = {
     data: []
   };
 

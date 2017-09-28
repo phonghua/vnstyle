@@ -7,7 +7,7 @@ import { AuthService } from './../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private loginModel: any = {
+  public loginModel: any = {
     userName: "",
     password: "",
   };

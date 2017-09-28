@@ -10,18 +10,21 @@ export class ComposeArticleLanguageComponent implements OnInit {
   @Input() public language: any = null;
 
 
-  private articleLanguageValue = {
-    content: ""
+  public articleLanguageValue = {
+    content: "",
+    headLine : null,
+    extract : null,
+    metaTag : null
   };
 
-  private editorOptions = {};
+  public editorOptions = {};
 
   @Input()
-  get articleLanguage() {
+  public get articleLanguage() {
     return this.articleLanguageValue;
   }
 
-  set articleLanguage(val) {
+  public set articleLanguage(val) {
     this.articleLanguageValue = val;
   }
 
