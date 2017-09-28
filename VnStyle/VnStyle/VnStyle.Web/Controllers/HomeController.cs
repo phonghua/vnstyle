@@ -29,6 +29,7 @@ namespace VnStyle.Web.Controllers
         private readonly IMediaService _mediaService;
         private readonly IArticleService _articleService;
         private readonly IArtistsService _artistsService;
+        private readonly IVideoService _videoService;
 
 
         public HomeController()
@@ -40,6 +41,7 @@ namespace VnStyle.Web.Controllers
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _articleService = EngineContext.Current.Resolve<IArticleService>();
             _artistsService = EngineContext.Current.Resolve<IArtistsService>();
+            _videoService = EngineContext.Current.Resolve<IVideoService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
         }
         public ActionResult Index()
@@ -104,7 +106,7 @@ namespace VnStyle.Web.Controllers
 
         public ActionResult Tattoo(int page = 1)
         {
-            ViewBag.Active = "current-menu-item";
+          
             IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Tattoo);
             return View(result);
         }
@@ -127,7 +129,8 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult GetVideos()
         {
-            return PartialView();
+            var videoThumb = _videoService.GetVideoThumb();
+            return PartialView(videoThumb);
         }
 
         [ChildActionOnly]
@@ -212,6 +215,10 @@ namespace VnStyle.Web.Controllers
             var articles = _articleService.GetAllHomePageFeaturedArticles();
             return PartialView(articles);
         }
+
+
+        
+       
 
         #endregion
 

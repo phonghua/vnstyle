@@ -1,4 +1,4 @@
-/* See http://code.google.com/p/minify/wiki/CommonProblems#@imports_can_appear_in_invalid_locations_in_combined_CSS_files */
+﻿/* See http://code.google.com/p/minify/wiki/CommonProblems#@imports_can_appear_in_invalid_locations_in_combined_CSS_files */
 #buddypress div.pagination .pagination-links a:hover, #buddypress ul.button-nav li.current a {
     font-weight: 700
 }
