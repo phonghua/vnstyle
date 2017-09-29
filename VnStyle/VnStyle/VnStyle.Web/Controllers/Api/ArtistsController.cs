@@ -40,10 +40,25 @@ namespace VnStyle.Web.Controllers.Api
             var artists = await _artistRepository.Table.OrderBy(p => p.Seq).ToListAsync();
             var imageUrls = artists.Where(p => p.ImageId > 0).Select(p => p.ImageId)
                 .Select(p => new { ImageId = p, ImageUrl = $"{currentHosting}{_mediaService.GetPictureUrl(p)}" });
-            
+
             return Ok(artists.Select(p =>
             {
-                return new { p.Id, p.ImageId, p.Name, p.Seq, ImageUrl = imageUrls.Where(i => i.ImageId == p.ImageId).Select(i => i.ImageUrl).FirstOrDefault()};
+                var imageUrl = imageUrls.Where(i => i.ImageId == p.ImageId).Select(i => i.ImageUrl).FirstOrDefault();
+                return new
+                {
+                    p.Id,
+                    p.ImageId,
+                    p.Name,
+                    p.Seq,
+                    p.ShowOnHompage,
+                    ImageUrl = imageUrl,
+                    Image = new
+                    {
+                        imageId = p.ImageId,
+                        imageUrl = imageUrl
+                    }
+
+                };
             }));
         }
 
@@ -60,7 +75,7 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPut]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
-            this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq });
+            this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq, ImageId = artist.ImageId, ShowOnHompage = artist.ShowOnHompage });
             return Ok();
         }
 
