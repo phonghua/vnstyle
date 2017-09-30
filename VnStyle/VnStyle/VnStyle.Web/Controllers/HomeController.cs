@@ -71,7 +71,26 @@ namespace VnStyle.Web.Controllers
         {
             return View();
         }
-
+        public ActionResult Result(string search = "am", int page = 1)
+        {
+            if (!String.IsNullOrEmpty(search))
+            {
+                var request = new GetArticlesRequest
+                {
+                    PageSize = 10,
+                    PageIndex = page - 1
+                };
+                var result = _articleService.GetArticlesByString(search, request);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+                return View(result);
+            }
+            return View();
+            
+            
+        }
 
         public ActionResult Piercing(int page = 1)
         {
