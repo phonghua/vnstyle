@@ -18,17 +18,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/ef542.css" media="all">
     <title>@appSetting.ApplicationName | @ViewBag.Title</title>
-    <link rel="stylesheet" href="~/Content/css/font-awesome.css">
-
     @RenderSection("metas", false)
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/ef542.css" media="all">   
+    <link rel="stylesheet" href="~/Content/css/font-awesome.css">
+    
 
-    @*<link href="@Url.HostContent("~/Content/css/woocommerce.css")" rel="stylesheet" />
-    <link href="@Url.HostContent("~/Content/css/woocommerce-smallscreen.css")" rel="stylesheet" />*@
-    <link href="@Url.HostContent("~/Content/css/responsive-card.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/woocommerce.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/woocommerce-smallscreen.css")" rel="stylesheet" />
+    
     <link href="@Url.HostContent("~/Content/css/bootstrap-flex.min.css")" rel="stylesheet" />
     <link href="~/Content/css/fluid-gallery.css" rel="stylesheet" />
     <link href="~/Content/css/images.css" rel="stylesheet" />
@@ -41,14 +42,13 @@
     <link rel="stylesheet" type="text/css" id="fit-vids-style" href="~/Content/css/video.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/fonts.css">
     
-    
+    <link href="@Url.HostContent("~/Content/css/responsive-card.css")" rel="stylesheet" />
 
     @*<script src="~/Content/js/be44a.js"></script>*@
     <script src="~/Content/js/jquery-1.12.4.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Content/js/sticky.min.js"></script>
-    <script src="~/Content/js/sticky.compile.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+   
+    @*<script src="~/Scripts/bootstrap.js"></script>*@
 
    
     
@@ -64,8 +64,7 @@
                 <div class="container">
                     <ul id="menu-top-bar-menu" class="nlg-top-left-menu nlg-top-bar-menu">
                         <li id="menu-item-278" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-278">
-                            <a target="_blank" href="#">Liên hệ: @appSetting.HomepageContact1 | @appSetting.HomepageContact2</a>
-                            
+                            <a target="_blank" href="#">Liên hệ: @appSetting.HomepageContact1 | @appSetting.HomepageContact2</a>                        
 
                         </li>
                         <li id="menu-item-281" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-281">
@@ -147,17 +146,23 @@
                                         <span class="input-group-btn">
                                             <button class="btn" type="submit"><i class="fa fa-search"></i></button>
                                         </span>
-                                    </div>
+                                    </div>                                   
                                 </form>
                             </div>
                             <!-- .nlg-search-form-wrap -->
                         </li>
-
+                        
                         <li class="nlg-action-menu">
                             <button class="btn nlg-btn-menu"><i class="fa fa-navicon"></i></button>
                         </li>
 
                     </ul>
+                    @*<script>
+                        $(".btn").click(changeClass);
+                        function changeClass() {
+                            $(".nlg-action-search").toggleClass(".nlg-action-search nlg-open")
+                        }
+                    </script>*@
                     <!-- .nlg-actions -->
 
                 </div>
@@ -260,7 +265,8 @@
         </div>
         <!-- .nlg-inner -->
     </div>
-
+    <script src="~/Content/js/sticky.min.js"></script>
+    <script src="~/Content/js/sticky.compile.js"></script>
     <script type="text/javascript" src="~/Content/js/c2d81.js"></script>
     <script type="text/javascript" src="~/Content/js/0201f.js"></script>
     <script type="text/javascript" src="~/Content/js/devicepx-jetpack.js"></script>

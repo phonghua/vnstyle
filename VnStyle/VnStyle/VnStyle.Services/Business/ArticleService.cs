@@ -133,7 +133,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
-                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine }).ToList()
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId}).ToList()
         }).FirstOrDefault();
             if (articleLanguage == null && currentLanguage == defaultLanguage)
             {
@@ -147,7 +147,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
-                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine }).ToList()
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId =a.Article2.FeatureImageId}).ToList()
             }).FirstOrDefault();
             if (articleLanguage == null)
             {
@@ -162,6 +162,17 @@ namespace VnStyle.Services.Business
             else
             {
                 articleLanguage.UrlImage = "~/Content/images/no-image.png";
+            }
+            foreach (var article in articleLanguage.ListRelatedArticles)
+            {
+                if (article.ImageId.HasValue)
+                {
+                    article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+                }
+                else
+                {
+                    articleLanguage.UrlImage = "~/Content/images/no-image.png";
+                }
             }
             return articleLanguage;
         }

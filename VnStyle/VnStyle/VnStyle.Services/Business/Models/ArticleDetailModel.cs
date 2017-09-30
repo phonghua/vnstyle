@@ -15,7 +15,6 @@ namespace VnStyle.Services.Business.Models
         public string Extract { get; set; }
         public long? ImageId { get; set; }
         public DateTime PushlishDate { get; set; }
-
         public string ArticleUrl { get; set; }
         public List<RelatedArticlesMap> ListRelatedArticles { get; set; }
     }
@@ -23,5 +22,8 @@ namespace VnStyle.Services.Business.Models
     {
         public int Id { get; set; }
         public string HeadLine { get; set; }
+        public long? ImageId { get; set; }
+        public string UrlImage { get; set; }
+        
     }
 }
