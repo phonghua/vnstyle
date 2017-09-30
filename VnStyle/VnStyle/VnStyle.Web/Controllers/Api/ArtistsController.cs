@@ -75,7 +75,14 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPut]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
-            this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq, ImageId = artist.ImageId, ShowOnHompage = artist.ShowOnHompage });
+            this._artistRepository.Update(p => p.Id == id, p => new Artist
+            {
+                Name = artist.Name,
+                Seq = artist.Seq,
+                ImageId = artist.ImageId,
+                ShowOnHompage = artist.ShowOnHompage,
+                
+            });
             return Ok();
         }
 

@@ -36,22 +36,25 @@ export class ArticleDetailComponent implements OnInit {
     return this.article.articleLanguages.filter(p => p.languageId == this.selectedLanguage)[0];
   }
 
-
   @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
+
+  private articleId = 0;
+  private cateName = "";
+  private rootCateId = 0;
 
   constructor(private articleService: ArticleService, private languageService: LanguageService,
     private route: ActivatedRoute, private router: Router) { }
-
-
-
 
 
   ngOnInit() {
     console.log("on init")
     this.route.params.subscribe(params => {
 
-      const articleId = params["id"];
-      this.initializePage(articleId);
+      this.articleId = params["id"];
+      this.cateName = params["rootCateName"];
+      this.rootCateId = params["rootCateId"];
+
+      this.initializePage(this.articleId);
     });
 
 
@@ -101,7 +104,7 @@ export class ArticleDetailComponent implements OnInit {
       this.article.featureImageId = this.article.featureImage.imageId;
     }
     this.articleService.updateArticle(this.article).subscribe(data => {
-
+      this.router.navigate(["cms", this.rootCateId ,this.cateName,  "articles", this.articleId]);
     }, err => {
 
     });
@@ -111,8 +114,6 @@ export class ArticleDetailComponent implements OnInit {
     this.article = Object.assign({}, this.editArticleState.originalModel);
     this.editArticleState.editing = false;
   }
-
-
 
   allArticles: any[] = [];
   private get suggestRelatedArticles() {
