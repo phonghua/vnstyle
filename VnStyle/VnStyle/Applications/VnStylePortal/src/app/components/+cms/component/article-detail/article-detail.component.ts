@@ -83,6 +83,7 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   deleteArticle() {
+    this.confirmModal.message = "Bạn có chắc muốn xóa bài viết này không?";
     this.confirmModal.open();
     this.confirmModal.ok = () => {
       this.articleService.deleteArticle(this.article.id).subscribe(() => {

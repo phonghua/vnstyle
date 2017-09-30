@@ -17,6 +17,7 @@ import { GalleryPhotoComponent } from './component/gallery-photo/gallery-photo.c
 import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-photo-new.component';
 import { ArtistsComponent } from './component/artists/artists.component';
 import { ArtistComponent } from './component/artist/artist.component';
+import { VideosComponent } from './component/videos/videos.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
@@ -60,7 +61,8 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     GalleryPhotoNewComponent,
     TreeviewComponent,
     ArtistsComponent,
-    ArtistComponent
+    ArtistComponent,
+    VideosComponent
   ],
   entryComponents: []
 })

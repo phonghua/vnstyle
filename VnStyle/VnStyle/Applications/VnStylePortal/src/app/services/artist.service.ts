@@ -39,7 +39,6 @@ export class ArtistService {
 
   deletePhoto(artistId, photoId) : Observable<any>{
     return this.httpService.delete(this.settingService.portal + `api/artists/${artistId}/photo/${photoId}`)
-    .map(res => res.json())
     .catch(err => Observable.throw(err));
   }
 }
