@@ -29,7 +29,7 @@ namespace VnStyle.Web.Controllers.Api
 
 
         [Route("")]
-
+        [HttpGet]
         public async Task<HttpResponseMessage> GetVideos()
         {
             var movies = await _movieRespository.Table.ToListAsync();
