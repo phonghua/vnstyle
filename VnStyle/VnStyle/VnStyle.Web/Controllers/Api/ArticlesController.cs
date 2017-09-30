@@ -72,6 +72,8 @@ namespace VnStyle.Web.Controllers.Api
                     FeatureImageId = p.FeatureImageId,
                     IsActive = p.IsActive,
                     IsShowHomepage = p.IsShowHomepage,
+                    Section1 = p.Section1,
+                    Section2 = p.Section2,
                     ArticleLanguages = p.ArticleLanguages.Select(al => new ArticleLanguageModelView
                     {
                         Id = al.Id,

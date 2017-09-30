@@ -16,11 +16,6 @@ export class RIcheckDirective implements OnInit {
   }
 
   ngAfterContentInit() {
-
-    console.log("ngAfterContentInit", $);
-
-
-
   }
 
   initIcheck() {

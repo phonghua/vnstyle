@@ -27,8 +27,6 @@ export class CategoriesComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       const rootCateId = params["rootCateId"];
-      console.log("root cateId", rootCateId);
-
       this.initializePage(rootCateId);
     });
   }
@@ -36,7 +34,6 @@ export class CategoriesComponent implements OnInit {
   initializePage(rootCateId) {
     this.categories.loading = false;
     this.categoryService.getCategories(rootCateId).subscribe(data => {
-      // console.log("categories", data);
       this.categories.loading = false;
       this.categories.data = data;
     });

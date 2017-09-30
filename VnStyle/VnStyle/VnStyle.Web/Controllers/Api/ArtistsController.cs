@@ -75,7 +75,22 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPut]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
-            this._artistRepository.Update(p => p.Id == id, p => new Artist { Name = artist.Name, Seq = artist.Seq, ImageId = artist.ImageId, ShowOnHompage = artist.ShowOnHompage });
+            this._artistRepository.Update(p => p.Id == id, p => new Artist
+            {
+                Name = artist.Name,
+                Seq = artist.Seq,
+                ImageId = artist.ImageId,
+                ShowOnHompage = artist.ShowOnHompage,
+
+            });
+            return Ok();
+        }
+
+        [Route("{id}/photo/{photoId}")]
+        [HttpDelete]
+        public IHttpActionResult DeletePhoto(int id, int photoId)
+        {
+            _galleryPhotoRepository.DeleteRange(p => p.ArtistId == id && p.FileId == photoId);
             return Ok();
         }
 
@@ -94,7 +109,7 @@ namespace VnStyle.Web.Controllers.Api
             var photos = await _galleryPhotoRepository.Table.AsNoTracking().Where(p => p.ArtistId == id).ToListAsync();
             var result = photos.Select(p =>
             {
-                return new { p.Id, Url = currentHosting + _mediaService.GetPictureUrl(p.FileId) };
+                return new { p.Id, Url = currentHosting + _mediaService.GetPictureUrl(p.FileId) , FileId = p.FileId };
             });
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }

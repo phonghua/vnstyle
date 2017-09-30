@@ -18,7 +18,6 @@ export class TreeviewComponent implements OnInit {
   toggle(item) {
     item.selected = true;
     item.expanded = !item.expanded;
-    console.log(item);
   }
 
   check(item) {

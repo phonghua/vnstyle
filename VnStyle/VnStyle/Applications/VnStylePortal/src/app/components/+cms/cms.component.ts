@@ -16,9 +16,7 @@ export class CmsComponent implements OnInit {
 
     }
     ngOnInit(): void {
-        console.log("CmsComponent init");
         this.appService.appInitialized.subscribe(data => {
-            console.log("app subscribe at CmsComponent")
             this.initialized = true;
         });
     }

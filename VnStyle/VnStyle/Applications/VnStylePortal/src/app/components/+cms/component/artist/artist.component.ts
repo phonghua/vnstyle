@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef , ViewContainerRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService, GalleryService, ArtistService, GeneralService } from '../../../../services';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
@@ -40,8 +40,8 @@ export class ArtistComponent implements OnInit {
   constructor(private httpService: HttpService, private route: ActivatedRoute,
     private artistService: ArtistService, private generalService: GeneralService,
     public toastr: ToastsManager, vcr: ViewContainerRef) {
-      this.toastr.setRootViewContainerRef(vcr);
-    }
+    this.toastr.setRootViewContainerRef(vcr);
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -52,7 +52,7 @@ export class ArtistComponent implements OnInit {
     });
   }
 
-  loadPhoto () {
+  loadPhoto() {
     this.artistService.getPhoto(this.artistId).subscribe(data => {
       this.photoGrid.data = data;
 
@@ -70,7 +70,6 @@ export class ArtistComponent implements OnInit {
     let files = this._elFileInput.nativeElement.files;
     this.httpService.postArtistPhoto(this.artistId, files, {
       onProgress: (processEvent) => {
-        console.log("onProgress", processEvent);
       },
       onFinished: (result) => {
         // var imageUrl = result.data.images[0].fileUrl;
@@ -82,9 +81,6 @@ export class ArtistComponent implements OnInit {
       },
       error: () => { }
     });
-
-    console.log("fileOnChanged", event, this._elFileInput, files);
-
   }
 
   viewPrevPhoto() {
@@ -97,5 +93,11 @@ export class ArtistComponent implements OnInit {
     if (this.selectedPhoto < this.photoGrid.data.length - 1) {
       this.selectedPhoto = this.selectedPhoto + 1;
     }
+  }
+
+  deletePhoto(photoId) {
+    this.artistService.deletePhoto(this.artistId, photoId).subscribe(() => {
+      
+    })
   }
 }

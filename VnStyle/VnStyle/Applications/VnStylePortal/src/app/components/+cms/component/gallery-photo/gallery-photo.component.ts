@@ -37,22 +37,7 @@ export class GalleryPhotoComponent implements OnInit {
   }
 
   fileOnChanged(event) {
-    // let files = this._elFileInput.nativeElement.files;
-    // this.httpService.postGalleryPhoto(1, files, {
-    //   onProgress: (processEvent) => {
-    //     console.log("onProgress", processEvent);
-    //   },
-    //   onFinished: (result) => {
-    //     var imageUrl = result.data.images[0].fileUrl;
-    //     var imageId = result.data.images[0].id;
-
-
-    //   },
-    //   error: () => { }
-    // });
-
-    // console.log("fileOnChanged", event, this._elFileInput, files);
-
+    
   }
 
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArticleService, LanguageService } from '../../../../services';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { ConfirmModalComponent } from '../../../shared/confirm-modal/confirm-modal.component';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-article-detail',
@@ -36,22 +37,26 @@ export class ArticleDetailComponent implements OnInit {
     return this.article.articleLanguages.filter(p => p.languageId == this.selectedLanguage)[0];
   }
 
-
   @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
 
+  private articleId = 0;
+  private cateName = "";
+  private rootCateId = 0;
+
   constructor(private articleService: ArticleService, private languageService: LanguageService,
-    private route: ActivatedRoute, private router: Router) { }
-
-
-
+    private route: ActivatedRoute, private router: Router, public toastr: ToastsManager, vcr: ViewContainerRef) {
+      this.toastr.setRootViewContainerRef(vcr);
+    }
 
 
   ngOnInit() {
-    console.log("on init")
     this.route.params.subscribe(params => {
 
-      const articleId = params["id"];
-      this.initializePage(articleId);
+      this.articleId = params["id"];
+      this.cateName = params["rootCateName"];
+      this.rootCateId = params["rootCateId"];
+
+      this.initializePage(this.articleId);
     });
 
 
@@ -68,6 +73,7 @@ export class ArticleDetailComponent implements OnInit {
       this.article = res[1];
       this.selectedLanguage = this.languages.filter(p => p.isDefault)[0].id;
       this.releatedArticles.data = res[2];
+      this.editArticleState.editing = false;
     });
 
     this.articleService.searchArticles("").subscribe(data => {
@@ -101,7 +107,8 @@ export class ArticleDetailComponent implements OnInit {
       this.article.featureImageId = this.article.featureImage.imageId;
     }
     this.articleService.updateArticle(this.article).subscribe(data => {
-
+      this.initializePage(this.articleId);
+      this.toastr.success("Cập nhật bài viết thành công");
     }, err => {
 
     });
@@ -112,8 +119,6 @@ export class ArticleDetailComponent implements OnInit {
     this.editArticleState.editing = false;
   }
 
-
-
   allArticles: any[] = [];
   private get suggestRelatedArticles() {
     return this.allArticles.filter(p => p.id != this.article.id);
@@ -122,7 +127,6 @@ export class ArticleDetailComponent implements OnInit {
   private selectedArticle = null;
 
   public relatedArticleSelected(event) {
-    // console.log("relatedArticleSelected", article, this.selectedArticle);
     if (event && event.id && event.id > 0) {
       this.articleService.addRelatedArticle(this.article.id, event.id).subscribe(() => {
         this.selectedArticle = null;

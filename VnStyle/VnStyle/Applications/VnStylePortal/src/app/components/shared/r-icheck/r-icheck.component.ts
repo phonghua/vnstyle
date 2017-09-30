@@ -28,7 +28,6 @@ export class RIcheckComponent implements OnInit, ControlValueAccessor, Validator
   constructor() { }
 
   ngOnInit() {
-    console.log("ngOnInit");
 
     $(this._elCheckBox.nativeElement).iCheck({
       checkboxClass: 'icheckbox_square-blue',
@@ -57,7 +56,6 @@ export class RIcheckComponent implements OnInit, ControlValueAccessor, Validator
 
   writeValue(obj: any): void {
     this._checked = !(!(obj));
-    console.log("this._checked", this._checked);
     $(this._elCheckBox.nativeElement).iCheck(this._checked ? 'check' : 'uncheck');
 
 
@@ -70,7 +68,6 @@ export class RIcheckComponent implements OnInit, ControlValueAccessor, Validator
     //throw new Error('Method not implemented.');
   }
   setDisabledState(isDisabled: boolean): void {
-    console.log("setDisabledState");
     $(this._elCheckBox.nativeElement).iCheck(isDisabled ? 'disable' : 'enable');
   }
 

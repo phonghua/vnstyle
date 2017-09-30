@@ -18,6 +18,8 @@ namespace VnStyle.Web.Controllers.Api.Models
         public long? FeatureImageId { get; set; }
         public bool IsActive { get; set; }
         public bool IsShowHomepage { get; set; }
+        public bool Section1 { get; set; }
+        public bool Section2 { get; set; }
         public ImageModelView FeatureImage { get; set; }
 
         public virtual IEnumerable<ArticleLanguageModelView> ArticleLanguages { get; set; }

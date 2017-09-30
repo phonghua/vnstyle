@@ -60,11 +60,6 @@ export class DecimalEditorComponent implements OnInit {
   onFocus(event) {
     this._myValue = this.value ? this.value.toFixed(0) : '0';
     this.isHighlighted = true;
-    //this
-
-    console.log("onFocus", event);
-
-    
   }
 
   onBlur() {

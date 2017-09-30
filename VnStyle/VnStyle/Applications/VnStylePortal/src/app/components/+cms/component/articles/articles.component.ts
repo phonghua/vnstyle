@@ -28,7 +28,6 @@ export class ArticlesComponent implements OnInit {
 
       this.articleGrid.loading = true;
       this.articleService.getArticles(this.rootCateId).subscribe(data => {
-        console.log("articles", data);
 
         this.articleGrid.loading = false;
         this.articleGrid.data = data;
