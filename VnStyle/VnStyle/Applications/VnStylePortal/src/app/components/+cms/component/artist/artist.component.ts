@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, ViewContainerRef } from '@ang
 import { ActivatedRoute } from '@angular/router';
 import { HttpService, GalleryService, ArtistService, GeneralService } from '../../../../services';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ConfirmModalComponent } from '../../../shared/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-artist',
@@ -13,6 +14,8 @@ export class ArtistComponent implements OnInit {
   public artistId;
   public rootCateName;
   @ViewChild('fileInput') _elFileInput: ElementRef;
+
+  @ViewChild('confirmModal') confirmModal: ConfirmModalComponent;
 
   public get colNum() {
     const deviceWidth = this.generalService.getDocumentWidth();
@@ -75,7 +78,7 @@ export class ArtistComponent implements OnInit {
         // var imageUrl = result.data.images[0].fileUrl;
         // var imageId = result.data.images[0].id;
 
-        this.toastr.success("Upload photo success");
+        this.toastr.success("Đăng ảnh thành công");
         this.loadPhoto();
 
       },
@@ -96,8 +99,17 @@ export class ArtistComponent implements OnInit {
   }
 
   deletePhoto(photoId) {
-    this.artistService.deletePhoto(this.artistId, photoId).subscribe(() => {
-      
-    })
+    this.confirmModal.message = "Bạn có chắc muốn xóa hình này?";
+    this.confirmModal.open();
+    this.confirmModal.ok = () => {
+      this.artistService.deletePhoto(this.artistId, photoId).subscribe(() => {
+        this.photoGrid.data.splice(this.selectedPhoto, 1);
+        this.confirmModal.close();
+        this.toastr.success("Xóa ảnh thành công");
+      });
+    }
+
+    
+    
   }
 }
