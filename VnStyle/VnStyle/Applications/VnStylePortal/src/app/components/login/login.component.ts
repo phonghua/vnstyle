@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.loginModel);
     this.authService.login(this.loginModel.userName, this.loginModel.password).subscribe(data => {
 
     });

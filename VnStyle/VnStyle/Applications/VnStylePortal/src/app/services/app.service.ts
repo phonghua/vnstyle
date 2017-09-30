@@ -17,9 +17,7 @@ export class AppService {
     constructor() { }
 
     raiseAppInitlizedEvent(data) {
-        //
         this._data = data;
-        console.log("initialized", data);
         this.appInitialized.emit(data);
 
 

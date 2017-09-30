@@ -53,7 +53,6 @@ export class SiderBarComponent implements OnInit {
       children : [{text: 'Quản lý', url: '/cms/artists'}].concat(artistList)
     }
 
-    console.log("artistMenu", artistMenu);
     menu = menu.concat(articleCategories).concat(artistMenu);
     return menu;
   }

@@ -55,7 +55,6 @@ export class SpinnerDirective implements OnInit {
 
             if (this.parentElement && !this.isComponentInTemplate(this.parentElement)) {
                 this.parentElement.classList.add('block-ui__element');
-                console.log(this.parentElement)
                 this.blockUIComponentRef = this.createComponent();
 
                 this.blockUIContent = this.findContentNode(this.viewRef.element.nativeElement);

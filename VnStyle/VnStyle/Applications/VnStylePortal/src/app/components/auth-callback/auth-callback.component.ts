@@ -12,7 +12,6 @@ export class AuthCallbackComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    console.log("callback");
     // this.authService.endSigninMainWindow((user) => {
     //   var uri = sessionStorage.getItem("currentUri");
     //   console.log("endSigninMainWindow", user, this.authService.loggedIn, this.authService.currentUser, uri);

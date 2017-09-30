@@ -1,39 +1,33 @@
 <div style="margin: 15px 0">
-    <button class="btn btn-primary" (click)="browerFiles();">    Upload</button>
-    <input type="file" style="display: none" multiple #fileInput (change)="fileOnChanged($event)" />
+  <button class="btn btn-primary" (click)="browerFiles();">    Upload</button>
+  <input type="file" style="display: none" multiple #fileInput (change)="fileOnChanged($event)" />
 </div>
 
 
 
 <div class="row" *ngIf="photoGrid.data">
-  <!-- <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let photo of photoGrid.data; let i = index">
-      <img [src]="photo.url + '?width=500'" class="thumbnail form-img" alt="">
-  </div> -->
 
-  <ng-container *ngFor="let col of cols">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div style="background: red; display: block">
-          <!-- *ngFor="let photo of photoGrid.data; let i = index" -->
-      </div>
-    </div>
-  </ng-container>
 
   <div class="col-xs-8 col-sm-9 col-md-10">
-      <div *ngIf="selectedPhoto > -1">
-        <img [src]="photoGrid.data[selectedPhoto].url + '?height=700'" class="thumbnail form-img" alt="">
-      </div>
+    <div *ngIf="selectedPhoto > -1">
+      <img [src]="photoGrid.data[selectedPhoto].url + '?height=700'" class="thumbnail form-img" alt="">
+    </div>
 
-      <div class="text-center center-block" *ngIf="photoGrid.data.length > 1">
-          <button class="btn btn-primary" (click)="viewPrevPhoto();" >Prev</button>
-          <button class="btn btn-primary" (click)="viewNextPhoto();">Next</button>
-      </div>
+    <div class="text-center center-block" *ngIf="photoGrid.data.length > 1">
+      <button class="btn btn-primary" (click)="viewPrevPhoto();">Prev</button>
+      <button class="btn btn-primary" (click)="viewNextPhoto();">Next</button>
+
+      <button class="btn btn-danger pull-right" (click)="deletePhoto(photoGrid.data[selectedPhoto].fileId);">Delete</button>
+    </div>
   </div>
   <div class="col-xs-4 col-sm-3 col-md-2">
-    <ng-container *ngFor="let photo of photoGrid.data; let i = index">
-      <div>
-        <img [src]="photo.url + '?height=200'" class="thumbnail form-img clickable" alt="" (click)="selectedPhoto = i">
-      </div>
-    </ng-container>
+    <div style="max-height: 1000px;overflow-y: auto;">
+      <ng-container *ngFor="let photo of photoGrid.data; let i = index">
+        <div>
+          <img [src]="photo.url + '?height=200'" class="thumbnail form-img clickable" alt="" (click)="selectedPhoto = i">
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>
 

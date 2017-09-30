@@ -56,7 +56,6 @@ export class PictureFormControlComponent implements OnInit, ControlValueAccessor
     let files = this._elFileInput.nativeElement.files;
     this.httpService.postGeneralFile(files, {
       onProgress: (processEvent) => {
-        console.log("onProgress", processEvent);
       },
       onFinished: (result) => {
         this.imageUrl = result.data.images[0].fileUrl;
@@ -70,13 +69,11 @@ export class PictureFormControlComponent implements OnInit, ControlValueAccessor
       error: () => {}
     });
 
-    console.log("fileOnChanged", event, this._elFileInput, files);
 
   }
 
 
   writeValue(obj: any): void {
-    console.log('writeValue', obj);
     if (obj) {
       this.imageId = obj.imageId;
       this.imageUrl = obj.imageUrl;
