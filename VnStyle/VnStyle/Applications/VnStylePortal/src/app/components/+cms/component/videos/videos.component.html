@@ -1,3 +1,12 @@
-<p>
-  videos works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="openAddNewForm();">Add new</button>
+  </div>
+</div>
+
+<table class="table">
+  <tr *ngFor="let v of videoGrid.data" >
+    <td>{{v.title}}</td>
+    <td>{{v.link}}</td>
+  </tr>
+</table>

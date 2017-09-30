@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 import { GeneralService } from './general.service';
 import { GalleryService } from './gallery.service';
 import { ArtistService } from './artist.service';
+import { VideosService } from './videos.service';
 
 export const SHARED_SERVICES = [
   ShopService,
@@ -27,7 +28,8 @@ export const SHARED_SERVICES = [
   AppService,
   GeneralService,
   GalleryService,
-  ArtistService
+  ArtistService,
+  VideosService
 ];
 
 export * from "./shop.service";
@@ -44,3 +46,4 @@ export * from "./app.service";
 export * from "./general.service";
 export * from "./gallery.service";
 export * from "./artist.service";
+export * from "./videos.service";
