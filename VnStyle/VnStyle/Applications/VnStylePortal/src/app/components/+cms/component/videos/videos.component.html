@@ -1,12 +1,44 @@
-<div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-primary" (click)="openAddNewForm();">Add new</button>
+<div style="margin: 15px 0">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-right">
+        <button class="btn btn-primary" (click)="openAddNewForm();">Add new</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <table class="table">
-  <tr *ngFor="let v of videoGrid.data" >
+  <tr *ngFor="let v of videoGrid.data">
     <td>{{v.title}}</td>
     <td>{{v.link}}</td>
+    <td><a href="javascript:;" (click)="deleteVideo(v);"><i class="fa fa-trash"></i></a></td>
   </tr>
 </table>
+
+
+
+<modal #modal>
+  <modal-header>
+    <h4 class="modal-title">Thêm video</h4>
+  </modal-header>
+  <modal-body>
+    <div>
+      <div class="form-group">
+        <label for="">Tiêu đề</label>
+        <input type="text" class="form-control" [(ngModel)]="videoModel.title">
+      </div>
+      <div class="form-group">
+        <label for="">Đường dẫn youtube</label>
+        <input type="text" class="form-control" [(ngModel)]="videoModel.link">
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">No</button>
+    <button type="button" class="btn btn-primary" (click)="ok()">Yes</button>
+  </modal-footer>
+</modal>
+
+
+<app-confirm-modal #confirmModal></app-confirm-modal>
