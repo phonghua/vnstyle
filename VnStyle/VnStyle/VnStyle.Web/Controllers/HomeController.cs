@@ -71,15 +71,17 @@ namespace VnStyle.Web.Controllers
         {
             return View();
         }
-        public ActionResult Result(string search = "am", int page = 1)
+        public ActionResult Result(string search = "", int page = 1)
         {
+            ViewBag.Key = search;
+            var request = new GetArticlesRequest
+            {
+                PageSize = 10,
+                PageIndex = page - 1
+            };
             if (!String.IsNullOrEmpty(search))
             {
-                var request = new GetArticlesRequest
-                {
-                    PageSize = 10,
-                    PageIndex = page - 1
-                };
+                
                 var result = _articleService.GetArticlesByString(search, request);
                 if (result == null)
                 {
@@ -87,7 +89,12 @@ namespace VnStyle.Web.Controllers
                 }
                 return View(result);
             }
-            return View();
+            else
+            {
+                var result = _articleService.GetNewArticles(request);
+                return View(result);
+            }
+            
             
             
         }

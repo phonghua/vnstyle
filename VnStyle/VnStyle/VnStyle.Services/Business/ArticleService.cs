@@ -286,10 +286,14 @@ namespace VnStyle.Services.Business
             if (request.PageSize < 1) request.PageSize = 10;
             var currentLanguage = _workContext.CurrentLanguage;
             
-            var query = _articleRepository.Table.Where(p => p.HeadLine.Contains(search));
-            
-            var articleQuery = (from a in query.Where(p => p.IsActive == true && p.IsShowHomepage == true)
-                                join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+            var query = _articleRepository.Table.Where(p => p.IsActive);
+
+            var query1 = query.Where(p => p.HeadLine.StartsWith(search) || p.HeadLine.Contains(search));
+            if (query1 == null)
+            {
+                return null;
+            }
+            var articleQuery = (from a in query1 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
                                 select new ArticleListingModel
                                 {
                                     Id = a.Id,
