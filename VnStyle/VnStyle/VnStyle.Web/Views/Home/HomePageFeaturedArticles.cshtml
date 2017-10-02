@@ -1,4 +1,4 @@
-﻿@model IList<VnStyle.Services.Business.Models.ArticleListingModel>
+﻿@model VnStyle.Services.Business.Models.ArticleListingModel
 @{
     ViewBag.Title = "Courses";
 }
@@ -22,43 +22,23 @@
                 <h2 class="title">Featured</h2>
                 <div class="widget-content">
                     <div cass="feat-wrap">
+
+
                         <div class="feat-align feat-column1">
                             <div class="hot-item item1">
                                 <div class="featured-inner">
-                                    <a href="http://publico-soratemplates.blogspot.com/search/label/featured?&amp;max-results=7"
-                                       class="post-tag">featured</a><a class="rcp-thumb" href="http://publico-soratemplates.blogspot.com/2014/10/best-snack-ever-mini-mac-and-cheese_7.html"
-                                                                       style="background:url(https://1.bp.blogspot.com/-Wf56iYDm088/Wa3K8RfsguI/AAAAAAAAAuY/YHWE31Rl_yoLPdXJT4_Dz9mmszrRNBcfwCLcBGAs/s1600/shutterstock_186774263_supersize-960x500.jpg) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
+                                    <a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })"
+                                       class="post-tag">Featured</a><a class="rcp-thumb" href="http://publico-soratemplates.blogspot.com/2014/10/best-snack-ever-mini-mac-and-cheese_7.html"
+                                                                       style="background:url(@Model.UrlImage) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
                                     <div class="post-panel">
-                                        <h3 class="rcp-title"><a href="http://publico-soratemplates.blogspot.com/2014/10/best-snack-ever-mini-mac-and-cheese_7.html">Best Snack Ever: Mini Mac and Cheese Cupcakes</a></h3>
-                                        <div class="featured-meta"><span class="featured-date">October 07, 2014</span></div>
+                                        <h3 class="rcp-title"><a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">@Model.HeadLine</a></h3>
+                                        <div class="featured-meta"><span class="featured-date">@Model.PushlishDate</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="feat-align feat-column4">
-                            <div class="hot-item item4">
-                                <div class="featured-inner">
-                                    <a href="http://publico-soratemplates.blogspot.com/search/label/featured?&amp;max-results=7"
-                                       class="post-tag">featured</a><a class="rcp-thumb" href="http://publico-soratemplates.blogspot.com/2014/10/eight-ways-to-smarten-up-your-home_7.html"
-                                                                       style="background:url(https://4.bp.blogspot.com/-iuTQWYMhNVU/Wa3K6_NJwzI/AAAAAAAAAuE/rgZiLa8zS6coiry29ERFAEOt8SXnG3AMwCEwYBhgL/s1600/1-960x500.jpg) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
-                                    <div class="post-panel">
-                                        <h3 class="rcp-title"><a href="http://publico-soratemplates.blogspot.com/2014/10/eight-ways-to-smarten-up-your-home_7.html">Eight Ways to Smarten up Your Home</a></h3>
-                                        <div class="featured-meta"><span class="featured-date">October 07, 2014</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hot-item item5">
-                                <div class="featured-inner">
-                                    <a href="http://publico-soratemplates.blogspot.com/search/label/featured?&amp;max-results=7"
-                                       class="post-tag">featured</a>
-                                    <a class="rcp-thumb" href="http://publico-soratemplates.blogspot.com/2014/10/12-shoes-you-wore-as-kid-that-are-back_7.html"
-                                       style="background:url(https://2.bp.blogspot.com/-pmZw915b61A/Wa3K71o5_RI/AAAAAAAAAuQ/HPlJ5zgNCm4-83tKfo5rdn1ViWsHtrXlwCEwYBhgL/s1600/shutterstock_185589266_supersize-960x500.jpg) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
-                                    <div class="post-panel">
-                                        <h3 class="rcp-title"><a href="http://publico-soratemplates.blogspot.com/2014/10/12-shoes-you-wore-as-kid-that-are-back_7.html">12 shoes you wore as a kid that are back </a></h3>
-                                        <div class="featured-meta"><span class="featured-date">October 07, 2014</span></div>
-                                    </div>
-                                </div>
-                            </div>
+                            @Html.Action("HomePageLastFeaturedArticles");
                         </div>
                         <div class="clear"></div>
                     </div>

@@ -10,8 +10,9 @@ namespace VnStyle.Services.Business
 {
     public interface IArtistsService
     {
-        IEnumerable<ArtistListingModel> GetAllArtists();
+        IList<ArtistListingModel> GetAllArtists();
         IEnumerable<ImagesByArtist> GetAllImageByArtist(int id);
         IEnumerable<ImagesByArtist> GetAllImage();
+        IList<ArtistListingModel> GetImage();
     }
 }

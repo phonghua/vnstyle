@@ -262,19 +262,39 @@ namespace VnStyle.Services.Business
             
         }
 
-        public IList<ArticleListingModel> GetAllHomePageFeaturedArticles()
+        public ArticleListingModel GetFirstHomePageFeaturedArticles()
         {
             //throw new NotImplementedException();
-            var query = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).ToList();
-            foreach (var artist in query)
-            {
-                if (artist.ImageId.HasValue)
-                    artist.UrlImage = _mediaService.GetPictureUrl(artist.ImageId.Value);
-                else
-                    artist.UrlImage = "~/Content/images/no-image.png";
-            }
-            return query;
+            var featured = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+
+            if (featured.ImageId.HasValue)
+                featured.UrlImage = _mediaService.GetPictureUrl(featured.ImageId.Value);
+            else
+                featured.UrlImage = "~/Content/images/no-image.png";
+
+
+            return featured;
             
+
+
+        }
+        public IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles()
+        {
+            //throw new NotImplementedException();
+            var featured = (from hp in _homePageFeaturedArticleRepository.Table join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderBy(p => p.Id).Skip(1).Take(2).ToList();
+          
+            foreach (var article in featured)
+            {
+                if (article.ImageId.HasValue)
+                    article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
+                else
+                    article.UrlImage = "~/Content/images/no-image.png";
+
+            }
+
+
+            return featured;
+
 
 
         }

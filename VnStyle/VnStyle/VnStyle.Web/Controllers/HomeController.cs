@@ -186,6 +186,13 @@ namespace VnStyle.Web.Controllers
             return PartialView(model);
         }
         [ChildActionOnly]
+        public ActionResult GetImageArtistInMenu()
+        {
+
+            var model = _artistsService.GetImage();
+            return PartialView(model);
+        }
+        [ChildActionOnly]
         public ActionResult GetArtistInMenu()
         {
 
@@ -238,13 +245,20 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult HomePageFeaturedArticles()
         {
-            var articles = _articleService.GetAllHomePageFeaturedArticles();
+            var articles = _articleService.GetFirstHomePageFeaturedArticles();
+            return PartialView(articles);
+        }
+
+        [ChildActionOnly]
+        public ActionResult HomePageLastFeaturedArticles()
+        {
+            var articles = _articleService.GetLastHomePageFeaturedArticles();
             return PartialView(articles);
         }
 
 
-        
-       
+
+
 
         #endregion
 

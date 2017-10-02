@@ -5,10 +5,11 @@
 
 
 <div class="col-xs-12 col-sm-12 col-md-8">
-    <h3>@Model.HeadLine</h3>
-
     <div class="fb-like" data-href="@Model.ArticleUrl" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-    <hr />
+    <h3>@Model.HeadLine</h3>
+    <h5 style="font-weight:bold">@Model.Extract</h5>
+    
+   
     @foreach (var relatedArticles in Model.ListRelatedArticles)
     {
 
@@ -20,12 +21,79 @@
         </div>
 
     }
-    <hr />
-    <h5>@Model.Extract</h5>
+   
+    
     <div>@Html.Raw(Model.Content)</div>
     <hr />
 
+    <div class="nlg-section">
 
+        <div class="nlg-module nlg-module-grid-posts nlg-related-posts">
+
+            <div class="container">
+
+
+                <div class="nlg-module-header">
+
+                    <div class="nlg-module-title">
+                        <h2 class="nlg-title">Tin liên quan</h2>
+                    </div>
+
+
+                </div>
+
+                <div class="nlg-tb-box nlg-tb-box-horizontal nlg-tb-box-align-none">
+                    <div class="nlg-col-wrap nlg-col-3">
+                        @foreach (var relatedArticles in Model.ListRelatedArticles)
+                        {
+                            <div class="nlg-col">
+
+                                <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-405 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-eyes tag-health" style="padding-top: 0px;">
+
+                                    <figure class="nlg-featured-media">
+
+                                        <a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })">
+                                            <img width="350" height="231" src="@relatedArticles.UrlImage?zoom=3&amp;resize=350%2C231" class="attachment-nlg-350-231 size-nlg-350-231 agg-fade-in lazyloaded">
+                                        </a>
+
+                                        <div class="nlg-entry-flags">
+                                            <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
+                                        </div>
+
+
+                                    </figure>
+
+                                    <div class="nlg-entry-body">
+
+
+
+                                        <header class="nlg-entry-header">
+
+                                            <h3 class="nlg-entry-title"><a href=""style="font-size: 14px;text-align: center;">@relatedArticles.HeadLine</a></h3>
+
+
+
+
+                                        </header>
+
+                                    </div>
+
+                                </article>
+
+                            </div>
+                        }
+
+
+                        <!--<span class="nlg-loader nlg-spinner"></span>-->
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
 
     <hr />
     <div class="fb-comments" data-href="@Model.ArticleUrl" data-numposts="5"></div>
@@ -36,74 +104,7 @@
 </div>    
 
 
-<div class="nlg-section">
 
-    <div class="nlg-module nlg-module-grid-posts nlg-related-posts">
-
-        <div class="container">
-
-
-            <div class="nlg-module-header">
-
-                <div class="nlg-module-title">
-                    <h2 class="nlg-title">Tin liên quan</h2>
-                </div>
-
-
-            </div>
-
-            <div class="nlg-tb-box nlg-tb-box-horizontal nlg-tb-box-align-none">
-                <div class="nlg-col-wrap nlg-col-3">
-                    @foreach (var relatedArticles in Model.ListRelatedArticles)
-                    {
-                        <div class="nlg-col">
-
-                            <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-405 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-eyes tag-health" style="padding-top: 0px;">
-
-                                <figure class="nlg-featured-media">
-
-                                    <a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })">
-                                        <img width="350" height="231" src="@relatedArticles.UrlImage?zoom=3&amp;resize=350%2C231" class="attachment-nlg-350-231 size-nlg-350-231 agg-fade-in lazyloaded">
-                                    </a>
-
-                                    <div class="nlg-entry-flags">
-                                        <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
-                                    </div>
-
-
-                                </figure>
-
-                                <div class="nlg-entry-body">
-
-
-
-                                    <header class="nlg-entry-header">
-
-                                        <h3 class="nlg-entry-title"><a href="http://demo.aggressivemotions.com/newslog/herbal-weak-eyesight-treatment-to-improve-health-of-eyes-naturally/">@relatedArticles.HeadLine</a></h3>
-
-
-
-
-                                    </header>
-
-                                </div>
-
-                            </article>
-
-                        </div>
-                    }
-
-
-                    <!--<span class="nlg-loader nlg-spinner"></span>-->
-                </div>
-            </div>
-          
-
-
-        </div>
-
-    </div>
-</div>
 @section metas{
     @*<title>TIêu đề bài viết</title>*@
     @*<meta id="keywords" name="keywords" content="">*@

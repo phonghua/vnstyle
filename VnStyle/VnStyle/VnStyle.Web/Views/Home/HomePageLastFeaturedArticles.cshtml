@@ -1,0 +1,17 @@
+﻿@model IList<VnStyle.Services.Business.Models.ArticleListingModel>
+@using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
+@foreach (var article in Model)
+{
+    <div class="hot-item item2">
+        <div class="featured-inner">
+            <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })"
+               class="post-tag">featured</a><a class="rcp-thumb" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })"
+                                               style="background:url(@article.UrlImage) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
+            <div class="post-panel">
+                <h3 class="rcp-title"><a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
+                <div class="featured-meta"><span class="featured-date">@article.PushlishDate</span></div>
+            </div>
+        </div>
+    </div>
+}

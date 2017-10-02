@@ -34336,3 +34336,64 @@ div#ads-blog {
 .featured .hot-item:hover .featured-overlay {
   background-color: rgba(40, 35, 40, 0.3);
 }
+.featured{position:relative;margin:0 auto}
+.featured .widget-content{margin:20px 0 0!important;height:auto;overflow:hidden}
+.featured h2{display:none}
+.featured .feat-align{float:left;padding-right:5px;box-sizing:border-box}
+.featured .hot-item{width:100%;height:228px;position:relative;float:left;display:block;box-sizing:border-box;overflow:hidden;padding:0}
+.featured .feat-column1 .item1{height:460px}
+.featured .feat-column1 .item1 .rcp-thumb{height:460px}
+.featured .feat-column2 .item2{height:460px}
+.featured .feat-column2 .item2 .rcp-thumb{height:460px}
+.featured .feat-column3 .item3{height:460px}
+.featured .feat-column3 .item3 .rcp-thumb{height:460px}
+.featured .feat-column4 {padding-right: 0;    width: 40%;}
+.featured .feat-column4 .item5{margin-top:5px}
+.feat-align.feat-column1 {
+width: 60%;
+}
+.featured .hot-item .featured-inner{position:relative;overflow:hidden}
+.featured .rcp-thumb{width:100%;height:227px;position:relative;display:block;overflow:hidden}
+.featured .rcp-title{font-size:16px;position:relative;margin-bottom:8px}
+.featured .rcp-thumb:after{content:no-close-quote;position:absolute;left:0;bottom:0;width:100%;height:135px;background:url(http://3.bp.blogspot.com/-LnvazGBvKh8/VskckSkmzxI/AAAAAAAAC4s/erEgI6A_ih4/s1600-r/metabg.png) repeat-x;opacity:.8;background-size:100% 100%;overflow:hidden}
+.item3 .rcp-thumb:after{content:no-close-quote;height:190px}
+.featured .post-panel{position:absolute;left:0;bottom:0;width:100%;padding:15px;z-index:2;box-sizing:border-box}
+.featured .hot-item .featured-inner .featured-meta{font-size:12px;color:#ccc;font-weight:400}
+.featured .rcp-title a{color:#FFF;font-weight:500;position:relative;line-height:1.4em;text-shadow:0 1px 1px rgba(0,0,0,0.5)}
+.featured .post-tag{position:absolute;top:15px;left:15px;background-color:#00adef;color:#fff;text-transform:uppercase;font-weight:400;z-index:5;height:20px;line-height:20px;padding:0 6px;font-size:11px}
+.featured{position:relative}
+.featured-overlay{position:absolute;left:0;top:0;z-index:1;width:100%;height:100%;background-color:rgba(40,35,40,0.05)}
+.featured .hot-item:hover .featured-overlay{background-color:rgba(40,35,40,0.30)}
+
+@media screen and (max-width: 600px) {
+.featured .feat-align{width:100%;margin-top:5px;padding-left:0;padding-right:0}
+.feat-column1{margin-top:0!important}
+.featured .feat-column1 .item1,.featured .feat-column2 .item2,.featured .feat-column3 .item3,.featured .feat-column1 .item1 .rcp-thumb,.featured .feat-column2 .item2 .rcp-thumb,.featured .feat-column3 .item3 .rcp-thumb{height:250px}
+.item .post-title,.static_page .post-title{font-size:24px}
+.related-posts .related-item{width:100%;height:180px;margin-top:5px;padding:0}
+.related-posts li:first-child{margin-top:0!important}
+}
+@media screen and (max-width: 440px) {
+#nav-search{width:100%}
+.featured .feat-column1 .item1,.featured .feat-column2 .item2,.featured .feat-column3 .item3,.featured .feat-column1 .item1 .rcp-thumb,.featured .feat-column2 .item2 .rcp-thumb,.featured .feat-column3 .item3 .rcp-thumb,.featured .rcp-thumb,.featured .hot-item{height:200px}
+.main-carousel,.carousel-item,.carousel-item .box-image,.fbox .bx-first .box-thumbnail,.fbox .bf-thumb,.block-image,.block-image .thumb,.block-image .thumb a,.videos .box-image{height:200px}
+.index .post h2,.archive .post h2{line-height:1.4em}
+.post h2 a,.post h2 a:visited,.post h2 strong{font-size:20px;line-height:1.4em}
+.item .post-title,.static_page .post-title{font-size:20px}
+.fbox .bx-first .bf-content .recent-title a{font-size:16px}
+}
+@media screen and (max-width: 340px) {
+.header-menu #menu .selectnav{max-width:60%}
+.error-item{font-size:140px}
+}
+@media screen and (max-width: 310px) {
+.tm-head #social-top ul li{margin-left:0}
+.header-logo{margin:15px auto 10px}
+.header-menu #menu .selectnav{max-width:50%}
+.header-ads,li.li-home,#sidebar-wrapper,.sect-left{display:none}
+.videos .recent-title a{font-size:16px}
+.post h2 a,.post h2 a:visited,.post h2 strong{font-size:18px}
+.index .post h2,.archive .post h2{line-height:1.2em}
+.item .post-title,.static_page .post-title{font-size:16px}
+.error-item{font-size:100px}
+}

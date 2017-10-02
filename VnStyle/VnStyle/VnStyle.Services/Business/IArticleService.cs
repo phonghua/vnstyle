@@ -13,7 +13,9 @@ namespace VnStyle.Services.Business
         ArticleDetailModel GetArticleById(int id);
         IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
         IList<ArticleListingModel> GetSession(bool flag); // request == true => get session1 
-        IList<ArticleListingModel> GetAllHomePageFeaturedArticles();
+        ArticleListingModel GetFirstHomePageFeaturedArticles();
+        IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles();
+        
         IPagedList<ArticleListingModel> GetArticlesByString(string search, PagingRequest request);
 
 

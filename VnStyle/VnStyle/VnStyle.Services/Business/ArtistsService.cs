@@ -24,7 +24,7 @@ namespace VnStyle.Services.Business
             _mediaService = mediaService;
             _galleryPhoto = galleryPhoto;
         }
-        public IEnumerable<ArtistListingModel> GetAllArtists()
+        public IList<ArtistListingModel> GetAllArtists()
         {
             
             var query = _artistRepository.Table.Where(p => p.ShowOnHompage == true).OrderBy(p => p.Seq);
@@ -94,6 +94,36 @@ namespace VnStyle.Services.Business
           
             
 
+
+        }
+
+        public IList<ArtistListingModel> GetImage()
+        {
+            
+
+            var query = _artistRepository.Table.Where(p => p.ShowOnHompage == true).OrderBy(p => p.Seq);
+            if (query == null)
+            {
+                return null;
+            }
+
+            var artists = query.Select(p => new ArtistListingModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                ImageId = p.ImageId
+            }).Take(3).ToList();
+            foreach (var artist in artists)
+            {
+                if (artist.ImageId.HasValue)
+                    artist.UrlImage = _mediaService.GetPictureUrl(artist.ImageId.Value);
+                else
+                    artist.UrlImage = "~/Content/images/no-image.png";
+            }
+            return artists;
+
+
+           
 
         }
     }
