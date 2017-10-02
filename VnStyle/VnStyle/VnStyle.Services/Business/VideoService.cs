@@ -18,7 +18,7 @@ namespace VnStyle.Services.Business
         public IList<VideoListingModel> GetVideoThumb()
         {
             
-            return _movieRepository.Table.Select(p => new VideoListingModel { Id = p.Id, Link = p.Link , Title = p.Title}).ToList();
+            return _movieRepository.Table.OrderByDescending(p => p.Id).Select(p => new VideoListingModel { Id = p.Id, Link = p.Link , Title = p.Title}).ToList();
         }
     }
 }

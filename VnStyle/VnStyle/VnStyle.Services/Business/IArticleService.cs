@@ -1,4 +1,5 @@
 ﻿using Ricky.Infrastructure.Core;
+using Ricky.Infrastructure.Core.Generic;
 using System.Collections.Generic;
 using VnStyle.Services.Business.Models;
 using VnStyle.Services.Data.Domain;
@@ -13,7 +14,7 @@ namespace VnStyle.Services.Business
         IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
         IList<ArticleListingModel> GetSession(bool flag); // request == true => get session1 
         IList<ArticleListingModel> GetAllHomePageFeaturedArticles();
-
+        IPagedList<ArticleListingModel> GetArticlesByString(string search, PagingRequest request);
 
 
     }
