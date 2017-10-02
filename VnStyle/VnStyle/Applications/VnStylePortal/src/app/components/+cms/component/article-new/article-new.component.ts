@@ -19,6 +19,7 @@ export class ArticleNewComponent implements OnInit {
     data: null
   };
   public rootCateId;
+  private cateName;
   public languages: Array<any> = [];
   public article: any = {};
   public get selectedLanguage() {
@@ -31,6 +32,7 @@ export class ArticleNewComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.rootCateId = params["rootCateId"];
+      this.cateName = params["rootCateName"];
       this.initializePage();
     });
   }
@@ -64,7 +66,8 @@ export class ArticleNewComponent implements OnInit {
       this.article.featureImageId = this.article.featureImage.imageId;
     }
     this.articleService.createArticle(this.article).subscribe(data => {
-      this.router.navigate(["cms", this.rootCateId, "articles"]);
+      this.router.navigate(["cms", this.rootCateId, this.cateName, "articles", data.id]);
+      //<td><a [routerLink]="['/cms/' + rootCateId +'/'+ rootCateName +'/articles/' + article.id]">{{article.headLine}}</a></td>
     }, err => { });
   }
 

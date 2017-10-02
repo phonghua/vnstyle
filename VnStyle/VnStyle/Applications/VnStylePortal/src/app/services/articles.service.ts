@@ -18,6 +18,7 @@ export class ArticleService {
 
   createArticle(article): Observable<any> {
     return this.httpService.post(this.settingService.portal + 'api/articles', article)
+      .map(res => res.json())
       .catch(err => Observable.throw(err));
   }
 

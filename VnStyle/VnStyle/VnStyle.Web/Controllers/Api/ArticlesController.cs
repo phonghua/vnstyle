@@ -114,7 +114,7 @@ namespace VnStyle.Web.Controllers.Api
             _articleRepository.Insert(article);
             _articleRepository.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK, new {Id = article.Id});
         }
 
 
@@ -150,6 +150,12 @@ namespace VnStyle.Web.Controllers.Api
                     entityArticleLanguage.MetaTag.Keywords = obj.MetaTag.Keywords;
                 }
             }
+
+            //entity.ArticleLanguages.
+            article.ArticleLanguages.Where(p=> p.Id == 0).ToList().ForEach(p =>
+            {
+                entity.ArticleLanguages.Add(p);
+            });
 
             _articleRepository.Update(entity);
             _articleRepository.SaveChanges();

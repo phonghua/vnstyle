@@ -32,7 +32,7 @@ namespace VnStyle.Web.Controllers.Api
         [HttpGet]
         public async Task<HttpResponseMessage> GetVideos()
         {
-            var movies = await _movieRespository.Table.ToListAsync();
+            var movies = await _movieRespository.Table.OrderByDescending(p=> p.Id).ToListAsync();
             return Request.CreateResponse(HttpStatusCode.OK, movies);
         }
 
