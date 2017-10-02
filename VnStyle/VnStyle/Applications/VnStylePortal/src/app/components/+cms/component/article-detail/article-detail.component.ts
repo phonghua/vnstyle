@@ -45,8 +45,8 @@ export class ArticleDetailComponent implements OnInit {
 
   constructor(private articleService: ArticleService, private languageService: LanguageService,
     private route: ActivatedRoute, private router: Router, public toastr: ToastsManager, vcr: ViewContainerRef) {
-      this.toastr.setRootViewContainerRef(vcr);
-    }
+    this.toastr.setRootViewContainerRef(vcr);
+  }
 
 
   ngOnInit() {
@@ -115,6 +115,16 @@ export class ArticleDetailComponent implements OnInit {
     });
   }
 
+  addEnglishArticle() {
+    this.addArticleLanguage("en");
+  }
+
+  addArticleLanguage(languageId) {
+    var firstLanguage = Object.assign({}, this.article.articleLanguages[0]);
+    var additionalLanguage = Object.assign(firstLanguage, { languageId: languageId, id: 0 });
+    this.article.articleLanguages.push(additionalLanguage);
+  }
+
   cancelEdit() {
     this.article = Object.assign({}, this.editArticleState.originalModel);
     this.editArticleState.editing = false;
@@ -146,5 +156,9 @@ export class ArticleDetailComponent implements OnInit {
     this.articleService.swapRelatedArticle(this.article.id, relatedArticleId1, relatedArticleId2).subscribe(() => {
       this.refreshRelatedArticleGrid();
     });
+  }
+
+  public switchLanguage(languageId) {
+    this.selectedLanguage = languageId;
   }
 }

@@ -1,6 +1,17 @@
 <div class="row" *ngIf="!(!(selectedArticleLanguage))" style="margin-top: 15px">
   <div class="col-sm-12 col-md-8" *ngIf="!editArticleState.editing">
 
+    <div class="row" *ngIf="article.articleLanguages.length == 2">
+      <div class="col-xs-12">
+        <div style="margin:15px 0" class="pull-right">
+          <ng-container *ngFor="let l of languages">
+            <button class="btn btn-primary" (click)='switchLanguage(l.id);'>
+                      {{l.name}}
+                    </button> &nbsp;
+          </ng-container>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-xs-12">
         <div class="portlet light">
@@ -82,6 +93,15 @@
   </div>
 
   <div class="col-sm-12 col-md-8" *ngIf="editArticleState.editing">
+    <div style="margin: 15px 0">
+      <div class="row" *ngIf="article.articleLanguages.length == 1">
+        <div class="col-xs-12">
+          <div class="pull-right">
+            <button class="btn btn-primary" (click)="addEnglishArticle();">Thêm bài viết tiếng Anh</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
       <app-compose-article [languages]="languages" [article]="article"></app-compose-article>
     </div>
@@ -95,25 +115,25 @@
         </div>
 
         <div class="form" style="margin-top: 30px">
-            <div class="form-group">            
-              <app-r-icheck [(ngModel)]="article.isActive" [disabled]="!editArticleState.editing"></app-r-icheck>
-              <span for="">Kích hoạt</span>
-            </div>
-  
-            <div class="form-group">            
-              <app-r-icheck [(ngModel)]="article.isShowHomepage" [disabled]="!editArticleState.editing"></app-r-icheck>
-              <span for="">Hiển thị trang chủ</span>
-            </div>
-
-            <div class="form-group">            
-              <app-r-icheck [(ngModel)]="article.section1" [disabled]="!editArticleState.editing"></app-r-icheck>
-              <span for="">Hiển thị Section 1</span>
-            </div>
-            <div class="form-group">            
-              <app-r-icheck [(ngModel)]="article.section2" [disabled]="!editArticleState.editing"></app-r-icheck>
-              <span for="">Hiển thị Section 2</span>
-            </div>
+          <div class="form-group">
+            <app-r-icheck [(ngModel)]="article.isActive" [disabled]="!editArticleState.editing"></app-r-icheck>
+            <span for="">Kích hoạt</span>
           </div>
+
+          <div class="form-group">
+            <app-r-icheck [(ngModel)]="article.isShowHomepage" [disabled]="!editArticleState.editing"></app-r-icheck>
+            <span for="">Hiển thị trang chủ</span>
+          </div>
+
+          <div class="form-group">
+            <app-r-icheck [(ngModel)]="article.section1" [disabled]="!editArticleState.editing"></app-r-icheck>
+            <span for="">Hiển thị Section 1</span>
+          </div>
+          <div class="form-group">
+            <app-r-icheck [(ngModel)]="article.section2" [disabled]="!editArticleState.editing"></app-r-icheck>
+            <span for="">Hiển thị Section 2</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -130,3 +150,4 @@
 </div>
 
 <app-confirm-modal #confirmModal></app-confirm-modal>
+

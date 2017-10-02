@@ -34,15 +34,7 @@ export class SiderBarComponent implements OnInit {
     var articleCategories = this.articleCategories.map(p => {
       return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/articles' };
     });
-    // var galleryPhotoCategories = this.galleryPhotoCategories.map(p => {
-    //   var heading = {
-    //     text: p.name, heading: false, children: [
-    //       { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/gallery-photo' },
-    //       { text: 'Danh mục', url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/categories' }
-    //     ]
-    //   };
-    //   return heading;
-    // });
+   
 
     var artistList = this.artists.map(p=> {
       return {
@@ -53,7 +45,9 @@ export class SiderBarComponent implements OnInit {
       children : [{text: 'Quản lý', url: '/cms/artists'}].concat(artistList)
     }
 
-    menu = menu.concat(articleCategories).concat(artistMenu);
+
+    var video = { text: "Video", url: '/cms/videos' };
+    menu = menu.concat(articleCategories).concat([video]).concat(artistMenu);
     return menu;
   }
 

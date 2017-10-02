@@ -48,7 +48,7 @@ namespace VnStyle.Web.Controllers
         {
 
             var language = _workContext.CurrentLanguage;
-            ViewBag.Title = "Home Page";
+            
             
 
             return View();
