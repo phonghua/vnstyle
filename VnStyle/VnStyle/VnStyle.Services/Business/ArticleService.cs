@@ -249,7 +249,7 @@ namespace VnStyle.Services.Business
         public ArticleListingModel GetFirstHomePageFeaturedArticles()
         {
             //throw new NotImplementedException();
-<<<<<<< HEAD
+
             var currentLanguage = _workContext.CurrentLanguage;
             var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
                                 orderby hp.Seq
@@ -265,13 +265,13 @@ namespace VnStyle.Services.Business
             }
             if (featuredLang.ImageId.HasValue)
                 featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
-=======
-            var featured = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
 
-            if (featured == null) return null;
-            if (featured.ImageId.HasValue)
-                featured.UrlImage = _mediaService.GetPictureUrl(featured.ImageId.Value);
->>>>>>> 6309c6647ed6968fa9df36304f00926dc24f39e5
+           
+
+            
+            if (featuredLang.ImageId.HasValue)
+                featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
+
             else
                 featuredLang.UrlImage = "~/Content/images/no-image.png";
             return featuredLang;
