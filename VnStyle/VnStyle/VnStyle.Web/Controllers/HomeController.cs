@@ -262,7 +262,7 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult HomePageFeaturedArticles()
         {
-            var articles = _articleService.GetFirstHomePageFeaturedArticles();
+            var articles = _articleService.GetFirstHomePageFeaturedArticles();           
             return PartialView(articles);
         }
 

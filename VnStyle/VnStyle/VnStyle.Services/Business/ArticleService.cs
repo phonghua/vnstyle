@@ -23,7 +23,7 @@ namespace VnStyle.Services.Business
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
-        
+
         public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository, IBaseRepository<HomePageFeaturedArticle> homePageFeaturedArticleRepository)
         {
             _articleRepository = articleRepository;
@@ -45,24 +45,18 @@ namespace VnStyle.Services.Business
             var articleQuery = (from a in _articleRepository.Table.Where(p => p.RootCate == request.RootCate && p.IsActive == true)
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
 
-                                select new ArticleListingModel {
+                                select new ArticleListingModel
+                                {
                                     Id = a.Id,
                                     ImageId = a.FeatureImageId,
                                     HeadLine = al.HeadLine,
                                     Extract = al.Extract,
-                                    PushlishDate = a.PublishDate,
-                                    
+                                    PushlishDate = a.PublishDate
                                 });
-
-
-
-
-
-
             var total = articleQuery.Count();
             var pagedArticles = articleQuery.OrderByDescending(p => p.PushlishDate).Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
 
-           
+
             foreach (var article in pagedArticles)
             {
                 if (article.ImageId.HasValue)
@@ -70,7 +64,7 @@ namespace VnStyle.Services.Business
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
             };
-       
+
 
             return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
 
@@ -94,7 +88,6 @@ namespace VnStyle.Services.Business
             {
                 return null;
             }
-
             articleLanguage = _articleLanguageRepository.Table.Where(p => p.Article.RootCate == (int)ERootCategory.Intro && p.Article.IsActive
             && p.LanguageId == defaultLanguage
             ).Select(p => new ArticleDetailModel
@@ -127,15 +120,15 @@ namespace VnStyle.Services.Business
             var currentLanguage = _workContext.CurrentLanguage;
             var defaultLanguage = _resourceService.DefaultLanguageId();
 
-            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.Id == id && p.Article.IsActive && p.LanguageId == currentLanguage).Select(p => new ArticleDetailModel
+            var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.IsActive && p.LanguageId == currentLanguage).Select(p => new ArticleDetailModel
             {
                 Id = p.ArticleId,
                 HeadLine = p.HeadLine,
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
-                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId}).ToList()
-        }).FirstOrDefault();
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId }).ToList()
+            }).FirstOrDefault();
             if (articleLanguage == null && currentLanguage == defaultLanguage)
             {
                 return null;
@@ -148,7 +141,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
-                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId =a.Article2.FeatureImageId}).ToList()
+                ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId }).ToList()
             }).FirstOrDefault();
             if (articleLanguage == null)
             {
@@ -194,16 +187,10 @@ namespace VnStyle.Services.Business
                                     Extract = al.Extract,
                                     PushlishDate = a.PublishDate
                                 });
-
-
-
-
-
-
             var total = articleQuery.Count();
             var pagedArticles = articleQuery.OrderByDescending(p => p.PushlishDate).Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
 
-           
+
             foreach (var article in pagedArticles)
             {
                 if (article.ImageId.HasValue)
@@ -211,17 +198,14 @@ namespace VnStyle.Services.Business
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
             };
-
-
             return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
-
         }
 
         public IList<ArticleListingModel> GetSession(bool flag) // request == true => get session1 
         {
             var currentLanguage = _workContext.CurrentLanguage;
             if (flag == true)
-            {               
+            {
                 var articleQuery = (from a in _articleRepository.Table.Where(p => p.Section1 == true && p.IsActive == true && p.IsShowHomepage == true)
                                     join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
                                     select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
@@ -259,44 +243,57 @@ namespace VnStyle.Services.Business
                 };
                 return Articles;
             }
-            
+
         }
 
         public ArticleListingModel GetFirstHomePageFeaturedArticles()
         {
             //throw new NotImplementedException();
-            var featured = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
-
-            if (featured.ImageId.HasValue)
-                featured.UrlImage = _mediaService.GetPictureUrl(featured.ImageId.Value);
+            var currentLanguage = _workContext.CurrentLanguage;
+            var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
+                                orderby hp.Seq
+                                join a in _articleRepository.Table on hp.ArticleId equals a.Id
+                                join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+            if (featuredLang == null)
+            {
+                featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
+                                orderby hp.Seq
+                                join a in _articleRepository.Table on hp.ArticleId equals a.Id                                
+                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+            }
+            if (featuredLang.ImageId.HasValue)
+                featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
             else
-                featured.UrlImage = "~/Content/images/no-image.png";
+                featuredLang.UrlImage = "~/Content/images/no-image.png";
+            return featuredLang;
 
-
-            return featured;
-            
 
 
         }
         public IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles()
         {
             //throw new NotImplementedException();
-            var featured = (from hp in _homePageFeaturedArticleRepository.Table join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderBy(p => p.Id).Skip(1).Take(2).ToList();
-          
-            foreach (var article in featured)
+            var currentLanguage = _workContext.CurrentLanguage;
+
+            var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
+                            join a in _articleRepository.Table on hp.ArticleId equals a.Id
+                            join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+                            select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderBy(p => p.Id).Skip(1).Take(2).ToList();
+            if (!featuredLang.Any())
+            {
+                featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
+                                join a in _articleRepository.Table on hp.ArticleId equals a.Id                                
+                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderBy(p => p.Id).Skip(1).Take(2).ToList();
+            }
+            foreach (var article in featuredLang)
             {
                 if (article.ImageId.HasValue)
                     article.UrlImage = _mediaService.GetPictureUrl(article.ImageId.Value);
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
-
             }
-
-
-            return featured;
-
-
-
+            return featuredLang;
         }
 
         public IPagedList<ArticleListingModel> GetArticlesByString(string search, PagingRequest request)
@@ -305,7 +302,7 @@ namespace VnStyle.Services.Business
             if (request.PageIndex < 0) request.PageIndex = 0;
             if (request.PageSize < 1) request.PageSize = 10;
             var currentLanguage = _workContext.CurrentLanguage;
-            
+
             var query = _articleRepository.Table.Where(p => p.IsActive);
 
             var query1 = query.Where(p => p.HeadLine.StartsWith(search) || p.HeadLine.Contains(search));
@@ -313,7 +310,8 @@ namespace VnStyle.Services.Business
             {
                 return null;
             }
-            var articleQuery = (from a in query1 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
+            var articleQuery = (from a in query1
+                                join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
                                 select new ArticleListingModel
                                 {
                                     Id = a.Id,
@@ -322,12 +320,6 @@ namespace VnStyle.Services.Business
                                     Extract = al.Extract,
                                     PushlishDate = a.PublishDate
                                 });
-
-
-
-
-
-
             var total = articleQuery.Count();
             var pagedArticles = articleQuery.OrderByDescending(p => p.PushlishDate).Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
 
@@ -339,8 +331,6 @@ namespace VnStyle.Services.Business
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
             };
-
-
             return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
 
 
