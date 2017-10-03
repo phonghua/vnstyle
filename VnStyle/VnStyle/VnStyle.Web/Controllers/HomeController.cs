@@ -150,6 +150,16 @@ namespace VnStyle.Web.Controllers
             return View(article);
         }
 
+        public ActionResult ArticleMore(int page)
+        {
+            var model = _articleService.GetNewArticles(new GetArticlesRequest
+            {
+                PageIndex = 0,
+                PageSize = 10
+            });
+            return PartialView("ArticleMore", model);
+        }
+
         #region "Partial"
 
         [ChildActionOnly]
@@ -172,7 +182,7 @@ namespace VnStyle.Web.Controllers
         {
             var request = new GetArticlesRequest
             {
-                PageSize = 10,
+                PageSize = 2,
                 PageIndex = page - 1
             };
             var model = _articleService.GetNewArticles(request);

@@ -267,6 +267,7 @@ namespace VnStyle.Services.Business
             //throw new NotImplementedException();
             var featured = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq join a in _articleRepository.Table on hp.ArticleId equals a.Id select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
 
+            if (featured == null) return null;
             if (featured.ImageId.HasValue)
                 featured.UrlImage = _mediaService.GetPictureUrl(featured.ImageId.Value);
             else

@@ -571,6 +571,7 @@
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="bin\VnStyle.Web.dll.config" />
+    <None Include="Properties\PublishProfiles\vnStyle.FS.Phonghd.pubxml" />
     <None Include="Properties\PublishProfiles\vnStyle.FTP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -628,6 +629,8 @@
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\HomePageLastFeaturedArticles.cshtml" />
     <Content Include="Views\Home\GetImageArtistInMenu.cshtml" />
+    <Content Include="Views\Home\ArticleMore.cshtml" />
+    <Content Include="Views\Home\NewArticleList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

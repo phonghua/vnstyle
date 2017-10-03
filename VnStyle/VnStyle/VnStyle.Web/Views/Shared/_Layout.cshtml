@@ -47,7 +47,6 @@
 
     @*<script src="~/Content/js/be44a.js"></script>*@
     <script src="~/Content/js/jquery-1.12.4.min.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     
 
@@ -258,7 +257,7 @@
                     <li><a href="#">XAMTV</a></li>
 
                     <li>
-                        <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
+                        <a title="@Html.T("RootCate_Intro")" href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 
                     </li>
 
@@ -326,7 +325,9 @@
 
     
     <!--End of Zendesk Chat Script-->
+        
     
+    @RenderSection("bottom", false)
 </body>
 
 </html>
