@@ -9,7 +9,8 @@
                      style="padding-top: 0px;">
                 <figure class="nlg-featured-media">
                     <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                        <img width="144" height="95" src="@article.UrlImage" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="@article.ImageId">
+                        <img src="@article.UrlImage" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="@article.ImageId" style="height:95px">
+                        @*style="width:144px;height:95px;"*@
                     </a>
                     <div class="nlg-entry-flags">
                     </div>

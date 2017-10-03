@@ -163,10 +163,27 @@ namespace VnStyle.Web.Controllers
         #region "Partial"
 
         [ChildActionOnly]
-        public ActionResult GetVideos()
+        public ActionResult GetVideos(int page=1)
         {
-            var videoThumb = _videoService.GetVideoThumb();
+            var request = new GetArticlesRequest
+            {
+                PageSize = 10,
+                PageIndex = page - 1
+            };
+            var videoThumb = _videoService.GetVideoThumb(request);
+            //return PartialView(videoThumb);
             return PartialView(videoThumb);
+        }
+        public JsonResult GetVideoJson(int page = 1)
+        {
+            var request = new GetArticlesRequest
+            {
+                PageSize = 10,
+                PageIndex = page - 1
+            };
+            var videoThumb = _videoService.GetVideoThumb(request);
+
+            return Json(videoThumb, JsonRequestBehavior.AllowGet);
         }
 
         [ChildActionOnly]

@@ -1,4 +1,6 @@
-﻿@model IList<VnStyle.Services.Business.Models.VideoListingModel>
+﻿
+@model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.VideoListingModel>
+@using VnStyle.Web.Infrastructure.Helpers;
 <div id="nlg-module-610ad9a3-e92c" class="nlg-module nlg-module-grid-posts">
     <div class="container">
 
@@ -12,7 +14,7 @@
         <div class="nlg-col-wrap nlg-col-2">
                 @foreach (var imgThumb in Model)
                 {
-                    <div class="nlg-col">
+                    <div class="nlg-col" id="videoLoad">
                         <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-379 post type-post status-publish format-video has-post-thumbnail hentry category-self-help tag-effective tag-relaxed post_format-post-format-video"
                                  style="padding-top: 0px;">
                             <figure class="nlg-featured-media">
@@ -55,18 +57,14 @@
                 }
             
            
-            <div class="nlg-pagination nlg-pagination-loadmore"><span data-href="http://demo.aggressivemotions.com/newslog/page/2/" class="btn" data-load-page="2"><i class="fa fa-circle-o-notch"></i>Load More</span></div>
+            <div class="nlg-pagination nlg-pagination-loadmore">
+                <a class="btn" id="loadmore"><i class="fa fa-circle-o-notch"></i>Load More</a>
+            </div>
             
         </div>
 
     </div>
 </div>
-
-
-@*<a onclick="changeVideo('e80BbX05D7Y')">video-1</a>
-<a onclick="changeVideo('ReRcHdeUG9Y')">video-2</a>*@
-
-
 <script>
     $(document).ready(function () {
         $("#myModal").on("hidden.bs.modal", function () {
@@ -80,4 +78,24 @@
 
         $("#myModal").modal("show");
     }
+</script>
+
+<script>
+    $(function () {
+        $('#loadmore').click(function () {
+            $.ajax({
+                url: '@Url.Action("GetVideoJson", "Home")',
+                type: 'GET',
+                data: '',
+                dataType: 'json',
+                success: function (data) {
+                    //loadData(data)
+                    $('#videoLoad').append("<div>Test</div>")
+                },
+                error: function () {
+                    alert("Thất bại");
+                }
+            });
+        })
+    })
 </script>
