@@ -138,19 +138,21 @@
 
 @section bottom{
     <script>
-        window.artiPage = 1;
-            $("#more-article").click(function () {
-                
-                $.ajax({
-                        url: "@Url.Action("ArticleMore", "Home", new {page = 2})",
-                        beforeSend: function (xhr) {
-                            console.log("load more article");
-                        }
-                    })
-                    .done(function (data) {
-                        $("#new-article-list").append(data);
-                    });
-            });
-        
+        window.articlePage = 1;
+        $("#more-article").click(function() {
+            var url = "@Url.Action("ArticleMore", "Home", new {page = "__page__"})";
+            window.articlePage = window.articlePage + 1;
+            url = url.replace("__page__", window.articlePage);
+            $.ajax({
+                    url: url,
+                    beforeSend: function(xhr) {
+                        console.log("load more article");
+                    }
+                })
+                .done(function(data) {
+                    $("#new-article-list").append(data);
+                });
+        });
+
     </script>
 }
