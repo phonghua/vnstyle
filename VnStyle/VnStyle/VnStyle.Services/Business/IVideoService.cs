@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ricky.Infrastructure.Core;
+using Ricky.Infrastructure.Core.Generic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,6 @@ namespace VnStyle.Services.Business
 {
     public interface IVideoService
     {
-        IList<VideoListingModel> GetVideoThumb();
+        IPagedList<VideoListingModel> GetVideoThumb(PagingRequest request);
     }
 }

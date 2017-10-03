@@ -9,7 +9,8 @@
             <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-222 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-dermal tag-face tag-health" style="padding-top: 0px;">
                 <figure class="nlg-featured-media">
                     <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                        <img width="210" height="139" src="@article.UrlImage" class="attachment-nlg-210-139 size-nlg-210-139 agg-fade-in lazyloaded" alt="65">
+                        <img src="@article.UrlImage" class="attachment-nlg-210-139 size-nlg-210-139 agg-fade-in lazyloaded" alt="65" style="height:139px">
+                        @*style="width:210px; height:139px "*@
                     </a>
 
                     <div class="nlg-entry-flags">

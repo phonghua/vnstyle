@@ -23,7 +23,8 @@
                              style="padding-top: 0px;">
                         <figure class="nlg-featured-media">
                             <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                                <img width="267" height="176" src="@article.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
+                                <img src="@article.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded" style="height:176px">
+                                @*style="width:267px; height:176px;"*@
                             </a>
                             <div class="nlg-entry-flags">
                                 <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
@@ -35,7 +36,7 @@
 
                                 <li class="nlg-date">
                                     <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                                        @article.PushlishDate
+                                        @DateTimeHelper.GetDateTimeText(@article.PushlishDate) @*@article.PushlishDate*@
                                     </a>
                                 </li>
                             </ul>
