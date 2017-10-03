@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { tokenNotExpired, JwtHelper, AuthHttp } from 'angular2-jwt';
 
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
@@ -11,37 +12,20 @@ export class AuthService {
   userLoadededEvent: EventEmitter<any> = new EventEmitter<any>();
   loggedInEvent: EventEmitter<any> = new EventEmitter<any>();
 
-
-  // private _currentUser: {
-  //   profile: {
-  //     name: ""
-  //   },
-  //   // id_token: string,
-  //   // session_state: any,
-  //   access_token: string,
-  //   token_type: string,
-  //   scope: string,
-  //   expires_at: number;
-  //   state: any;
-  //   expires_in: number;
-  //   expired: boolean;
-  //   scopes: string[];
-  // };
-
+  private checkTokenExpireTimeout: any;
+  private helper = new JwtHelper();
   get currentUser(): any {
     //return this._currentUser;
     var userItem = JSON.parse(localStorage.getItem("rickoauthtoken"));
-    if(userItem != null){
+    if (userItem != null) {
       userItem.profile = {
-        name : userItem.userName
+        name: userItem.userName
       };
     }
     return userItem;
   }
 
   get loggedIn(): boolean {
-    //return (localStorage.getItem("rickoauthtoken") === null) ? false : true;
-
     return this.currentUser != null;
   }
   authHeaders: Headers;
@@ -50,14 +34,49 @@ export class AuthService {
   constructor(private http: Http, private router: Router) {
     this.loggedInEvent.subscribe((oauth) => {
 
-      // this._currentUser.profile.name = oauth.userName;
-      // this._currentUser.access_token = oauth.access_token;
-      // this._currentUser.token_type = oauth.token_type;
+      if(this.loggedIn){
+        if (this.checkTokenExpireTimeout) {
+          clearTimeout(this.checkTokenExpireTimeout);
+        }
+        this.checkTokenExpireTimeout = setTimeout(() => {
+          this.logout();
+        }, this.currentUser.expires_in * 1000);
+      }
+      
+
       localStorage.setItem('rickoauthtoken', JSON.stringify(oauth));
       this.router.navigate(["/"]);
     });
+
+    // if (this.currentUser != null && (new Date(this.currentUser['.expires'])).getTime() <= (new Date()).getTime()) {
+    //   this.logout();
+    // }
+
+
+    if (this.loggedIn) {
+      const expDate = (new Date(this.currentUser['.expires']));
+      const currentDate = new Date();
+      const timing = expDate.getTime() - currentDate.getTime();
+
+      if (this.checkTokenExpireTimeout){
+        clearTimeout(this.checkTokenExpireTimeout);
+      } 
+      this.checkTokenExpireTimeout = setTimeout(() => {
+        this.logout();
+      }, timing);
+    }
+
+
+
   }
 
+  logout() {
+    this.startSignoutMainWindow();
+    // this.token = null;
+    // this.redirectUrl = '';
+    // this.userLoggedOutEvent.emit({});
+    // this.router.navigate(['login']);
+  }
 
   startSigninMainWindow() {
     this.router.navigate(["/auth/login"]);
@@ -94,24 +113,6 @@ export class AuthService {
 }
 
 const settings: any = {
-  // authority: 'https://localhost:44332/identity',
-  // client_id: 'web_portal_admin',
-  // // redirect_uri: 'http://localhost:4202/auth/callback',
-  // // post_logout_redirect_uri: 'http://localhost:4202',
-
-  // redirect_uri: 'http://localhost:4202/auth/callback',
-  // post_logout_redirect_uri: 'http://localhost:4202',
-  // response_type: 'id_token token',
-  // scope: 'openid profile read write ricky_web_api', //read+write+openid+email+profile
-
-  // // silent_redirect_uri: 'http://localhost:4202/auth/silent-renew',
-  // silent_redirect_uri: 'http://localhost:4202/auth/silent-renew',
-  // automaticSilentRenew: true,
-  // //silentRequestTimeout:10000,
-
-  // filterProtocolClaims: true,
-  // loadUserInfo: true
-
   authority: 'http://localhost:56847/oauth/token',
   client_id: 'fe3429036f404047865a48a5f8739c94',
   client_secret: '67b4b438cc37427792a2b1521f10cba4'

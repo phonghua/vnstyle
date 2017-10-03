@@ -30,8 +30,8 @@
                                     <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
                                              style="padding-top: 0px;">
                                         <figure class="nlg-featured-media">
-                                            <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                                                <img width="267" height="176" src="@article.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
+                                            <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+                                                <img title="@article.HeadLine" alt="@article.HeadLine" width="267" height="176" src="@article.UrlImage" class="attachment-nlg-267-176 size-nlg-267-176 agg-fade-in lazyloaded">
                                             </a>
                                             <div class="nlg-entry-flags">
                                                 <span class="nlg-flag nlg-flag-red nlg-flag-circle nlg-flag-trending"><i class="fa fa-bolt"></i></span>
@@ -42,7 +42,7 @@
 
                                             <header class="nlg-entry-header">
                                                 <h3 class="nlg-entry-title">
-                                                    <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a>
+                                                    <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a>
                                                 </h3>
 
                                                 <p class="nlg-entry-excerpt">@article.Extract</p>

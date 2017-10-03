@@ -5,48 +5,44 @@
 
 @using VnStyle.Web.Infrastructure.Helpers;
 @using Ricky.Infrastructure.Core;
-@* Article HomePageFeaturedArticles *@
-@*<div id="nlg-module-ec633a6e-be5e" class="nlg-module nlg-module-featured-posts nlg-module-fp-a nlg-module-fp-full-width">*@
 
 
-
-
-
-
-<div id="outer-wrapper" class="index home">
+@if (Model != null)
+{
+    <div id="outer-wrapper" class="index home">
        
-    <!-- featured Posts -->
-    <div class="featured row" id="featured">
-        <div class="featured-sec section" id="featured-sec" name="Featured Posts" style="width: 100%">
-            <div class="widget HTML" data-version="1" id="HTML2">
-                @*<h2 class="title">Featured</h2>*@
-                <div class="widget-content">
-                    <div cass="feat-wrap">
+        <!-- featured Posts -->
+        <div class="featured row" id="featured">
+            <div class="featured-sec section" id="featured-sec" name="Featured Posts" style="width: 100%">
+                <div class="widget HTML" data-version="1" id="HTML2">
+                    @*<h2 class="title">Featured</h2>*@
+                    <div class="widget-content">
+                        <div cass="feat-wrap">
 
 
-                        <div class="feat-align feat-column1">
-                            <div class="hot-item item1">
-                                <div class="featured-inner">
-                                    <a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })"></a>
-                                    <a class="rcp-thumb" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })"
-                                                                       style="background:url(@Model.UrlImage) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
-                                    <div class="post-panel">
-                                        <h3 class="rcp-title"><a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">@Model.HeadLine</a></h3>
-                                        <div class="featured-meta"><span class="featured-date">@Model.PushlishDate</span></div>
+                            <div class="feat-align feat-column1">
+                                <div class="hot-item item1">
+                                    <div class="featured-inner">
+                                        <a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })"></a>
+                                        <a class="rcp-thumb" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })"
+                                           style="background:url(@Model.UrlImage) no-repeat center center;background-size: cover"><span class="featured-overlay"></span></a>
+                                        <div class="post-panel">
+                                            <h3 class="rcp-title"><a href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">@Model.HeadLine</a></h3>
+                                            <div class="featured-meta"><span class="featured-date">@Model.PushlishDate</span></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="feat-align feat-column4">
+                                @Html.Action("HomePageLastFeaturedArticles")
+                            </div>
+                            <div class="clear"></div>
                         </div>
-                        <div class="feat-align feat-column4">
-                            @Html.Action("HomePageLastFeaturedArticles")
-                        </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="clear"></div>
+        <div class="clear"></div>
 
-</div>            <!-- .nlg-col -->
-<!-- .nlg-col -->
+    </div>  
+}
