@@ -121,6 +121,7 @@ namespace VnStyle.Services.Business
             //var currentLanguage = "en";
             var defaultLanguage = _resourceService.DefaultLanguageId();
 
+            
             var articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.IsActive && p.LanguageId == currentLanguage).Select(p => new ArticleDetailModel
             {
                 Id = p.ArticleId,

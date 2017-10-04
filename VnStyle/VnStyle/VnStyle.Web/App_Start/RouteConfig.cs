@@ -32,23 +32,90 @@ namespace VnStyle.Web
             );
             #endregion
 
-            #region "Intro"
-            //routes.MapRoute(
-            //    name: "Article",
-            //    url: "{lang}/gioi-thieu",
-            //    defaults: new { controller = "Home", action = "Intro", id = UrlParameter.Optional },
-            //    constraints: new { lang = @"en" }
-            //);
+            
+
+            #region "Tattoo"
+            routes.MapRoute(
+                name: "Tattoo_Language",
+                url: "{lang}/tattoo",
+                defaults: new { controller = "Home", action = "Tattoo", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
+
+            routes.MapRoute(
+                name: "Tattoo",
+                url: "tattoo",
+                defaults: new { controller = "Home", action = "Tattoo", lang = "vi" }
+
+            );
+            #endregion
+
+
+            #region "Piercing"
+            routes.MapRoute(
+                name: "Piercing_Language",
+                url: "{lang}/piercing",
+                defaults: new { controller = "Home", action = "Piercing", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
+
+            routes.MapRoute(
+                name: "Piercing",
+                url: "xo-khuyen",
+                defaults: new { controller = "Home", action = "Piercing", lang = "vi" }
+
+            );
+            #endregion
+
+            #region "Event"
+            routes.MapRoute(
+                name: "Event_Language",
+                url: "{lang}/event",
+                defaults: new { controller = "Home", action = "Events", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
+
+            routes.MapRoute(
+                name: "Event",
+                url: "su-kien",
+                defaults: new { controller = "Home", action = "Events", lang = "vi" }
+
+            );
+            #endregion
+
+
+            #region "Course"
+            routes.MapRoute(
+                name: "Course_Language",
+                url: "{lang}/course",
+                defaults: new { controller = "Home", action = "Course", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
+
+            routes.MapRoute(
+                name: "Course",
+                url: "khoa-hoc",
+                defaults: new { controller = "Home", action = "Course", lang = "vi" }
+
+            );
+            #endregion
+
+            #region "Article"
+            routes.MapRoute(
+                name: "Article_Language",
+                url: "{lang}/{title}-{id}",
+                defaults: new { controller = "Home", action = "Detail", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
 
             routes.MapRoute(
                 name: "Article",
                 url: "{title}-{id}",
                 defaults: new { controller = "Home", action = "Detail", lang = "vi" }
 
-                //Detail(int id, string title = "")
             );
-            #endregion
 
+            #endregion
             #region "Default"
             routes.MapRoute(
                 name: "Language",

@@ -77,6 +77,7 @@ namespace VnStyle.Services.Business
                             join a in _artistRepository.Table on g.ArtistId equals a.Id
                             select new ImagesByArtist
                             {
+                                IdArtist = a.Id,
                                 Name = a.Name,
                                 ImageId = g.FileId
                             }).ToList();

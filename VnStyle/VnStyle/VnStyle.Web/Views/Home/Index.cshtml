@@ -145,13 +145,31 @@
             $.ajax({
                     url: url,
                     beforeSend: function(xhr) {
-                        console.log("load more article");
+                        //console.log("load more article");
                     }
                 })
                 .done(function(data) {
                     $("#new-article-list").append(data);
                 });
         });
+
+    </script>
+    <script>
+            window.videoPage = 1;
+            $("#more-video").click(function() {
+                var url = "@Url.Action("VideoMore", "Home", new {page = "__page__"})";
+                window.videoPage = window.videoPage + 1;
+                url = url.replace("__page__", window.videoPage);
+                $.ajax({
+                        url: url,
+                        beforeSend: function(xhr) {
+                            //console.log("load more article");
+                        }
+                    })
+                    .done(function(data) {
+                        $("#new-video-list").append(data);
+                    });
+            });
 
     </script>
 }

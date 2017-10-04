@@ -631,6 +631,8 @@
     <Content Include="Views\Home\GetImageArtistInMenu.cshtml" />
     <Content Include="Views\Home\ArticleMore.cshtml" />
     <Content Include="Views\Home\NewArticleList.cshtml" />
+    <Content Include="Views\Home\VideoMore.cshtml" />
+    <Content Include="Views\Home\NewVideoList.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\TestLayout.cshtml" />
   </ItemGroup>
