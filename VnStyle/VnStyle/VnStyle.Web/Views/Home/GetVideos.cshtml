@@ -12,55 +12,13 @@
         </div>
 
         <div class="nlg-col-wrap nlg-col-2">
-                @foreach (var imgThumb in Model)
-                {
-                    <div class="nlg-col" id="videoLoad">
-                        <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-379 post type-post status-publish format-video has-post-thumbnail hentry category-self-help tag-effective tag-relaxed post_format-post-format-video"
-                                 style="padding-top: 0px;">
-                            <figure class="nlg-featured-media">
-                                <a  onclick="loadVideo('@imgThumb.Link')">
-                                    <img width="144" height="95" src="http://i3.ytimg.com/vi/@imgThumb.Link/maxresdefault.jpg" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="88">
-                                </a>
-                                <div class="nlg-entry-flags">
-                                </div>
-                                <div class="nlg-media-icon" onclick="loadVideo('@imgThumb.Link')"><i class="fa fa-play"></i></div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <iframe id="iframeYoutube" width="90%" height="100" src="https://www.youtube.com/embed/@imgThumb.Link" frameborder="0" allowfullscreen></iframe>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </figure>
-                            <div class="nlg-entry-body">
-                                <ul class="nlg-entry-meta first no-spacing">
-                                    <li class="nlg-byline">
-                                        by <span class="nlg-entry-author" itemscope="" itemtype="http://schema.org/Person">
-                                            <a target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ" rel="author"><span itemprop="author">VNStyleTattooTV</span></a>
-                                        </span>
-                                    </li>
-                                </ul>
-                                <header class="nlg-entry-header">
-                                    <h3 class="nlg-entry-title" ><a onclick="loadVideo('@imgThumb.Link')">@imgThumb.Title</a></h3>
-                                    <ul class="nlg-entry-meta"></ul>
-
-                                </header>
-                            </div>
-                        </article>
-                    </div>
-                }
-            
-           
-            <div class="nlg-pagination nlg-pagination-loadmore">
-                <a class="btn" id="loadmore"><i class="fa fa-circle-o-notch"></i>Load More</a>
+            <div id="new-video-list">
+                @Html.Partial("NewVideoList", Model)
             </div>
-            
+            <div class="nlg-pagination nlg-pagination-loadmore">
+                <a class="btn" id="more-video"><i class="fa fa-circle-o-notch"></i>Load More</a>
+            </div>
+
         </div>
 
     </div>
@@ -80,7 +38,7 @@
     }
 </script>
 
-<script>
+@*<script>
     $(function () {
         $('#loadmore').click(function () {
             $.ajax({
@@ -98,4 +56,4 @@
             });
         })
     })
-</script>
+</script>*@

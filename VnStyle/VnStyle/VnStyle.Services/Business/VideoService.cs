@@ -31,7 +31,7 @@ namespace VnStyle.Services.Business
             var movie = _movieRepository.Table.OrderByDescending(p => p.Id).Select(p => new VideoListingModel { Id = p.Id, Link = p.Link, Title = p.Title });
             var pageMovie = movie.Skip(request.PageIndex * request.PageSize).Take(request.PageSize).ToList();
             var count = movie.Count();
-            return new PagedList<VideoListingModel>(movie, request.PageIndex, request.PageSize, count);
+            return new PagedList<VideoListingModel>(pageMovie, request.PageIndex, request.PageSize, count);
 
         }
     }

@@ -149,51 +149,6 @@ namespace VnStyle.Web.Controllers
             if (article == null) return NotFound();
             return View(article);
         }
-
-        public ActionResult ArticleMore(int page)
-        {
-            var model = _articleService.GetNewArticles(new GetArticlesRequest
-            {
-                PageIndex = page - 1,
-                PageSize = 2
-            });
-            return PartialView("ArticleMore", model);
-        }
-
-        #region "Partial"
-
-        [ChildActionOnly]
-        public ActionResult GetVideos(int page=1)
-        {
-            var request = new GetArticlesRequest
-            {
-                PageSize = 10,
-                PageIndex = page - 1
-            };
-            var videoThumb = _videoService.GetVideoThumb(request);
-            //return PartialView(videoThumb);
-            return PartialView(videoThumb);
-        }
-        public JsonResult GetVideoJson(int page = 1)
-        {
-            var request = new GetArticlesRequest
-            {
-                PageSize = 10,
-                PageIndex = page - 1
-            };
-            var videoThumb = _videoService.GetVideoThumb(request);
-
-            return Json(videoThumb, JsonRequestBehavior.AllowGet);
-        }
-
-        [ChildActionOnly]
-        public ActionResult ArticleViewer(ArticleDetailModel model)
-        {
-            model.ArticleUrl = Url.CurrentUrl();
-            return PartialView(model);
-        }
-        
-
         [ChildActionOnly]
         public ActionResult GetNewArticles(int page = 1)
         {
@@ -205,6 +160,50 @@ namespace VnStyle.Web.Controllers
             var model = _articleService.GetNewArticles(request);
             return PartialView(model);
         }
+        public ActionResult ArticleMore(int page)
+        {
+            var model = _articleService.GetNewArticles(new GetArticlesRequest
+            {
+                PageIndex = page - 1,
+                PageSize = 2
+            });
+            return PartialView("ArticleMore", model);
+        }
+        public ActionResult VideoMore(int page)
+        {
+            var model = _videoService.GetVideoThumb(new GetArticlesRequest
+            {
+                PageIndex = page - 1,
+                PageSize = 2
+            });
+            return PartialView("VideoMore", model);
+        }
+
+        #region "Partial"
+
+        [ChildActionOnly]
+        public ActionResult GetVideos(int page=1)
+        {
+            var request = new GetArticlesRequest
+            {
+                PageSize = 2,
+                PageIndex = page - 1
+            };
+            var videoThumb = _videoService.GetVideoThumb(request);
+            //return PartialView(videoThumb);
+            return PartialView(videoThumb);
+        }
+      
+
+        [ChildActionOnly]
+        public ActionResult ArticleViewer(ArticleDetailModel model)
+        {
+            model.ArticleUrl = Url.CurrentUrl();
+            return PartialView(model);
+        }
+        
+
+       
         [ChildActionOnly]
         public ActionResult GetAllArtist()
         {
