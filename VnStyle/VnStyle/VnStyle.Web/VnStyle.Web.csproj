@@ -446,9 +446,6 @@
     <Content Include="bin\VnStyle.Web.dll" />
     <Content Include="bin\VnStyle.Web.pdb" />
     <Content Include="bin\WebGrease.dll" />
-    <Content Include="contents\uploads\images\6101b999-ea13-4bc1-ae18-0ac5d4a59cca.jpg" />
-    <Content Include="contents\uploads\images\8eb120d2-f973-4eec-8b6b-13a1cc117d59.jpg" />
-    <Content Include="contents\uploads\images\d501a7db-de06-4d93-906d-72b0d8a6fba0.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\baguetteBox.css" />
@@ -479,6 +476,8 @@
     <Content Include="Content\images\amazing-abstract-and-backrounds-gn-dazzling-1245874.jpg" />
     <Content Include="Content\images\controller-m-380x260.jpg" />
     <Content Include="Content\images\fashion-blonde-380x260.jpg" />
+    <Content Include="Content\images\flag\en.png" />
+    <Content Include="Content\images\flag\vi.png" />
     <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\images\no-image.png" />
     <Content Include="Content\images\rock-playing-concert-380x520.jpg" />
@@ -532,6 +531,7 @@
     <Content Include="Content\js\sticky.min.js" />
     <Content Include="Content\js\wp-emoji-release.min.js" />
     <Content Include="Content\js\wpgroho.js" />
+    <Content Include="Content\theme2\screen.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -631,10 +631,13 @@
     <Content Include="Views\Home\GetImageArtistInMenu.cshtml" />
     <Content Include="Views\Home\ArticleMore.cshtml" />
     <Content Include="Views\Home\NewArticleList.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Home\TestLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_GlobalResources\" />
+    <Folder Include="contents\uploads\images\" />
     <Folder Include="Views\App\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Categories\" />

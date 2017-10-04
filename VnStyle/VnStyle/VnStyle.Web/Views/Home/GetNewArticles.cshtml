@@ -2,21 +2,18 @@
 
 @using Ricky.Infrastructure.Core;
 @using VnStyle.Web.Infrastructure.Helpers;
-<div id="nlg-module-bfbf79f5-5ae0" class="nlg-module nlg-module-grid-posts">
-    <div class="container">
 
-        <div class="nlg-col-wrap nlg-col-1">
-            <div id="new-article-list">
+<div class="row">
+    <div class="col-xs-12">
+        <div>
+            <div id="new-article-list" class="new-article-list">
                 @Html.Partial("NewArticleList", Model)
             </div>
             
-            
             @if (Model.PageIndex < Model.TotalPages - 1)
             {
-                <div class="nlg-pagination nlg-pagination-loadmore"><a href="javascript:;" class="btn" id="more-article"><i class="fa fa-circle-o-notch"></i>Load More</a></div>
+                <div class=""><a href="javascript:;" class="btn" id="more-article"><i class="fa fa-circle-o-notch"></i>Load More</a></div>
             }
-            
-            <!--<span class="nlg-loader nlg-spinner"></span>-->
         </div>
 
     </div>

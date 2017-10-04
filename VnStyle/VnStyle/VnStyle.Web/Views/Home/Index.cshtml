@@ -13,10 +13,19 @@
 
     var currentUrl = Url.CurrentUrl();
 }
-<div class="nlg-sections-wrap">
-    <script>
-        var nlg_module_b4a0d8d0_dde3_settings = { "layout": "grid_posts", "title": "", "taxonomy_navigation": "false", "custom_html": "", "gp_posts_layout": "vertical_5_col", "fp_posts_layout": "style_d", "gp_pagination_type": "none", "fp_container_layout": "none", "posts_per_page": 5, "posts_offset": 0, "post_types": ["post", "page"], "post_taxonomies": ["1_category", "3_category", "17_category", "24_category", "28_category", "38_category", "70_category", "97_category", "149_category"], "post_tags": "", "post_ids": "222,224,207,457,150", "excluded_post_ids": ",", "orderby": "post_ids", "order": "desc", "meta_data": { "4": "rating" }, "excerpt_length": 50, "prevent_duplication": "true", "class_name": "", "id": "b4a0d8d0-dde3", "sidebar_position": "none", "position": "", "description": "", "gp_columns": "5", "gp_direction": "vertical", "gp_meta_data": { "4": "rating" }, "gp_excerpt_length": 50, "image_size": "nlg-210-139" };
-    </script>
+
+    <div class="container">
+        @Html.Action("GetArticlesSession1", "Home")
+        
+        @*@Html.Action("HomePageFeaturedArticles", "Home")*@
+        
+        
+        @Html.Action("GetNewArticles", "Home")
+    </div>
+
+
+@*<div class="nlg-sections-wrap">
+    
     <div id="nlg-module-b4a0d8d0-dde3" class="nlg-module nlg-module-grid-posts">
         <div class="container">
 
@@ -30,12 +39,9 @@
     <div class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
         <div class="nlg-module nlg-module-featured-posts nlg-module-fp-a nlg-module-fp-full-width">
             <div class="container">
-                <!-- .nlg-col-wrap -->
                 @Html.Action("HomePageFeaturedArticles", "Home")
             </div>
-            <!-- .container -->
         </div>
-        <!-- .nlg-module -->
     </div>
     
 
@@ -43,17 +49,14 @@
         <div class="container">
             <div class="nlg-main" role="main">
 
-                @*New article *@
                 @Html.Action("GetNewArticles", "Home")
             </div>
-            <!-- .nlg-main -->
 
             @Html.Action("SideBar1", "Home")
             
         </div>
         
     </div>
-    <!-- .nlg-section -->
     
     <div class="row">
         <div id="nlg-section-7e848e14-c380" class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
@@ -63,7 +66,6 @@
                 </div>
             </div>
         </div>
-        <!-- .nlg-section -->
         <div class="row">
             <div class="col-xs-12 col-md-8 col-lg-8">
                 <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
@@ -71,19 +73,16 @@
                         <div class="nlg-main" role="main">
                             @Html.Action("GetVideos", "Home")
                         </div>
-                        <!-- .nlg-sidebar -->
                     </div>
-                    <!-- .container -->
                 </div>
 
             </div>
-            <!-- .nlg-section -->
             <div class="col-xs-12 col-md-4 col-lg-4" style= "margin-top:25px">
                 @Html.Action("SideBar2", "Home")
             </div>
         </div>      
     </div>
-</div>
+</div>*@
 
 
 @section metaTags{

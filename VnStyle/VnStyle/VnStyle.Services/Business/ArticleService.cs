@@ -301,6 +301,7 @@ namespace VnStyle.Services.Business
                                 join a in _articleRepository.Table on hp.ArticleId equals a.Id                                
                                 select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
             }
+            if (featuredLang == null) return null;
             if (featuredLang.ImageId.HasValue)
                 featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
 

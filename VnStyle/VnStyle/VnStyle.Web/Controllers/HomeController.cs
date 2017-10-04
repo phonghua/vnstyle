@@ -289,5 +289,10 @@ namespace VnStyle.Web.Controllers
 
         #endregion
 
+
+        public ActionResult TestLayout()
+        {
+            return View();
+        }
     }
 }

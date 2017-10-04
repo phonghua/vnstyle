@@ -1,0 +1,38 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.nlg-header-sticky .nlg-header{
+    position: sticky;
+}
+
+.nlg-header{
+    z-index: 99998;
+    color: #fff;
+}
+
+.nlg-header-wrap{
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    margin: 0 0 35px;
+}
+
+@media only screen and (min-width: 992px){
+    .nlg-top-bar {
+        display: block;
+    }
+    .nlg-top-bar-dark {
+        background-color: #191919;
+        color: #c4c4c4;
+    }
+    
+    .nlg-top-bar {
+        display: none;
+        font-family: "Montserrat", sans-serif;
+    }
+}

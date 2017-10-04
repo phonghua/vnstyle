@@ -1,0 +1,170 @@
+﻿@using Ricky.Infrastructure.Core.ObjectContainer
+@using VnStyle.Services.Business.Settings
+@using VnStyle.Web.Infrastructure.Helpers
+@{
+    var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
+
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+
+    var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+
+}
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@appSetting.ApplicationName | @ViewBag.Title</title>
+    @RenderSection("metaTags", false)
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="~/Content/theme2/screen.css" rel="stylesheet" />
+
+
+</head>
+<body id="front-page">
+
+    <div id="page">
+        <header class="style-2">
+            <div class="top-bar hidden-xs">
+                <div class="container">
+                    <ul class="top-left-menu top-bar-menu">
+                        <li class="">
+                            <a target="_blank" href="#">Liên hệ: +84 939293186 (Phạm Mai) | +84 123456789 (Đăng Vinh)</a>
+
+                        </li>
+                        <li  class="">
+                            <a target="_blank" href="https://www.facebook.com/vnstyletattoo"> <i class="fa fa-facebook"></i></a>
+                        </li>
+
+                        <li class="">
+                            <a target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ/"> <i class="fa fa-youtube"></i></a>
+                        </li>
+                        <li class="">
+                            <a target="_blank" href="https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/"> <i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                    
+                    <ul class="top-right-menu top-bar-menu">
+                        <li>
+                            <a href="http://localhost:56847/"><img class="flag-english" src="/Content/images/flag/vi.png?h=20" alt="Tiếng Việt"> Tiếng Việt </a>
+                        </li>
+                        <li>
+                            <a href="http://localhost:56847/en"><img class="flag-english" src="/Content/images/flag/en.png?h=20" alt="English"> English </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="white-large-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="pull-left">
+                                <a href="http://localhost:56847/" rel="VNStyle Tattoo &amp; Piercing" class="brand">
+                                    <span class="nlg-logo nlg-main-logo">
+                                        <img width="278" height="48" src="http://localhost:56847/Content/images/logo-big-dark.png" class="nlg-logo-img" alt="VNStyle Tattoo &amp; Piercing">
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="large-container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span class="mobile-nav-toggle no-select"></span>
+                        <nav>
+                            <ul>
+                                <li class="current-menu-item">
+                                    <a href="http://teslathemes.com/demo/html/epilog/index.html">Home</a>
+                                    <ul>
+                                        <li>
+                                            <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
+                                            <ul>
+                                                <li><a href="http://teslathemes.com/demo/html/epilog/standard-blog-full-width.html">No sidebar version</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="http://teslathemes.com/demo/html/epilog/list-blog.html">List layout</a>
+                                            <ul>
+                                                <li><a href="http://teslathemes.com/demo/html/epilog/list-blog-full-width.html">No sidebar version</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="http://teslathemes.com/demo/html/epilog/grid-blog.html">Grid layout</a>
+                                            <ul>
+                                                <li><a href="http://teslathemes.com/demo/html/epilog/grid-blog-full-width.html">No sidebar version</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li>
+                                            <a href="http://teslathemes.com/demo/html/epilog/blog-post.html">Single post</a>
+                                            <ul>
+                                                <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="http://teslathemes.com/demo/html/epilog/#">Categories</a>
+                                    <ul>
+                                        <li><a href="http://teslathemes.com/demo/html/epilog/categories-grid.html">Grid</a></li>
+                                        <li><a href="http://teslathemes.com/demo/html/epilog/categories-list.html">List</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="http://teslathemes.com/demo/html/epilog/travel.html">Travel</a></li>
+                                <li><a href="http://teslathemes.com/demo/html/epilog/lifestyle.html">Lifestyle</a></li>
+                                <li>
+                                    <a href="http://teslathemes.com/demo/html/epilog/#">Pages</a>
+                                    <ul>
+                                        <li><a href="http://teslathemes.com/demo/html/epilog/404.html">Error page</a></li>
+                                        <li><a href="http://teslathemes.com/demo/html/epilog/contact.html">Contact</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <form class="global-search-form">
+                            <span class="form-toggle">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <input type="text" class="search-input check-value" name="global-search-text" placeholder="Search">
+                            <button class="search-submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div style="height: 1500px">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="http://teslathemes.com/demo/html/epilog/js/jquery.js"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/flickity.js"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/owl.js"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/imagesloaded.js"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/isotope.js"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/options.js"></script>
+    @RenderSection("bottom", false)
+</body>
+
+
+
+
+</html>

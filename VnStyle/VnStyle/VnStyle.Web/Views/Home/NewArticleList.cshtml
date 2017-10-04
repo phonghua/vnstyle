@@ -5,7 +5,19 @@
 
 @foreach (var article in Model)
 {
-    <div class="nlg-col">
+    <div class="media">
+        <div class="media-left media-middle">
+            <a  href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+                <img class="media-object" src="@(article.UrlImage + "?h=267")"  alt="@article.HeadLine">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@article.HeadLine</h4>
+        </div>
+    </div>
+
+
+    @*<div class="nlg-col">
         <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-171 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-marriage tag-relationship"
                  style="padding-top: 0px;">
             <figure class="nlg-featured-media">
@@ -35,5 +47,5 @@
                 </header>
             </div>
         </article>
-    </div>
+    </div>*@
 }
