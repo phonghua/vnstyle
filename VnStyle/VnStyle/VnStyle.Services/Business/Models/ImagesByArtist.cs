@@ -8,6 +8,7 @@ namespace VnStyle.Services.Business.Models
 {
     public class ImagesByArtist
     {
+        public int IdArtist { get; set; }
         public string Name { get; set; }
         public long ImageId { get; set; }
         public string UrlImage { get; set; }
