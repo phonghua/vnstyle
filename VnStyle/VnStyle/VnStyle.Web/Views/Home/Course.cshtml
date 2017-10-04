@@ -14,9 +14,20 @@
         <div id="nlg-module-bfbf79f5-5ae0" class="nlg-module nlg-module-grid-posts">
             <div class="container">
                 <div class="nlg-module-header nlg-has-tax-nav">
-                    <div class="nlg-module-title">
+                    @*<div class="nlg-module-title">
                         <h2 class="nlg-title">@Html.T("RootCate_Course")</h2>
 
+                    </div>*@
+                    <div class="nlg-breadcrumb-wrap container">
+                        <div class="nlg-breadcrumb">
+                            <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
+                            <i class="fa fa-angle-right"></i>
+                            <div>
+                                <a href="@Url.HostAction("Course","Home")" title="@Html.T("RootCate_Course")" itemprop="url">
+                                    <span itemprop="@Html.T("RootCate_Course")">@Html.T("RootCate_Course")</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

@@ -3,10 +3,26 @@
 @{
     ViewBag.Title = "Intro";
 }
+@using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
+
+
 
 
 <div class="row">
-   
+    <div class="nlg-breadcrumb-wrap container">
+        <div class="nlg-breadcrumb">
+            <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
+            <i class="fa fa-angle-right"></i>
+            <div>
+                <a href="@Url.HostAction("Intro","Home")" title="@Html.T("RootCate_Intro")" itemprop="url">
+                    <span itemprop="@Html.T("RootCate_Intro")">@Html.T("RootCate_Intro")</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    
         @Html.Action("ArticleViewer", Model)
    
     @*<div class="col-xs-12 col-sm-12 col-md-4">

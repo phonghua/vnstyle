@@ -155,7 +155,7 @@ namespace VnStyle.Web.Controllers
             var model = _articleService.GetNewArticles(new GetArticlesRequest
             {
                 PageIndex = 0,
-                PageSize = 10
+                PageSize = 2
             });
             return PartialView("ArticleMore", model);
         }
