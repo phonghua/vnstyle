@@ -121,7 +121,7 @@ namespace VnStyle.Web.Controllers
             var request = new GetArticlesRequest
             {
                 RootCate = (int)rootCate,
-                PageSize = 10,
+                PageSize = 2,
                 PageIndex = page - 1
             };
             

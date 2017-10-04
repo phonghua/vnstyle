@@ -64,7 +64,7 @@
                         <div class="nlg-pagination nlg-pagination-numeric">
                             @if (Model.PageIndex > 0)
                             {
-                                <a class="prev page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex})">&laquo; Quay lại</a>
+                                <a class="prev page-numbers" href="@Url.HostAction("Piercing","Home",new { page = Model.PageIndex})">&laquo; Quay lại</a>
                             }
                             @for (int i = 0; i < (Model.TotalPages); i++)
                             {
@@ -76,12 +76,12 @@
                                 }
                                 else
                                 {
-                                    <a class="page-numbers" href="@Url.HostAction("Course","Home",new { page = i + 1 })">@(i + 1)</a>
+                                    <a class="page-numbers" href="@Url.HostAction("Piercing","Home",new { page = i + 1 })">@(i + 1)</a>
                                 }
                             }
                             @if (Model.PageIndex < Model.TotalPages - 1)
                             {
-                                <a class="next page-numbers" href="@Url.HostAction("Course","Home",new { page = Model.PageIndex + 2 })">Tiếp &raquo;</a>
+                                <a class="next page-numbers" href="@Url.HostAction("Piercing","Home",new { page = Model.PageIndex + 2 })">Tiếp &raquo;</a>
                             }
 
                         </div>
