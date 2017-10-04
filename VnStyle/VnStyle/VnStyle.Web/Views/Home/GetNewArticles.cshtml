@@ -11,8 +11,11 @@
             </div>
             
             
-
-            <div class="nlg-pagination nlg-pagination-loadmore"><a href="javascript:;" class="btn" id="more-article"><i class="fa fa-circle-o-notch"></i>Load More</a></div>
+            @if (Model.PageIndex < Model.TotalPages - 1)
+            {
+                <div class="nlg-pagination nlg-pagination-loadmore"><a href="javascript:;" class="btn" id="more-article"><i class="fa fa-circle-o-notch"></i>Load More</a></div>
+            }
+            
             <!--<span class="nlg-loader nlg-spinner"></span>-->
         </div>
 

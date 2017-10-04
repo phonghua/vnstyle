@@ -138,7 +138,7 @@ namespace VnStyle.Services.Business
             
             if (articleLanguage == null)
             {
-                articleLanguage = _articleLanguageRepository.Table.Where(p => p.Id == id && p.Article.IsActive && p.LanguageId == defaultLanguage).Select(p => new ArticleDetailModel
+                articleLanguage = _articleLanguageRepository.Table.Where(p => p.ArticleId == id && p.Article.IsActive && p.LanguageId == defaultLanguage).Select(p => new ArticleDetailModel
                 {
                     Id = p.ArticleId,
                     HeadLine = p.HeadLine,

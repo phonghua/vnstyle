@@ -20,34 +20,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@appSetting.ApplicationName | @ViewBag.Title</title>
     @RenderSection("metaTags", false)
+      
     
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/ef542.css" media="all">   
-    <link rel="stylesheet" href="~/Content/css/font-awesome.css">
-    
-
+    <link rel="stylesheet" type="text/css" href="@Url.HostContent("~/Content/css/ef542.css")" media="all">   
+    <link rel="stylesheet" href="@Url.HostContent("~/Content/css/font-awesome.css")">   
     <link href="@Url.HostContent("~/Content/css/woocommerce.css")" rel="stylesheet" />
-    <link href="@Url.HostContent("~/Content/css/woocommerce-smallscreen.css")" rel="stylesheet" />
-    
-    <link href="@Url.HostContent("~/Content/css/bootstrap-flex.min.css")" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/css/fluid-gallery.css" rel="stylesheet" />
-    <link href="~/Content/css/images.css" rel="stylesheet" />
-    <link href="~/Content/css/baguetteBox.css" rel="stylesheet" />
-    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
-    <link href="~/Content/css/owl.theme.css" rel="stylesheet" />
-    <link href="~/Content/css/owl.transitions.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" id="gravatar-card-css" href="~/Content/css/hovercard.css">
-    <link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="~/Content/css/services.css">
-    <link rel="stylesheet" type="text/css" id="fit-vids-style" href="~/Content/css/video.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/css/fonts.css">
-    
+    <link href="@Url.HostContent("~/Content/css/woocommerce-smallscreen.css")" rel="stylesheet" />   
+    <link href="@Url.HostContent("~/Content/css/bootstrap-flex.min.css")" rel="stylesheet" />    
+    <link href="@Url.HostContent("~/Content/bootstrap.css")"  rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/images.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/baguetteBox.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/owl.carousel.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/owl.theme.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/owl.transitions.css")" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" id="gravatar-card-css" href="@Url.HostContent("~/Content/css/hovercard.css")">
+    <link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="@Url.HostContent("~/Content/css/services.css")">
+    <link rel="stylesheet" type="text/css" id="fit-vids-style" href="@Url.HostContent("~/Content/css/video.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.HostContent("~/Content/css/fonts.css")">    
     <link href="@Url.HostContent("~/Content/css/responsive-card.css")" rel="stylesheet" />
 
     @*<script src="~/Content/js/be44a.js"></script>*@
-    <script src="~/Content/js/jquery-1.12.4.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="@Url.HostContent("~/Content/js/jquery-1.12.4.min.js")"></script>
+    <script src="@Url.HostContent("~/Scripts/bootstrap.min.js")"></script>
     
 
    
@@ -102,7 +97,7 @@
 
                         <a href="@Url.HomePage()" rel="@appSetting.ApplicationName">
                             <span class="nlg-logo nlg-main-logo">
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img" alt="@appSetting.ApplicationName">
+                                <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-dark.png")" class="nlg-logo-img" alt="@appSetting.ApplicationName">
                             </span>
                         </a>
                     </div>
@@ -124,12 +119,12 @@
                     <div class="nlg-header-brand">
                         <a href="@Url.HomePage()" rel="@appSetting.ApplicationName">
                             <span class="nlg-logo nlg-sticky-logo">
-                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
+                                <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-light.png")" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
+                                <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-dark.png")" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
                             </span>
                             <span class="nlg-logo nlg-mobile-logo">
-                                <img width="278" height="48" src="~/Content/images/logo-big-light.png" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
-                                <img width="278" height="48" src="~/Content/images/logo-big-dark.png" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
+                                <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-light.png")" class="nlg-logo-img nlg-logo-img-light" alt="logo-big-light">
+                                <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-dark.png")" class="nlg-logo-img nlg-logo-img-dark" alt="logo-big-dark">
                             </span>
                         </a>
                     </div>
@@ -202,7 +197,7 @@
         </script>*@
         <div id="gotop"></div>
         
-        <script src="~/Content/js/jquery.gotop.js"></script>
+        <script src="@Url.HostContent("~/Content/js/jquery.gotop.js")"></script>
         <script>
             $('#gotop').gotop({
                 customHtml: '<i class="fa fa-angle-up fa-2x"></i>',
@@ -269,30 +264,30 @@
     <script src="~/Content/js/9c79b.js"></script>
     @*<script src="~/Content/js/sticky.min.js"></script>
     <script src="~/Content/js/sticky.compile.js"></script>*@
-    <script type="text/javascript" src="~/Content/js/c2d81.js"></script>
-    <script type="text/javascript" src="~/Content/js/0201f.js"></script>
-    <script type="text/javascript" src="~/Content/js/devicepx-jetpack.js"></script>
-    <script type="text/javascript" src="~/Content/js/a6b1d.js"></script>
-    <script type="text/javascript" src="~/Content/js/3d1ee.js"></script>
-    <script type="text/javascript" src="~/Content/js/gprofiles.js"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/c2d81.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/0201f.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/devicepx-jetpack.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/a6b1d.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/3d1ee.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/gprofiles.js")"></script>
     <script type="text/javascript">
 		
         var WPGroHo = { "my_hash": "" };
     </script>
-    <script type="text/javascript" src="~/Content/js/wpgroho.js"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/wpgroho.js")"></script>
     @*<script type="text/javascript" src="~/Content/js/retina.js"></script>*@
     @*<script type="text/javascript" src="~/Content/js/65c1b.js"></script>*@
-    <script type="text/javascript" src="~/Content/js/28c3e.js"></script>
-    <script type="text/javascript" src="~/Content/js/3d3e4.js"></script>
-    <script src="~/Content/js/analytics.js"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/28c3e.js")"></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/3d3e4.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/analytics.js")"></script>
     @*<script src="~/Content/js/9c79b.js"></script>*@
     
     <!-- .nlg-mobile-panel -->
 
-    <script type="text/javascript" src="~/Content/js/e-201720.js" async="" defer=""></script>
+    <script type="text/javascript" src="@Url.HostContent("~/Content/js/e-201720.js")" async="" defer=""></script>
     @*<script type="text/javascript" src="~/Content/js/118e1.js"></script>*@
     @*<script type="text/javascript" src="~/Content/js/c4be6.js"></script>*@
-    <script src="~/Content/js/owl.carousel.min.js"></script>
+    <script src="@Url.HostContent("~/Content/js/owl.carousel.min.js")"></script>
     
     <div id="fb-root"></div>
     <script>
