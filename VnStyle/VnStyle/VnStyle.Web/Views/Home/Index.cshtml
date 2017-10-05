@@ -20,7 +20,20 @@
         @*@Html.Action("HomePageFeaturedArticles", "Home")*@
         
         
-        @Html.Action("GetNewArticles", "Home")
+        <div class="row">
+            <div class="col-xs-8">
+                @Html.Action("GetNewArticles", "Home")
+            </div>
+            <div class="col-xs-4">
+                fds fds shf
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.Action("GetAllArtist")
+            </div>
+        </div>
     </div>
 
 
@@ -169,6 +182,28 @@
                     .done(function(data) {
                         $("#new-video-list").append(data);
                     });
+            });
+
+            $(document).ready(function() {
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: true,
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 3
+                        }
+                    }
+                })
             });
 
     </script>
