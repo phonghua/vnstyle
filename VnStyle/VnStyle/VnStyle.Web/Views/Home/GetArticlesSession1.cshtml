@@ -2,41 +2,6 @@
 @using VnStyle.Web.Infrastructure.Helpers;
 @using Ricky.Infrastructure.Core;
 
-@*<div class="nlg-col-wrap nlg-col-5">
-        @foreach (var article in Model)
-        {
-            <div class="nlg-col">
-                <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-222 post type-post status-publish format-standard has-post-thumbnail hentry category-health tag-dermal tag-face tag-health" style="padding-top: 0px;">
-                    <figure class="nlg-featured-media">
-                        <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                            <img src="@article.UrlImage" class="attachment-nlg-210-139 size-nlg-210-139 agg-fade-in lazyloaded" alt="65" style="height:139px">
-                        </a>
-
-                        <div class="nlg-entry-flags">
-                        </div>
-
-
-                    </figure>
-
-                    <div class="nlg-entry-body">
-                        <header class="nlg-entry-header">
-                            <h3 class="nlg-entry-title">
-                                <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine)})">@article.HeadLine</a>
-                            </h3>
-                            <ul class="nlg-entry-meta"></ul>
-
-
-                        </header>
-
-                    </div>
-
-                </article>
-
-            </div>
-        }
-
-
-    </div>*@
 
 
 <div class="article-section-1">
@@ -44,9 +9,13 @@
         @foreach (var article in Model)
         {
             <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="thumbnail">
+                <div class="article-overlay">
                     <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                        <img src="@article.UrlImage" alt="...">
+                        
+                        <figure class="article-overlay-item">
+                            @*<img src="@(article.UrlImage + "?h=180")" alt="Thumb" width="144" height="96" />*@
+                            <img src="@(article.UrlImage + "?h=320")" width="144" height="96" alt="@article.HeadLine" title="@article.HeadLine">
+                        </figure>
                         <div class="caption">
                             @article.HeadLine
                         </div>

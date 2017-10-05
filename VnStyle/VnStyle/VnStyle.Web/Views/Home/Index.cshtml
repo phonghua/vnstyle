@@ -15,23 +15,31 @@
 }
 
     <div class="container">
-        @Html.Action("GetArticlesSession1", "Home")
+        <div style="">
+            @Html.Action("GetArticlesSession1", "Home")
+        </div>
         
         @*@Html.Action("HomePageFeaturedArticles", "Home")*@
         
         
-        <div class="row">
-            <div class="col-xs-8">
+        <div class="row" style="margin-top: 30px">
+            <div class="col-xs-12 col-sm-12 col-md-8">
                 @Html.Action("GetNewArticles", "Home")
             </div>
-            <div class="col-xs-4">
-                fds fds shf
+            <div class="col-md-4 hidden-xs hidden-sm">
+                @Html.Action("SideBar1", "Home")
             </div>
         </div>
         
         <div class="row">
             <div class="col-xs-12">
                 @Html.Action("GetAllArtist")
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-12">
+                @Html.Action("GetVideos", "Home")
             </div>
         </div>
     </div>

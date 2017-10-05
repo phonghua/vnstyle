@@ -581,6 +581,16 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\ajax-loader.gif" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.carousel.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.carousel.min.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.theme.default.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.theme.default.min.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.theme.green.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.theme.green.min.css" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\assets\owl.video.play.png" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\owl.carousel.js" />
+    <Content Include="Scripts\libs\OwlCarousel2-2.2.1\owl.carousel.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
