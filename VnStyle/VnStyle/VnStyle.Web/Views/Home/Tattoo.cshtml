@@ -111,5 +111,46 @@
             </li>
         </ol>
     </div>
-    
+    <div class="row row-article">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 left1">
+
+            @foreach (var article in Model)
+            {
+                <div class="cate-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                            <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+
+
+                                <figure class="article-overlay-item">
+                                    <img src="@article.UrlImage?h=320" alt="Thumb" width="267" height="178">
+                                    <div class="figcaption"><div>XEM BÀI VIẾT</div></div>
+                                </figure>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                            <span class="mt-8">
+                                <span class="text-upercase fs12 bg-red mr6 mr10">
+                                    <a title="Trẻ" href="/c/tin-tre-7.html" class="whiteColor">@Html.T("RootCate_Tattoo")</a>
+                                </span>
+                                <span class="right fs12 red">
+                                    @article.PushlishDate<a target="_blank" title="Share Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.yan.vn/dep-ngay-ngat-nhung-hinh-xam-chan-nguc-cho-nang-pha-cach-126269.html"><i class="glyphicon glyphicon-share-alt grey"></i></a>
+                                </span>
+                            </span>
+                            <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">Đẹp ngây ngất những hình xăm chân ngực cho nàng phá cách</a></h3>
+                            <p class="fs14 lh20">@article.HeadLine</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <hr />
+
+            }
+         
+           
+
+
+        </div>
+    </div>
 </div>

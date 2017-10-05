@@ -240,7 +240,7 @@ namespace VnStyle.Services.Business
                              select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
                 }
                 var total = query.Count();
-                var Articles = query.OrderByDescending(p => p.PushlishDate).Take(5).ToList();
+                var Articles = query.OrderByDescending(p => p.PushlishDate).Take(4).ToList();
 
 
                 foreach (var article in Articles)
@@ -270,7 +270,7 @@ namespace VnStyle.Services.Business
                              select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
                 }
                 var total = query.Count();
-                var Articles = query.OrderByDescending(p => p.PushlishDate).Take(5).ToList();
+                var Articles = query.OrderByDescending(p => p.PushlishDate).Take(4).ToList();
 
 
                 foreach (var article in Articles)

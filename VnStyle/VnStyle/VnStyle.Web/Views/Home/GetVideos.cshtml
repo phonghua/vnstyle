@@ -38,22 +38,3 @@
     }
 </script>
 
-@*<script>
-    $(function () {
-        $('#loadmore').click(function () {
-            $.ajax({
-                url: '@Url.Action("GetVideoJson", "Home")',
-                type: 'GET',
-                data: '',
-                dataType: 'json',
-                success: function (data) {
-                    //loadData(data)
-                    $('#videoLoad').append("<div>Test</div>")
-                },
-                error: function () {
-                    alert("Thất bại");
-                }
-            });
-        })
-    })
-</script>*@

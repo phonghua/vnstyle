@@ -506,10 +506,10 @@ header nav ul {
 }
 
     header nav ul li {
-        /*text-transform: uppercase;*/
+        text-transform: uppercase;
         display: inline-block;
         letter-spacing: 0.01em;
-        margin: 0 60px 0 0;
+        margin: 0 31px 0 0;
         position: relative;
         font-weight: 500;
         line-height: 1em;
@@ -527,7 +527,7 @@ header nav ul {
 
             header nav ul li a:hover {
                 color: #23527c;
-                font-weight: bold;
+                /*font-weight: bold;*/
             }
 
         header nav ul li:last-of-type {
@@ -2985,45 +2985,196 @@ ul.page-numbers {
                 font-size: 11px;
                 font-weight: 400;
             }
+
 .article-section-1 {
-    margin-top: 15px;
+    margin-top: 35px;
 }
 
-.article-section-1 img {
-    height: 139px !important;
-}
 
-.article-section-1 .caption {
-    font-size: 12px;
-    font-weight: bold;
-    text-overflow: ellipsis;
-    /*white-space: nowrap;*/ 
-    overflow: hidden;
-    height: 44px;
-}
 
-.article-section-1 .caption:hover {
-    color: #428bca;
-}
+    .article-section-1 .caption {
+        font-size: 12px;
+        font-weight: bold;
+        color: rgb(51, 51, 51);
+    }
 
-.article-section-1 .thumbnail {
-    border: none;
-}
+        .article-section-1 .caption:hover {
+            color: rgb(51, 51, 51);
+        }
 
-.new-article-list img.media-object {
+    .article-section-1 .thumbnail {
+        border: none;
+    }
+
+.article-overlay img {
     max-width: initial;
     width: 267px;
+    height: auto;
+    vertical-align: top;
+    -webkit-transition: all .25s ease-in;
+    -moz-transition: all .25s ease-in;
+    -ms-transition: all .25s ease-in;
+    -o-transition: all .25s ease-in;
+    transition: all .25s ease-in;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .article-overlay img:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+.article-overlay .media-heading a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.article-overlay .media-body p {
+    color: #4a4747;
 }
 
 
-.breadcrumb{
+figure.article-overlay-item {
+    width: 100%;
+    height: 178px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    border: 5px solid #fff;
+    box-shadow: 0 0 5px #ddd;
+    margin: 1em;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+.article-overlay-item .figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+    .article-overlay-item .figcaption div {
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        top: 20px;
+        opacity: 0;
+        color: #2c3e50;
+        text-transform: uppercase;
+    }
+
+        .article-overlay-item .figcaption div:after {
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            bottom: 40%;
+            text-align: center;
+            margin: auto;
+            width: 0%;
+            height: 2px;
+            background: #2c3e50;
+        }
+
+figure.article-overlay-item img {
+    -webkit-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    
+}
+
+figure.article-overlay-item:hover .figcaption {
+    background: rgba(255,255,255,0.3);
+}
+
+.article-overlay-item .figcaption:hover div {
+    opacity: 1;
+    top: 0;
+}
+
+    .article-overlay-item .figcaption:hover div:after {
+        width: 50%;
+    }
+
+figure.article-overlay-item:hover img {
+    -webkit-transform: scale3d(1.2, 1.2, 1);
+    transform: scale3d(1.2, 1.2, 1);
+}
+
+
+.article-section-2 img.media-object {
+    max-width: initial;
+    width: 144px;
+}
+
+.article-section-2 figure.article-overlay-item {    
+    width: 144px;
+    height: 96px;
+}
+
+
+.article-section-2 .media-heading a {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+}
+
+
+
+.btn-load-more-article {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border: 1px solid #141414;
+    border-radius: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    font: 600 14px/50px "Montserrat", sans-serif;
+    color: inherit;
+    transition: all .2s;
+    background-color: #ffffff;
+}
+
+    .btn-load-more-article:focus {
+        background-color: #ffffff;
+    }
+
+    .btn-load-more-article:hover {
+        background-color: #141414;
+        color: #fff;
+    }
+
+
+
+.breadcrumb {
     background-color: #fff;
 }
-.breadcrumb h1, .breadcrumb h2, .breadcrumb h3 {
-    font-size: 15px;
-    font-family: Roboto-Bold;
-    margin: 0 10px 0 0;
-}
+
+    .breadcrumb h1, .breadcrumb h2, .breadcrumb h3 {
+        font-size: 15px;
+        font-family: Roboto-Bold;
+        margin: 0 10px 0 0;
+    }
 
 .bg-red {
     background: #B9519F;
@@ -3034,9 +3185,66 @@ ul.page-numbers {
 /*a.item{
     font-size: 16px;
 }*/
-.row-breadcrumb{
-    margin-top:4px
+.row-breadcrumb {
+    margin-top: 4px;
 }
-.bg-red:hover{
+
+.bg-red:hover {
     color: #fff;
-} 
+}
+
+
+/*Article css*/
+.w100{
+    width: 295px;
+    height:150px
+}
+.mt-8{
+    margin-top: -8px;
+}
+.text-upercase {
+    text-transform: uppercase;
+}
+.fs12 {
+    font-size: 12px !important;
+}
+.bg-red {
+    background: #d33;
+    padding: 3px 6px;
+    font-family: Roboto-Medium;
+    color: #fff;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.mr6 {
+    margin-right: 6px;
+}
+.whiteColor {
+    color: #fff !important;
+}
+.right {
+    float: right;
+}
+.fs12 {
+    font-size: 12px !important;
+}
+.red {
+    color: #d33;
+}
+.roboto-bold {
+    font-family: Roboto-Bold;
+}
+.mt0 {
+    margin-top: 0;
+}
+.fs16 {
+    font-size: 18px;
+}
+.title-article{
+    font-weight: bold;
+    color: #000;
+}
+a{
+    color:#000;
+}

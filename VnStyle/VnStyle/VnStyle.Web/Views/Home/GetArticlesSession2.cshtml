@@ -1,33 +1,26 @@
 ﻿@model IList<VnStyle.Services.Business.Models.ArticleListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
 @using Ricky.Infrastructure.Core;
-<div class="nlg-col-wrap nlg-col-1">
-     @foreach (var article in Model)
-     {
-        <div class="nlg-col">
-            <article class="nlg-entry nlg-entry-horizontal nlg-entry-has-featured-media post-239 post type-post status-publish format-standard has-post-thumbnail hentry category-travel tag-aviation tag-travel tag-voyage"
-                     style="padding-top: 0px;">
-                <figure class="nlg-featured-media">
-                    <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
-                        <img src="@article.UrlImage" class="attachment-nlg-144-95 size-nlg-144-95 lazyload agg-fade-in" alt="@article.ImageId" style="height:95px">
-                        @*style="width:144px;height:95px;"*@
-                    </a>
-                    <div class="nlg-entry-flags">
-                    </div>
+<div id="article-section-2" class="article-overlay article-section-2">
+    @foreach (var article in Model)
+    {
+        <div class="media">
+            <div class="media-left media-middle">
+                <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+                    <figure class="article-overlay-item">
+                        <img src="@(article.UrlImage + "?h=150")" alt="Thumb" width="144" height="96" />
+                    </figure>
 
-                </figure>
-                <div class="nlg-entry-body">
-
-                    <header class="nlg-entry-header">
-                        <h3 class="nlg-entry-title"><a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
-                        
-
-                    </header>
-                </div>
-            </article>
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a title="@article.HeadLine" href="@Url.HostAction("Detail", "Home", new {id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine)})">@article.HeadLine</a>
+                </h4>
+            </div>
         </div>
-     }
-     
-   
-    <!--<span class="nlg-loader nlg-spinner"></span>-->
+    }
+
 </div>
+
+

@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" />
     <link href="~/Content/theme2/screen.css" rel="stylesheet" />
 
 
@@ -40,7 +42,7 @@
                             <a target="_blank" href="#">Liên hệ: @appSetting.HomepageContact1 | @appSetting.HomepageContact2</a>
 
                         </li>
-                        <li  class="">
+                        <li class="">
                             <a target="_blank" href="@appSetting.Facebook"> <i class="fa fa-facebook"></i></a>
                         </li>
 
@@ -51,14 +53,9 @@
                             <a target="_blank" href="@appSetting.Instagram"> <i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
-                    
+
                     <ul class="top-right-menu top-bar-menu">
-                        @*<li>
-                            <a href="http://localhost:56847/"><img class="flag-english" src="/Content/images/flag/vi.png?h=20" alt="Tiếng Việt"> Tiếng Việt </a>
-                        </li>
-                        <li>
-                            <a href="http://localhost:56847/en"><img class="flag-english" src="/Content/images/flag/en.png?h=20" alt="English"> English </a>
-                        </li>*@
+                       
                         @foreach (var language in languages)
                         {
                             <li>
@@ -83,65 +80,65 @@
                     </div>
                 </div>
             </div>
-            
+
 
             <div class="large-container">
                 <div class="row">
                     <div class="col-xs-12">
                         <span class="mobile-nav-toggle no-select"></span>
                         @*<nav>
-                            <ul>
-                                <li class="current-menu-item">
-                                    <a href="http://teslathemes.com/demo/html/epilog/index.html">Home</a>
-                                    <ul>
-                                        <li>
-                                            <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
-                                            <ul>
-                                                <li><a href="http://teslathemes.com/demo/html/epilog/standard-blog-full-width.html">No sidebar version</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="http://teslathemes.com/demo/html/epilog/list-blog.html">List layout</a>
-                                            <ul>
-                                                <li><a href="http://teslathemes.com/demo/html/epilog/list-blog-full-width.html">No sidebar version</a></li>
-                                            </ul>
-                                        </li>
+                                <ul>
+                                    <li class="current-menu-item">
+                                        <a href="http://teslathemes.com/demo/html/epilog/index.html">Home</a>
+                                        <ul>
+                                            <li>
+                                                <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
+                                                <ul>
+                                                    <li><a href="http://teslathemes.com/demo/html/epilog/standard-blog-full-width.html">No sidebar version</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="http://teslathemes.com/demo/html/epilog/list-blog.html">List layout</a>
+                                                <ul>
+                                                    <li><a href="http://teslathemes.com/demo/html/epilog/list-blog-full-width.html">No sidebar version</a></li>
+                                                </ul>
+                                            </li>
 
-                                        <li>
-                                            <a href="http://teslathemes.com/demo/html/epilog/grid-blog.html">Grid layout</a>
-                                            <ul>
-                                                <li><a href="http://teslathemes.com/demo/html/epilog/grid-blog-full-width.html">No sidebar version</a></li>
-                                            </ul>
-                                        </li>
+                                            <li>
+                                                <a href="http://teslathemes.com/demo/html/epilog/grid-blog.html">Grid layout</a>
+                                                <ul>
+                                                    <li><a href="http://teslathemes.com/demo/html/epilog/grid-blog-full-width.html">No sidebar version</a></li>
+                                                </ul>
+                                            </li>
 
-                                        <li>
-                                            <a href="http://teslathemes.com/demo/html/epilog/blog-post.html">Single post</a>
-                                            <ul>
-                                                <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="http://teslathemes.com/demo/html/epilog/#">Categories</a>
-                                    <ul>
-                                        <li><a href="http://teslathemes.com/demo/html/epilog/categories-grid.html">Grid</a></li>
-                                        <li><a href="http://teslathemes.com/demo/html/epilog/categories-list.html">List</a></li>
-                                    </ul>
-                                </li>
-                                <li class="current-menu-item"><a href="http://teslathemes.com/demo/html/epilog/travel.html">Travel</a></li>
-                                <li><a href="http://teslathemes.com/demo/html/epilog/lifestyle.html">Lifestyle</a></li>
-                                <li>
-                                    <a href="http://teslathemes.com/demo/html/epilog/#">Pages</a>
-                                    <ul>
-                                        <li><a href="http://teslathemes.com/demo/html/epilog/404.html">Error page</a></li>
-                                        <li><a href="http://teslathemes.com/demo/html/epilog/contact.html">Contact</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>*@
-                        @Html.Action("Menu","Home")
-                        
+                                            <li>
+                                                <a href="http://teslathemes.com/demo/html/epilog/blog-post.html">Single post</a>
+                                                <ul>
+                                                    <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="http://teslathemes.com/demo/html/epilog/#">Categories</a>
+                                        <ul>
+                                            <li><a href="http://teslathemes.com/demo/html/epilog/categories-grid.html">Grid</a></li>
+                                            <li><a href="http://teslathemes.com/demo/html/epilog/categories-list.html">List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="current-menu-item"><a href="http://teslathemes.com/demo/html/epilog/travel.html">Travel</a></li>
+                                    <li><a href="http://teslathemes.com/demo/html/epilog/lifestyle.html">Lifestyle</a></li>
+                                    <li>
+                                        <a href="http://teslathemes.com/demo/html/epilog/#">Pages</a>
+                                        <ul>
+                                            <li><a href="http://teslathemes.com/demo/html/epilog/404.html">Error page</a></li>
+                                            <li><a href="http://teslathemes.com/demo/html/epilog/contact.html">Contact</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>*@
+                        @Html.Action("Menu", "Home")
+
                         <form class="global-search-form" method="get" action="@Url.HostAction("Result","Home")">
                             <span class="form-toggle">
                                 <i class="fa fa-search"></i>
@@ -169,6 +166,12 @@
     <script src="http://teslathemes.com/demo/html/epilog/js/imagesloaded.js"></script>
     <script src="http://teslathemes.com/demo/html/epilog/js/isotope.js"></script>
     <script src="http://teslathemes.com/demo/html/epilog/js/options.js"></script>
+
+
+    <script src="~/Scripts/libs/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
+
+   
+
     @RenderSection("bottom", false)
 </body>
 
