@@ -37,28 +37,34 @@
                 <div class="container">
                     <ul class="top-left-menu top-bar-menu">
                         <li class="">
-                            <a target="_blank" href="#">Liên hệ: +84 939293186 (Phạm Mai) | +84 123456789 (Đăng Vinh)</a>
+                            <a target="_blank" href="#">Liên hệ: @appSetting.HomepageContact1 | @appSetting.HomepageContact2</a>
 
                         </li>
                         <li  class="">
-                            <a target="_blank" href="https://www.facebook.com/vnstyletattoo"> <i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="@appSetting.Facebook"> <i class="fa fa-facebook"></i></a>
                         </li>
 
                         <li class="">
-                            <a target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ/"> <i class="fa fa-youtube"></i></a>
+                            <a target="_blank" href="@appSetting.Youtube"> <i class="fa fa-youtube"></i></a>
                         </li>
                         <li class="">
-                            <a target="_blank" href="https://www.instagram.com/explore/locations/299835778/vnstyle-tattoo-piercing/"> <i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="@appSetting.Instagram"> <i class="fa fa-instagram"></i></a>
                         </li>
                     </ul>
                     
                     <ul class="top-right-menu top-bar-menu">
-                        <li>
+                        @*<li>
                             <a href="http://localhost:56847/"><img class="flag-english" src="/Content/images/flag/vi.png?h=20" alt="Tiếng Việt"> Tiếng Việt </a>
                         </li>
                         <li>
                             <a href="http://localhost:56847/en"><img class="flag-english" src="/Content/images/flag/en.png?h=20" alt="English"> English </a>
-                        </li>
+                        </li>*@
+                        @foreach (var language in languages)
+                        {
+                            <li>
+                                <a href="@Url.Language(language.Code)"><img class="flag-english" src="@Url.Content(language.Flag)?h=20" alt="@language.Name" /> @language.Name </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -83,7 +89,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <span class="mobile-nav-toggle no-select"></span>
-                        <nav>
+                        @*<nav>
                             <ul>
                                 <li class="current-menu-item">
                                     <a href="http://teslathemes.com/demo/html/epilog/index.html">Home</a>
@@ -123,7 +129,7 @@
                                         <li><a href="http://teslathemes.com/demo/html/epilog/categories-list.html">List</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="http://teslathemes.com/demo/html/epilog/travel.html">Travel</a></li>
+                                <li class="current-menu-item"><a href="http://teslathemes.com/demo/html/epilog/travel.html">Travel</a></li>
                                 <li><a href="http://teslathemes.com/demo/html/epilog/lifestyle.html">Lifestyle</a></li>
                                 <li>
                                     <a href="http://teslathemes.com/demo/html/epilog/#">Pages</a>
@@ -133,13 +139,14 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </nav>
-
-                        <form class="global-search-form">
+                        </nav>*@
+                        @Html.Action("Menu","Home")
+                        
+                        <form class="global-search-form" method="get" action="@Url.HostAction("Result","Home")">
                             <span class="form-toggle">
                                 <i class="fa fa-search"></i>
                             </span>
-                            <input type="text" class="search-input check-value" name="global-search-text" placeholder="Search">
+                            <input type="text" class="search-input check-value" name="search" placeholder="Search">
                             <button class="search-submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
