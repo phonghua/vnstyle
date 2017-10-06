@@ -57,10 +57,29 @@ export class ArticleService {
       .catch(err => Observable.throw(err));
   }
 
-  //{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}
-
   swapRelatedArticle(articleId, relatedArticleId1, relatedArticleId2){
     return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId1}/swap/${relatedArticleId2}`)
     .catch(err => Observable.throw(err));
+  }
+
+  // 
+  getFeaturedArticles(): Observable<any> {
+    return this.httpService.get(this.settingService.portal + `api/articles/featured`)
+      .map(res => res.json()).catch(err => Observable.throw(err));
+  }
+
+  addFeaturedArticles(articleId): Observable<any> {
+    return this.httpService.put(this.settingService.portal + `api/articles/featured/${articleId}`)
+    .catch(err => Observable.throw(err));
+  }
+
+  removeFeaturedArticles(articleId): Observable<any> {
+    return this.httpService.delete(this.settingService.portal + `api/articles/featured/${articleId}`)
+    .catch(err => Observable.throw(err));
+  }
+
+  swapFeatureArticle(articleId, articleId2){
+    return this.httpService.put(this.settingService.portal + `api/articles/featured/${articleId}/swap/${articleId2}`)
+      .catch(err => Observable.throw(err));
   }
 }

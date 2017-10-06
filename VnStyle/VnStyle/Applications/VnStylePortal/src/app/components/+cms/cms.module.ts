@@ -18,6 +18,7 @@ import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-
 import { ArtistsComponent } from './component/artists/artists.component';
 import { ArtistComponent } from './component/artist/artist.component';
 import { VideosComponent } from './component/videos/videos.component';
+import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
@@ -28,6 +29,8 @@ import { ConfirmModalComponent } from '../../components/shared/confirm-modal/con
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { Typeahead } from './../shared/typehead/typehead.component';
 import { TreeviewComponent } from './../shared/treeview/treeview.component';
+
+
 
 @NgModule({
   imports: [
@@ -62,7 +65,8 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     TreeviewComponent,
     ArtistsComponent,
     ArtistComponent,
-    VideosComponent
+    VideosComponent,
+    FeaturedArticleComponent
   ],
   entryComponents: []
 })

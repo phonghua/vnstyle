@@ -9,9 +9,7 @@ import { AppService, GeneralService } from './../../../services';
 export class SiderBarComponent implements OnInit {
 
   private articleCategories = [];
-  //private galleryPhotoCategories = [];
   private artists = [];
-
   public menuItems;
 
   constructor(private appService: AppService, private generateService: GeneralService) { }
@@ -19,38 +17,33 @@ export class SiderBarComponent implements OnInit {
 
   ngOnInit() {
     this.appService.appInitialized.subscribe(data => {
-      console.log("subscribe at siderbar", data);
       this.articleCategories = data.articleCategories;
-      //this.galleryPhotoCategories = data.galleryPhotoCategories;
-
       this.artists = data.artists;
-
-      this.menuItems = this.getMenuItems();      
+      this.menuItems = this.getMenuItems();
     });
   }
 
-  getMenuItems(){
-    var menu = [];
-    var articleCategories = this.articleCategories.map(p => {
-      return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/articles' };
-    });
-   
+    getMenuItems() {
+      let menu = [];
+      const articleCategories = this.articleCategories.map(p => {
+        return { text: p.name, url: '/cms/' + p.id + '/' + this.generateService.friendlyUrl(p.name) + '/articles' };
+      });
 
-    var artistList = this.artists.map(p=> {
-      return {
-        text: p.name, url: '/cms/artists/' + p.id + '/' + this.generateService.friendlyUrl(p.name)
-      };
-    })
-    var artistMenu =  {text : "Artists", heading : false, 
-      children : [{text: 'Quản lý', url: '/cms/artists'}].concat(artistList)
+      const artistList = this.artists.map(p => {
+        return {
+          text: p.name, url: '/cms/artists/' + p.id + '/' + this.generateService.friendlyUrl(p.name)
+        };
+      });
+
+      const artistMenu = {
+        text: "Artists", heading: false,
+        children: [{ text: 'Quản lý', url: '/cms/artists' }].concat(artistList)
+      }
+
+      const video = { text: "Video", url: '/cms/videos' };
+      const featuredArticle = { text: "Featured Articles", url: '/cms/featured-articles' }
+      menu = menu.concat(articleCategories).concat([video, featuredArticle]).concat(artistMenu);
+      return menu;
     }
-
-
-    var video = { text: "Video", url: '/cms/videos' };
-    menu = menu.concat(articleCategories).concat([video]).concat(artistMenu);
-    return menu;
-  }
-
-
 
 }

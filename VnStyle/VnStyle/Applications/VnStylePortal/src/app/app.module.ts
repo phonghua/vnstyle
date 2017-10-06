@@ -51,22 +51,10 @@ import { SHARED_SERVICES } from './services/';
 import { SpinnerDirective } from './directives/spinner.directive';
 import { BlockUIModule } from 'ng-block-ui';
 
-
-
-// Application wide
-// const APP_PROVIDERS = [
-//   ...SHARED_SERVICES,
-//   { provide: RouteReuseStrategy, useClass: CustomReuseStrategy },
-//   RouterService
-// ];
-
-
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    // SiderBarComponent,
-    // TopNavComponent,
     AuthCallbackComponent,
     DashboardComponent,
     AuthSilentRenewComponent,
@@ -74,8 +62,7 @@ import { BlockUIModule } from 'ng-block-ui';
     FormSummaryErrorComponent,
     SpinnerComponent,
     DecimalEditorComponent,
-    LoginComponent,
-    // SpinnerDirective
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -88,11 +75,9 @@ import { BlockUIModule } from 'ng-block-ui';
     NgxPaginationModule,
     RatingModule,
     Ng2Bs3ModalModule,
-
     AuthLayoutModule,
     MainLayoutModule,
-    BlockUIModule,
-    
+    BlockUIModule
   ],
   exports: [
     AuthLayoutModule,

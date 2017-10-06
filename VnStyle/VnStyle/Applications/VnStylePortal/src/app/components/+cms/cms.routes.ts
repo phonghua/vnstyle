@@ -9,6 +9,7 @@ import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-
 import { ArtistComponent } from './component/artist/artist.component';
 import { ArtistsComponent } from './component/artists/artists.component';
 import { VideosComponent } from './component/videos/videos.component';
+import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
 
 export const routes: Route[] = [
   {
@@ -25,6 +26,9 @@ export const routes: Route[] = [
       { path: "videos", component: VideosComponent },
       { path: "artists", component: ArtistsComponent },
       { path: "artists/:id/:name", component: ArtistComponent },
+      { path: "featured-articles", component: FeaturedArticleComponent },
+
+
 
     ]
   }
