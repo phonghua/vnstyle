@@ -813,6 +813,7 @@ header.style-2 nav {
     text-align: center;
     display: inline-block;
     margin-right: 40px;
+    margin-left:70px
 }
 
     header.style-2 nav ul {
@@ -825,7 +826,7 @@ header.style-2 nav {
         }
 
 header.style-2 .large-container {
-    text-align: center;
+    /*text-align: center;*/
 }
 
     header.style-2 .large-container.sticky {
@@ -3099,6 +3100,7 @@ figure.article-overlay-item img {
     transition: all 0.5s linear;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+    width: 100%;
     
 }
 

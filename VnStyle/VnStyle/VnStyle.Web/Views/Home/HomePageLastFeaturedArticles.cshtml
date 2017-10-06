@@ -3,7 +3,7 @@
 @using Ricky.Infrastructure.Core;
 @foreach (var article in Model)
 {
-    <div class="hot-item item2">
+    @*<div class="hot-item item2">
         <div class="featured-inner">
             <a href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })"
                ></a><a class="rcp-thumb" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })"
@@ -13,5 +13,8 @@
                 <div class="featured-meta"><span class="featured-date">@article.PushlishDate</span></div>
             </div>
         </div>
+    </div>*@
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-md-6"><img class="img-fluid" src="@article.UrlImage" alt=""></div>
     </div>
 }
