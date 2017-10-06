@@ -34,6 +34,12 @@ body {
     line-height: 1.8em;
 }
 
+img-logo {
+    margin-top: 15px;
+    float: left;
+    margin-bottom: -25px;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -813,7 +819,7 @@ header.style-2 nav {
     text-align: center;
     display: inline-block;
     margin-right: 40px;
-    margin-left:70px
+    margin-left: 70px;
 }
 
     header.style-2 nav ul {
@@ -3050,7 +3056,7 @@ figure.article-overlay-item {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    border: 5px solid #fff;
+    /*border: 5px solid #fff;*/
     box-shadow: 0 0 5px #ddd;
     margin: 1em;
     -webkit-margin-before: 0;
@@ -3101,7 +3107,6 @@ figure.article-overlay-item img {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     width: 100%;
-    
 }
 
 figure.article-overlay-item:hover .figcaption {
@@ -3128,7 +3133,7 @@ figure.article-overlay-item:hover img {
     width: 144px;
 }
 
-.article-section-2 figure.article-overlay-item {    
+.article-section-2 figure.article-overlay-item {
     width: 144px;
     height: 96px;
 }
@@ -3197,56 +3202,135 @@ figure.article-overlay-item:hover img {
 
 
 /*Article css*/
-.w100{
+.w100 {
     width: 295px;
-    height:150px
+    height: 150px;
 }
-.mt-8{
+
+.mt-8 {
     margin-top: -8px;
 }
+
 .text-upercase {
     text-transform: uppercase;
 }
+
 .fs12 {
     font-size: 12px !important;
 }
+
 .bg-red {
     background: #B9519F;
     padding: 3px 6px;
     font-family: Roboto-Medium;
     color: #fff;
 }
+
 .mr10 {
     margin-right: 10px;
 }
+
 .mr6 {
     margin-right: 6px;
 }
+
 .whiteColor {
     color: #fff !important;
 }
+
 .right {
     float: right;
 }
+
 .fs12 {
     font-size: 12px !important;
 }
+
 .red {
     color: #B9519F;
 }
+
 .roboto-bold {
     font-family: Roboto-Bold;
 }
+
 .mt0 {
     margin-top: 0;
 }
+
 .fs16 {
     font-size: 18px;
 }
-.title-article{
+
+.title-article {
     font-weight: bold;
     color: #000;
 }
-a{
-    color:#000;
+
+a {
+    color: #000;
+}
+
+.w3-card-4, .w3-hover-shadow:hover {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+    
+}
+
+.w3-xlarge {
+    font-size: 20px !important;
+}
+
+.w3-display-bottomleft {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.w3-padding {
+    padding: 8px 16px !important;
+}
+
+.link-img {
+    color: white;
+}
+
+@media (min-width: 772px) {
+    .post1 {
+        width: 77%;
+    }
+}
+
+@media (min-width: 992px) {
+    .post1 {
+        width: 74%;
+        padding: 1px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .post1 {
+        width: 73%;
+        padding: 1px;
+    }
+}
+
+.row-featured {
+    margin-left: 17px;
+}
+/*w3-hover-shadow:hover{
+    color:transparent;
+}*/
+.link-img:hover{
+    color:#fff;
+}
+.span-pushlish{
+    font-size:12px;
+}
+.span-title{
+    font-size:17px;
+}
+.nlg-logo-img{
+        float: left;
+    margin-bottom: -40px;
+    max-width: 65%;
 }
