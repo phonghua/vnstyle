@@ -46,8 +46,8 @@
                                     @article.PushlishDate<a target="_blank" title="Share Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.yan.vn/dep-ngay-ngat-nhung-hinh-xam-chan-nguc-cho-nang-pha-cach-126269.html"><i class="glyphicon glyphicon-share-alt grey"></i></a>
                                 </span>
                             </span>
-                            <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">Đẹp ngây ngất những hình xăm chân ngực cho nàng phá cách</a></h3>
-                            <p class="fs14 lh20">@article.HeadLine</p>
+                            <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
+                            <p class="fs14 lh20">@article.Extract</p>
                         </div>
                         <div class="clearfix"></div>
                     </div>

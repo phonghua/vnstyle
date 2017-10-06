@@ -187,7 +187,8 @@ namespace VnStyle.Services.Business
                                     ImageId = a.FeatureImageId,
                                     HeadLine = al.HeadLine,
                                     Extract = al.Extract,
-                                    PushlishDate = a.PublishDate
+                                    PushlishDate = a.PublishDate,
+                                    CateId = a.RootCate
                                 });
             if (!articleQuery.Any())
             {
@@ -213,6 +214,17 @@ namespace VnStyle.Services.Business
                 else
                     article.UrlImage = "~/Content/images/no-image.png";
             };
+            foreach(var article in pagedArticles)
+            {
+                if( article.CateId == 3)
+                    article.CateName = "RootCate_Event";
+                if (article.CateId == 5)
+                    article.CateName = "RootCate_Course";
+                if (article.CateId == 6)
+                    article.CateName = "RootCate_Tattoo";
+                if (article.CateId == 7)
+                    article.CateName = "RootCate_Piercing";        
+            }
             return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
         }
 

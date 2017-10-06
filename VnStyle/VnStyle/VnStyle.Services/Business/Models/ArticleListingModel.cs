@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VnStyle.Services.Data.Enum;
 
 namespace VnStyle.Services.Business.Models
 {
@@ -14,7 +15,8 @@ namespace VnStyle.Services.Business.Models
         public string Extract { get; set; }
         public long? ImageId { get; set; }
         public DateTime PushlishDate { get; set; }
-       
+        public int CateId { get; set; }
+        public string CateName { get; set; }
     }
     
    
