@@ -121,7 +121,7 @@ namespace VnStyle.Web.Controllers
             var request = new GetArticlesRequest
             {
                 RootCate = (int)rootCate,
-                PageSize = 2,
+                PageSize = 5,
                 PageIndex = page - 1
             };
             
@@ -154,7 +154,7 @@ namespace VnStyle.Web.Controllers
         {
             var request = new GetArticlesRequest
             {
-                PageSize = 2,
+                PageSize = 5,
                 PageIndex = page - 1
             };
             var model = _articleService.GetNewArticles(request);
@@ -165,7 +165,7 @@ namespace VnStyle.Web.Controllers
             var model = _articleService.GetNewArticles(new GetArticlesRequest
             {
                 PageIndex = page - 1,
-                PageSize = 2
+                PageSize = 5
             });
             return PartialView("ArticleMore", model);
         }
@@ -174,7 +174,7 @@ namespace VnStyle.Web.Controllers
             var model = _videoService.GetVideoThumb(new GetArticlesRequest
             {
                 PageIndex = page - 1,
-                PageSize = 2
+                PageSize = 5
             });
             return PartialView("VideoMore", model);
         }

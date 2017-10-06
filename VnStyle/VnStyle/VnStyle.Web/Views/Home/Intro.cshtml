@@ -1,15 +1,43 @@
 ﻿@model VnStyle.Services.Business.Models.ArticleDetailModel
+@using VnStyle.Services.Business.Settings
+@using VnStyle.Web.Infrastructure.Helpers
+@{
 
+    //var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
+
+    //var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+
+    var settingSetting = Ricky.Infrastructure.Core.ObjectContainer.EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+
+}
 @{
     ViewBag.Title = "Intro";
 }
-@using VnStyle.Web.Infrastructure.Helpers;
-@using Ricky.Infrastructure.Core;
 
 
 
 
-<div class="row">
-   
-        @Html.Action("ArticleViewer", Model)
-  </div>
+<div class="row">   
+    @Html.Action("ArticleViewer", Model)
+</div>
+
+
+
+
+@section metaTags{
+    <meta name="keywords" content="Hình xăm đẹp, xăm chân ngực, hình xăm hoa phá cách" />
+    <meta name="description" content="@Model.Extract" />
+    <meta property="og:url" content="@Url.HostAction("Intro","Home")" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@Model.HeadLine" />
+    <meta property="og:description" content="@Model.Extract" />
+    <meta property="og:image" content="@Url.HostContent(Model.UrlImage)" />
+    <meta name="theme-color" content="#363636" />
+    <meta property="fb:app_id" content="@appSetting.FbAppId" />
+    <meta property="fb:pages" content="154180304652867" />
+    <meta property="fb:pages" content="110581908973" />
+    <meta property="article:publisher" content="@appSetting.Facebook">
+    <meta property="article:author" content="@appSetting.Facebook">
+    <meta property="og:site_name" content="Vnstyle" />
+}
