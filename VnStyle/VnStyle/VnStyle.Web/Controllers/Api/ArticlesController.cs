@@ -21,6 +21,7 @@ namespace VnStyle.Web.Controllers.Api
         private readonly IBaseRepository<Category> _categoryRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IBaseRepository<RelatedArticle> _relatedArticleRepository;
+        private readonly IBaseRepository<HomePageFeaturedArticle> _featuredArticleRepository;
         private readonly IMediaService _mediaService;
         private readonly IWebHelper _webHelper;
         private readonly IResourceService _resourceService;
@@ -36,6 +37,7 @@ namespace VnStyle.Web.Controllers.Api
             _webHelper = EngineContext.Current.Resolve<IWebHelper>();
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _relatedArticleRepository = EngineContext.Current.Resolve<IBaseRepository<RelatedArticle>>();
+            _featuredArticleRepository = EngineContext.Current.Resolve<IBaseRepository<HomePageFeaturedArticle>>();
         }
 
 
@@ -47,7 +49,7 @@ namespace VnStyle.Web.Controllers.Api
             {
                 var cateIds = _categoryRepository.Table.Where(p => (int)p.RootCategory == rootCateId).Select(p => p.Id).ToList();
                 //if (cateIds.Any())
-                    query = query.Where(p => (cateIds.Any() && p.CategoryId.HasValue && cateIds.Contains(p.CategoryId.Value) || p.RootCate == rootCateId ));
+                query = query.Where(p => (cateIds.Any() && p.CategoryId.HasValue && cateIds.Contains(p.CategoryId.Value) || p.RootCate == rootCateId));
                 //else query = query.Take(0);
             }
 
@@ -114,7 +116,7 @@ namespace VnStyle.Web.Controllers.Api
             _articleRepository.Insert(article);
             _articleRepository.SaveChanges();
 
-            return Request.CreateResponse(HttpStatusCode.OK, new {Id = article.Id});
+            return Request.CreateResponse(HttpStatusCode.OK, new { Id = article.Id });
         }
 
 
@@ -152,10 +154,10 @@ namespace VnStyle.Web.Controllers.Api
             }
 
             //entity.ArticleLanguages.
-            article.ArticleLanguages.Where(p=> p.Id == 0).ToList().ForEach(p =>
-            {
-                entity.ArticleLanguages.Add(p);
-            });
+            article.ArticleLanguages.Where(p => p.Id == 0).ToList().ForEach(p =>
+             {
+                 entity.ArticleLanguages.Add(p);
+             });
 
             _articleRepository.Update(entity);
             _articleRepository.SaveChanges();
@@ -210,10 +212,57 @@ namespace VnStyle.Web.Controllers.Api
             _relatedArticleRepository.Update(p => p.Article1Id == id && p.Article2Id == relatedArticleId2, p => new RelatedArticle() { Seq = seq1 });
             _relatedArticleRepository.Update(p => p.Article1Id == id && p.Article2Id == relatedArticleId1, p => new RelatedArticle() { Seq = seq2 });
 
-
-
             _relatedArticleRepository.SaveChanges();
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+
+        [Route("featured/{articleId}")]
+        [HttpPut]
+        public HttpResponseMessage PutHomePageFeaturedArticles(int articleId)
+        {
+            if (_featuredArticleRepository.Any(p => p.ArticleId == articleId))
+                return Request.CreateResponse(HttpStatusCode.Conflict);
+
+            var seq = _featuredArticleRepository.Table.Any() ? _featuredArticleRepository.Table.Max(p => p.Seq) + 1 : 1;
+            _featuredArticleRepository.Insert(new HomePageFeaturedArticle { ArticleId = articleId, Seq = seq });
+            _featuredArticleRepository.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
+
+        [Route("featured/{articleId}")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteHomePageFeaturedArticles(int articleId)
+        {
+            _featuredArticleRepository.DeleteRange(p => p.ArticleId == articleId);
+            _featuredArticleRepository.SaveChanges();
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
+
+        [Route("featured/{articleId}/swap/{articleId2}")]
+        [HttpPut]
+        public HttpResponseMessage SwapHomePageFeaturedArticles(int articleId, int articleId2)
+        {
+            var seq1 = _featuredArticleRepository.Table.Where(p => p.ArticleId == articleId).Select(p => p.Seq).FirstOrDefault();
+            var seq2 = _featuredArticleRepository.Table.Where(p => p.ArticleId == articleId2).Select(p => p.Seq).FirstOrDefault();
+
+            _featuredArticleRepository.Update(p => p.ArticleId == articleId, p => new HomePageFeaturedArticle { Seq = seq2 });
+            _featuredArticleRepository.Update(p => p.ArticleId == articleId2, p => new HomePageFeaturedArticle { Seq = seq1 });
+
+            _featuredArticleRepository.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [Route("featured")]
+        [HttpGet]
+        public HttpResponseMessage GetFeaturedArticles()
+        {
+            var query = (from f in _featuredArticleRepository.Table
+                         join a in _articleRepository.Table on f.ArticleId equals a.Id
+                         select new { f.ArticleId, a.HeadLine, f.Seq }).OrderBy(p => p.Seq);
+            return Request.CreateResponse(HttpStatusCode.OK, query);
+        }
+
     }
 }

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="portlet light">
+      <div class="portlet-title">
+        <div class="caption">
+          Bài viết được tài trợ
+        </div>
+      </div>
+      <div class="portlet-body">
+        <table class="table table-tripped">
+          <tr *ngFor="let art of featuredArticles.data;  let i = index">
+            <td>{{art.headLine}}</td>   
+            <td class="text-right" style="width: 30px">
+              <a href="javascript:;" *ngIf="i > 0" (click)="swapFeatureArticle(art.articleId, featuredArticles.data[i - 1].articleId);"><i class="fa fa-arrow-up"></i></a>
+            </td>
+            <td class="text-right" style="width: 30px">
+              <a href="javascript:;" *ngIf="i < (featuredArticles.data.length - 1)" (click)="swapFeatureArticle(art.articleId, featuredArticles.data[i + 1].articleId);"><i class="fa fa-arrow-down"></i></a>
+            </td>
+            <td class="text-right" style="width: 50px">
+              <a href="javascript:;" (click)="removeFeaturedArticle(art.articleId)"><i class="fa fa-trash"></i></a>
+            </td>         
+          </tr>
+          <tfoot>
+            <tr>
+              <td colspan="4">
+                <typeahead [list]="suggestFeaturedArticles" [searchProperty]="'headLine'" [displayProperty]="'headLine'" [maxSuggestions]="10"
+                  (suggestionSelected)="featuredArticleSelected($event)" placeholder="Search article">
+                </typeahead>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
