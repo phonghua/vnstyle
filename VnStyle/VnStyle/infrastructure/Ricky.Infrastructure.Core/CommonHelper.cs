@@ -484,52 +484,23 @@ namespace Ricky.Infrastructure.Core
         }
 
         
-        public static string FriendlyUrl(string title)
+        public static string FriendlyUrl(string text)
         {
-            if (title == null) return "";
+            if (text == null) return "";
 
-            const int maxlen = 80;
-            int len = title.Length;
-            bool prevdash = false;
-            var sb = new StringBuilder(len);
-            char c;
-
-            for (int i = 0; i < len; i++)
+            for (int i = 32; i < 48; i++)
             {
-                c = title[i];
-                if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
-                {
-                    sb.Append(c);
-                    prevdash = false;
-                }
-                else if (c >= 'A' && c <= 'Z')
-                {
-                    // tricky way to convert to lowercase
-                    sb.Append((char)(c | 32));
-                    prevdash = false;
-                }
-                else if (c == ' ' || c == ',' || c == '.' || c == '/' ||
-                    c == '\\' || c == '-' || c == '_' || c == '=')
-                {
-                    if (!prevdash && sb.Length > 0)
-                    {
-                        sb.Append('-');
-                        prevdash = true;
-                    }
-                }
-                else if ((int)c >= 128)
-                {
-                    int prevlen = sb.Length;
-                    sb.Append(RemapInternationalCharToAscii(c));
-                    if (prevlen != sb.Length) prevdash = false;
-                }
-                if (i == maxlen) break;
+                text = text.Replace(((char)i).ToString(), " ");
             }
+            text = text.Replace(".", "-");
+            text = text.Replace(" ", "-");
+            text = text.Replace(",", "-");
+            text = text.Replace(";", "-");
+            text = text.Replace(":", "-");
 
-            if (prevdash)
-                return sb.ToString().Substring(0, sb.Length - 1);
-            else
-                return sb.ToString();
+            Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
+            string strFormD = text.Normalize(System.Text.NormalizationForm.FormD);
+            return regex.Replace(strFormD, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D').Replace("--","-").ToLower();
         }
 
         public static string RemapInternationalCharToAscii(char c)

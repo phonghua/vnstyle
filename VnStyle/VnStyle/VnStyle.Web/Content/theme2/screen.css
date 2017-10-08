@@ -899,12 +899,12 @@ header.style-2 .large-container {
             margin-top: 9px;
             width: 200px;
             opacity: 1;
-            padding: 0;
+            padding: 0 10px;
         }
 
 @media (max-width: 1200px) {
     header.style-2 nav ul li {
-        margin-right: 60px;
+        /*margin-right: 60px;*/
     }
 
         header.style-2 nav ul li:last-of-type {
@@ -912,7 +912,7 @@ header.style-2 .large-container {
         }
 
     header.style-2 .large-container .global-search-form.expanded .search-submit {
-        right: -160px;
+        right: -255px;
     }
 
     header.style-2 .large-container .global-search-form.expanded .search-input {
@@ -962,6 +962,17 @@ header.style-2 .large-container {
             opacity: 1;
             padding: 7px 45px 7px 20px;
         }
+
+    header nav ul li a {
+        color: #ffffff;
+    }
+    header nav ul li.current-menu-item a {
+        color: #ffffff;
+    }
+
+    header.style-2 .large-container .global-search-form.expanded .search-submit {
+        right: -75px;
+    }
 }
 
 .admin-bar .sticky {

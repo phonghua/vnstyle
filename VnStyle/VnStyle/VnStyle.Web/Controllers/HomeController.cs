@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
@@ -44,13 +45,12 @@ namespace VnStyle.Web.Controllers
             _videoService = EngineContext.Current.Resolve<IVideoService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
         }
+
+       
         public ActionResult Index()
         {
 
-            var language = _workContext.CurrentLanguage;
-            
-            
-
+           
             return View();
         }
         public ActionResult Detail(int id, string title = "")
