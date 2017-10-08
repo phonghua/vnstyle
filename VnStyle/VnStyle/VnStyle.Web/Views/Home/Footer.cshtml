@@ -10,210 +10,56 @@
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
 
 }
+@using Ricky.Infrastructure.Core;
 
-@*<footer class="nlg-footer nlg-footer-dark">
-    <div class="nlg-footer-wrap">
-
-        <div class="container">
-
-            <div class="nlg-footer-sidebars row">
-
-
-                <div class="nlg-col col-xs-12 col-md-3 col-lg-3">
-
-                    <div class="nlg-footer-sidebar">
-                        <div id="newslog-brand-box-3" class="sidebar-widget nlg-widget-brand-box">
-                            <div class="nlg-brand-box">
-
-                                <div class="nlg-logo"><img src="~/Content/images/logo-2.png" alt=""></div>
-                                <p class="nlg-description">NewsLog, News &amp; Magazine Theme. Discover new blogging standards with 6 months free support!</p>
-                            </div>
-                            <!-- .nlg-author-card -->
-                        </div>
-                        <div id="newslog-social-icons-3" class="sidebar-widget nlg-widget-social-icons">
-                            <ul class="nlg-social-icons nlg-social-brand-colors">
-                                <li class="nlg-icon-facebook">
-                                    <a href="@appSetting.Facebook" title="Facebook" target="_blank" style="background-color: #3b5998">
-                                        <span class="fa fa-facebook"></span>
-                                    </a>
-                                </li>
-                                <li class="nlg-icon-instagram">
-                                    <a href="@appSetting.Instagram" title="Instagram" target="_blank" style="background-color: #d10869">
-                                        <span class="fa fa-instagram"></span>
-                                    </a>
-                                </li>
-                                <li class="nlg-icon-youtube">
-                                    <a href="@appSetting.Youtube" title="Youtube" target="_blank" style="background-color: #cc181e">
-                                        <span class="fa fa-youtube"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- .nlg-footer-sidebars -->
-
-                </div>
-                <!-- .nlg-col -->
-                <!-- .nlg-col -->
-
-
-                <div class="nlg-col col-xs-12 col-md-3 col-lg-3">
-
-                    <div class="nlg-footer-sidebar">
-                        <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
-                            <div class="widget-title">
-                                <h2 class="title">VnStyle Tattoo & Piercing </h2>
-                            </div>
-                            <div class="menu-footer-menu-1-container">
-                                <ul id="menu-footer-menu-1" class="menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HostAction("Events","Home")">@Html.T("RootCate_Event")</a>
-                                    </li>
-                                   
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
-                                    </li>
-                                   
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514">
-                                        <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
-                                    </li>
-
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- .nlg-footer-sidebars -->
-
-                </div>
-                <!-- .nlg-col -->
-
-
-                <div class="nlg-col col-xs-12 col-md-6 col-lg-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7838.402783735499!2d106.69051315078735!3d10.795882004353434!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8aec628fbb4e929f!2sVNStyle+Tattoo+%26+Piercing!5e0!3m2!1svi!2sin!4v1505630995544" width="100%" frameborder="0" style="border:0;height: 220px;" allowfullscreen=""></iframe>
-
-                    <!-- .nlg-footer-sidebars -->
-
-                </div>
-                <!-- .nlg-col -->
-
-
-            </div>
-            <!-- .nlg-footer-sidebars -->
-
-        </div>
-        <!-- .container -->
-
-    </div>
-    <!-- .nlg-footer-wrap -->
-</footer>*@
-
-
-@*<footer class="nlg-footer nlg-footer-dark" style="background-color: black">
-    <div class="container">
-        <div class="row">
-            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
-                <div class="nlg-footer-sidebar">
-                    <div id="newslog-brand-box-3" class="sidebar-widget nlg-widget-brand-box">
-                        <div class="nlg-brand-box">
-                            <div class="nlg-logo"><img src="@Url.HostContent("~/Content/images/logo-2.png")" height="48" width="278"></div>
-                            <p class="nlg-description">NewsLog, News & Magazine Theme. Discover new blogging standards with 6 months free support!</p>
-                        </div>
-                        <!-- .nlg-author-card -->
-                    </div>
-                    <div id="newslog-social-icons-3" class="sidebar-widget nlg-widget-social-icons">
-                        <ul class="nlg-social-icons nlg-social-brand-colors">
-                            <li class="nlg-icon-facebook">
-                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Facebook" target="_blank" style="background-color: #3b5998">
-                                    <span class="fa fa-facebook"></span>
-                                </a>
-                            </li>
-                            
-                            <li class="nlg-icon-instagram">
-                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Instagram" target="_blank" style="background-color: #c13584">
-                                    <span class="fa fa-instagram"></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- .nlg-footer-sidebars -->
-            </div>
-            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
-                <div class="nlg-footer-sidebar">
-                    <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
-                        <div class="widget-title" style="color: #b9519f;">
-                            <h2 class="title"> VNSTYLE</h2>
-                        </div>
-                        <div class="menu-footer-menu-1-container">
-                            <ul id="menu-footer-menu-1" class="menu" style="color: white">
-                                <li><a href="#">Homepage</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a target="_blank" href="#">About Us</a></li>
-                                <li><a target="_blank" href="#">Purchase Now</a></li>
-                                <li><a target="_blank" href="#">Online Docs</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- .nlg-footer-sidebars -->
-            </div>
-            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
-               
-                <!-- .nlg-footer-sidebars -->
-            </div>
-        </div>
-    </div>
-</footer>*@
 <footer class="container-fluid bg-4 text-center" style="background-color: black;">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6 col-lg-3">
                 <div class="footer-image">
-                    <img class="icon-logo" src="@Url.HostContent("~/Content/images/logo-2.png")" style="width: 178px;"/>
-                    
+                    <img class="icon-logo" src="@Url.HostContent("~/Content/images/logo-2.png")" style="width: 178px;" />
+
                 </div>
                 <div class="footer-description">
                     <span>NewsLog, News &amp; Magazine Theme. Discover new blogging standards with 6 months free support</span>
-                </div>
-                <div class="row row-breadcrumb ">
-                    <ol class="breadcrumb-footer text-upercase fs15 roboto-bold">
-                        <li class="itemListElement">
-                            @*<h1>
-                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Youtube</span></a>
-                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Facebook</span></a>
-                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Instagram</span></a>
-
-                            </h1>*@
-                        </li>
-                    </ol>
-                </div>
+                </div>                              
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-3">            
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="footer-sidebar">
+                    <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
+                        <div class="footer-description"><h2 class="footer-menu">Menu</h2></div>
+                        <div class="menu-footer-menu-1-container">
+                            <ul id="menu-footer-menu-1" class="menu">
 
-                    <div class="nlg-footer-sidebar">
-                        <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
-                            <div class="footer-description"><h2 class="footer-menu">Discover Newslog</h2></div>
-                            <div class="menu-footer-menu-1-container">
-                                <ul id="menu-footer-menu-1" class="menu">
-                                    <li id="menu-item-517" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-234 current_page_item menu-item-517"><a href="http://demo.aggressivemotions.com/newslog/">Demo Homepage</a></li>
-                                    <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a href="http://demo.aggressivemotions.com/newslog/contact/">Contact</a></li>
-                                    <li id="menu-item-516" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="https://www.aggressivemotions.com/">About Us</a></li>
-                                    <li id="menu-item-513" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-513"><a target="_blank" href="https://themeforest.net/item/dortmund-clean-blog-magazine-wordpress-theme/19112795">Purchase Now</a></li>
-                                    <li id="menu-item-515" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-515"><a target="_blank" href="http://docs.aggressivemotions.com/newslog/?ref=demo">Online Docs</a></li>
-                                </ul>
-                            </div>
+                                <li class="@Html.IsSelected(actions: "Index", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HomePage()">@Html.T("Global_Home")</a>
+                                </li>
+
+                                <li class="@Html.IsSelected(actions: "Tattoo", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
+                                </li>
+                                <li class="@Html.IsSelected(actions: "Piercing", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
+                                </li>
+                                <li class="@Html.IsSelected(actions: "Events", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
+                                </li>
+
+
+                                <li class="@Html.IsSelected(actions: "Course", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
+                                </li>
+
+
+                                <li class="@Html.IsSelected(actions: "Intro", controllers: "Home") footer-menu-item">
+                                    <a class="footer-menu-item-text" href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
+                                </li>
+
+
+                            </ul>
                         </div>
-                    </div>             
+                    </div>
+                </div>
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="map">
