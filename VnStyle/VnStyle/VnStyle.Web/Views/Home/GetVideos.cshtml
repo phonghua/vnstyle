@@ -2,32 +2,35 @@
 @model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.VideoListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
 
+<div class="container">
+    <div class="row row-breadcrumb ">
+        <ol itemscope="" class="breadcrumb text-upercase fs15 roboto-bold">
+            <li itemprop="itemListElement">
+                <h1>
+                    <a itemprop="item" class="bg-red text-upercase"><span itemprop="name"><i class="fa fa-play"> Clip hot </i></span></a>
 
-
-
-
-<div id="nlg-module-610ad9a3-e92c" class="nlg-module nlg-module-grid-posts">
-    <div class="container">
-
-        <div class="nlg-module-header nlg-has-tax-nav">
-            <div class="nlg-module-title">
-                <h2 class="nlg-title">Clip</h2>
+                </h1>
+            </li>
+        </ol>
+    </div>
+   
+    <div class="nlg-col-wrap nlg-col-2">
+        <div id="new-video-list">
+            @Html.Partial("NewVideoList", Model)
+            <div style="margin: 20px 0 50px 0">
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <button type="button" id="more-article" class="btn btn-default btn-lg btn-block btn-load-more-article"><i class="fa fa-circle-o-notch"></i>&nbsp;LOAD MORE</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        <div class="nlg-col-wrap nlg-col-2">
-            <div id="new-video-list">
-                @Html.Partial("NewVideoList", Model)
-            </div>
-            <div class="nlg-pagination nlg-pagination-loadmore">
-                <a class="btn" id="more-video"><i class="fa fa-circle-o-notch"></i>Load More</a>
-            </div>
-
-        </div>
+       
 
     </div>
+
 </div>
+
 <script>
     $(document).ready(function () {
         $("#myModal").on("hidden.bs.modal", function () {

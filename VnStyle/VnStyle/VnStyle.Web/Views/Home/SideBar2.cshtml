@@ -7,41 +7,11 @@
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
 }
-<aside class="nlg-sidebar nlg-sidebar-sticky" data-sticky-container>
+@*<aside class="nlg-sidebar nlg-sidebar-sticky" data-sticky-container>
     <div class="nlg-sidebar-inner" style="margin-left:15px" ;>
 
         <div id="newslog-social-icons-2" class="sidebar-widget nlg-widget-social-icons">
-            <hr />
-            <div class="widget-title">
-                <h2 class="title"><i class="fa fa-youtube"></i>YOUTUBE</h2>
-            </div>
-
-            <script src="https://apis.google.com/js/platform.js"></script>
-            <div class="g-ytsubscribe" data-channelid="UCfazwxHB6usZ4FOa2-LFaBQ" data-layout="full" data-count="default"></div>
-            <hr />
-            <div class="widget-title">
-                <h2 class="title"><i class="fa fa-facebook"></i>FACEBOOK</h2>
-            </div>
-            <div id="fb-root"></div>
-            <script>
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-            <div class="fb-page" data-href="https://www.facebook.com/vnstyletattoo/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vnstyletattoo/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vnstyletattoo/">VNStyle Tattoo &amp; Piercing</a></blockquote></div>
-            <hr />
-            <div class="widget-title">
-                <h2 class="title"><i class="fa fa-instagram"></i>INSTAGRAM</h2>
-            </div>
-            <div class="nlg-instagram-images clearfix nlg-col-4">
-
-               <iframe src="http://widget.stagram.com/in/phammaivnstyle/?s=100&w=4&h=4&b=1&bg=FFFFFF&p=0" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%; height: 100%" ></iframe>
-
-
-            </div>
+            
         </div>
        
 
@@ -51,4 +21,55 @@
 
 
 
-</aside>
+</aside>*@
+<div id="article-section-2" class="article-overlay article-section-2">
+   
+    <div class="row row-breadcrumb ">
+        <ol class="breadcrumb text-upercase fs15 roboto-bold">
+            <li itemprop="itemListElement">
+                <h1>
+                    <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Youtube</span></a>
+
+                </h1>
+            </li>
+        </ol>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <div class="g-ytsubscribe" data-channelid="UCfazwxHB6usZ4FOa2-LFaBQ" data-layout="full" data-count="default"></div>
+    
+    <div class="row row-breadcrumb ">
+        <ol class="breadcrumb text-upercase fs15 roboto-bold">
+            <li itemprop="itemListElement">
+                <h1>
+                    <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Facebook</span></a>
+
+                </h1>
+            </li>
+        </ol>
+    </div>
+    <div id="fb-root"></div>
+    <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-page" data-href="https://www.facebook.com/vnstyletattoo/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="false" data-hide-cover="true" data-show-facepile="true"><blockquote cite="https://www.facebook.com/vnstyletattoo/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/vnstyletattoo/">VNStyle Tattoo &amp; Piercing</a></blockquote></div>
+    
+    <div class="row row-breadcrumb ">
+        <ol class="breadcrumb text-upercase fs15 roboto-bold">
+            <li itemprop="itemListElement">
+                <h1>
+                    <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Instagram</span></a>
+
+                </h1>
+            </li>
+        </ol>
+    </div>
+    <div class="nlg-instagram-images clearfix nlg-col-4">
+        <iframe src="http://widget.stagram.com/in/phammaivnstyle/?s=100&w=4&h=4&b=1&bg=FFFFFF&p=0" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:100%; height: 100%"></iframe>
+    </div>
+</div>

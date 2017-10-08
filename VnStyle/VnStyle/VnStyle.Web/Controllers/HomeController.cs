@@ -186,7 +186,7 @@ namespace VnStyle.Web.Controllers
         {
             var request = new GetArticlesRequest
             {
-                PageSize = 2,
+                PageSize = 5,
                 PageIndex = page - 1
             };
             var videoThumb = _videoService.GetVideoThumb(request);

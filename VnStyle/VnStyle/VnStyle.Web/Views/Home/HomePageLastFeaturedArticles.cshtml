@@ -14,7 +14,16 @@
             </div>
         </div>
     </div>*@
-    <div class="row">
-        <div class="col-lg-6 col-sm-6 col-md-6"><img class="img-fluid" src="@article.UrlImage" alt=""></div>
-    </div>
+    <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
+        <div class="row post1">
+            <div class="col-sm-12 col-md-12 col-xs-12">
+                <img class="img-fluid w3-hover-shadow" src="@article.UrlImage" alt="">
+                <div class="w3-xlarge w3-display-bottomleft w3-padding">
+                    <div class="span-pushlish"><span>@article.PushlishDate</span></div>
+                    <div class="span-title"><span>@article.HeadLine</span></div>
+                </div>
+            </div>
+        </div>
+    </a>
+       
 }
