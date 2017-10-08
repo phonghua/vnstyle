@@ -15,8 +15,9 @@
 
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@appSetting.ApplicationName | @ViewBag.Title</title>
     @RenderSection("metaTags", false)
@@ -54,7 +55,7 @@
                         </li>
                     </ul>
 
-                    <ul class="top-right-menu top-bar-menu">                       
+                    <ul class="top-right-menu top-bar-menu">
                         @foreach (var language in languages)
                         {
                             <li>
@@ -69,7 +70,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="pull-left">
-                                <a href="@Url.HomePage()" rel="@appSetting.ApplicationName"" class="brand">
+                                <a href="@Url.BaseUrl()" rel="VNStyle Tattoo &amp; Piercing" class="brand">
                                     <span class="img-logo">
                                         <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-dark.png")" class="nlg-logo-img" alt="VNStyle Tattoo &amp; Piercing">
                                     </span>
@@ -80,17 +81,19 @@
                 </div>
             </div>
             <div class="large-container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <span class="mobile-nav-toggle no-select"></span>                       
-                        @Html.Action("Menu", "Home")
-                        <form class="global-search-form" method="get" action="@Url.HostAction("Result","Home")">
-                            <span class="form-toggle">
-                                <i class="fa fa-search"></i>
-                            </span>
-                            <input type="text" class="search-input check-value" name="search" placeholder="Search">
-                            <button class="search-submit"><i class="fa fa-search"></i></button>
-                        </form>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="mobile-nav-toggle no-select"></span>
+                            @Html.Action("Menu", "Home")
+                            <form class="global-search-form" method="get" action="@Url.HostAction("Result","Home")">
+                                <span class="form-toggle">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                <input type="text" class="search-input check-value" name="search" placeholder="Search">
+                                <button class="search-submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,9 +103,9 @@
                 @RenderBody()
             </div>
         </div>
-        
-            @Html.Action("Footer", "Home")
-        
+
+        @Html.Action("Footer", "Home")
+
     </div>
 
 
@@ -120,7 +123,6 @@
     <script src="~/Content/js/highlight.min.js" async></script>
 
     @RenderSection("bottom", false)
-    
 </body>
 
 

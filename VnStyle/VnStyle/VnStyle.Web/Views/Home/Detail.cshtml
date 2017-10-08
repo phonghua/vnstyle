@@ -1,4 +1,7 @@
-﻿@model VnStyle.Services.Business.Models.ArticleDetailModel
+﻿@model VnStyle.Web.Models.Home.ArticleViewerModelView
+@using Ricky.Infrastructure.Core.ObjectContainer
+@using VnStyle.Services.Business
+@using VnStyle.Services.Business.Settings
 @using VnStyle.Web.Infrastructure.Helpers;
 @*<div class="nlg-module-header nlg-has-tax-nav">
     <div class="nlg-module-title">
@@ -6,43 +9,62 @@
     </div>
 
 </div>*@
-@{ 
-    var currentUrl = Url.CurrentUrl();
+@{
+    var _settingService = EngineContext.Current.Resolve<ISettingService>();
+    var appSetting = _settingService.LoadConfiguration<AppSetting>();
+
+    ViewBag.Title = Model.Article.HeadLine;
+
+    var pageTitle = appSetting.ApplicationName + " | " + ViewBag.Title;
 }
 
 
 <div class="row">
-    @Html.Action("ArticleViewer", Model)
+    @Html.Action("ArticleViewer", Model.Article)
 </div>
 
 
 @section metaTags{
-    <meta http-equiv="X-UA-Compatible" content="IE=100" />
-    <meta property="fb:app_id" content="1547540628876392" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="canonical" href="@currentUrl" />
+    <meta property="fb:app_id" content="@appSetting.FbAppId" />
+    <link rel="canonical" href="@Model.MetaTag.CurrentUrl" />
     <meta http-equiv="REFRESH" content="1800" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="@pageTitle">
+    <meta itemprop="description" content="@Model.MetaTag.Description">
+    <meta itemprop="image" content="@Model.MetaTag.Image">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="@Model.MetaTag.Image">
+    <meta name="twitter:site" content="@Url.BaseUrl()">
+    <meta name="twitter:title" content="@pageTitle">
+    <meta name="twitter:description" content="@Model.MetaTag.Description">
+    
+    <meta name="twitter:image:src" content="@Model.MetaTag.Image">
+    
+    <!-- Open Graph data -->
+    <meta property="og:title" content="@pageTitle" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="@Model.MetaTag.CurrentUrl" />
+    <meta property="og:image" content="@Model.MetaTag.Image" />
+    <meta property="og:description" content="@Model.MetaTag.Description" />
+    <meta property="og:site_name" content="@appSetting.ApplicationName" />
+   
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//www.googletagmanager.com" />
     <link rel="dns-prefetch" href="http://b.scorecardresearch.com" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Vnexpress.net" />
-    <meta name="description" content="Thông tin nhanh &amp; mới nhất được cập nhật hàng giờ. Tin tức Việt Nam &amp; thế giới về xã hội, kinh doanh, pháp luật, khoa học, công nghệ, sức khoẻ, đời sống, văn hóa, rao vặt, tâm sự...">
-    <meta name="keywords" content="VnExpress,Vietnam News Daily,Economy,Online,Internet,Magazine,Gateway,FPT,Portal,Tin nhanh,cập nhật,báo điện tử,việt báo,tin việt,VietNews,mua bán,rao vặt,tư vấn,việc làm,Hà Nội,Sài Gòn,tin tức,Huế,Đà Nẵng,VDC,Netnam,Saigonnet,Sggp,VET,Nhân dân,Lao động,Kinh tế,Kinh doanh,Tin nhanh,cap nhat,bao dien tu,Vietbao,TinViet,Mua Ban,Rao Vat,Tu Van,Viec Lam,Hanoi,Ha Noi,Saigon,Sai gon,Tin tuc,Tintuc,Hue,Da Nang,Danang,Nhandan,Nhan dan,Laodong,Lao dong,Kinhte,Kinh te,Kinhdoanh,Kinh doanh">
+    <meta name="description" content="@Model.MetaTag.Description">
+    <meta name="keywords" content="@Model.MetaTag.Keywords">
     <meta name="tt_article_id" content="1000000" />
     <meta name="tt_page_type" content="site" />
     <meta name="tt_category_id" content="1000000" />
     <meta name="tt_site_id" content="1000000" />
     <!-- add meta for pvtt -->
     <!-- end meta for pvtt -->
-    <meta property="og:image" itemprop="thumbnailUrl" content="https://s.vnecdn.net/vnexpress/restruct/i/v47/logo_default.jpg" />
-    <meta name="dc.created" content="2001-02-26" />
-    <meta name="dc.publisher" content="VnExpress" />
-    <meta name="dc.rights.copyright" content="Vnstyle Tattoo & Piercing" />
-    <meta name="dc.creator.name" content="Vnstyle Tattoo & Piercing" />
-    @*<meta name="dc.creator.email" content="webmaster@vnexpress.net"/>*@
-    @*<meta name="dc.identifier" content="@currentUrl" />*@
+    
+
     <meta name="copyright" content="Vnstyle Tattoo & Piercing" />
     <meta name="author" content="Vnstyle Tattoo & Piercing" />
     <meta name="dc.language" content="vi-VN" />
@@ -54,13 +76,6 @@
 
     <meta name="ICBM" content="10.796514, 106.692959" />
     <meta name="revisit-after" content="days">
-    <link rel="alternate" href="@currentUrl" hreflang="vi-vn" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" value="summary">
-    <meta name="twitter:url" content="@currentUrl">
-    <meta name="twitter:title" content="VNStyle Tattoo & Piercing">
-    <meta name="twitter:description" content="Thông tin nhanh &amp; mới nhất được cập nhật hàng giờ. Tin tức Việt Nam &amp; thế giới về xã hội, kinh doanh, pháp luật, khoa học, công nghệ, sức khoẻ, đời sống, văn hóa, rao vặt, tâm sự...">
-    <meta name="twitter:image" content="https://s.vnecdn.net/vnexpress/restruct/i/v47/logo_default.jpg" />
-    @*<meta name="twitter:site" content="">
-        <meta name="twitter:creator" content="">*@
+    <link rel="alternate" href="@Model.MetaTag.CurrentUrl" hreflang="vi-vn" />
+    
 }

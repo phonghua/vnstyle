@@ -100,6 +100,15 @@ namespace VnStyle.Web
             );
             #endregion
 
+            #region "Search"
+            routes.MapRoute(
+                name: "SearchResult",
+                url: "tim-kiem",
+                defaults: new { controller = "Home", action = "Result", lang="vi" }
+            );
+
+            #endregion
+
             #region "Article"
             routes.MapRoute(
                 name: "Article_Language",
@@ -112,10 +121,12 @@ namespace VnStyle.Web
                 name: "Article",
                 url: "{title}-{id}",
                 defaults: new { controller = "Home", action = "Detail", lang = "vi" }
-
             );
 
             #endregion
+
+            
+
             #region "Default"
             routes.MapRoute(
                 name: "Language",

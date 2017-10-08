@@ -1,15 +1,10 @@
-﻿using System;
+﻿using VnStyle.Services.Business.Models;
 
 namespace VnStyle.Web.Models.Home
 {
     public class ArticleViewerModelView
     {
-        public int Id { get; set; }
-        public string Headline { get; set; }
-        public string Content { get; set; }
-        public string UrlImage { get; set; }
-        public string Extract { get; set; }
-        public long? ImageId { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public ArticleDetailModel Article { get; set; }
+        public SiteMetaTag MetaTag { get; set; }
     }
 }

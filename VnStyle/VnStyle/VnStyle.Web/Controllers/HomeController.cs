@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
@@ -15,6 +16,7 @@ using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
 using VnStyle.Web.Models.Home;
 using VnStyle.Services.Business.Models;
+using VnStyle.Services.Business.Settings;
 using VnStyle.Web.Infrastructure.Helpers;
 namespace VnStyle.Web.Controllers
 {
@@ -22,7 +24,7 @@ namespace VnStyle.Web.Controllers
     {
         private readonly ICacheManager _cacheManager;
         private readonly IBaseRepository<Article> _articleRepository;
-        
+
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
@@ -30,13 +32,15 @@ namespace VnStyle.Web.Controllers
         private readonly IArticleService _articleService;
         private readonly IArtistsService _artistsService;
         private readonly IVideoService _videoService;
+        private readonly ISettingService _settingService;
 
 
         public HomeController()
         {
+            _settingService = EngineContext.Current.Resolve<ISettingService>();
             _workContext = EngineContext.Current.Resolve<IWorkContext>();
             _cacheManager = EngineContext.Current.Resolve<ICacheManager>();
-            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();            
+            _articleRepository = EngineContext.Current.Resolve<IBaseRepository<Article>>();
             _articleLanguageRepository = EngineContext.Current.Resolve<IBaseRepository<ArticleLanguage>>();
             _resourceService = EngineContext.Current.Resolve<IResourceService>();
             _articleService = EngineContext.Current.Resolve<IArticleService>();
@@ -44,24 +48,49 @@ namespace VnStyle.Web.Controllers
             _videoService = EngineContext.Current.Resolve<IVideoService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
         }
+
+
         public ActionResult Index()
         {
+            var modelView = new IndexModelView
+            {
+                MetaTag = new SiteMetaTag
+                {
+                    CurrentUrl = Url.CurrentUrl(),
+                    Description = "VNStyle Tattoo Studio cơ sở xăm uy tín với đội ngũ nghệ nhân chuyên nghiệp",
+                    Image = Url.HostContent("~/Content/images/logo-big-dark.png"),
+                    Keywords = "VNStyle Tattoo, xăm uy tín, xam uy tin, tha thu, tattoo",
+                    Publisher = "Phong Hua Dai",
+                    ContentCreatedDate = DateTime.Now
+                }
+            };
 
-            var language = _workContext.CurrentLanguage;
-            
-            
-
-            return View();
+            return View(modelView);
         }
         public ActionResult Detail(int id, string title = "")
         {
             var article = _articleService.GetArticleById(id);
             if (article == null) return NotFound();
+            article.UrlImage = Url.HostContent(article.UrlImage);
 
             // get SEO
             // get Related articles
 
-            return View(article);
+            var appSetting = _settingService.LoadConfiguration<AppSetting>();
+
+            var seoMetaTag = _articleService.GetMetaTagById(article.MetaTagId);
+            var modelView = new ArticleViewerModelView
+            {
+                Article = article,
+                MetaTag = new SiteMetaTag
+                {
+                    Description = seoMetaTag.Description,
+                    Keywords = seoMetaTag.Keywords,
+                    CurrentUrl = Url.CurrentUrl(),
+                    Image = article.UrlImage
+                }
+            };
+            return View(modelView);
         }
         public ActionResult Contact()
         {
@@ -81,7 +110,7 @@ namespace VnStyle.Web.Controllers
             };
             if (!String.IsNullOrEmpty(search))
             {
-                
+
                 var result = _articleService.GetArticlesByString(search, request);
                 if (result == null)
                 {
@@ -94,9 +123,9 @@ namespace VnStyle.Web.Controllers
                 var result = _articleService.GetNewArticles(request);
                 return View(result);
             }
-            
-            
-            
+
+
+
         }
 
         public ActionResult Piercing(int page = 1)
@@ -124,15 +153,15 @@ namespace VnStyle.Web.Controllers
                 PageSize = 5,
                 PageIndex = page - 1
             };
-            
+
             var result = _articleService.GetArticles(request);
-            
+
             return result;
         }
 
         public ActionResult Tattoo(int page = 1)
         {
-          
+
             IPagedList<ArticleListingModel> result = GetArticleListing(page, ERootCategory.Tattoo);
             return View(result);
         }
@@ -141,10 +170,10 @@ namespace VnStyle.Web.Controllers
         {
             var model = _artistsService.GetAllImageByArtist(id);
             return View(model);
-        }     
+        }
 
         public ActionResult Intro()
-        {           
+        {
             var article = _articleService.GetArticleIntro();
             if (article == null) return NotFound();
             return View(article);
@@ -182,7 +211,7 @@ namespace VnStyle.Web.Controllers
         #region "Partial"
 
         [ChildActionOnly]
-        public ActionResult GetVideos(int page=1)
+        public ActionResult GetVideos(int page = 1)
         {
             var request = new GetArticlesRequest
             {
@@ -193,7 +222,7 @@ namespace VnStyle.Web.Controllers
             //return PartialView(videoThumb);
             return PartialView(videoThumb);
         }
-      
+
 
         [ChildActionOnly]
         public ActionResult ArticleViewer(ArticleDetailModel model)
@@ -201,9 +230,9 @@ namespace VnStyle.Web.Controllers
             model.ArticleUrl = Url.CurrentUrl();
             return PartialView(model);
         }
-        
 
-       
+
+
         [ChildActionOnly]
         public ActionResult GetAllArtist()
         {
@@ -271,7 +300,7 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult HomePageFeaturedArticles()
         {
-            var articles = _articleService.GetFirstHomePageFeaturedArticles();           
+            var articles = _articleService.GetFirstHomePageFeaturedArticles();
             return PartialView(articles);
         }
 

@@ -20,14 +20,16 @@ namespace VnStyle.Services.Business
         private readonly IBaseRepository<HomePageFeaturedArticle> _homePageFeaturedArticleRepository;
         private readonly IBaseRepository<ArticleLanguage> _articleLanguageRepository;
         private readonly IBaseRepository<RelatedArticle> _relatedArticleRepository;
+        private readonly IBaseRepository<MetaTag> _metaTagRepository;
         private readonly IWorkContext _workContext;
         private readonly IResourceService _resourceService;
         private readonly IMediaService _mediaService;
 
-        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository, IBaseRepository<HomePageFeaturedArticle> homePageFeaturedArticleRepository)
+        public ArticleService(IBaseRepository<Article> articleRepository, IBaseRepository<ArticleLanguage> articleLanguageRepositor, IWorkContext workContext, IResourceService resourceService, IMediaService mediaService, IBaseRepository<RelatedArticle> relatedArticleRepository, IBaseRepository<HomePageFeaturedArticle> homePageFeaturedArticleRepository, IBaseRepository<MetaTag> metaTagRepository)
         {
             _articleRepository = articleRepository;
             _homePageFeaturedArticleRepository = homePageFeaturedArticleRepository;
+            _metaTagRepository = metaTagRepository;
             _articleLanguageRepository = articleLanguageRepositor;
             _workContext = workContext;
             _resourceService = resourceService;
@@ -129,6 +131,7 @@ namespace VnStyle.Services.Business
                 Content = p.Content,
                 ImageId = p.Article.FeatureImageId,
                 Extract = p.Extract,
+                MetaTagId = p.MetaTagId,
                 ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId }).ToList()
             }).FirstOrDefault();
             if (articleLanguage == null && currentLanguage == defaultLanguage)
@@ -146,6 +149,7 @@ namespace VnStyle.Services.Business
                     Content = p.Content,
                     ImageId = p.Article.FeatureImageId,
                     Extract = p.Extract,
+                    MetaTagId = p.MetaTagId,
                     ListRelatedArticles = _relatedArticleRepository.Table.Where(a => a.Article1Id == p.ArticleId).OrderBy(a => a.Seq).Select(a => new RelatedArticlesMap { Id = a.Article2Id, HeadLine = a.Article2.HeadLine, ImageId = a.Article2.FeatureImageId }).ToList()
                 }).FirstOrDefault();
             }
@@ -362,12 +366,9 @@ namespace VnStyle.Services.Business
             var currentLanguage = _workContext.CurrentLanguage;
 
             var query = _articleRepository.Table.Where(p => p.IsActive);
+            search = search.ToLower().Trim();
 
-            var query1 = query.Where(p => p.HeadLine.StartsWith(search) || p.HeadLine.Contains(search));
-            if (query1 == null)
-            {
-                return null;
-            }
+            var query1 = query.Where(p =>  p.HeadLine.ToLower().Contains(search));
             var articleQuery = (from a in query1
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
                                 select new ArticleListingModel
@@ -393,5 +394,11 @@ namespace VnStyle.Services.Business
 
 
         }
+
+        public MetaTag GetMetaTagById(int metaTagId)
+        {
+            return _metaTagRepository.Table.FirstOrDefault(p => p.Id == metaTagId);
+        }
+        
     }
 }

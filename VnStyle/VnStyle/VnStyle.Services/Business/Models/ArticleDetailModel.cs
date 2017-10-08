@@ -16,6 +16,7 @@ namespace VnStyle.Services.Business.Models
         public long? ImageId { get; set; }
         public DateTime PushlishDate { get; set; }
         public string ArticleUrl { get; set; }
+        public int MetaTagId { get; set; }
         public List<RelatedArticlesMap> ListRelatedArticles { get; set; }
     }
     public class RelatedArticlesMap

@@ -448,7 +448,7 @@ img.size-full, img.size-large {
 /* ----------------- 6. UI Components ----------------- */
 /* ----------------- 6.1. Header ----------------- */
 header .large-container {
-    padding: 0 30px;
+    /*padding: 0 30px;*/
     /*background: #232323;*/
     -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     -moz-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -818,8 +818,8 @@ header.style-2 .brand svg {
 header.style-2 nav {
     text-align: center;
     display: inline-block;
-    margin-right: 40px;
-    margin-left: 70px;
+    /*margin-right: 40px;
+    margin-left:70px*/
 }
 
     header.style-2 nav ul {
@@ -899,12 +899,12 @@ header.style-2 .large-container {
             margin-top: 9px;
             width: 200px;
             opacity: 1;
-            padding: 0;
+            padding: 0 10px;
         }
 
 @media (max-width: 1200px) {
     header.style-2 nav ul li {
-        margin-right: 60px;
+        /*margin-right: 60px;*/
     }
 
         header.style-2 nav ul li:last-of-type {
@@ -912,7 +912,7 @@ header.style-2 .large-container {
         }
 
     header.style-2 .large-container .global-search-form.expanded .search-submit {
-        right: -160px;
+        right: -255px;
     }
 
     header.style-2 .large-container .global-search-form.expanded .search-input {
@@ -962,6 +962,17 @@ header.style-2 .large-container {
             opacity: 1;
             padding: 7px 45px 7px 20px;
         }
+
+    header nav ul li a {
+        color: #ffffff;
+    }
+    header nav ul li.current-menu-item a {
+        color: #ffffff;
+    }
+
+    header.style-2 .large-container .global-search-form.expanded .search-submit {
+        right: -75px;
+    }
 }
 
 .admin-bar .sticky {
