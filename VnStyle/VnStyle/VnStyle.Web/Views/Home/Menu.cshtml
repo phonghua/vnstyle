@@ -37,69 +37,73 @@
         <li class="nlg-more menu-item-has-children nlg-hide"><a href="http://demo.aggressivemotions.com/newslog/#" class="nlg-link btn">More<i class="fa fa-angle-down"></i></a></li>
     </ul>
 </nav>*@
-<nav>
-    <ul>
-        <li class="@Html.IsSelected(actions: "Index", controllers: "Home")">
-            <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
-        </li>
+<nav class="navbar megamenu">
+   
+        <ul>
+            <li class="@Html.IsSelected(actions: "Index", controllers: "Home")">
+                <a href="@Url.HomePage()">@Html.T("Global_Home")</a>
+            </li>
 
-        <li class="@Html.IsSelected(actions: "Tattoo", controllers: "Home")">
-            <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
-        </li>
-        <li class="@Html.IsSelected(actions: "Piercing", controllers: "Home")">
-            <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
-        </li>
-        <li class="@Html.IsSelected(actions: "Events", controllers: "Home")">
-            <a href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
-        </li>
-
-
-        <li class="@Html.IsSelected(actions: "Course", controllers: "Home")">
-            <a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
-        </li>
+            <li class="@Html.IsSelected(actions: "Tattoo", controllers: "Home")">
+                <a href="@Url.HostAction("Tattoo","Home")">@Html.T("RootCate_Tattoo")</a>
+            </li>
+            <li class="@Html.IsSelected(actions: "Piercing", controllers: "Home")">
+                <a href="@Url.HostAction("Piercing","Home")">@Html.T("RootCate_Piercing")</a>
+            </li>
+            <li class="@Html.IsSelected(actions: "Events", controllers: "Home")">
+                <a href="@Url.HostAction("Events","Home")" data-cat="28">@Html.T("RootCate_Event")</a>
+            </li>
 
 
-        <li class="@Html.IsSelected(actions: "Intro", controllers: "Home")">
-            <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
+            <li class="@Html.IsSelected(actions: "Course", controllers: "Home")">
+                <a href="@Url.HostAction("Course","Home")">@Html.T("RootCate_Course")</a>
+            </li>
 
-        </li>
-        @*<li id="menu-item-511" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-511 menu-item-mega-menu">
-            <a href="#" data-cat="28">@Html.T("RootCate_Image")</a>
-            <div class="nlg-mega-menu nlg-menu-drop">
-                @Html.Action("GetArtistInMenu", "Home")
-            </div>
-        </li>*@
-        <li class="@Html.IsSelected(actions: "Images", controllers: "Home")">
-            <a href="#">@Html.T("RootCate_Image")</a>
-            <ul>
-                <li>
-                    <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
-                    <ul>
-                        <li><a href="http://teslathemes.com/demo/html/epilog/standard-blog-full-width.html">No sidebar version</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="http://teslathemes.com/demo/html/epilog/list-blog.html">List layout</a>
-                    <ul>
-                        <li><a href="http://teslathemes.com/demo/html/epilog/list-blog-full-width.html">No sidebar version</a></li>
-                    </ul>
-                </li>
 
-                <li>
-                    <a href="http://teslathemes.com/demo/html/epilog/grid-blog.html">Grid layout</a>
-                    <ul>
-                        <li><a href="http://teslathemes.com/demo/html/epilog/grid-blog-full-width.html">No sidebar version</a></li>
-                    </ul>
-                </li>
+            <li class="@Html.IsSelected(actions: "Intro", controllers: "Home")">
+                <a href="@Url.HostAction("Intro","Home")">@Html.T("RootCate_Intro")</a>
 
-                <li>
-                    <a href="http://teslathemes.com/demo/html/epilog/blog-post.html">Single post</a>
-                    <ul>
-                        <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+            </li>
+            @*<li class="@Html.IsSelected(actions: "Intro", controllers: "Home")">
+                <a href="#" data-cat="28">@Html.T("RootCate_Image")</a>
+                <div class="collapse navbar-collapse">
+                    @Html.Action("GetArtistInMenu", "Home")
+                </div>
+            </li>*@
+            <li class="@Html.IsSelected(actions: "Images", controllers: "Home")">
+                <a href="#">@Html.T("RootCate_Image")</a>
+                <ul>
+                    <li>
+                        <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
+                        <ul>
+                            <li><a href="http://teslathemes.com/demo/html/epilog/standard-blog-full-width.html">No sidebar version</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://teslathemes.com/demo/html/epilog/list-blog.html">List layout</a>
+                        <ul>
+                            <li><a href="http://teslathemes.com/demo/html/epilog/list-blog-full-width.html">No sidebar version</a></li>
+                        </ul>
+                    </li>
 
-    </ul>
+                    <li>
+                        <a href="http://teslathemes.com/demo/html/epilog/grid-blog.html">Grid layout</a>
+                        <ul>
+                            <li><a href="http://teslathemes.com/demo/html/epilog/grid-blog-full-width.html">No sidebar version</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="http://teslathemes.com/demo/html/epilog/blog-post.html">Single post</a>
+                        <ul>
+                            <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            
+        </ul>
+    
+    
 </nav>
