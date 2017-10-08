@@ -22,6 +22,8 @@ namespace VnStyle.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfiguration.Initialize();
             App.Intialize();
+
+            
         }
     }
 }
