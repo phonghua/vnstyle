@@ -2,25 +2,46 @@
 @using VnStyle.Web.Infrastructure.Helpers;
 
 
-<div class="nlg-module nlg-module-grid-posts nlg-mm-posts">
+@*<div class="nlg-module nlg-module-grid-posts nlg-mm-posts">
     <div class="container">
         <div class="nlg-module-header">
             <div class="nlg-module-title">
-                <h2 class="nlg-title">Artists</h2>
-              
+                <h2 class="nlg-title">Artists</h2>              
             </div>
         </div>
         <div class="nlg-col-wrap nlg-col-3">           
             @Html.Action("GetImageArtistInMenu")
         </div>
-
-
     </div>
-
 </div>
 <ul class="sub-menu">
     @foreach(var name in Model)
     {
         <li><a href="@Url.HostAction("Images","Home",new { id = name.Id })">@name.Name</a></li>
     }
-</ul>
+</ul>*@
+<li>
+    <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            @foreach (var name in Model)
+            {
+                <a href="@Url.HostAction("Images","Home",new { id = name.Id })">@name.Name</a>
+            }
+
+        </div>
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4 style="text-align:center;">Hứa Đại Thắng</h4>
+
+        </div>
+
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4 style="text-align:center;">Hứa Đại Thắng</h4>
+
+        </div>
+
+        <div class="col-xs-12 col-md-3 col-lg-3">
+            <h4 style="text-align:center;">Hứa Đại Thắng</h4>
+
+        </div>
+    </div>
+</li>

@@ -100,6 +100,7 @@ namespace VnStyle.Web.Controllers
         {
             return View();
         }
+        
         public ActionResult Result(string search = "", int page = 1)
         {
             ViewBag.Key = search;

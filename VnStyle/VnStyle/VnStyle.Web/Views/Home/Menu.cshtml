@@ -70,9 +70,12 @@
                     @Html.Action("GetArtistInMenu", "Home")
                 </div>
             </li>*@
-            <li class="@Html.IsSelected(actions: "Images", controllers: "Home")">
+            <li class="@Html.IsSelected(actions: "Images", controllers: "Home") hidden-xs hidden-sm">
                 <a href="#">@Html.T("RootCate_Image")</a>
-                <ul>
+                <ul class="mega-menu-image">
+                   @Html.Action("GetArtistInMenu", "Home")       
+                </ul>
+                @*<ul>
                     <li>
                         <a href="http://teslathemes.com/demo/html/epilog/standard-blog.html">Standard layout</a>
                         <ul>
@@ -99,7 +102,7 @@
                             <li><a href="http://teslathemes.com/demo/html/epilog/post-full-width.html">No sidebar version</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>*@
             </li>
 
             

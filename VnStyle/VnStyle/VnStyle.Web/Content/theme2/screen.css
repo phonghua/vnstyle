@@ -3388,3 +3388,8 @@ a {
 .social-fb{
     float:right;
 }
+.mega-menu-image{
+    background-color: #fff;
+    width: 1000px;
+    margin-left: -559px;
+}
