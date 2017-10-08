@@ -3388,3 +3388,10 @@ font-size: 18px;
 left: 0;
 right: 0;
 }
+
+.footer-menu{
+    font-size:17px;
+}
+#menu-footer-menu-1{
+    list-style-type: none;
+}

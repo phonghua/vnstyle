@@ -459,6 +459,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Deploy web vnstyle.pubxml" />
     <None Include="Properties\PublishProfiles\Publish to File System.pubxml" />
     <None Include="Properties\PublishProfiles\vnStyle.FS.Phonghd.pubxml" />
     <None Include="Properties\PublishProfiles\vnStyle.FTP.pubxml" />
