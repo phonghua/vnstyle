@@ -2,7 +2,7 @@
 @using VnStyle.Web.Infrastructure.Helpers;
 @foreach (var artist in Model)
 {
-    <div class="nlg-col">
+    @*<div class="nlg-col">
         <article class="nlg-entry nlg-entry-vertical nlg-entry-has-featured-media post-459 post type-post status-publish format-standard has-post-thumbnail hentry category-self-help tag-music tag-self-help" style="padding-top: 0px;">
 
             <figure class="nlg-featured-media">
@@ -22,5 +22,9 @@
                 </header>
             </div>
         </article>
+    </div>*@
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <img src="@artist.UrlImage?h=320" alt="Thumb" width="267" height="178">
     </div>
+        
 }

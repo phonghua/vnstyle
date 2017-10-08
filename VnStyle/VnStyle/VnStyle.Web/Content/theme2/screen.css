@@ -3390,6 +3390,13 @@ a {
 }
 .mega-menu-image{
     background-color: #fff;
-    width: 1000px;
-    margin-left: -559px;
+    width: 1140px;
+    margin-left: -543px;
+    padding:0;
+}
+.mega-artist{
+    background-color: #F7F7F7
+}
+.mega-artist-name:hover {
+    color:black;
 }
