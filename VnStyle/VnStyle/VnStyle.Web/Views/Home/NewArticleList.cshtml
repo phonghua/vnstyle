@@ -21,17 +21,20 @@
             <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                 <span class="mt-8">
                     <span class="text-upercase fs12 bg-red mr6 mr10">
-                        <a title="Trẻ" href="/c/tin-tre-7.html" class="whiteColor">@Html.T(@article.CateName)</a>
+                        <a title="Trẻ" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })" class="whiteColor">@Html.T(@article.CateName)</a>
                     </span>
                     <span class="right fs12 red">
-                        @article.PushlishDate<a target="_blank" title="Share Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.yan.vn/dep-ngay-ngat-nhung-hinh-xam-chan-nguc-cho-nang-pha-cach-126269.html"><i class="glyphicon glyphicon-share-alt grey"></i></a>
+                        @article.PushlishDate
                     </span>
                 </span>
                 <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
                 <p class="fs14 lh20">@article.Extract</p>
+                <div class="social-fb">
+                    <div class="fb-share-button" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">Chia sẻ</a></div>
+                </div>
             </div>
             <div class="clearfix"></div>
         </div>
     </div>
-                <hr />
+    <hr />
 }

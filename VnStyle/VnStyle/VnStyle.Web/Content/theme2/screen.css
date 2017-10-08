@@ -3363,35 +3363,28 @@ a {
     list-style-type:none;
 }
 
-/* MEGAMENU STYLE-------------------------------------------------- */
-/*.megamenu .nav,*/
-.megamenu .collapse,
-.megamenu .dropup,
-.megamenu .dropdown {
-position: static;
-}
-.megamenu .container {
-position: relative;
-}
-.megamenu .dropdown-menu {
-left: auto;
-}
-.megamenu .megamenu-content {
-padding: 15px;
-}
-.megamenu .megamenu-content h3{
-margin-top: 0;
-color: #428bca;
-font-size: 18px;
-}
-.megamenu .dropdown.megamenu-fw .dropdown-menu {
-left: 0;
-right: 0;
-}
 
 .footer-menu{
-    font-size:17px;
+    font-size: 15px;
+    font-weight:bold;
 }
 #menu-footer-menu-1{
     list-style-type: none;
+}
+.footer-menu-item{
+        border-bottom: 1px solid #282828;
+    line-height: 2.8 !important;
+    font-size: 11px;
+    color: #A0A0A0;
+}
+.footer-menu-item-text {
+    color:#A0A0A0;
+}
+.footer-sidebar{
+    margin-top:-21px;
+    text-transform: uppercase;
+}
+
+.social-fb{
+    float:right;
 }
