@@ -1,30 +1,33 @@
-﻿@using Ricky.Infrastructure.Core.ObjectContainer
-@using VnStyle.Services.Business.Settings
-@using VnStyle.Web.Infrastructure.Helpers
-@{
-    var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
+﻿@model VnStyle.Web.Models.Home.IndexModelView
 
-    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+    @using Ricky.Infrastructure.Core.ObjectContainer
+    @using VnStyle.Services.Business.Settings
+    @using VnStyle.Web.Infrastructure.Helpers
+    @{
+        var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
-    var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
-    var appSetting = settingSetting.LoadConfiguration<AppSetting>();
+        var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
 
-    ViewBag.Title = "Trang chủ";
+        var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
+        var appSetting = settingSetting.LoadConfiguration<AppSetting>();
 
-    var currentUrl = Url.CurrentUrl();
-}
+        ViewBag.Title = "Trang chủ";
+
+        var currentUrl = Url.CurrentUrl();
+        var pageTitle = appSetting.ApplicationName + " | " + ViewBag.Title;
+    }
 
     <div class="container">
         <div style="">
             @Html.Action("GetArticlesSession1", "Home")
         </div>
-        
+
 
         <div class="row">
             @Html.Action("HomePageFeaturedArticles", "Home")
         </div>
-        
-        
+
+
         <div class="row" style="margin-top: 30px">
             <div class="col-xs-12 col-sm-12 col-md-8">
                 @Html.Action("GetNewArticles", "Home")
@@ -40,7 +43,7 @@
                 @Html.Action("GetAllArtist")
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-xs-12">
                 @Html.Action("GetVideos", "Home")
@@ -49,161 +52,108 @@
     </div>
 
 
-@*<div class="nlg-sections-wrap">
-    
-    <div id="nlg-module-b4a0d8d0-dde3" class="nlg-module nlg-module-grid-posts">
-        <div class="container">
+    @section metaTags{
 
-            @Html.Action("GetArticlesSession1", "Home")
+        <meta property="fb:app_id" content="@appSetting.FbAppId" />
+        <link rel="canonical" href="@Model.MetaTag.CurrentUrl" />
+        <meta http-equiv="REFRESH" content="1800" />
 
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="@pageTitle">
+        <meta itemprop="description" content="@Model.MetaTag.Description">
+        <meta itemprop="image" content="@Model.MetaTag.Image">
 
-        </div>
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="@Model.MetaTag.Image">
+        <meta name="twitter:site" content="@Url.BaseUrl()">
+        <meta name="twitter:title" content="@pageTitle">
+        <meta name="twitter:description" content="@Model.MetaTag.Description">
 
-    </div>
-    
-    <div class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-        <div class="nlg-module nlg-module-featured-posts nlg-module-fp-a nlg-module-fp-full-width">
-            <div class="container">
-                @Html.Action("HomePageFeaturedArticles", "Home")
-            </div>
-        </div>
-    </div>
-    
+        <meta name="twitter:image:src" content="@Model.MetaTag.Image">
 
-    <div id="nlg-section-0ac380f8-b506" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-        <div class="container">
-            <div class="nlg-main" role="main">
+        <!-- Open Graph data -->
+        <meta property="og:title" content="@pageTitle" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="@Model.MetaTag.CurrentUrl" />
+        <meta property="og:image" content="@Model.MetaTag.Image" />
+        <meta property="og:description" content="@Model.MetaTag.Description" />
+        <meta property="og:site_name" content="@appSetting.ApplicationName" />
 
-                @Html.Action("GetNewArticles", "Home")
-            </div>
-
-            @Html.Action("SideBar1", "Home")
-            
-        </div>
-        
-    </div>
-    
-    <div class="row">
-        <div id="nlg-section-7e848e14-c380" class="nlg-section nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-            <div id="nlg-module-1dd3328e-c893" class="nlg-module nlg-module-featured-posts nlg-module-fp-b nlg-module-fp-full-width">
-                <div class="container">
-                    @Html.Action("GetAllArtist")
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-8 col-lg-8">
-                <div id="nlg-section-d196e136-45a4" class="nlg-section nlg-section-has-sidebar nlg-section-sidebar-right nlg-visible-xs nlg-visible-sm nlg-visible-md nlg-visible-lg">
-                    <div class="container">
-                        <div class="nlg-main" role="main">
-                            @Html.Action("GetVideos", "Home")
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-xs-12 col-md-4 col-lg-4" style= "margin-top:25px">
-                @Html.Action("SideBar2", "Home")
-            </div>
-        </div>      
-    </div>
-</div>*@
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="http://b.scorecardresearch.com" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Vnexpress.net" />
+        <meta name="description" content="@Model.MetaTag.Description">
+        <meta name="keywords" content="@Model.MetaTag.Keywords">
+        <meta name="tt_article_id" content="1000000" />
+        <meta name="tt_page_type" content="site" />
+        <meta name="tt_category_id" content="1000000" />
+        <meta name="tt_site_id" content="1000000" />
+        <!-- add meta for pvtt -->
+        <!-- end meta for pvtt -->
 
 
-@section metaTags{
-    <meta http-equiv="X-UA-Compatible" content="IE=100"/>
-    <meta property="fb:app_id" content="1547540628876392"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="canonical" href="@currentUrl"/>
-    <meta http-equiv="REFRESH" content="1800"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>    
-    <link rel="dns-prefetch" href="//www.google-analytics.com"/>
-    <link rel="dns-prefetch" href="//www.googletagmanager.com"/>
-    <link rel="dns-prefetch" href="http://b.scorecardresearch.com"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-title" content="Vnexpress.net"/>
-    <meta name="description" content="Thông tin nhanh &amp; mới nhất được cập nhật hàng giờ. Tin tức Việt Nam &amp; thế giới về xã hội, kinh doanh, pháp luật, khoa học, công nghệ, sức khoẻ, đời sống, văn hóa, rao vặt, tâm sự...">
-    <meta name="keywords" content="VnExpress,Vietnam News Daily,Economy,Online,Internet,Magazine,Gateway,FPT,Portal,Tin nhanh,cập nhật,báo điện tử,việt báo,tin việt,VietNews,mua bán,rao vặt,tư vấn,việc làm,Hà Nội,Sài Gòn,tin tức,Huế,Đà Nẵng,VDC,Netnam,Saigonnet,Sggp,VET,Nhân dân,Lao động,Kinh tế,Kinh doanh,Tin nhanh,cap nhat,bao dien tu,Vietbao,TinViet,Mua Ban,Rao Vat,Tu Van,Viec Lam,Hanoi,Ha Noi,Saigon,Sai gon,Tin tuc,Tintuc,Hue,Da Nang,Danang,Nhandan,Nhan dan,Laodong,Lao dong,Kinhte,Kinh te,Kinhdoanh,Kinh doanh">
-    <meta name="tt_article_id" content="1000000"/>
-    <meta name="tt_page_type" content="site"/>
-    <meta name="tt_category_id" content="1000000"/>
-    <meta name="tt_site_id" content="1000000"/>
-    <!-- add meta for pvtt -->
-    <!-- end meta for pvtt -->
-    <meta property="og:image" itemprop="thumbnailUrl" content="https://s.vnecdn.net/vnexpress/restruct/i/v47/logo_default.jpg"/>
-    <meta name="dc.created" content="2001-02-26"/>
-    <meta name="dc.publisher" content="VnExpress"/>
-    <meta name="dc.rights.copyright" content="Vnstyle Tattoo & Piercing"/>
-    <meta name="dc.creator.name" content="Vnstyle Tattoo & Piercing"/>
-    @*<meta name="dc.creator.email" content="webmaster@vnexpress.net"/>*@
-    <meta name="dc.identifier" content="@currentUrl"/>
-    <meta name="copyright" content="Vnstyle Tattoo & Piercing"/>
-    <meta name="author" content="Vnstyle Tattoo & Piercing"/>
-    <meta name="dc.language" content="vi-VN"/>
-    <meta name="robots" content="index,follow"/>
-    <meta http-equiv="content-language" content="vi"/>
-    <meta name="geo.placename" content="Ho Chi Minh, Viet Nam"/>
-    <meta name="geo.region" content="VN-HCM"/>
-    <meta name="geo.position" content="10.796514,106.692959"/>
+        <meta name="copyright" content="Vnstyle Tattoo & Piercing" />
+        <meta name="author" content="Vnstyle Tattoo & Piercing" />
+        <meta name="dc.language" content="vi-VN" />
+        <meta name="robots" content="index,follow" />
+        <meta http-equiv="content-language" content="vi" />
+        <meta name="geo.placename" content="Ho Chi Minh, Viet Nam" />
+        <meta name="geo.region" content="VN-HCM" />
+        <meta name="geo.position" content="10.796514,106.692959" />
 
-    <meta name="ICBM" content="10.796514, 106.692959"/>
-    <meta name="revisit-after" content="days">
-    <link rel="alternate" href="@currentUrl" hreflang="vi-vn"/>
-    <!-- Twitter Card -->
-    <meta name="twitter:card" value="summary">
-    <meta name="twitter:url" content="@currentUrl">
-    <meta name="twitter:title" content="VNStyle Tattoo & Piercing">
-    <meta name="twitter:description" content="Thông tin nhanh &amp; mới nhất được cập nhật hàng giờ. Tin tức Việt Nam &amp; thế giới về xã hội, kinh doanh, pháp luật, khoa học, công nghệ, sức khoẻ, đời sống, văn hóa, rao vặt, tâm sự...">
-    <meta name="twitter:image" content="https://s.vnecdn.net/vnexpress/restruct/i/v47/logo_default.jpg"/>
-    @*<meta name="twitter:site" content="">
-    <meta name="twitter:creator" content="">*@
-}
+        <meta name="ICBM" content="10.796514, 106.692959" />
+        <meta name="revisit-after" content="days">
+        <link rel="alternate" href="@Model.MetaTag.CurrentUrl" hreflang="vi-vn" />
+
+    }
 
 
-@section bottom{
-    <script>
-        window.articlePage = 1;
-        $("#more-article").click(function() {
-            var url = "@Url.Action("ArticleMore", "Home", new {page = "__page__"})";
-            window.articlePage = window.articlePage + 1;
-            url = url.replace("__page__", window.articlePage);
-            $.ajax({
+    @section bottom{
+        <script>
+            window.articlePage = 1;
+            $("#more-article").click(function () {
+                var url = "@Url.Action("ArticleMore", "Home", new {page = "__page__"})";
+                window.articlePage = window.articlePage + 1;
+                url = url.replace("__page__", window.articlePage);
+                $.ajax({
                     url: url,
-                    beforeSend: function(xhr) {
+                    beforeSend: function (xhr) {
                         //console.log("load more article");
                     }
                 })
-                .done(function(data) {
-                    $("#new-article-list").append(data);
-                });
-        });
+                    .done(function (data) {
+                        $("#new-article-list").append(data);
+                    });
+            });
 
-    </script>
-    <script>
+        </script>
+        <script>
             window.videoPage = 1;
-            $("#more-video").click(function() {
+            $("#more-video").click(function () {
                 var url = "@Url.Action("VideoMore", "Home", new {page = "__page__"})";
                 window.videoPage = window.videoPage + 1;
                 url = url.replace("__page__", window.videoPage);
                 $.ajax({
-                        url: url,
-                        beforeSend: function(xhr) {
-                            //console.log("load more article");
-                        }
-                    })
-                    .done(function(data) {
+                    url: url,
+                    beforeSend: function (xhr) {
+                        //console.log("load more article");
+                    }
+                })
+                    .done(function (data) {
                         $("#new-video-list").append(data);
                     });
             });
 
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('.owl-carousel').owlCarousel({
                     loop: true,
                     margin: 10,
                     nav: true,
-                    autoplay:true,
-                    autoplayTimeout:3000,
-                    autoplayHoverPause:true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
                     responsive: {
                         0: {
                             items: 1
@@ -218,5 +168,5 @@
                 })
             });
 
-    </script>
-}
+        </script>
+    }

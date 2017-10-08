@@ -497,6 +497,7 @@ namespace Ricky.Infrastructure.Core
             text = text.Replace(",", "-");
             text = text.Replace(";", "-");
             text = text.Replace(":", "-");
+            text = text.Replace(@"\'", "");
 
             Regex regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
             string strFormD = text.Normalize(System.Text.NormalizationForm.FormD);

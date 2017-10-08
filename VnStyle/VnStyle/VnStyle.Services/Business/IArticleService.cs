@@ -17,7 +17,7 @@ namespace VnStyle.Services.Business
         IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles();
         
         IPagedList<ArticleListingModel> GetArticlesByString(string search, PagingRequest request);
-
+        MetaTag GetMetaTagById(int metaTagId);
 
     }
 }

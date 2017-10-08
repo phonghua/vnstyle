@@ -337,6 +337,8 @@
     <Compile Include="Models\Auth\LoginRequest.cs" />
     <Compile Include="Models\Auth\LoginRequestValidator.cs" />
     <Compile Include="Models\Home\ArticleViewerModelView.cs" />
+    <Compile Include="Models\Home\IndexModelView.cs" />
+    <Compile Include="Models\Home\SiteMetaTag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
