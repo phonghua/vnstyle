@@ -32,21 +32,18 @@
         @Html.Action("SideBar1", "Home")
     </div>
 </div>
+<script>
+    window.onload = function () {
+        baguetteBox.run('.baguetteBoxTwo', {
+            captions: true,       // true|false - Hiển thị tiêu đề ảnh
+            buttons: 'auto',      // 'auto'|true|false - Hiển thị nút điều hướng
+            async: false,         // true|false - Tải file không đồng bộ
+            preload: 2,           // [number] - Tải trước (preload) bao nhiêu ảnh kể từ ảnh hiện tại
+            animation: 'slideIn'  // 'slideIn'|'fadeIn'|false - Loại chuyển động
 
-    <script src="~/Content/js/baguetteBox.js" async></script>
-    <script src="~/Content/js/highlight.min.js" async></script>
-    <script>
-        window.onload = function () {
-            baguetteBox.run('.gallery', {
-                captions: true,       // true|false - Hiển thị tiêu đề ảnh
-                buttons: 'auto',      // 'auto'|true|false - Hiển thị nút điều hướng
-                async: false,         // true|false - Tải file không đồng bộ
-                preload: 2,           // [number] - Tải trước (preload) bao nhiêu ảnh kể từ ảnh hiện tại
-                animation: 'slideIn'  // 'slideIn'|'fadeIn'|false - Loại chuyển động
-
-            });
-            if (typeof oldIE === 'undefined' && Object.keys) {
-                hljs.initHighlighting();
-            }
+        });
+        if (typeof oldIE === 'undefined' && Object.keys) {
+            hljs.initHighlighting();
         }
-    </script>
+    }
+</script>

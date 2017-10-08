@@ -4,7 +4,7 @@
 @{
     var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
-    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = string.Format("~/Content/images/flag/{0}.png", p.Code) }).ToList();
 
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
@@ -20,7 +20,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@appSetting.ApplicationName | @ViewBag.Title</title>
     @RenderSection("metaTags", false)
-
+    <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -29,8 +30,8 @@
     <link href="~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" />
     <link href="~/Content/theme2/screen.css" rel="stylesheet" />
     <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
-
-
+    <link href="~/Content/css/images.css" rel="stylesheet" />
+    <link href="~/Content/css/hovercard.css" rel="stylesheet" />
 </head>
 <body id="front-page">
 
@@ -68,9 +69,9 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="pull-left">
-                                <a href="http://localhost:56847/" rel="VNStyle Tattoo &amp; Piercing" class="brand">
+                                <a href="@Url.HomePage()" rel="@appSetting.ApplicationName"" class="brand">
                                     <span class="img-logo">
-                                        <img width="278" height="48" src="http://localhost:56847/Content/images/logo-big-dark.png" class="nlg-logo-img" alt="VNStyle Tattoo &amp; Piercing">
+                                        <img width="278" height="48" src="@Url.HostContent("~/Content/images/logo-big-dark.png")" class="nlg-logo-img" alt="VNStyle Tattoo &amp; Piercing">
                                     </span>
                                 </a>
                             </div>
@@ -114,9 +115,12 @@
     <script src="http://teslathemes.com/demo/html/epilog/js/options.js"></script>
     <script src="~/Scripts/libs/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
     <script src="~/Content/js/sticky.min.js"></script>
-    <script src="~/Content/js/sticky.compile.js"></script>
+    <script src="~/Content/js/sticky.compile.js"></script>    
+    <script src="~/Content/js/baguetteBox.js" async></script>
+    <script src="~/Content/js/highlight.min.js" async></script>
 
     @RenderSection("bottom", false)
+    
 </body>
 
 

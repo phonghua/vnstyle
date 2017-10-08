@@ -34,11 +34,11 @@ export class FeaturedArticleComponent implements OnInit {
   }
 
   allArticles: any[] = [];
-  private get suggestFeaturedArticles() {
+  public get suggestFeaturedArticles() {
     return this.allArticles.filter(p=> !this.featuredArticles.data.some(s => s.articleId == p.id));
   }
 
-  private selectedArticle = null;
+  public selectedArticle = null;
 
   public featuredArticleSelected(event) {
     if (event && event.id && event.id > 0) {

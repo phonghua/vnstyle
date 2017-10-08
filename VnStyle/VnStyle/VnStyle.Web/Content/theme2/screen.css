@@ -3334,3 +3334,17 @@ a {
     margin-bottom: -40px;
     max-width: 65%;
 }
+
+
+/*Footer style*/
+.bg-4 { 
+      background-color: #000; /* Black Gray */
+      color: #fff;
+  }
+.container-fluid {
+    padding-top: 50px;
+    padding-bottom: 50px
+}
+.breadcrumb-footer{
+
+}

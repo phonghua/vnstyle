@@ -300,10 +300,10 @@ namespace VnStyle.Services.Business
         public ArticleListingModel GetFirstHomePageFeaturedArticles()
         {
             //throw new NotImplementedException();
-
+            var defaultLanguage = _resourceService.DefaultLanguageId();
             var currentLanguage = _workContext.CurrentLanguage;
-            var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
-                                orderby hp.Seq
+
+            var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq 
                                 join a in _articleRepository.Table on hp.ArticleId equals a.Id
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
                                 select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
@@ -311,19 +311,17 @@ namespace VnStyle.Services.Business
             {
                 featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
                                 orderby hp.Seq
-                                join a in _articleRepository.Table on hp.ArticleId equals a.Id                                
-                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = a.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+                                join a in _articleRepository.Table on hp.ArticleId equals a.Id
+                                join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == defaultLanguage) on a.Id equals al.ArticleId
+                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
             }
+
             if (featuredLang == null) return null;
+
             if (featuredLang.ImageId.HasValue)
                 featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
-
-           
-
-            
             if (featuredLang.ImageId.HasValue)
                 featuredLang.UrlImage = _mediaService.GetPictureUrl(featuredLang.ImageId.Value);
-
             else
                 featuredLang.UrlImage = "~/Content/images/no-image.png";
             return featuredLang;

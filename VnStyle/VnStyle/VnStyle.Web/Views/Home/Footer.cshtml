@@ -4,7 +4,7 @@
 @{
     var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
-    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = string.Format("~/Content/images/flag/{0}.png", p.Code) }).ToList();
 
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
@@ -117,3 +117,96 @@
     <!-- .nlg-footer-wrap -->
 </footer>*@
 
+
+@*<footer class="nlg-footer nlg-footer-dark" style="background-color: black">
+    <div class="container">
+        <div class="row">
+            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
+                <div class="nlg-footer-sidebar">
+                    <div id="newslog-brand-box-3" class="sidebar-widget nlg-widget-brand-box">
+                        <div class="nlg-brand-box">
+                            <div class="nlg-logo"><img src="@Url.HostContent("~/Content/images/logo-2.png")" height="48" width="278"></div>
+                            <p class="nlg-description">NewsLog, News & Magazine Theme. Discover new blogging standards with 6 months free support!</p>
+                        </div>
+                        <!-- .nlg-author-card -->
+                    </div>
+                    <div id="newslog-social-icons-3" class="sidebar-widget nlg-widget-social-icons">
+                        <ul class="nlg-social-icons nlg-social-brand-colors">
+                            <li class="nlg-icon-facebook">
+                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Facebook" target="_blank" style="background-color: #3b5998">
+                                    <span class="fa fa-facebook"></span>
+                                </a>
+                            </li>
+                            
+                            <li class="nlg-icon-instagram">
+                                <a href="http://demo.aggressivemotions.com/newslog/#" title="Instagram" target="_blank" style="background-color: #c13584">
+                                    <span class="fa fa-instagram"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- .nlg-footer-sidebars -->
+            </div>
+            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
+                <div class="nlg-footer-sidebar">
+                    <div id="nav_menu-2" class="sidebar-widget widget_nav_menu">
+                        <div class="widget-title" style="color: #b9519f;">
+                            <h2 class="title"> VNSTYLE</h2>
+                        </div>
+                        <div class="menu-footer-menu-1-container">
+                            <ul id="menu-footer-menu-1" class="menu" style="color: white">
+                                <li><a href="#">Homepage</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a target="_blank" href="#">About Us</a></li>
+                                <li><a target="_blank" href="#">Purchase Now</a></li>
+                                <li><a target="_blank" href="#">Online Docs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- .nlg-footer-sidebars -->
+            </div>
+            <div class="nlg-col col-xs-12 col-md-6 col-lg-4">
+               
+                <!-- .nlg-footer-sidebars -->
+            </div>
+        </div>
+    </div>
+</footer>*@
+<footer class="container-fluid bg-4 text-center" style="background-color: black;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="footer-image">
+                    <img class="icon-logo" src="@Url.HostContent("~/Content/images/logo-2.png")" style="width: 178px;"/>
+                    
+                </div>
+                <div class="footer-description">
+                    <span>NewsLog, News &amp; Magazine Theme. Discover new blogging standards with 6 months free support</span>
+                </div>
+                <div class="row row-breadcrumb ">
+                    <ol class="breadcrumb-footer text-upercase fs15 roboto-bold">
+                        <li itemprop="itemListElement">
+                            <h1>
+                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Youtube</span></a>
+                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Facebook</span></a>
+                                <a itemprop="item" class="bg-red text-upercase"><span itemprop="name">Instagram</span></a>
+
+                            </h1>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1931483145677!2d106.69076494998791!3d10.796513992270105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528c118afbef9%3A0x8aec628fbb4e929f!2sVNStyle+Tattoo+%26+Piercing!5e0!3m2!1svi!2s!4v1507359931866" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>

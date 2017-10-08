@@ -30,7 +30,7 @@
         }
 
         img {
-            // IE8 fix
+           
             display: inline-block;
             width: auto;
             height: auto;

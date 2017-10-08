@@ -4,7 +4,7 @@
 @{
     var resourceService = EngineContext.Current.Resolve<VnStyle.Services.Business.IResourceService>();
 
-    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = $"~/Content/images/flag/{p.Code}.png" }).ToList();
+    var languages = resourceService.GetLanguages().Select(p => new { p.Name, p.Code, p.IsDefault, Flag = string.Format("~/Content/images/flag/{0}.png", p.Code) }).ToList();
 
     var settingSetting = EngineContext.Current.Resolve<VnStyle.Services.Business.ISettingService>();
     var appSetting = settingSetting.LoadConfiguration<AppSetting>();
