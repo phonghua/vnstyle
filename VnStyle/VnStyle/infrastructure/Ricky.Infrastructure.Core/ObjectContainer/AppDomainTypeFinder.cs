@@ -87,21 +87,26 @@ namespace Ricky.Infrastructure.Core.ObjectContainer
 
         #region ITypeFinder
 
+        [System.Security.SecurityCritical]
         public IEnumerable<Type> FindClassesOfType<T>(bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(typeof(T), onlyConcreteClasses);
         }
 
+        [System.Security.SecurityCritical]
         public IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(assignTypeFrom, GetAssemblies(), onlyConcreteClasses);
         }
 
+        [System.Security.SecurityCritical]
         public IEnumerable<Type> FindClassesOfType<T>(IEnumerable<Assembly> assemblies, bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(typeof(T), assemblies, onlyConcreteClasses);
         }
 
+
+        [System.Security.SecurityCritical]
         public IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, IEnumerable<Assembly> assemblies, bool onlyConcreteClasses = true)
         {
             var result = new List<Type>();
@@ -145,6 +150,7 @@ namespace Ricky.Infrastructure.Core.ObjectContainer
             return result;
         }
 
+        [System.Security.SecurityCritical]
         public IEnumerable<Type> FindClassesOfType<T, TAssemblyAttribute>(bool onlyConcreteClasses = true) where TAssemblyAttribute : Attribute
         {
             var found = FindAssembliesWithAttribute<TAssemblyAttribute>();
