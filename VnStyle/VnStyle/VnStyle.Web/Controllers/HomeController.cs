@@ -186,7 +186,7 @@ namespace VnStyle.Web.Controllers
         {
             var request = new GetArticlesRequest
             {
-                PageSize = 5,
+                PageSize = 6,
                 PageIndex = page - 1
             };
             var model = _articleService.GetNewArticles(request);
@@ -197,7 +197,7 @@ namespace VnStyle.Web.Controllers
             var model = _articleService.GetNewArticles(new GetArticlesRequest
             {
                 PageIndex = page - 1,
-                PageSize = 5
+                PageSize = 6
             });
             return PartialView("ArticleMore", model);
         }

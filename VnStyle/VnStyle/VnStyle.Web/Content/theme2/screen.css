@@ -3140,7 +3140,9 @@ figure.article-overlay-item:hover img {
     transform: scale3d(1.2, 1.2, 1);
 }
 
-
+.article-section-2{
+    margin-top:10px;
+}
 .article-section-2 img.media-object {
     max-width: initial;
     width: 144px;
