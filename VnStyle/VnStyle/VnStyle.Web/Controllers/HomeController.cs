@@ -212,7 +212,8 @@ namespace VnStyle.Web.Controllers
         }
         public ActionResult DetailMovie (int id)
         {
-            if (id == null) NotFound();
+            
+            
             return View();
         }
 
