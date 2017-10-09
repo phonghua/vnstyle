@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using Ricky.Infrastructure.Core;
 using Ricky.Infrastructure.Core.ObjectContainer;
 using VnStyle.Services.Business;
 using VnStyle.Web.Infrastructure.Security;
@@ -50,12 +47,16 @@ namespace VnStyle.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            var user = UserManager.FindByName("phong.hd1989@gmail.com");
-            if (user == null) UserManager.Create(new ApplicationUser { Email = "phong.hd1989@gmail.com", UserName = "phong.hd1989@gmail.com", EmailConfirmed = true }, "ADmin@123");
-            
-
-
-           
+            var user = UserManager.FindByName("portal");
+            if (user == null)
+            {
+                UserManager.Create(new ApplicationUser { Email = "portal", UserName = "portal", EmailConfirmed = true }, "ADmin@123");
+                
+                var adminUser = UserManager.FindByNameAsync("portal").Result;
+                var result1 = UserManager.RemovePasswordAsync(adminUser.Id).Result;
+                var result2 = UserManager.AddPasswordAsync(adminUser.Id, "ADmin@123").Result;
+                var identityResult = UserManager.AddToRoleAsync(adminUser.Id, "admin").Result;
+            }
 
             ViewBag.ReturnUrl = returnUrl;
             var model = new LoginRequest();

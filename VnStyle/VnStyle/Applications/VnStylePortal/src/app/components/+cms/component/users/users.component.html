@@ -1,3 +1,65 @@
-<p>
-  users works!
-</p>
+<div style="margin: 15px 0">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pull-right">
+        <button class="btn btn-primary" (click)="openAddNewForm();">Add new</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <tr *ngFor="let v of userGrid.data">
+    <td>{{v.email}}</td>
+    <td>
+      <a href="javascript:;" (click)="openResetPasswordForm(v);"><i class="fa fa-key"></i></a>
+      <a href="javascript:;" (click)="deleteUser(v);"><i class="fa fa-trash"></i></a>
+    </td>
+  </tr>
+</table>
+
+
+
+<modal #modal>
+  <modal-header>
+    <h4 class="modal-title">Thêm người dùng</h4>
+  </modal-header>
+  <modal-body>
+    <div>
+      <div class="form-group">
+        <label for="">User name</label>
+        <input type="text" class="form-control" [(ngModel)]="model.email">
+      </div>
+      <div class="form-group">
+        <label for="">Mật khẩu</label>
+        <input type="text" class="form-control" [(ngModel)]="model.password">
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">No</button>
+    <button type="button" class="btn btn-primary" (click)="ok()">Yes</button>
+  </modal-footer>
+</modal>
+
+<modal #resetPassword>
+  <modal-header>
+    <h4 class="modal-title">Thiết lập mật khẩu</h4>
+  </modal-header>
+  <modal-body>
+    <div>
+      <div class="form-group">
+        <label for="">Mật khẩu</label>
+        <input type="text" class="form-control" [(ngModel)]="resetPasswordModel.password">
+      </div>
+
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="resetPassword" (click)="resetPassword.dismiss()">No</button>
+    <button type="button" class="btn btn-primary" (click)="submitResetPassword()">Yes</button>
+  </modal-footer>
+</modal>
+
+
+<app-confirm-modal #confirmModal></app-confirm-modal>
