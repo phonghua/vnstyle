@@ -301,23 +301,32 @@ namespace VnStyle.Services.Business
             }
         }
 
-        public ArticleListingModel GetFirstHomePageFeaturedArticles()
+        public FeaturedDetailModel GetFirstHomePageFeaturedArticles()
         {
+
+
+            //var query = _homePageFeaturedArticleRepository.Table.OrderBy(p => p.Seq).Take(1);
+            //var queryJoin1 = from q in query join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on q.ArticleId equals al.ArticleId select new FeaturedDetailModel { Id = q.ArticleId , Seq = q.Seq , HeadLine = al.HeadLine};
+
+            //return queryJoin1.First();
+
+
             //throw new NotImplementedException();
             var defaultLanguage = _resourceService.DefaultLanguageId();
             var currentLanguage = _workContext.CurrentLanguage;
-
-            var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table orderby hp.Seq 
-                                join a in _articleRepository.Table on hp.ArticleId equals a.Id
+            var query = _homePageFeaturedArticleRepository.Table.OrderBy(p => p.Seq).Take(1);
+            var featuredLang = (from q in query                               
+                                join a in _articleRepository.Table on q.ArticleId equals a.Id
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+                                select new FeaturedDetailModel { Id = q.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+
             if (featuredLang == null)
             {
-                featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
-                                orderby hp.Seq
-                                join a in _articleRepository.Table on hp.ArticleId equals a.Id
+                featuredLang = (from q in query
+                                orderby q.Seq
+                                join a in _articleRepository.Table on q.ArticleId equals a.Id
                                 join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == defaultLanguage) on a.Id equals al.ArticleId
-                                select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
+                                select new FeaturedDetailModel { Id = q.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).FirstOrDefault();
             }
 
             if (featuredLang == null) return null;
@@ -399,6 +408,19 @@ namespace VnStyle.Services.Business
         {
             return _metaTagRepository.Table.FirstOrDefault(p => p.Id == metaTagId);
         }
-        
+
+        //public FeaturedDetailModel GetFeaturedFirst()
+        //{
+        //    var query = _homePageFeaturedArticleRepository.Table.OrderBy(p => p.Seq);
+             
+        //    //.Select(p => new FeaturedDetailModel { Id = p.ArticleId, Seq = p.Seq }).FirstOrDefault();
+        //    return query;
+        //}
+
+        //public ArticleListingModel GetFirstArticles()
+        //{
+        //    var article = _homePageFeaturedArticleRepository.Table.Select(p => new ArticleListingModel { Id = p.Id }).FirstOrDefault();
+        //    return article;
+        //}
     }
 }

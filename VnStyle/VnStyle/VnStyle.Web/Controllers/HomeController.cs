@@ -64,7 +64,7 @@ namespace VnStyle.Web.Controllers
                     ContentCreatedDate = DateTime.Now
                 }
             };
-
+            //var a = _articleService.GetFeaturedFirst();
             return View(modelView);
         }
         public ActionResult Detail(int id, string title = "")

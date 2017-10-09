@@ -14,7 +14,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
-    <NameOfLastUsedPublishProfile>vnStyle.FS.Phonghd</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>Deploy web vnstyle</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

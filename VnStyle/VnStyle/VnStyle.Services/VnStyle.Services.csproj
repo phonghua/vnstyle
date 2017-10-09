@@ -86,6 +86,8 @@
     <Compile Include="Business\Models\ArticleDetailModel.cs" />
     <Compile Include="Business\Models\ArticleListingModel.cs" />
     <Compile Include="Business\Models\ArtistListingModel.cs" />
+    <Compile Include="Business\Models\FeaturedDetailModel.cs" />
+    <Compile Include="Business\Models\FeaturedModel.cs" />
     <Compile Include="Business\Models\GetArticlesRequest.cs" />
     <Compile Include="Business\Messages\UploadFileRequest.cs" />
     <Compile Include="Business\Models\ImagesByArtist.cs" />

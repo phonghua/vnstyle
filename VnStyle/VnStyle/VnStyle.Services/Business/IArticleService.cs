@@ -13,11 +13,15 @@ namespace VnStyle.Services.Business
         ArticleDetailModel GetArticleById(int id);
         IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
         IList<ArticleListingModel> GetSession(bool flag); // request == true => get session1 
-        ArticleListingModel GetFirstHomePageFeaturedArticles();
+        FeaturedDetailModel GetFirstHomePageFeaturedArticles();
         IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles();
         
         IPagedList<ArticleListingModel> GetArticlesByString(string search, PagingRequest request);
         MetaTag GetMetaTagById(int metaTagId);
+
+        //FeaturedDetailModel GetFeaturedFirst();
+        
+
 
     }
 }

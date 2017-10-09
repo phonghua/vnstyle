@@ -403,6 +403,7 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Deploy web vnstyle.pubxml" />
     <None Include="Properties\PublishProfiles\Publish to File System.pubxml" />
+    <None Include="Properties\PublishProfiles\vnstye FS.pubxml" />
     <None Include="Properties\PublishProfiles\vnStyle.FS.Phonghd.pubxml" />
     <None Include="Properties\PublishProfiles\vnStyle.FTP.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -485,6 +486,7 @@
     <Folder Include="Views\App\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Categories\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
