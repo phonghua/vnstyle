@@ -1,54 +1,52 @@
 ﻿@model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.VideoListingModel>
 
 
-<div class="article-section-1">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-8">
-            @foreach (var imgThumb in Model)
+<div id="new-video-list" class="article-section-1">
+
+    <div>
+        @foreach (var imgThumb in Model)
             {
-                @*<div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="article-overlay">
-                            <a href="javascript:;">
+            @*<div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="article-overlay">
+                        <a href="javascript:;">
 
-                                <figure class="article-overlay-item">
+                            <figure class="article-overlay-item">
 
-                                    <img width="144" height="95" src="http://i3.ytimg.com/vi/@(imgThumb.Link)/maxresdefault.jpg">
-                                </figure>
-                                <div class="caption">
-                                    @imgThumb.Title
-                                </div>
-                            </a>
-                        </div>
-                    </div>*@
-
-                <div class="cate-item">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-                            <a title="@imgThumb.Title">
-                                <figure class="article-overlay-item">
-                                    <img width="144" height="95" src="http://i3.ytimg.com/vi/@(imgThumb.Link)/maxresdefault.jpg">
-                                    <div class="figcaption">
-                                        <div>Play</div>
-                                    </div>
-                                </figure>
-                            </a>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
-                            <span class="mt-8">
-                                <span class="text-upercase fs12 bg-red mr6 mr10">
-                                    <a title="@imgThumb.Title" target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ" class="whiteColor">Vnstyle Tv</a>
-                                </span>                                
-                            </span>
-                            <h3 class="fs16 roboto-bold mt0"><a title="@imgThumb.Title">@imgThumb.Title</a></h3>
-                           
-                        </div>
-                        <div class="clearfix"></div>
+                                <img width="144" height="95" src="http://i3.ytimg.com/vi/@(imgThumb.Link)/maxresdefault.jpg">
+                            </figure>
+                            <div class="caption">
+                                @imgThumb.Title
+                            </div>
+                        </a>
                     </div>
+                </div>*@
+
+            <div class="cate-item">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                        <a title="@imgThumb.Title">
+                            <figure class="article-overlay-item">
+                                <img width="144" height="95" src="http://i3.ytimg.com/vi/@(imgThumb.Link)/maxresdefault.jpg">
+                                <div class="figcaption">
+                                    <div>Play</div>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                        <span class="mt-8">
+                            <span class="text-upercase fs12 bg-red mr6 mr10">
+                                <a title="@imgThumb.Title" target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ" class="whiteColor">Vnstyle Tv</a>
+                            </span>
+                        </span>
+                        <h3 class="fs16 roboto-bold mt0"><a title="@imgThumb.Title">@imgThumb.Title</a></h3>
+
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-            }
             </div>
-            <div class="col-sm-4 col-md-4 hidden-xs" style="border-left: 4px solid #B9519F;">
-                @Html.Action("SideBar1", "Home")
-            </div>
-        </div>
+        }
     </div>
+
+</div>
+
