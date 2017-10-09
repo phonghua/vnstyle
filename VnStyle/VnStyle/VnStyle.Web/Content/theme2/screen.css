@@ -677,6 +677,7 @@ header .global-search-form {
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
+            margin-left:30px;
         }
 
             header .global-search-form .search-submit i:hover, header .global-search-form .form-toggle i:hover {
@@ -955,6 +956,7 @@ header.style-2 .large-container {
             visibility: visible;
             right: 20px;
             opacity: 1;
+            margin-right:auto;  
         }
 
         header.style-2 .large-container .global-search-form .search-input {

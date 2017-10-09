@@ -179,6 +179,8 @@ namespace VnStyle.Web.Controllers
             if (article == null) return NotFound();
             return View(article);
         }
+
+
         [ChildActionOnly]
         public ActionResult GetNewArticles(int page = 1)
         {
@@ -207,6 +209,11 @@ namespace VnStyle.Web.Controllers
                 PageSize = 5
             });
             return PartialView("VideoMore", model);
+        }
+        public ActionResult DetailMovie (int id)
+        {
+            if (id == null) NotFound();
+            return View();
         }
 
         #region "Partial"
@@ -312,7 +319,7 @@ namespace VnStyle.Web.Controllers
             return PartialView(articles);
         }
 
-
+        
 
 
 
