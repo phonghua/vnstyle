@@ -10,6 +10,7 @@ import { ArtistComponent } from './component/artist/artist.component';
 import { ArtistsComponent } from './component/artists/artists.component';
 import { VideosComponent } from './component/videos/videos.component';
 import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
+import { UsersComponent } from './component/users/users.component';
 
 export const routes: Route[] = [
   {
@@ -27,6 +28,7 @@ export const routes: Route[] = [
       { path: "artists", component: ArtistsComponent },
       { path: "artists/:id/:name", component: ArtistComponent },
       { path: "featured-articles", component: FeaturedArticleComponent },
+      { path: "users", component: UsersComponent },
 
 
 

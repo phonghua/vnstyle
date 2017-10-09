@@ -19,6 +19,7 @@ import { ArtistsComponent } from './component/artists/artists.component';
 import { ArtistComponent } from './component/artist/artist.component';
 import { VideosComponent } from './component/videos/videos.component';
 import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
+import { UsersComponent } from './component/users/users.component';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
@@ -66,7 +67,8 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     ArtistsComponent,
     ArtistComponent,
     VideosComponent,
-    FeaturedArticleComponent
+    FeaturedArticleComponent,
+    UsersComponent
   ],
   entryComponents: []
 })
