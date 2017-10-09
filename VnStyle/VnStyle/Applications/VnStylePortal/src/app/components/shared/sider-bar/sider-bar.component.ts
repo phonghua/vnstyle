@@ -41,8 +41,9 @@ export class SiderBarComponent implements OnInit {
       }
 
       const video = { text: "Video", url: '/cms/videos' };
-      const featuredArticle = { text: "Featured Articles", url: '/cms/featured-articles' }
-      menu = menu.concat(articleCategories).concat([video, featuredArticle]).concat(artistMenu);
+      const featuredArticle = { text: "Featured Articles", url: '/cms/featured-articles' };
+      const users = { text: "Users", url: '/cms/users' };
+      menu = menu.concat(articleCategories).concat([video, featuredArticle, users]).concat(artistMenu);
       return menu;
     }
 
