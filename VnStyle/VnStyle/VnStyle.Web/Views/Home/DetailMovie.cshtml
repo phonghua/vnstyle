@@ -1,4 +1,4 @@
-﻿
+﻿@model VnStyle.Services.Business.Models.VideoListingModel
 @{
     ViewBag.Title = "DetailMovie";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -12,13 +12,13 @@
                    <h2 class="video-title">Title</h2>
                </div>*@
                <div class="video-content">
-                   <iframe width="100%" height="430"  src="https://www.youtube.com/embed/XGSy3_Czz8k" frameborder="0" allowfullscreen></iframe>
-                   <span class="video-title">Xỏ khuyên cá tính: Không thể đùa! Xỏ khuyên cá tính: Không thể đùa! Xỏ khuyên cá tính: Không thể đùa!</span>
+                   <iframe width="100%" height="430"  src="https://www.youtube.com/embed/@Model.Link" frameborder="0" allowfullscreen></iframe>
+                   <span class="video-title">@Model.Title</span>
                </div>
            </div>
            <div class="col-xs-12 col-sm-12 col-md-4">
                @* List video *@
-               @Html.Action("SideBar1", "Home")
+               @Html.Action("GetVideosRelated", "Home")
            </div>
        </div>
    </div>

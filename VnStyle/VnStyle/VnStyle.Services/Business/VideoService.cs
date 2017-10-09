@@ -17,9 +17,22 @@ namespace VnStyle.Services.Business
         {
             _movieRepository = movieRepository;
         }
+
+        public List<VideoListingModel> GetRelatedVideo()
+        {
+            var movies = _movieRepository.Table.OrderByDescending(p => p.Id).Select(p => new VideoListingModel { Id = p.Id, Link = p.Link, Title = p.Title }).Take(5).ToList();
+            return movies;
+        }
+
+        public VideoListingModel GetVideoById(int id)
+        {
+            var movie = _movieRepository.Table.Where(p => p.Id == id).Select(p => new VideoListingModel { Id = p.Id , Link = p.Link , Title = p.Title }).FirstOrDefault();
+            return movie;
+        }
+
         //public IList<VideoListingModel> GetVideoThumb()
         //{
-            
+
         //    return _movieRepository.Table.OrderByDescending(p => p.Id).Select(p => new VideoListingModel { Id = p.Id, Link = p.Link , Title = p.Title}).ToList();
         //}
 

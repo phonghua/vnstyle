@@ -12,5 +12,7 @@ namespace VnStyle.Services.Business
     public interface IVideoService
     {
         IPagedList<VideoListingModel> GetVideoThumb(PagingRequest request);
+        VideoListingModel GetVideoById(int id);
+        List<VideoListingModel> GetRelatedVideo();
     }
 }
