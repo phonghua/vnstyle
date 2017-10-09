@@ -481,6 +481,7 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Home\TestLayout.cshtml" />
     <Content Include="Views\Home\DetailMovie.cshtml" />
+    <Content Include="Views\Home\GetVideosRelated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

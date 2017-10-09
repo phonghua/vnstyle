@@ -210,14 +210,22 @@ namespace VnStyle.Web.Controllers
             });
             return PartialView("VideoMore", model);
         }
-        public ActionResult DetailMovie (int id)
+        public ActionResult DetailMovie (int id,string title="")
         {
-            
-            
-            return View();
+            var movie = _videoService.GetVideoById(id);            
+            return View(movie);
         }
 
         #region "Partial"
+
+        [ChildActionOnly]
+        public ActionResult GetVideosRelated()
+        {
+            
+            var videoThumb = _videoService.GetRelatedVideo();
+            //return PartialView(videoThumb);
+            return PartialView(videoThumb);
+        }
 
         [ChildActionOnly]
         public ActionResult GetVideos(int page = 1)

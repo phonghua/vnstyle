@@ -3070,7 +3070,7 @@ figure.article-overlay-item {
     display: inline-block;
     vertical-align: top;
     /*border: 5px solid #fff;*/
-    box-shadow: 0 0 5px #ddd;
+    /*box-shadow: 0 0 5px #ddd;*/
     margin: 1em;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
@@ -3401,4 +3401,10 @@ a {
 }
 .mega-artist-name:hover {
     color:black;
+}
+
+/*Video style*/
+
+.video-title{
+    font-size:17px;
 }

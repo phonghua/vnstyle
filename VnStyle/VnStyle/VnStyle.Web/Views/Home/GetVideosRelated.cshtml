@@ -1,0 +1,30 @@
+﻿@model List<VnStyle.Services.Business.Models.VideoListingModel>
+@{
+    ViewBag.Title = "GetVideosRelated";
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+@using VnStyle.Web.Infrastructure.Helpers;
+@using Ricky.Infrastructure.Core;
+<div id="article-section-2" class="article-overlay article-section-2">
+    @foreach (var video in Model)
+    {
+        <div class="media">
+            <div class="media-left media-middle">
+                <a title="@video.Title" href="@Url.HostAction("DetailMovie","Home",new { id = video.Id, title = CommonHelper.FriendlyUrl(video.Title) })">
+                    <figure class="article-overlay-item">                        
+                        <img src="http://i3.ytimg.com/vi/@(video.Link)/maxresdefault.jpg" alt="Thumb" width="144" height="96" />
+                    </figure>
+
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a title="@video.Title" href="@Url.HostAction("DetailMovie", "Home", new {id = video.Title, title = CommonHelper.FriendlyUrl(video.Title)})">@video.Title</a>
+                </h4>
+            </div>
+        </div>
+    }
+
+</div>

@@ -109,6 +109,14 @@ namespace VnStyle.Web
 
             #endregion
 
+            #region "Video"
+            routes.MapRoute(
+              name: "Video",
+              url: "video/{title}-{id}",
+              defaults: new { controller = "Home", action = "DetailMovie", lang = "vi" }
+            );
+            #endregion
+
             #region "Article"
             routes.MapRoute(
                 name: "Article_Language",
@@ -122,10 +130,11 @@ namespace VnStyle.Web
                 url: "{title}-{id}",
                 defaults: new { controller = "Home", action = "Detail", lang = "vi" }
             );
+           
 
             #endregion
 
-            
+
 
             #region "Default"
             routes.MapRoute(
