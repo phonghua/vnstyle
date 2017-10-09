@@ -41,6 +41,9 @@ namespace VnStyle.Services.Migrations
                 Secret = "67b4b438cc37427792a2b1521f10cba4",
                 RefreshTokenLifeTime = 1
             });
+
+            context.AspNetRoles.AddOrUpdate(p=> new {p.Name}, new AspNetRole {Name = "admin"});
+
             context.SaveChanges();
         }
     }

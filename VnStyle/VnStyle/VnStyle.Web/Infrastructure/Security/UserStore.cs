@@ -54,7 +54,23 @@ namespace VnStyle.Web.Infrastructure.Security
         public Task UpdateAsync(TUser user)
         {
             if (user == null) throw new ArgumentNullException("user");
-            _userService.UpdateUser(user);
+            var userEntity = _userService.GetUserById(user.Id);
+            if (userEntity != null)
+            {
+                //userEntity.Email = user.Email;
+                //userEntity.EmailConfirmed = user.EmailConfirmed;
+                //userEntity.PasswordHash = user.PasswordHash;
+                //userEntity.SecurityStamp = user.SecurityStamp;
+                //userEntity.PhoneNumber = user.PhoneNumber;
+                //userEntity.PhoneNumberConfirmed = user.PhoneNumberConfirmed;
+                //userEntity.TwoFactorEnabled = user.TwoFactorEnabled;
+                //userEntity.LockoutEndDate = user.LockoutEndDate;
+                //userEntity.LockoutEnabled = user.LockoutEnabled;
+                //userEntity.AccessFailedCount = user.AccessFailedCount;
+
+                //_userService.UpdateUser(userEntity);
+            }
+
             return Task.FromResult<object>(null);
         }
 
@@ -211,8 +227,13 @@ namespace VnStyle.Web.Infrastructure.Security
         public Task SetPasswordHashAsync(TUser user, string passwordHash)
         {
             if (user == null) throw new ArgumentNullException("user");
-            user.PasswordHash = passwordHash;
-            if (user.Id > 0) _userService.UpdateUser(user);
+
+            if (user.Id > 0)
+            {
+                var userEntity = _userService.GetUserById(user.Id);
+                userEntity.PasswordHash = passwordHash;
+                _userService.UpdateUser(userEntity);
+            }
             return Task.FromResult<object>(null);
         }
 
@@ -231,8 +252,13 @@ namespace VnStyle.Web.Infrastructure.Security
         public Task SetSecurityStampAsync(TUser user, string stamp)
         {
             if (user == null) throw new ArgumentNullException("user");
-            user.SecurityStamp = stamp;
-            if (user.Id > 0) _userService.UpdateUser(user);
+            //user.SecurityStamp = stamp;
+            if (user.Id > 0)
+            {
+                var userEntity = _userService.GetUserById(user.Id);
+                userEntity.SecurityStamp = stamp;
+                _userService.UpdateUser(userEntity);
+            }
             return Task.FromResult<object>(null);
         }
 

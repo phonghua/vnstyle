@@ -13,6 +13,7 @@ import { GeneralService } from './general.service';
 import { GalleryService } from './gallery.service';
 import { ArtistService } from './artist.service';
 import { VideosService } from './videos.service';
+import { UsersService } from './users.service';
 
 export const SHARED_SERVICES = [
   ShopService,
@@ -29,7 +30,8 @@ export const SHARED_SERVICES = [
   GeneralService,
   GalleryService,
   ArtistService,
-  VideosService
+  VideosService,
+  UsersService
 ];
 
 export * from "./shop.service";
@@ -47,3 +49,4 @@ export * from "./general.service";
 export * from "./gallery.service";
 export * from "./artist.service";
 export * from "./videos.service";
+export * from "./users.service";

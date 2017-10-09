@@ -88,6 +88,7 @@ namespace VnStyle.Services.Data
             {
                 changedProes = new string[] { };
             }
+
             _dbSet.Attach(entity);
             if (changedProes.Any())
             {
@@ -127,7 +128,7 @@ namespace VnStyle.Services.Data
             }
         }
 
-        
+
 
         public virtual async Task<int> DeleteRangeAsync(Expression<Func<TEntity, bool>> predicate)
         {
@@ -167,7 +168,7 @@ namespace VnStyle.Services.Data
             return filter == null ? Table.AsNoTracking().Any() : Table.AsNoTracking().Any(filter);
         }
 
-        
+
         public virtual void RefreshEntity(TEntity entityToReload)
         {
             _dbContext.Entry(entityToReload).Reload();
