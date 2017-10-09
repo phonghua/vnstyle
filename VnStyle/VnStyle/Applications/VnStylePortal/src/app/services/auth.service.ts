@@ -88,7 +88,7 @@ export class AuthService {
 
   startSignoutMainWindow() {
     localStorage.removeItem("rickoauthtoken");
-    this.router.navigate(["/"]);
+    this.router.navigate(["/auth/login"]);
   }
 
 
@@ -100,10 +100,6 @@ export class AuthService {
     return this.http.post(settings.authority, body, { headers: headers })
       .map(res => {
         var data = res.json();
-        // this.currentUser.profile.name = data.userName;
-        // this.currentUser.access_token = data.access_token;
-        // this.currentUser.token_type = data.token_type;
-
         this.loggedInEvent.emit(data);
       })
       .catch(err => {
