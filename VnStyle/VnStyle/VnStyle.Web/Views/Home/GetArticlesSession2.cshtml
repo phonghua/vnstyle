@@ -1,7 +1,7 @@
 ﻿@model IList<VnStyle.Services.Business.Models.ArticleListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
 @using Ricky.Infrastructure.Core;
-<div id="article-section-2" class="article-overlay article-section-2">
+<div id="article-section-2" class="article-overlay article-section-2" data-sticky-container>
     @foreach (var article in Model)
     {
         <div class="media">
@@ -22,5 +22,9 @@
     }
 
 </div>
-
+<script src="~/Content/js/sticky.min.js"></script>
+<script>
+    var sticky = new Sticky('#article-section-2');
+    sticky.destroy();
+</script>
 

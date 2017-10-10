@@ -1,8 +1,7 @@
 ﻿
 @model IEnumerable<VnStyle.Services.Business.Models.ArtistListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
-
-
+@using Ricky.Infrastructure.Core;
 
 <section >
     @*<div id="owl-artists" >
@@ -24,7 +23,7 @@
     <div class="owl-carousel owl-theme">
         @foreach (var artist in Model)
         {
-            <a href="@Url.HostAction("Images","Home",new { id = artist.Id })">
+            <a href="@Url.HostAction("Images","Home",new { id = artist.Id , name = CommonHelper.FriendlyUrl(artist.Name) })">
                 <div class="mc-content">
                     <div class="img-container">
                         <img class="img-responsive" src="@artist.UrlImage" style="height:500px;">

@@ -34,7 +34,7 @@ namespace VnStyle.Web
             #region "Image"
             routes.MapRoute(
                 name: "Image_Language",
-                url: "{lang}/images",
+                url: "{lang}/images/{name}-{id}",
                 defaults: new { controller = "Home", action = "Images", id = UrlParameter.Optional },
                 constraints: new { lang = @"en" }
             );

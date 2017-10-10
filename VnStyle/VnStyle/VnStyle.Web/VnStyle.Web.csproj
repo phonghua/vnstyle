@@ -307,6 +307,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\baguetteBox.css" />
     <Content Include="Content\css\bootstrap-flex.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\ef542.css" />
     <Content Include="Content\css\fb.css" />
     <Content Include="Content\css\fluid-gallery.css" />
@@ -341,10 +342,15 @@
     <Content Include="Content\images\singer-with-a-guitar-s-380x260.jpg" />
     <Content Include="Content\images\uv-portrait-380x260.jpg" />
     <Content Include="Content\js\baguetteBox.js" />
+    <Content Include="Content\js\flickity.js" />
     <Content Include="Content\js\highlight.min.js" />
+    <Content Include="Content\js\imagesloaded.js" />
+    <Content Include="Content\js\isotope.js" />
     <Content Include="Content\js\jquery-1.12.4.min.js" />
     <Content Include="Content\js\jquery.gotop.js" />
+    <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery_library2.js" />
+    <Content Include="Content\js\options.js" />
     <Content Include="Content\js\owl.carousel.js" />
     <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -382,6 +388,7 @@
     <Content Include="Content\js\devicepx-jetpack.js" />
     <Content Include="Content\js\e-201720.js" />
     <Content Include="Content\js\gprofiles.js" />
+    <Content Include="Content\js\owl.js" />
     <Content Include="Content\js\retina.js" />
     <Content Include="Content\js\sdk.js" />
     <Content Include="Content\js\sticky.compile.js" />

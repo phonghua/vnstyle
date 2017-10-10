@@ -23,17 +23,20 @@
     @RenderSection("metaTags", false)
     <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="~/Content/theme2/screen.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <link href="@Url.HostContent("~/Content/css/bootstrap.min.css")" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">*@
+
+    <link href="@Url.HostContent("~/Content/css/font-awesome.min.css")" rel="stylesheet" />
+    <script src="@Url.HostContent("~/Scripts/jquery-1.10.2.min.js")"></script>
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+    <link href="@Url.HostContent("~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.carousel.min.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Scripts/libs/OwlCarousel2-2.2.1/assets/owl.theme.default.min.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/theme2/screen.css")" rel="stylesheet" />
     <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
-    <link href="~/Content/css/images.css" rel="stylesheet" />
-    <link href="~/Content/css/hovercard.css" rel="stylesheet" />
-    <link href="~/Content/css/baguetteBox.css" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/images.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/hovercard.css")" rel="stylesheet" />
+    <link href="@Url.HostContent("~/Content/css/baguetteBox.css")" rel="stylesheet" />
 </head>
 <body id="front-page">
 
@@ -118,10 +121,21 @@
     <script src="http://teslathemes.com/demo/html/epilog/js/isotope.js"></script>
     <script src="http://teslathemes.com/demo/html/epilog/js/options.js"></script>
     <script src="~/Scripts/libs/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
-    <script src="~/Content/js/sticky.min.js"></script>
-    <script src="~/Content/js/sticky.compile.js"></script>    
-    <script src="~/Content/js/baguetteBox.js" async></script>
-    <script src="~/Content/js/highlight.min.js" async></script>
+
+
+    @*<script src="@Url.HostContent("~/Content/js/jquery.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/flickity.js")"></script>
+    <script src="http://teslathemes.com/demo/html/epilog/js/owl.js"></script>
+    <script src="@Url.HostContent("~/Content/js/owl.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/imagesloaded.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/isotope.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/options.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/owl.carousel.min.js")"></script>*@
+    
+    <script src="@Url.HostContent("~/Content/js/sticky.min.js")"></script>
+    <script src="@Url.HostContent("~/Content/js/sticky.compile.js")"></script>    
+    <script src="@Url.HostContent("~/Content/js/baguetteBox.js")" async></script>
+    <script src="@Url.HostContent("~/Content/js/highlight.min.js")" async></script>
 
     @RenderSection("bottom", false)
 </body>
