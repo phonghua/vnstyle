@@ -31,8 +31,23 @@ namespace VnStyle.Web
                 defaults: new { controller = "Home", action = "Intro", id = UrlParameter.Optional, lang = "vi" }
             );
             #endregion
+            #region "Image"
+            routes.MapRoute(
+                name: "Image_Language",
+                url: "{lang}/images",
+                defaults: new { controller = "Home", action = "Images", id = UrlParameter.Optional },
+                constraints: new { lang = @"en" }
+            );
 
-            
+            routes.MapRoute(
+                name: "Image",
+                url: "hinh-anh/{name}-{id}",
+                defaults: new { controller = "Home", action = "Images", lang = "vi" }
+            );
+            #endregion
+
+
+
 
             #region "Tattoo"
             routes.MapRoute(

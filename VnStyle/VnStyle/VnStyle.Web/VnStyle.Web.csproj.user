@@ -14,7 +14,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
-    <NameOfLastUsedPublishProfile>Deploy web vnstyle</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>Publish to File System</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
