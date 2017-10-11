@@ -40,7 +40,7 @@
                                 <a title="@imgThumb.Title" target="_blank" href="https://www.youtube.com/channel/UCfazwxHB6usZ4FOa2-LFaBQ" class="whiteColor">Vnstyle Tv</a>
                             </span>
                         </span>
-                        <h3 class="fs16 roboto-bold mt0"><a @Url.HostAction("DetailMovie","Home",new { id = imgThumb.Id, title = CommonHelper.FriendlyUrl(imgThumb.Title) }) title="@imgThumb.Title">@imgThumb.Title</a></h3>
+                        <h3 class="fs16 roboto-bold mt0"><a href="@Url.HostAction("DetailMovie","Home",new { id = imgThumb.Id, title = CommonHelper.FriendlyUrl(imgThumb.Title) })" title="@imgThumb.Title">@imgThumb.Title</a></h3>
 
                     </div>
                     <div class="clearfix"></div>

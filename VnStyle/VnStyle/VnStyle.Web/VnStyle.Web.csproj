@@ -336,6 +336,7 @@
     <Content Include="Content\images\fashion-blonde-380x260.jpg" />
     <Content Include="Content\images\flag\en.png" />
     <Content Include="Content\images\flag\vi.png" />
+    <Content Include="Content\images\list-icon.jpg" />
     <Content Include="Content\images\logo-2.png" />
     <Content Include="Content\images\no-image.png" />
     <Content Include="Content\images\rock-playing-concert-380x520.jpg" />

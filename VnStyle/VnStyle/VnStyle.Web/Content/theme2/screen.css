@@ -3395,6 +3395,7 @@ a {
 .mega-menu-image{
     background-color: #fff;
     width: 1140px;
+    height:390px;
     margin-left: -543px;
     padding:0;
 }
@@ -3410,3 +3411,6 @@ a {
 .video-title{
     font-size:17px;
 }
+
+
+/*Update font*/

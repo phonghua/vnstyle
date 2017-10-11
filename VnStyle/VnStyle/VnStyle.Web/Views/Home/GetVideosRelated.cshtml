@@ -23,8 +23,9 @@
             </div>
             <div class="media-body">
                 <h4 class="media-heading">
-                    <a title="@video.Title" href="@Url.HostAction("DetailMovie", "Home", new {id = video.Title, title = CommonHelper.FriendlyUrl(video.Title)})">@video.Title</a>
-                </h4>
+                    @*<a title="@video.Title" href="@Url.HostAction("DetailMovie", "Home", new {id = video.Title, title = CommonHelper.FriendlyUrl(video.Title)})">@video.Title</a>*@
+                    <a title="@video.Title" href="@Url.HostAction("DetailMovie","Home",new { id = video.Id, title = CommonHelper.FriendlyUrl(video.Title) })">@video.Title</a>
+</h4>
             </div>
         </div>
     }

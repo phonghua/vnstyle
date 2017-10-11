@@ -45,8 +45,22 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12">
+
+            <div class="row-breadcrumb ">
+                <ol itemscope="" class="breadcrumb text-upercase fs15 roboto-bold">
+                    <li itemprop="itemListElement">
+                        <h1>
+                            <a itemprop="item" class="bg-red text-upercase"><span itemprop="name"><i class="fa fa-play"> Clip hot </i></span></a>
+
+                        </h1>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                 @Html.Action("GetVideos", "Home")
+            </div>
+            <div class="col-md-4 col-lg-4 hidden-xs hidden-sm " style="border-left: 1px solid #B9519F; margin-top:19px">
+                @Html.Action("SideBar1", "Home")
             </div>
         </div>
     </div>
