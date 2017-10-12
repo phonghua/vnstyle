@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { isDevMode } from "@angular/core";
 
 @Injectable()
 export class SettingsService {
+  private _portal = "http://localhost:56847/";
 
-  private _portal = 'http://localhost:56847/';
-
-  
   public get portal() {
     return this._portal;
   }
-  
-  
+
   constructor() {
     var w = <any>window;
-    if (w.bootstrapSettings) {
-      this._portal = w.bootstrapSettings.portal;
+    console.log("isDevMode()", isDevMode());
+    if (isDevMode()) {
+      this._portal = "http://localhost:56847/";
+    } else {
+      this._portal = "http://vnstyletattoo.vn/";
     }
   }
 }
