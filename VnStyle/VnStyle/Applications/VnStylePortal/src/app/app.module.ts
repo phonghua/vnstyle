@@ -50,6 +50,7 @@ import { MainLayoutModule } from './containers/main-layout-container/main-layout
 import { SHARED_SERVICES } from './services/';
 import { SpinnerDirective } from './directives/spinner.directive';
 import { BlockUIModule } from 'ng-block-ui';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { BlockUIModule } from 'ng-block-ui';
     FormSummaryErrorComponent,
     SpinnerComponent,
     DecimalEditorComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

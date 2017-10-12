@@ -66,7 +66,12 @@ namespace VnStyle.Web.Controllers.Api
         public HttpResponseMessage CreateUser(UserModel user)
         {
             var userEntity = UserManager.FindByName(user.Email);
-            if (userEntity == null) UserManager.Create(new ApplicationUser { Email = user.Email, UserName = user.Email, EmailConfirmed = true }, user.Password);
+            if (userEntity == null)
+            {
+                UserManager.Create(new ApplicationUser { Email = user.Email, UserName = user.Email, EmailConfirmed = true }, user.Password);
+                userEntity = UserManager.FindByName(user.Email);
+                UserManager.AddPasswordAsync(userEntity.Id, user.Password).Wait();
+            }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
