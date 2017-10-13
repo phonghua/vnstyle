@@ -101,8 +101,13 @@ namespace VnStyle.Web.Controllers.Api
         [HttpPut]
         public HttpResponseMessage ChangePassword(ChangePassword model)
         {
-            UserManager.ChangePassword(_workContext.CurrentUserId, model.CurrentPassword, model.NewPassword);
-            return Request.CreateResponse(HttpStatusCode.OK);
+            var result = UserManager.ChangePassword(_workContext.CurrentUserId, model.CurrentPassword, model.NewPassword);
+            if (result.Succeeded)
+                return Request.CreateResponse(HttpStatusCode.OK);
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, result.Errors);
+            }
         }
     }
 }
