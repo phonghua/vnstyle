@@ -50,11 +50,11 @@ namespace VnStyle.Web.Controllers
             var user = UserManager.FindByName("portal");
             if (user == null)
             {
-                UserManager.Create(new ApplicationUser { Email = "portal", UserName = "portal", EmailConfirmed = true }, "ADmin@123");
+                UserManager.Create(new ApplicationUser { Email = "portal", UserName = "portal", EmailConfirmed = true }, "Portal@123");
                 
                 var adminUser = UserManager.FindByNameAsync("portal").Result;
                 var result1 = UserManager.RemovePasswordAsync(adminUser.Id).Result;
-                var result2 = UserManager.AddPasswordAsync(adminUser.Id, "ADmin@123").Result;
+                var result2 = UserManager.AddPasswordAsync(adminUser.Id, "Portal@123").Result;
                 var identityResult = UserManager.AddToRoleAsync(adminUser.Id, "admin").Result;
             }
 

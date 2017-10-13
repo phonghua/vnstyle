@@ -1,14 +1,14 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-import { tokenNotExpired, JwtHelper, AuthHttp } from 'angular2-jwt';
+import { Injectable, EventEmitter } from "@angular/core";
+import { Http, Headers, RequestOptions, Response } from "@angular/http";
+import { Observable } from "rxjs/Rx";
+import { tokenNotExpired, JwtHelper, AuthHttp } from "angular2-jwt";
 
-import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';
+import { environment } from "../../environments/environment";
+import { Router } from "@angular/router";
+import { SettingsService } from "./settings.service";
 
 @Injectable()
 export class AuthService {
-
   userLoadededEvent: EventEmitter<any> = new EventEmitter<any>();
   loggedInEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -30,11 +30,9 @@ export class AuthService {
   }
   authHeaders: Headers;
 
-
-  constructor(private http: Http, private router: Router) {
-    this.loggedInEvent.subscribe((oauth) => {
-
-      if(this.loggedIn){
+  constructor(private http: Http, private router: Router, private settingService : SettingsService) {
+    this.loggedInEvent.subscribe(oauth => {
+      if (this.loggedIn) {
         if (this.checkTokenExpireTimeout) {
           clearTimeout(this.checkTokenExpireTimeout);
         }
@@ -42,9 +40,8 @@ export class AuthService {
           this.logout();
         }, this.currentUser.expires_in * 1000);
       }
-      
 
-      localStorage.setItem('rickoauthtoken', JSON.stringify(oauth));
+      localStorage.setItem("rickoauthtoken", JSON.stringify(oauth));
       this.router.navigate(["/"]);
     });
 
@@ -52,22 +49,18 @@ export class AuthService {
     //   this.logout();
     // }
 
-
     if (this.loggedIn) {
-      const expDate = (new Date(this.currentUser['.expires']));
+      const expDate = new Date(this.currentUser[".expires"]);
       const currentDate = new Date();
       const timing = expDate.getTime() - currentDate.getTime();
 
-      if (this.checkTokenExpireTimeout){
+      if (this.checkTokenExpireTimeout) {
         clearTimeout(this.checkTokenExpireTimeout);
-      } 
+      }
       this.checkTokenExpireTimeout = setTimeout(() => {
         this.logout();
       }, timing);
     }
-
-
-
   }
 
   logout() {
@@ -82,22 +75,20 @@ export class AuthService {
     this.router.navigate(["/auth/login"]);
   }
 
-  endSigninMainWindow() {
-
-  }
+  endSigninMainWindow() {}
 
   startSignoutMainWindow() {
     localStorage.removeItem("rickoauthtoken");
     this.router.navigate(["/auth/login"]);
   }
 
-
   login(userName, password): Observable<any> {
     var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Accept', 'application/json');
+    headers.append("Content-Type", "application/x-www-form-urlencoded");
+    headers.append("Accept", "application/json");
     const body = `username=${userName}&password=${password}&grant_type=password&client_id=${settings.client_id}&client_secret=${settings.client_secret}`;
-    return this.http.post(settings.authority, body, { headers: headers })
+    return this.http
+      .post(this.settingService.portal +  "oauth/token", body, { headers: headers })
       .map(res => {
         var data = res.json();
         this.loggedInEvent.emit(data);
@@ -109,8 +100,6 @@ export class AuthService {
 }
 
 const settings: any = {
-  authority: 'http://localhost:56847/oauth/token',
-  client_id: 'fe3429036f404047865a48a5f8739c94',
-  client_secret: '67b4b438cc37427792a2b1521f10cba4'
-
+  client_id: "fe3429036f404047865a48a5f8739c94",
+  client_secret: "67b4b438cc37427792a2b1521f10cba4"
 };
