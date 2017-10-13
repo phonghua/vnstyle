@@ -14,7 +14,9 @@ using VnStyle.Services.Data.Domain.Memberships;
 using VnStyle.Web.Controllers.Api.Models;
 using VnStyle.Web.Infrastructure.Security;
 using Microsoft.AspNet.Identity.Owin;
+using Ricky.Infrastructure.Core;
 using VnStyle.Services.Business;
+using VnStyle.Web.Infrastructure;
 
 namespace VnStyle.Web.Controllers.Api
 {
@@ -22,6 +24,7 @@ namespace VnStyle.Web.Controllers.Api
     public class UsersController : BaseController
     {
         private readonly IBaseRepository<AspNetUser> _userRepository;
+        private readonly IWorkContext _workContext;
 
         public UserManager<ApplicationUser, int> UserManager { get; private set; }
         private IAuthenticationManager AuthenticationManager
@@ -47,6 +50,7 @@ namespace VnStyle.Web.Controllers.Api
             _userRepository = EngineContext.Current.Resolve<IBaseRepository<AspNetUser>>();
             var userService = EngineContext.Current.Resolve<IUserService>();
             UserManager = new UserManager<ApplicationUser, int>(new UserStore<ApplicationUser>(userService));
+            _workContext = EngineContext.Current.Resolve<IWorkContext>();
         }
 
         [Route("")]
@@ -89,6 +93,15 @@ namespace VnStyle.Web.Controllers.Api
         {
             await UserManager.RemovePasswordAsync(id);
             await UserManager.AddPasswordAsync(id, model.Password);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+
+        [Route("change-password")]
+        [HttpPut]
+        public HttpResponseMessage ChangePassword(ChangePassword model)
+        {
+            UserManager.ChangePassword(_workContext.CurrentUserId, model.CurrentPassword, model.NewPassword);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
     }

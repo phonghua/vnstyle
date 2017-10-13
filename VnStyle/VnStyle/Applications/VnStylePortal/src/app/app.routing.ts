@@ -12,6 +12,7 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { LoginComponent } from "./components/login/login.component";
 import { LogoutComponent } from "./components/logout/logout.component";
 
+
 import { AuthLayoutComponent } from "./containers/auth-layout-container/auth-layout-container.component";
 import { MainLayoutContainerComponent } from "./containers/main-layout-container/main-layout-container.component";
 
@@ -47,7 +48,7 @@ const routes: Routes = [
       },
       {
         path: "logout",
-        component : LogoutComponent
+        component: LogoutComponent
       }
       //{ path: 'forgot-password', loadChildren: './+forgot-password/forgot-password.module#ForgotPasswordModule' }
     ]
