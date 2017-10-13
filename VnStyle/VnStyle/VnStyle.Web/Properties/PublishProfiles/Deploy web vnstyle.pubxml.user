@@ -277,7 +277,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2017 17:49:19</publishTime>
     </File>
     <File Include="bin/VnStyle.Web.dll">
-      <publishTime>10/11/2017 23:38:53</publishTime>
+      <publishTime>10/12/2017 14:54:32</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>
