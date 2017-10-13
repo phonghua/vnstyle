@@ -22,7 +22,7 @@
     <title>@appSetting.ApplicationName | @ViewBag.Title</title>
     @RenderSection("metaTags", false)
     <link href="@Url.HostContent("~/Content/css/fluid-gallery.css")" rel="stylesheet" />
-    
+
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
     <link href="@Url.HostContent("~/Content/css/bootstrap.min.css")" rel="stylesheet" />
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">*@
@@ -114,30 +114,32 @@
 
 
     <!-- Scripts -->
-    <script src="http://teslathemes.com/demo/html/epilog/js/jquery.js"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/flickity.js"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/owl.js"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/imagesloaded.js"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/isotope.js"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/options.js"></script>
+    <script src="~/Content/js/jquery.js"></script>
+    <script src="~/Content/js/flickity.js"></script>
+    <script src="~/Content/js/imagesloaded.js"></script>
+    <script src="~/Content/js/isotope.js"></script>
+    <script src="~/Content/js/options.js"></script>
+
     <script src="~/Scripts/libs/OwlCarousel2-2.2.1/owl.carousel.min.js"></script>
 
 
-    @*<script src="@Url.HostContent("~/Content/js/jquery.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/flickity.js")"></script>
-    <script src="http://teslathemes.com/demo/html/epilog/js/owl.js"></script>
-    <script src="@Url.HostContent("~/Content/js/owl.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/imagesloaded.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/isotope.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/options.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/owl.carousel.min.js")"></script>*@
-    
     <script src="@Url.HostContent("~/Content/js/sticky.min.js")"></script>
-    <script src="@Url.HostContent("~/Content/js/sticky.compile.js")"></script>    
+    <script src="@Url.HostContent("~/Content/js/sticky.compile.js")"></script>
     <script src="@Url.HostContent("~/Content/js/baguetteBox.js")" async></script>
     <script src="@Url.HostContent("~/Content/js/highlight.min.js")" async></script>
 
     @RenderSection("bottom", false)
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107693820-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-107693820-1');
+    </script>
+
 </body>
 
 

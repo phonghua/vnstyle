@@ -19,8 +19,8 @@
             <div class="gallery">
                 @foreach (var img in Model)
                 {
-                    <a href="@img.UrlImage" data-caption="Hình xăm của tác giả @img.Name">
-                        <img src="@img.UrlImage" title="@img.Name" style="width:100%;padding: 7px 0;"/>                       
+                    <a href="@Url.HostContent(img.UrlImage)" data-caption="Hình xăm của tác giả @img.Name">
+                        <img src="@Url.HostContent(img.UrlImage)" title="@img.Name" style="width:100%;padding: 7px 0;"/>                       
                     </a>
                 }
 

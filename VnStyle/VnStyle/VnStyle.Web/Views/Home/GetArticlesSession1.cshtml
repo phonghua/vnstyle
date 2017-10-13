@@ -14,7 +14,7 @@
                         
                         <figure class="article-overlay-item">
                             @*<img src="@(article.UrlImage + "?h=180")" alt="Thumb" width="144" height="96" />*@
-                            <img src="@(article.UrlImage + "?h=320")" width="144" height="96" alt="@article.HeadLine" title="@article.HeadLine">
+                            <img src="@(Url.HostContent(article.UrlImage) + "?h=320")" width="144" height="96" alt="@article.HeadLine" title="@article.HeadLine">
                         </figure>
                         <div class="caption">
                             @article.HeadLine
