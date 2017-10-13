@@ -47,6 +47,7 @@ namespace VnStyle.Web.Controllers
             _artistsService = EngineContext.Current.Resolve<IArtistsService>();
             _videoService = EngineContext.Current.Resolve<IVideoService>();
             _mediaService = EngineContext.Current.Resolve<IMediaService>();
+
         }
 
 
@@ -100,7 +101,7 @@ namespace VnStyle.Web.Controllers
         {
             return View();
         }
-        
+
         public ActionResult Result(string search = "", int page = 1)
         {
             ViewBag.Key = search;
@@ -210,9 +211,9 @@ namespace VnStyle.Web.Controllers
             });
             return PartialView("VideoMore", model);
         }
-        public ActionResult DetailMovie (int id,string title="")
+        public ActionResult DetailMovie(int id, string title = "")
         {
-            var movie = _videoService.GetVideoById(id);            
+            var movie = _videoService.GetVideoById(id);
             return View(movie);
         }
 
@@ -221,7 +222,7 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult GetVideosRelated()
         {
-            
+
             var videoThumb = _videoService.GetRelatedVideo();
             //return PartialView(videoThumb);
             return PartialView(videoThumb);
@@ -328,7 +329,7 @@ namespace VnStyle.Web.Controllers
             return PartialView(articles);
         }
 
-        
+
 
 
 

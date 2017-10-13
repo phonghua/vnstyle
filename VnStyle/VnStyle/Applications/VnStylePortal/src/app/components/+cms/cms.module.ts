@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { FroalaEditorModule, FroalaViewModule } from "angular-froala-wysiwyg";
 
-
 import { CmsComponent } from "./cms.component";
 import { ArticlesComponent } from "./component/articles/articles.component";
 import { ArticleNewComponent } from "./component/article-new/article-new.component";
@@ -13,25 +12,24 @@ import { ComposeArticleComponent } from "./component/shared/compose-article/comp
 import { ComposeArticleLanguageComponent } from "./component/shared/compose-article-language/compose-article-language.component";
 import { SeoMetaComponent } from "./component/shared/seo-meta/seo-meta.component";
 import { CategoriesComponent } from "./component/categories/categories.component";
-import { GalleryPhotoComponent } from './component/gallery-photo/gallery-photo.component';
-import { GalleryPhotoNewComponent } from './component/gallery-photo-new/gallery-photo-new.component';
-import { ArtistsComponent } from './component/artists/artists.component';
-import { ArtistComponent } from './component/artist/artist.component';
-import { VideosComponent } from './component/videos/videos.component';
-import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
-import { UsersComponent } from './component/users/users.component';
+import { GalleryPhotoComponent } from "./component/gallery-photo/gallery-photo.component";
+import { GalleryPhotoNewComponent } from "./component/gallery-photo-new/gallery-photo-new.component";
+import { ArtistsComponent } from "./component/artists/artists.component";
+import { ArtistComponent } from "./component/artist/artist.component";
+import { VideosComponent } from "./component/videos/videos.component";
+import { FeaturedArticleComponent } from "./component/featured-article/featured-article.component";
+import { UsersComponent } from "./component/users/users.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdatePipe } from "./../../pipes/adate.pipe";
-import { PictureFormControlComponent } from '../../components/shared/picture-form-control/picture-form-control.component';
-import { RIcheckComponent } from '../../components/shared/r-icheck/r-icheck.component';
+import { PictureFormControlComponent } from "../../components/shared/picture-form-control/picture-form-control.component";
+import { RIcheckComponent } from "../../components/shared/r-icheck/r-icheck.component";
 
-import { ConfirmModalComponent } from '../../components/shared/confirm-modal/confirm-modal.component';
-import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
-import { Typeahead } from './../shared/typehead/typehead.component';
-import { TreeviewComponent } from './../shared/treeview/treeview.component';
-
-
+import { ConfirmModalComponent } from "../../components/shared/confirm-modal/confirm-modal.component";
+import { Ng2Bs3ModalModule } from "ng2-bs3-modal/ng2-bs3-modal";
+import { Typeahead } from "./../shared/typehead/typehead.component";
+import { TreeviewComponent } from "./../shared/treeview/treeview.component";
+import { ChangePasswordComponent } from "./component/change-password/change-password.component";
 
 @NgModule({
   imports: [
@@ -45,7 +43,6 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     Ng2Bs3ModalModule
-
   ],
   declarations: [
     CmsComponent,
@@ -68,8 +65,9 @@ import { TreeviewComponent } from './../shared/treeview/treeview.component';
     ArtistComponent,
     VideosComponent,
     FeaturedArticleComponent,
-    UsersComponent
+    UsersComponent,
+    ChangePasswordComponent
   ],
   entryComponents: []
 })
-export class CmsModule { }
+export class CmsModule {}

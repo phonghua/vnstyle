@@ -35,4 +35,10 @@ export class UsersService {
     return this.httpService.delete(this.settingService.portal + `api/users/${id}`)
     .catch(err => Observable.throw(err));
   }
+
+  changePassword(model){
+    return this.httpService.put(this.settingService.portal + 'api/users/change-password', model)
+    .catch(err => Observable.throw(err.json()));
+  }
+
 }

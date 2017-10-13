@@ -257,6 +257,7 @@
     <Compile Include="Controllers\Api\MediaController.cs" />
     <Compile Include="Controllers\Api\Models\ArticleLanguageModelView.cs" />
     <Compile Include="Controllers\Api\Models\ArticleModelView.cs" />
+    <Compile Include="Controllers\Api\Models\ChangePassword.cs" />
     <Compile Include="Controllers\Api\Models\ImageModelView.cs" />
     <Compile Include="Controllers\Api\Models\ResetPassword.cs" />
     <Compile Include="Controllers\Api\Models\UploadPhotoModelView.cs" />

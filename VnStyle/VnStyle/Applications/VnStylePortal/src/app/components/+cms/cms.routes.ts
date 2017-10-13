@@ -11,6 +11,7 @@ import { ArtistsComponent } from './component/artists/artists.component';
 import { VideosComponent } from './component/videos/videos.component';
 import { FeaturedArticleComponent } from './component/featured-article/featured-article.component';
 import { UsersComponent } from './component/users/users.component';
+import {ChangePasswordComponent} from './component/change-password/change-password.component';
 
 export const routes: Route[] = [
   {
@@ -29,6 +30,8 @@ export const routes: Route[] = [
       { path: "artists/:id/:name", component: ArtistComponent },
       { path: "featured-articles", component: FeaturedArticleComponent },
       { path: "users", component: UsersComponent },
+      { path: "change-password", component: ChangePasswordComponent },
+      
 
 
 
