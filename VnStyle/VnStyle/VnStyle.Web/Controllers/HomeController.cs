@@ -275,15 +275,13 @@ namespace VnStyle.Web.Controllers
         [ChildActionOnly]
         public ActionResult GetArticlesSession1()
         {
-            var flag = true;
-            var model = _articleService.GetSession(flag);
+            var model = _articleService.GetSession(1);
             return PartialView(model);
         }
         [ChildActionOnly]
         public ActionResult GetArticlesSession2()
         {
-            var flag = false;
-            var model = _articleService.GetSession(flag);
+            var model = _articleService.GetSession(2);
             return PartialView(model);
         }
 

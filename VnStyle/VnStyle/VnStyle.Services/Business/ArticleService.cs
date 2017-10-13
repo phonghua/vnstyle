@@ -232,12 +232,12 @@ namespace VnStyle.Services.Business
             return new PagedList<ArticleListingModel>(pagedArticles, request.PageIndex, request.PageSize, total);
         }
 
-        public IList<ArticleListingModel> GetSession(bool flag) // request == true => get session1 
+        public IList<ArticleListingModel> GetSession(int section) // request == true => get session1 
         {
             var currentLanguage = _workContext.CurrentLanguage;
 
             var defaultLanguage = _resourceService.DefaultLanguageId();
-            if (flag == true)
+            if (section == 1)
             {
 
                 var query = (from al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage)
@@ -271,7 +271,7 @@ namespace VnStyle.Services.Business
             else
             {
                 var query = (from al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage)
-                             join a in _articleRepository.Table.Where(p => p.Section1 == true && p.IsActive == true && p.IsShowHomepage == true) on al.ArticleId equals a.Id
+                             join a in _articleRepository.Table.Where(p => p.Section2 == true && p.IsActive == true && p.IsShowHomepage == true) on al.ArticleId equals a.Id
                              select new ArticleListingModel { Id = a.Id, ImageId = a.FeatureImageId, HeadLine = al.HeadLine, Extract = al.Extract, PushlishDate = a.PublishDate });
                 if (query == null && currentLanguage == defaultLanguage)
                 {
