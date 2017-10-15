@@ -35,7 +35,7 @@
                {
                     <div class="col-xs-12 col-sm-4 col-md-4">
                         <div class="article-overlay">
-                            <a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })">
+                            <a href="@Url.HostAction("Detail","Home",new { id = relatedArticles.Id, title = CommonHelper.FriendlyUrl(relatedArticles.HeadLine) })" title="@relatedArticles.HeadLine">
 
                                 <figure class="article-overlay-item">
                                     @*<img src="@(article.UrlImage + "?h=180")" alt="Thumb" width="144" height="96" />*@

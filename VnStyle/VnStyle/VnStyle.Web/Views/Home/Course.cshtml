@@ -31,7 +31,7 @@
 
 
                                 <figure class="article-overlay-item">
-                                    <img src="@article.UrlImage?h=267" alt="Thumb" width="267" height="178">
+                                    <img src="@Url.HostContent(article.UrlImage)?h=267" alt="Thumb" width="267" height="178">
                                     <div class="figcaption"><div>XEM BÀI VIẾT</div></div>
                                 </figure>
 
@@ -40,10 +40,10 @@
                         <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                             <span class="mt-8">
                                 <span class="text-upercase fs12 bg-red mr6 mr10">
-                                    <a title="Trẻ" href="/c/tin-tre-7.html" class="whiteColor">@Html.T("RootCate_Course")</a>
+                                    <a title="Trẻ" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })" class="whiteColor">@Html.T("RootCate_Course")</a>
                                 </span>
                                 <span class="right fs12 red">
-                                    @article.PushlishDate<a target="_blank" title="Share Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.yan.vn/dep-ngay-ngat-nhung-hinh-xam-chan-nguc-cho-nang-pha-cach-126269.html"><i class="glyphicon glyphicon-share-alt grey"></i></a>
+                                    @article.PushlishDate
                                 </span>
                             </span>
                             <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>

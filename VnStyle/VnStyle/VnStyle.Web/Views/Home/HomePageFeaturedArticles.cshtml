@@ -22,5 +22,34 @@
         <div class="col-xs-12 col-sm-5 col-md-5 " style="padding: 0">
             @Html.Action("HomePageLastFeaturedArticles")
         </div>
+<<<<<<< HEAD
+=======
+        <div class="clear"></div>
+
+    </div>*@  
+    @*<div class="col-xs-7 col-sm-7 col-md-7">     
+        <img class="img-fluid" src="@Model.UrlImage" alt="">
+    </div>
+
+          
+    <div class="col-xs-5 col-sm-5 col-md-5 " >
+        @Html.Action("HomePageLastFeaturedArticles")
+    </div>*@
+@*}*@
+<div class="row row-featured">
+    <div class="col-xs-12 col-sm-7 col-md-7" style="padding: 0;">
+        <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })" title="@Model.HeadLine">
+            
+            <img class="w3-hover-shadow"src="@Model.UrlImage" alt="@Model.HeadLine">
+            <div class="w3-xlarge w3-display-bottomleft w3-padding">
+                <div class="span-pushlish"><span>@Model.PushlishDate</span></div>
+                <div class="span-title"><span>@Model.HeadLine</span></div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-5 col-md-5 " style="padding: 0">
+        @Html.Action("HomePageLastFeaturedArticles")
+
+>>>>>>> 21ee6b45402cd80a7d594270a0bb7b1adf33f628
     </div>
 }

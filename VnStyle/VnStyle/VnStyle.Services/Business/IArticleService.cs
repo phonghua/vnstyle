@@ -12,7 +12,7 @@ namespace VnStyle.Services.Business
         ArticleDetailModel GetArticleIntro();
         ArticleDetailModel GetArticleById(int id);
         IPagedList<ArticleListingModel> GetNewArticles(GetArticlesRequest request);
-        IList<ArticleListingModel> GetSession(bool flag); // request == true => get session1 
+        IList<ArticleListingModel> GetSession(int section); // request == true => get session1 
         FeaturedDetailModel GetFirstHomePageFeaturedArticles();
         IEnumerable<ArticleListingModel> GetLastHomePageFeaturedArticles();
         
