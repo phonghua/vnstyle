@@ -1,14 +1,17 @@
 ﻿
 @model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.VideoListingModel>
 @using VnStyle.Web.Infrastructure.Helpers;
+@if (Model != null)
+{
 
-
-<div>
-    @Html.Partial("NewVideoList", Model)
-    <div style="margin: 20px 0 50px 0">
-        <button type="button" id="more-video" class="btn btn-default btn-lg btn-block btn-load-more-article"><i class="fa fa-circle-o-notch"></i>&nbsp;LOAD MORE</button>
+    <div>
+        @Html.Partial("NewVideoList", Model)
+        <div style="margin: 20px 0 50px 0">
+            <button type="button" id="more-video" class="btn btn-default btn-lg btn-block btn-load-more-article"><i class="fa fa-circle-o-notch"></i>&nbsp;LOAD MORE</button>
+        </div>
     </div>
-</div>
+}
+
     @*<div class="nlg-col-wrap nlg-col-2">
         <div class="col-xs-12 col-sm-12 col-md-8">
           

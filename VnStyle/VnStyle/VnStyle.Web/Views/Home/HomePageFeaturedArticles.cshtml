@@ -9,9 +9,10 @@
 
 @if (Model != null)
 {
-    <div class="row row-featured">
+    <div class="row row-featured hidden-xs hidden-sm">
         <div class="col-xs-12 col-sm-7 col-md-7" style="padding: 0;">
-            <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">
+            <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })" title="@Model.HeadLine">
+
                 <img class="w3-hover-shadow" src="@Model.UrlImage" alt="@Model.HeadLine">
                 <div class="w3-xlarge w3-display-bottomleft w3-padding">
                     <div class="span-pushlish"><span>@Model.PushlishDate</span></div>
@@ -21,35 +22,38 @@
         </div>
         <div class="col-xs-12 col-sm-5 col-md-5 " style="padding: 0">
             @Html.Action("HomePageLastFeaturedArticles")
+
         </div>
-<<<<<<< HEAD
-=======
-        <div class="clear"></div>
-
-    </div>*@  
-    @*<div class="col-xs-7 col-sm-7 col-md-7">     
-        <img class="img-fluid" src="@Model.UrlImage" alt="">
     </div>
+    <div class="article-mobile hidden-md hidden-lg">
+        <div class="cate-item">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                    <a title="@Model.HeadLine" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">
 
-          
-    <div class="col-xs-5 col-sm-5 col-md-5 " >
-        @Html.Action("HomePageLastFeaturedArticles")
-    </div>*@
-@*}*@
-<div class="row row-featured">
-    <div class="col-xs-12 col-sm-7 col-md-7" style="padding: 0;">
-        <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })" title="@Model.HeadLine">
-            
-            <img class="w3-hover-shadow"src="@Model.UrlImage" alt="@Model.HeadLine">
-            <div class="w3-xlarge w3-display-bottomleft w3-padding">
-                <div class="span-pushlish"><span>@Model.PushlishDate</span></div>
-                <div class="span-title"><span>@Model.HeadLine</span></div>
+
+                        <figure class="article-overlay-item">
+                            <img src="@Model.UrlImage?h=320" alt="Thumb" width="267" height="178">
+                            <div class="figcaption"><div>XEM BÀI VIẾT</div></div>
+                        </figure>
+
+                    </a>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                   
+                    <h3 class="fs16 roboto-bold mt0"><a title="@Model.HeadLine" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })">@Model.HeadLine</a></h3>
+                    
+                </div>
+                <div class="clearfix"></div>
             </div>
-        </a>
-    </div>
-    <div class="col-xs-12 col-sm-5 col-md-5 " style="padding: 0">
-        @Html.Action("HomePageLastFeaturedArticles")
+        </div>
+        <div class="col-xs-12 col-sm-5 col-md-5 " style="padding: 0">
+            @Html.Action("HomePageLastFeaturedArticles")
 
->>>>>>> 21ee6b45402cd80a7d594270a0bb7b1adf33f628
+        </div>
     </div>
+   
 }
+
+
+
