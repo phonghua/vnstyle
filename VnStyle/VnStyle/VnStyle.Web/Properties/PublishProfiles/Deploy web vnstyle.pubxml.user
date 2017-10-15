@@ -274,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/VnStyle.Services.dll">
-      <publishTime>10/13/2017 22:56:47</publishTime>
+      <publishTime>10/15/2017 21:58:36</publishTime>
     </File>
     <File Include="bin/VnStyle.Web.dll">
-      <publishTime>10/15/2017 10:46:26</publishTime>
+      <publishTime>10/15/2017 23:18:04</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>
@@ -507,6 +507,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/js/be44a.js">
       <publishTime>08/27/2017 12:12:35</publishTime>
     </File>
+    <File Include="Content/js/bootstrap.min.js">
+      <publishTime>10/10/2017 15:06:53</publishTime>
+    </File>
     <File Include="Content/js/c2d81.js">
       <publishTime>08/27/2017 12:12:35</publishTime>
     </File>
@@ -676,7 +679,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2017 12:40:20</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>10/10/2017 15:19:24</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Auth/Login.cshtml">
       <publishTime>08/27/2017 12:12:35</publishTime>
@@ -688,13 +691,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2017 17:00:08</publishTime>
     </File>
     <File Include="Views/Home/ArticleViewer.cshtml">
-      <publishTime>10/06/2017 10:29:30</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>09/26/2017 15:35:03</publishTime>
     </File>
     <File Include="Views/Home/Course.cshtml">
-      <publishTime>10/08/2017 23:18:51</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
       <publishTime>10/08/2017 11:25:00</publishTime>
@@ -706,25 +709,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/13/2017 23:02:38</publishTime>
     </File>
     <File Include="Views/Home/Events.cshtml">
-      <publishTime>10/06/2017 12:38:30</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/Footer.cshtml">
       <publishTime>10/15/2017 20:31:19</publishTime>
     </File>
     <File Include="Views/Home/GetAllArtist.cshtml">
-      <publishTime>10/10/2017 13:34:29</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/GetArticlesSession1.cshtml">
-      <publishTime>10/10/2017 16:14:32</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/GetArticlesSession2.cshtml">
-      <publishTime>10/11/2017 13:47:08</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/GetArtistInMenu.cshtml">
-      <publishTime>10/10/2017 13:11:17</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/GetImageArtistInMenu.cshtml">
-      <publishTime>10/13/2017 23:10:39</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/GetNewArticles.cshtml">
       <publishTime>10/05/2017 16:07:43</publishTime>
@@ -733,19 +736,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2017 14:11:12</publishTime>
     </File>
     <File Include="Views/Home/GetVideosRelated.cshtml">
-      <publishTime>10/11/2017 11:57:28</publishTime>
+      <publishTime>10/15/2017 22:08:08</publishTime>
     </File>
     <File Include="Views/Home/HomePageFeaturedArticles.cshtml">
-      <publishTime>10/15/2017 10:48:12</publishTime>
+      <publishTime>10/15/2017 22:30:37</publishTime>
     </File>
     <File Include="Views/Home/HomePageLastFeaturedArticles.cshtml">
-      <publishTime>10/06/2017 16:21:45</publishTime>
+      <publishTime>10/15/2017 22:30:35</publishTime>
     </File>
     <File Include="Views/Home/Images.cshtml">
-      <publishTime>10/09/2017 22:40:36</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/11/2017 17:38:30</publishTime>
+      <publishTime>10/15/2017 22:34:37</publishTime>
     </File>
     <File Include="Views/Home/Intro.cshtml">
       <publishTime>10/06/2017 13:00:31</publishTime>
@@ -754,16 +757,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/15/2017 10:41:08</publishTime>
     </File>
     <File Include="Views/Home/NewArticleList.cshtml">
-      <publishTime>10/09/2017 20:22:39</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/NewVideoList.cshtml">
       <publishTime>10/15/2017 10:20:44</publishTime>
     </File>
     <File Include="Views/Home/Piercing.cshtml">
-      <publishTime>10/08/2017 12:02:02</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/Result.cshtml">
-      <publishTime>10/08/2017 11:25:00</publishTime>
+      <publishTime>10/15/2017 20:37:47</publishTime>
     </File>
     <File Include="Views/Home/SideBar1.cshtml">
       <publishTime>10/05/2017 16:07:43</publishTime>
@@ -793,7 +796,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/04/2017 17:21:19</publishTime>
     </File>
     <File Include="Views/Shared/_Layout2.cshtml">
-      <publishTime>10/13/2017 23:18:35</publishTime>
+      <publishTime>10/15/2017 22:05:33</publishTime>
     </File>
     <File Include="Views/Shared/_NotFound.cshtml">
       <publishTime>09/11/2017 11:31:54</publishTime>
