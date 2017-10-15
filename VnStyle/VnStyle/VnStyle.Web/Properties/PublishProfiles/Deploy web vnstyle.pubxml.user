@@ -187,10 +187,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2012 12:19:34</publishTime>
     </File>
     <File Include="bin/Ricky.Infrastructure.Core.dll">
-      <publishTime>10/11/2017 17:49:18</publishTime>
+      <publishTime>10/13/2017 22:56:46</publishTime>
     </File>
     <File Include="bin/Ricky.Infrastructure.Core.ObjectContainer.Autofac.dll">
-      <publishTime>10/11/2017 17:49:19</publishTime>
+      <publishTime>10/13/2017 22:56:47</publishTime>
     </File>
     <File Include="bin/ServiceStack.Common.dll">
       <publishTime>08/27/2017 12:12:35</publishTime>
@@ -274,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/VnStyle.Services.dll">
-      <publishTime>10/11/2017 17:49:19</publishTime>
+      <publishTime>10/13/2017 22:56:47</publishTime>
     </File>
     <File Include="bin/VnStyle.Web.dll">
-      <publishTime>10/12/2017 14:54:32</publishTime>
+      <publishTime>10/15/2017 10:46:26</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>
@@ -580,7 +580,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2017 08:13:05</publishTime>
     </File>
     <File Include="Content/theme2/screen.css">
-      <publishTime>10/11/2017 17:48:19</publishTime>
+      <publishTime>10/15/2017 20:32:24</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>08/26/2017 12:40:20</publishTime>
@@ -700,16 +700,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/08/2017 11:25:00</publishTime>
     </File>
     <File Include="Views/Home/DetailMovie.cshtml">
-      <publishTime>10/11/2017 14:45:26</publishTime>
+      <publishTime>10/13/2017 23:02:38</publishTime>
     </File>
     <File Include="Views/Home/DetailMovie.cshtml">
-      <publishTime>10/11/2017 14:45:26</publishTime>
+      <publishTime>10/13/2017 23:02:38</publishTime>
     </File>
     <File Include="Views/Home/Events.cshtml">
       <publishTime>10/06/2017 12:38:30</publishTime>
     </File>
     <File Include="Views/Home/Footer.cshtml">
-      <publishTime>10/10/2017 14:11:29</publishTime>
+      <publishTime>10/15/2017 20:31:19</publishTime>
     </File>
     <File Include="Views/Home/GetAllArtist.cshtml">
       <publishTime>10/10/2017 13:34:29</publishTime>
@@ -724,7 +724,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/10/2017 13:11:17</publishTime>
     </File>
     <File Include="Views/Home/GetImageArtistInMenu.cshtml">
-      <publishTime>10/11/2017 17:46:41</publishTime>
+      <publishTime>10/13/2017 23:10:39</publishTime>
     </File>
     <File Include="Views/Home/GetNewArticles.cshtml">
       <publishTime>10/05/2017 16:07:43</publishTime>
@@ -736,7 +736,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2017 11:57:28</publishTime>
     </File>
     <File Include="Views/Home/HomePageFeaturedArticles.cshtml">
-      <publishTime>10/09/2017 16:30:47</publishTime>
+      <publishTime>10/15/2017 10:48:12</publishTime>
     </File>
     <File Include="Views/Home/HomePageLastFeaturedArticles.cshtml">
       <publishTime>10/06/2017 16:21:45</publishTime>
@@ -751,13 +751,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/06/2017 13:00:31</publishTime>
     </File>
     <File Include="Views/Home/Menu.cshtml">
-      <publishTime>10/08/2017 23:03:00</publishTime>
+      <publishTime>10/15/2017 10:41:08</publishTime>
     </File>
     <File Include="Views/Home/NewArticleList.cshtml">
       <publishTime>10/09/2017 20:22:39</publishTime>
     </File>
     <File Include="Views/Home/NewVideoList.cshtml">
-      <publishTime>10/11/2017 15:22:02</publishTime>
+      <publishTime>10/15/2017 10:20:44</publishTime>
     </File>
     <File Include="Views/Home/Piercing.cshtml">
       <publishTime>10/08/2017 12:02:02</publishTime>
@@ -793,7 +793,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/04/2017 17:21:19</publishTime>
     </File>
     <File Include="Views/Shared/_Layout2.cshtml">
-      <publishTime>10/10/2017 15:44:15</publishTime>
+      <publishTime>10/13/2017 23:18:35</publishTime>
     </File>
     <File Include="Views/Shared/_NotFound.cshtml">
       <publishTime>09/11/2017 11:31:54</publishTime>
@@ -805,7 +805,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2017 03:02:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/11/2017 23:38:55</publishTime>
+      <publishTime>10/15/2017 10:41:19</publishTime>
     </File>
   </ItemGroup>
 </Project>

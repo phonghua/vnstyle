@@ -319,6 +319,10 @@ namespace VnStyle.Web.Controllers
         public ActionResult HomePageFeaturedArticles()
         {
             var articles = _articleService.GetFirstHomePageFeaturedArticles();
+            if (articles == null)
+            {
+                NotFound();
+            }
             return PartialView(articles);
         }
 
