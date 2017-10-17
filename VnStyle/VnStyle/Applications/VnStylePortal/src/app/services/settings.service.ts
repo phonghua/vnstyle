@@ -9,6 +9,10 @@ export class SettingsService {
     return this._portal;
   }
 
+  public get froalaKey() {
+    return "TezfbntA-8nzhiqpF4wl==";
+  };
+
   constructor() {
     var w = <any>window;
     console.log("isDevMode()", isDevMode());

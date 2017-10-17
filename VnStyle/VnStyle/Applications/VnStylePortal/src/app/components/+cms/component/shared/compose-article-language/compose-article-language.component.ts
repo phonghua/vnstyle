@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-
+import { SettingsService } from '../../../../../services';
 
 @Component({
   selector: 'app-compose-article-language',
@@ -12,12 +12,14 @@ export class ComposeArticleLanguageComponent implements OnInit {
 
   public articleLanguageValue = {
     content: "",
-    headLine : null,
-    extract : null,
-    metaTag : null
+    headLine: null,
+    extract: null,
+    metaTag: null
   };
 
-  public editorOptions = {};
+  public editorOptions = {
+    key : ""
+  };
 
   @Input()
   public get articleLanguage() {
@@ -28,14 +30,16 @@ export class ComposeArticleLanguageComponent implements OnInit {
     this.articleLanguageValue = val;
   }
 
- 
 
-  constructor() { }
+
+  constructor(private settingService: SettingsService) {
+    this.editorOptions.key = this.settingService.froalaKey
+  }
 
   ngOnInit() {
   }
 
-  
+
 
 
 
