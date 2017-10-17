@@ -1035,6 +1035,7 @@ footer {
     overflow-y: hidden;
 }
 
+
     footer .copy-rights {
         position: relative;
         background: #fff;
@@ -1059,10 +1060,27 @@ footer {
                     color: #a69e8c;
                 }
 
+ .footer-phone{
+     color:white;
+ }
+ .footer-phone:hover{
+     color:white;
+ }
+ .social{
+     color:white;
+     margin:5px;
+     padding:5px;
+     border: 1px solid;
+ }
+ .footer-adress{
+     color:white;
+ }
+ 
 /* ----------------- 6.3. Sections ----------------- */
 .section-header {
     text-align: center;
     padding: 35px 0;
+
 }
 
     .section-header h2 {

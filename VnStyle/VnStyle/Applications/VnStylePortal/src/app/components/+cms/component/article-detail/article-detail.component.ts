@@ -87,7 +87,7 @@ export class ArticleDetailComponent implements OnInit {
     this.confirmModal.open();
     this.confirmModal.ok = () => {
       this.articleService.deleteArticle(this.article.id).subscribe(() => {
-        this.router.navigate(["cms", "articles"]);
+        this.router.navigate(["cms",this.rootCateId,this.cateName,"articles"]);
       });
     }
   }
