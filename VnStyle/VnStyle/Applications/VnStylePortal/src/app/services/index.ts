@@ -15,6 +15,7 @@ import { ArtistService } from './artist.service';
 import { VideosService } from './videos.service';
 import { UsersService } from './users.service';
 import { AuthService } from './auth.service';
+import { SettingsService } from './settings.service';
 
 export const SHARED_SERVICES = [
   ShopService,
@@ -33,7 +34,8 @@ export const SHARED_SERVICES = [
   ArtistService,
   VideosService,
   UsersService,
-  AuthService
+  AuthService,
+  SettingsService
 ];
 
 export * from "./shop.service";
@@ -53,3 +55,4 @@ export * from "./artist.service";
 export * from "./videos.service";
 export * from "./users.service";
 export * from "./auth.service";
+export * from "./settings.service";
