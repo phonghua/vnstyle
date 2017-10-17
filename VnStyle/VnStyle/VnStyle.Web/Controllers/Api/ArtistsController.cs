@@ -71,8 +71,8 @@ namespace VnStyle.Web.Controllers.Api
             return Ok(artist.Id);
         }
 
-        [Route("{id}")]
-        [HttpPut]
+        [Route("{id}/update")]
+        [HttpPost]
         public IHttpActionResult PutArtist(int id, Artist artist)
         {
             this._artistRepository.Update(p => p.Id == id, p => new Artist
@@ -86,16 +86,16 @@ namespace VnStyle.Web.Controllers.Api
             return Ok();
         }
 
-        [Route("{id}/photo/{photoId}")]
-        [HttpDelete]
+        [Route("{id}/photo/{photoId}/delete")]
+        [HttpPost]
         public IHttpActionResult DeletePhoto(int id, int photoId)
         {
             _galleryPhotoRepository.DeleteRange(p => p.ArtistId == id && p.FileId == photoId);
             return Ok();
         }
 
-        [Route("{id}")]
-        [HttpDelete]
+        [Route("{id}/delete")]
+        [HttpPost]
         public IHttpActionResult DeleteArtist(int id)
         {
             _artistRepository.DeleteRange(p => p.Id == id);

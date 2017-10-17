@@ -3,13 +3,13 @@
 @using Ricky.Infrastructure.Core;
 @foreach (var article in Model)
 { 
-    <div class="hidden-xs hidden-sm">
+    <div class="hidden-xs hidden-sm" style="margin-top:-1px">
         <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })" title="@article.HeadLine">
             <div class="row post1">
                 <div class="col-sm-12 col-md-12">
-                    <img class="img-fluid w3-hover-shadow" src="@Url.HostContent(article.UrlImage)" alt="">
+                    <img class="img-fluid w3-hover-shadow" src="@Url.HostContent(article.UrlImage)?h=209" width="314" style="height:221px" alt="">
                     <div class="w3-xlarge w3-display-bottomleft w3-padding">
-                        <div class="span-pushlish"><span>@article.PushlishDate</span></div>
+                        <div class="span-pushlish"><span>@DateTimeHelper.GetDateTimeText(article.PushlishDate)</span></div>
                         <div class="span-title"><span>@article.HeadLine</span></div>
                     </div>
                 </div>
@@ -19,18 +19,16 @@
     <div class="hidden-md hidden-lg">
         <div class="cate-item">
             <div class="row">
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-8 col-xs-12">
                     <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">
 
-
                         <figure class="article-overlay-item">
-                            <img src="@article.UrlImage?h=320" alt="Thumb" width="267" height="178">
-                            <div class="figcaption"><div>XEM BÀI VIẾT</div></div>
+                            <img src="@article.UrlImage?h=320" alt="Thumb" width="267" height="178">                           
                         </figure>
 
                     </a>
                 </div>
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-4 col-xs-12">
                     
                     <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
 

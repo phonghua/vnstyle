@@ -204,7 +204,8 @@ namespace VnStyle.Services.Business
                                     ImageId = a.FeatureImageId,
                                     HeadLine = al.HeadLine,
                                     Extract = al.Extract,
-                                    PushlishDate = a.PublishDate
+                                    PushlishDate = a.PublishDate,
+                                    CateId = a.RootCate
                                 });
             }
             var total = articleQuery.Count();

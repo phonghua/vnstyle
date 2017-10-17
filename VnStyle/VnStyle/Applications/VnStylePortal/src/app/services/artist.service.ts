@@ -22,13 +22,13 @@ export class ArtistService {
   }
 
   updateArtist(artistId, artist): Observable<any> {
-    return this.httpService.put(this.settingService.portal + `api/artists/${artistId}`, artist)
+    return this.httpService.post(this.settingService.portal + `api/artists/${artistId}/update`, artist)
       .catch(err => Observable.throw(err));
   }
 
 
   deleteArtist(artistId): Observable<any> {
-    return this.httpService.delete(this.settingService.portal + `api/artists/${artistId}`).catch(err => Observable.throw(err));
+    return this.httpService.post(this.settingService.portal + `api/artists/${artistId}/delete`).catch(err => Observable.throw(err));
   }
 
   getPhoto(artistId): Observable<any> {
@@ -38,7 +38,7 @@ export class ArtistService {
   }
 
   deletePhoto(artistId, photoId) : Observable<any>{
-    return this.httpService.delete(this.settingService.portal + `api/artists/${artistId}/photo/${photoId}`)
+    return this.httpService.post(this.settingService.portal + `api/artists/${artistId}/photo/${photoId}/delete`)
     .catch(err => Observable.throw(err));
   }
 }

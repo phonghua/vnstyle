@@ -9,13 +9,13 @@
 
 @if (Model != null)
 {
-    <div class="row row-featured hidden-xs hidden-sm">
+    <div class="row row-featured hidden-xs hidden-sm" style="margin-left:0px">
         <div class="col-xs-12 col-sm-7 col-md-7" style="padding: 0;">
             <a class="link-img" href="@Url.HostAction("Detail","Home",new { id = Model.Id, title = CommonHelper.FriendlyUrl(Model.HeadLine) })" title="@Model.HeadLine">
 
-                <img class="w3-hover-shadow" src="@Model.UrlImage" alt="@Model.HeadLine">
+                <img class="w3-hover-shadow" src="@Model.UrlImage" alt="@Model.HeadLine" style="height: 443px;width: 100%;">
                 <div class="w3-xlarge w3-display-bottomleft w3-padding">
-                    <div class="span-pushlish"><span>@Model.PushlishDate</span></div>
+                    <div class="span-pushlish"><span>@DateTimeHelper.GetDateTimeText(Model.PushlishDate)</span></div>
                     <div class="span-title"><span>@Model.HeadLine</span></div>
                 </div>
             </a>

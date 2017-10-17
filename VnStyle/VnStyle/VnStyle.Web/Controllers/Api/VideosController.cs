@@ -45,8 +45,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("")]
-        [HttpPut]
+        [Route("update")]
+        [HttpPost]
         public HttpResponseMessage PutVideo(Movie movie)
         {
             _movieRespository.Insert(movie);
@@ -54,8 +54,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}")]
-        [HttpDelete]
+        [Route("{id}/delete")]
+        [HttpPost]
         public HttpResponseMessage DeleteVideo(int id)
         {
             _movieRespository.DeleteRange(p => p.Id == id);

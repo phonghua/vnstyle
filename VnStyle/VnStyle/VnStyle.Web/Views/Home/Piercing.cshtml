@@ -1,6 +1,6 @@
 ﻿@model Ricky.Infrastructure.Core.IPagedList<VnStyle.Services.Business.Models.ArticleListingModel>
 @{
-    ViewBag.Title = "Courses";
+    ViewBag.Title = Html.T("RootCate_Piercing");
 }
 @using VnStyle.Web.Infrastructure.Helpers;
 
@@ -38,10 +38,10 @@
                         <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                             <span class="mt-8">
                                 <span class="text-upercase fs12 bg-red mr6 mr10">
-                                    <a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })" class="whiteColor">@Html.T("RootCate_Piercing")</a>
+                                    <a title="@Html.T("RootCate_Piecing")" href="@Url.HostAction("Piecing","Home")" class="whiteColor">@Html.T("RootCate_Piercing")</a>
                                 </span>
                                 <span class="right fs12 red">
-                                    @article.PushlishDate
+                                   @DateTimeHelper.GetDateTimeText(article.PushlishDate)
                                 </span>
                             </span>
                             <h3 class="fs16 roboto-bold mt0"><a title="@article.HeadLine" href="@Url.HostAction("Detail","Home",new { id = article.Id, title = CommonHelper.FriendlyUrl(article.HeadLine) })">@article.HeadLine</a></h3>
@@ -51,15 +51,11 @@
                     </div>
                 </div>
                 <hr />
-
             }
-
-
-
-
         </div>
         <div class="col-lg-4 col-md-4 hidden-xs hidden-sm">
             @Html.Action("SideBar1", "Home")
+            @Html.Action("SideBar2", "Home")
         </div>
 
     </div>

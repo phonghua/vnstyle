@@ -79,16 +79,16 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}")]
-        [HttpDelete]
+        [Route("{id}/delete")]
+        [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
             _userRepository.DeleteRange(p => p.Id == id);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}/reset-password")]
-        [HttpPut]
+        [Route("{id}/reset-password/update")]
+        [HttpPost]
         public async Task<HttpResponseMessage> ResetPassword(int id, ResetPassword model)
         {
             await UserManager.RemovePasswordAsync(id);
@@ -97,8 +97,8 @@ namespace VnStyle.Web.Controllers.Api
         }
 
 
-        [Route("change-password")]
-        [HttpPut]
+        [Route("change-password/update")]
+        [HttpPost]
         public HttpResponseMessage ChangePassword(ChangePassword model)
         {
             var result = UserManager.ChangePassword(_workContext.CurrentUserId, model.CurrentPassword, model.NewPassword);

@@ -23,7 +23,7 @@ export class ArticleService {
   }
 
   updateArticle(article): Observable<any> {
-    return this.httpService.put(this.settingService.portal + 'api/articles', article)
+    return this.httpService.post(this.settingService.portal + 'api/articles/update', article)
       .catch(err => Observable.throw(err));
   }
 
@@ -33,7 +33,7 @@ export class ArticleService {
   }
 
   deleteArticle(articleId): Observable<any> {
-    return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}`).catch(err => Observable.throw(err));
+    return this.httpService.post(this.settingService.portal + `api/articles/${articleId}/delete`).catch(err => Observable.throw(err));
   }
 
 
@@ -48,17 +48,17 @@ export class ArticleService {
   }
 
   addRelatedArticle(articleId, relatedArticleId): Observable<any> {
-    return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}/update`)
       .catch(err => Observable.throw(err));
   }
 
   deleteRelatedArticle(articleId, relatedArticleId): Observable<any> {
-    return this.httpService.delete(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId}/delete`)
       .catch(err => Observable.throw(err));
   }
 
   swapRelatedArticle(articleId, relatedArticleId1, relatedArticleId2){
-    return this.httpService.put(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId1}/swap/${relatedArticleId2}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/${articleId}/related/${relatedArticleId1}/swap/${relatedArticleId2}/update`)
     .catch(err => Observable.throw(err));
   }
 
@@ -69,17 +69,17 @@ export class ArticleService {
   }
 
   addFeaturedArticles(articleId): Observable<any> {
-    return this.httpService.put(this.settingService.portal + `api/articles/featured/${articleId}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/featured/${articleId}/update`)
     .catch(err => Observable.throw(err));
   }
 
   removeFeaturedArticles(articleId): Observable<any> {
-    return this.httpService.delete(this.settingService.portal + `api/articles/featured/${articleId}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/featured/${articleId}/delete`)
     .catch(err => Observable.throw(err));
   }
 
   swapFeatureArticle(articleId, articleId2){
-    return this.httpService.put(this.settingService.portal + `api/articles/featured/${articleId}/swap/${articleId2}`)
+    return this.httpService.post(this.settingService.portal + `api/articles/featured/${articleId}/swap/${articleId2}/update`)
       .catch(err => Observable.throw(err));
   }
 }

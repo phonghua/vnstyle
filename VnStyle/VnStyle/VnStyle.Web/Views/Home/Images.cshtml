@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<VnStyle.Services.Business.Models.ImagesByArtist>
 @using VnStyle.Web.Infrastructure.Helpers;
 @using Ricky.Infrastructure.Core;
-
+@{
+    ViewBag.Title = Html.T("RootCate_Image");
+}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-8">
         @*<div class="nlg-breadcrumb-wrap container">
@@ -30,6 +32,7 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4 hidden-xs hidden-sm">
         @Html.Action("SideBar1", "Home")
+        @Html.Action("SideBar2", "Home")
     </div>
 </div>
 <script>

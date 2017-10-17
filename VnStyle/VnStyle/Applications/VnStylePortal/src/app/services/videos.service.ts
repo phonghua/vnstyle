@@ -22,12 +22,12 @@ export class VideosService {
   }
 
   putVideo(video) : Observable<any>{
-    return this.httpService.put(this.settingService.portal + `api/videos`, video)
+    return this.httpService.post(this.settingService.portal + `api/videos/update`, video)
     .catch(err => Observable.throw(err));
   }
 
   deleteVideo(id) : Observable<any>{
-    return this.httpService.delete(this.settingService.portal + `api/videos/${id}`)
+    return this.httpService.post(this.settingService.portal + `api/videos/${id}/delete`)
     .catch(err => Observable.throw(err));
   }
 }

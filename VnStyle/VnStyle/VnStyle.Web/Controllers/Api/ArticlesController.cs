@@ -120,8 +120,8 @@ namespace VnStyle.Web.Controllers.Api
         }
 
 
-        [Route("")]
-        [HttpPut]
+        [Route("update")]
+        [HttpPost]
         public HttpResponseMessage Put(Article article)
         {
 
@@ -164,8 +164,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}")]
-        [HttpDelete]
+        [Route("{id}/delete")]
+        [HttpPost]
         public HttpResponseMessage Delete(int id)
         {
             _articleLanguageRepository.DeleteRange(p => p.ArticleId == id);
@@ -183,8 +183,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK, articles);
         }
 
-        [Route("{id}/related/{relatedArticleId}")]
-        [HttpPut]
+        [Route("{id}/related/{relatedArticleId}/update")]
+        [HttpPost]
         public HttpResponseMessage PutRelatedArticle(int id, int relatedArticleId)
         {
             var nextSeq = _relatedArticleRepository.Any(p => p.Article1Id == id) ? _relatedArticleRepository.Table.Where(p => p.Article1Id == id).Max(p => p.Seq) + 1 : 1;
@@ -193,8 +193,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}/related/{relatedArticleId}")]
-        [HttpDelete]
+        [Route("{id}/related/{relatedArticleId}/delete")]
+        [HttpPost]
         public HttpResponseMessage DeleteRelatedArticle(int id, int relatedArticleId)
         {
             _relatedArticleRepository.DeleteRange(p => p.Article1Id == id && p.Article2Id == relatedArticleId);
@@ -202,8 +202,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        [Route("{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}")]
-        [HttpPut]
+        [Route("{id}/related/{relatedArticleId1}/swap/{relatedArticleId2}/update")]
+        [HttpPost]
         public async Task<HttpResponseMessage> PutRelatedArticleSwap(int id, int relatedArticleId1, int relatedArticleId2)
         {
             var seq1 = await _relatedArticleRepository.Table.Where(p => p.Article1Id == id && p.Article2Id == relatedArticleId1).Select(p => p.Seq).FirstOrDefaultAsync();
@@ -217,8 +217,8 @@ namespace VnStyle.Web.Controllers.Api
         }
 
 
-        [Route("featured/{articleId}")]
-        [HttpPut]
+        [Route("featured/{articleId}/update")]
+        [HttpPost]
         public HttpResponseMessage PutHomePageFeaturedArticles(int articleId)
         {
             if (_featuredArticleRepository.Any(p => p.ArticleId == articleId))
@@ -230,8 +230,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 
-        [Route("featured/{articleId}")]
-        [HttpDelete]
+        [Route("featured/{articleId}/delete")]
+        [HttpPost]
         public HttpResponseMessage DeleteHomePageFeaturedArticles(int articleId)
         {
             _featuredArticleRepository.DeleteRange(p => p.ArticleId == articleId);
@@ -239,8 +239,8 @@ namespace VnStyle.Web.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.Created);
         }
 
-        [Route("featured/{articleId}/swap/{articleId2}")]
-        [HttpPut]
+        [Route("featured/{articleId}/swap/{articleId2}/update")]
+        [HttpPost]
         public HttpResponseMessage SwapHomePageFeaturedArticles(int articleId, int articleId2)
         {
             var seq1 = _featuredArticleRepository.Table.Where(p => p.ArticleId == articleId).Select(p => p.Seq).FirstOrDefault();

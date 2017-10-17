@@ -22,7 +22,7 @@ export class UsersService {
   }
 
   resetPassword(id, model): Observable<any> {
-    return this.httpService.put(this.settingService.portal + `api/users/${id}/reset-password`, model)
+    return this.httpService.post(this.settingService.portal + `api/users/${id}/reset-password/update`, model)
       .catch(err => Observable.throw(err));
   }
 
@@ -32,12 +32,12 @@ export class UsersService {
   // }
 
   deleteUser(id) : Observable<any>{
-    return this.httpService.delete(this.settingService.portal + `api/users/${id}`)
+    return this.httpService.post(this.settingService.portal + `api/users/${id}/delete`)
     .catch(err => Observable.throw(err));
   }
 
   changePassword(model){
-    return this.httpService.put(this.settingService.portal + 'api/users/change-password', model)
+    return this.httpService.post(this.settingService.portal + 'api/users/change-password/update', model)
     .catch(err => Observable.throw(err.json()));
   }
 
