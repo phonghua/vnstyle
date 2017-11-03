@@ -4,6 +4,8 @@
     {
         public const string ImageStoragePath = "contents/uploads/images";
         public const string VideoStoragePath = "contents/uploads/videos";
+        public const string EditorStoragePath = "contents/uploads/editor";
+
         public const int ImageSizeNoneResize = 0;
         public const int ImageSizeSmallSize = 320;
         public const int ImageSizeMediumSize = 480;

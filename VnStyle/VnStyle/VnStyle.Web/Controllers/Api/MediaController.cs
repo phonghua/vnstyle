@@ -15,6 +15,7 @@ using VnStyle.Services.Data.Domain;
 using VnStyle.Services.Data.Enum;
 using VnStyle.Web.Controllers.Api.Models;
 using VnStyle.Web.Infrastructure;
+using System.Net.Http.Headers;
 
 namespace VnStyle.Web.Controllers.Api
 {
@@ -71,6 +72,36 @@ namespace VnStyle.Web.Controllers.Api
             }
             JsonDataResult.Data = new { images = images };
             return this.CreateResponseMessage();
+        }
+
+        [HttpPost]
+        [Route("editor-upload")]
+        public HttpResponseMessage EditorUpload()
+        {
+            var currentHosting = _webHelper.GetStoreHost(_webHelper.IsCurrentConnectionSecured()).TrimEnd('/');
+
+            List<string> filePaths = new List<string>();
+            int fileCount = HttpContext.Current.Request.Files.Count;
+
+            for (int i = 0; i < fileCount; i++)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[i];
+                var originalName = Path.GetFileName(file.FileName);
+                if (!Directory.Exists(ApplicationSettings.EditorStoragePath))
+                {
+                    Directory.CreateDirectory(HttpContext.Current.Server.MapPath("~/" + ApplicationSettings.EditorStoragePath));
+                }
+                var fileName = Guid.NewGuid().ToString().ToLower().Replace("-", "");
+                var storeFileName = fileName + Path.GetExtension(originalName);
+                var filePath = ApplicationSettings.EditorStoragePath + "/" + storeFileName;
+                var data = StreamHelper.ReadToEnd(file.InputStream);
+                System.IO.File.WriteAllBytes(HttpContext.Current.Server.MapPath("~/" + filePath), data);
+                filePaths.Add(filePath);               
+            }
+            var response = new HttpResponseMessage();
+            response.Content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(new { link = filePaths.Select(p => currentHosting + "/" + p).FirstOrDefault() }));
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+            return response;
         }
 
 

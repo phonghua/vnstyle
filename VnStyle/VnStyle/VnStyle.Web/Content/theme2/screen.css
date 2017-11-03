@@ -20,6 +20,8 @@
 /* */
 /* */
 /* ----------------- 1. Base Styling ----------------- */
+
+
 * {
     margin: 0;
     border: 0;
@@ -131,7 +133,6 @@ a {
 .content-wrapper {
     padding: 20px 0 50px;
 }
-
 /* ----------------- 2. Wordpress Styles ----------------- */
 .alignleft {
     float: left;
@@ -179,7 +180,6 @@ img.size-full, img.size-large {
     color: #ffffff;
     font-weight: 400;
 }
-
 /* ----------------- 3. Tables ----------------- */
 /* ----------------- 4. Forms ----------------- */
 /* ----- Contact Form ----- */
@@ -320,7 +320,6 @@ img.size-full, img.size-large {
     margin: 0;
     max-width: 100%;
 }
-
 /* ----- Subscribe form ----- */
 .subscribe-form-wrapper {
     background: #e5e3dd;
@@ -394,7 +393,6 @@ img.size-full, img.size-large {
             .subscribe-form-wrapper.simple .form-input:focus, .subscribe-form-wrapper.simple .form-input.has-value {
                 border-color: #b3ad9e;
             }
-
 /* ----------------- 5. Buttons ----------------- */
 .btn {
     display: inline-block;
@@ -444,7 +442,6 @@ img.size-full, img.size-large {
 .btn-wrapper {
     text-align: center;
 }
-
 /* ----------------- 6. UI Components ----------------- */
 /* ----------------- 6.1. Header ----------------- */
 header .large-container {
@@ -677,7 +674,7 @@ header .global-search-form {
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
-            margin-left:30px;
+            margin-left: 30px;
         }
 
             header .global-search-form .search-submit i:hover, header .global-search-form .form-toggle i:hover {
@@ -799,12 +796,14 @@ header.sticky {
 
 header.style-1 .white-large-container, header.style-2 .white-large-container {
     text-align: center;
+    background-color: #463E3F;
 }
 
     header.style-1 .white-large-container .brand, header.style-2 .white-large-container .brand {
         width: auto;
         display: inline-block;
         padding: 0;
+        background-color: #463E3F;
     }
 
 header.style-2 .brand svg {
@@ -834,6 +833,7 @@ header.style-2 nav {
 
 header.style-2 .large-container {
     /*text-align: center;*/
+    background-color: deeppink;
 }
 
     header.style-2 .large-container.sticky {
@@ -956,7 +956,7 @@ header.style-2 .large-container {
             visibility: visible;
             right: 20px;
             opacity: 1;
-            margin-right:auto;  
+            margin-right: auto;
         }
 
         header.style-2 .large-container .global-search-form .search-input {
@@ -968,6 +968,7 @@ header.style-2 .large-container {
     header nav ul li a {
         color: #ffffff;
     }
+
     header nav ul li.current-menu-item a {
         color: #ffffff;
     }
@@ -1029,7 +1030,6 @@ header.style-2 .large-container {
         -ms-transform: translateX(0);
         transform: translateX(0);
     }
-
 /* ----------------- 6.2. Footer ----------------- */
 footer {
     overflow-y: hidden;
@@ -1060,27 +1060,28 @@ footer {
                     color: #a69e8c;
                 }
 
- .footer-phone{
-     color:white;
- }
- .footer-phone:hover{
-     color:white;
- }
- .social{
-     color:white;
-     margin:5px;
-     padding:5px;
-     border: 1px solid;
- }
- .footer-adress{
-     color:white;
- }
- 
+.footer-phone {
+    color: white;
+}
+
+    .footer-phone:hover {
+        color: white;
+    }
+
+.social {
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid;
+}
+
+.footer-adress {
+    color: white;
+}
 /* ----------------- 6.3. Sections ----------------- */
 .section-header {
     text-align: center;
     padding: 35px 0;
-
 }
 
     .section-header h2 {
@@ -1257,7 +1258,6 @@ footer {
 .section.error-section {
     min-height: 380px;
 }
-
 /* ----------------- 6.4. Components ----------------- */
 /* ----- Promo Boxes ----- */
 .categories-promo {
@@ -1306,7 +1306,6 @@ footer {
             left: 0;
             top: 0;
         }
-
 /* ----- Share Block ----- */
 .share-block {
     display: inline-block;
@@ -1470,7 +1469,6 @@ footer {
                     .share-block .share-options ul li i:hover {
                         color: #858075;
                     }
-
 /* ----- Social Block ----- */
 .social-block {
     list-style-type: none;
@@ -1517,7 +1515,6 @@ footer {
                 -ms-transform: rotate(-45deg);
                 transform: rotate(-45deg);
             }
-
 /* ----- Blog Posts ----- */
 /* ----- Blogposts ----- */
 .blog-post {
@@ -1773,7 +1770,6 @@ footer {
         margin: 15px 0 0;
     }
 }
-
 /* ----- Single Blogpost ----- */
 .single-post {
     margin: 0 0 35px;
@@ -1939,7 +1935,6 @@ footer {
     font-size: 12px;
     color: #232323;
 }
-
 /* ----- Pagination ----- */
 ul.page-numbers {
     list-style-type: none;
@@ -2009,7 +2004,6 @@ ul.page-numbers {
         ul.page-numbers li:last-of-type {
             margin: 0;
         }
-
 /* ----- Main Slider ----- */
 /* ----- Flickity Styling ----- */
 .flickity-enabled {
@@ -2177,7 +2171,6 @@ ul.page-numbers {
     filter: alpha(opacity=100);
     opacity: 1;
 }
-
 /* ----- Main Slider ----- */
 .main-slider {
     margin: 0 0 20px;
@@ -2342,7 +2335,6 @@ ul.page-numbers {
         margin: 15px 0;
     }
 }
-
 /* ----- Sidebar & Widgets ----- */
 .sidebar .widget {
     margin: 0 0 50px;
@@ -2780,7 +2772,6 @@ ul.page-numbers {
             left: 0;
             top: 0;
         }
-
 /* ----- Comments Area ----- */
 .comments-area h4 {
     color: #232323;
@@ -2890,7 +2881,6 @@ ul.page-numbers {
         padding: 0 0 0 25px;
     }
 }
-
 /* ----- Archive Box ----- */
 .archive-box {
     font-family: "Playfair Display", serif;
@@ -2917,7 +2907,6 @@ ul.page-numbers {
             font-style: italic;
             letter-spacing: 0.07em;
         }
-
 /* ----- Back to Top Button ----- */
 .back-to-top-btn {
     -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -2988,6 +2977,7 @@ ul.page-numbers {
     display: block;
     background-color: #191919;
     color: #c4c4c4;
+    background-color: yellow;
 }
 
     .top-bar .top-left-menu {
@@ -3012,7 +3002,7 @@ ul.page-numbers {
         }
 
             .top-bar .top-bar-menu > li a {
-                color: #c4c4c4;
+                color: #000;
                 display: inline-block;
                 padding: 0 12px;
                 height: 40px;
@@ -3158,25 +3148,26 @@ figure.article-overlay-item:hover img {
     transform: scale3d(1.2, 1.2, 1);
 }
 
-.article-section-2{
-    margin-top:10px;
-}
-.article-section-2 img.media-object {
-    max-width: initial;
-    width: 144px;
+.article-section-2 {
+    margin-top: 10px;
 }
 
-.article-section-2 figure.article-overlay-item {
-    width: 144px;
-    height: 96px;
-}
+    .article-section-2 img.media-object {
+        max-width: initial;
+        width: 144px;
+    }
+
+    .article-section-2 figure.article-overlay-item {
+        width: 144px;
+        height: 96px;
+    }
 
 
-.article-section-2 .media-heading a {
-    font-size: 13px;
-    font-weight: bold;
-    color: rgb(51, 51, 51);
-}
+    .article-section-2 .media-heading a {
+        font-size: 13px;
+        font-weight: bold;
+        color: rgb(51, 51, 51);
+    }
 
 
 
@@ -3232,8 +3223,6 @@ figure.article-overlay-item:hover img {
 .bg-red:hover {
     color: #fff;
 }
-
-
 /*Article css*/
 .w100 {
     width: 295px;
@@ -3306,7 +3295,6 @@ a {
 
 .w3-card-4, .w3-hover-shadow:hover {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
-    
 }
 
 .w3-xlarge {
@@ -3353,85 +3341,92 @@ a {
 /*w3-hover-shadow:hover{
     color:transparent;
 }*/
-.link-img:hover{
-    color:#fff;
+.link-img:hover {
+    color: #fff;
 }
-.span-pushlish{
-    font-size:12px;
+
+.span-pushlish {
+    font-size: 12px;
 }
-.span-title{
-    font-size:17px;
+
+.span-title {
+    font-size: 17px;
 }
-.nlg-logo-img{
-        float: left;
+
+.nlg-logo-img {
+    float: left;
     margin-bottom: -40px;
     max-width: 65%;
 }
-
-
 /*Footer style*/
-.bg-4 { 
-      background-color: #000; /* Black Gray */
-      color: #fff;
-  }
+.bg-4 {
+    background-color: #000; /* Black Gray */
+    color: #fff;
+}
+
 .container-fluid {
     padding-top: 50px;
-    padding-bottom: 50px
-}
-.breadcrumb-footer{
-
-}
-.itemListElement{
-    list-style-type:none;
+    padding-bottom: 50px;
 }
 
-
-.footer-menu{
-    font-size: 15px;
-    font-weight:bold;
+.breadcrumb-footer {
 }
-#menu-footer-menu-1{
+
+.itemListElement {
     list-style-type: none;
 }
-.footer-menu-item{
-        border-bottom: 1px solid #282828;
+
+
+.footer-menu {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#menu-footer-menu-1 {
+    list-style-type: none;
+}
+
+.footer-menu-item {
+    border-bottom: 1px solid #282828;
     line-height: 2.8 !important;
     font-size: 11px;
     color: #A0A0A0;
 }
+
 .footer-menu-item-text {
-    color:#A0A0A0;
+    color: #A0A0A0;
 }
-.footer-sidebar{
-    margin-top:-21px;
+
+.footer-sidebar {
+    margin-top: -21px;
     text-transform: uppercase;
 }
 
-.social-fb{
-    float:right;
+.social-fb {
+    float: right;
 }
-.mega-menu-image{
+
+.mega-menu-image {
     background-color: #fff;
     width: 1140px;
-    height:390px;
+    height: 390px;
     margin-left: -543px;
-    padding:0;
+    padding: 0;
 }
-.mega-artist{
-    background-color: #F7F7F7
+
+.mega-artist {
+    background-color: #F7F7F7;
 }
+
 .mega-artist-name:hover {
-    color:black;
+    color: black;
 }
-
 /*Video style*/
-
-.video-title{
-    font-size:17px;
+.video-title {
+    font-size: 17px;
 }
-
-
 /*Update font*/
-.image-artist{
-    padding:0;
+.image-artist {
+    padding: 0;
 }
+

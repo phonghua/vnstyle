@@ -351,7 +351,8 @@ namespace VnStyle.Services.Business
             var featuredLang = (from hp in _homePageFeaturedArticleRepository.Table
                             join a in _articleRepository.Table on hp.ArticleId equals a.Id
                             join al in _articleLanguageRepository.Table.Where(p => p.LanguageId == currentLanguage) on a.Id equals al.ArticleId
-                            select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderBy(p => p.Id).Skip(1).Take(2).ToList();
+                            select new ArticleListingModel { Id = hp.ArticleId, HeadLine = al.HeadLine, ImageId = a.FeatureImageId, PushlishDate = a.PublishDate }).OrderByDescending(p => p.Id).Skip(1).Take(2).ToList();
+            
             if (!featuredLang.Any())
             {
                 featuredLang = (from hp in _homePageFeaturedArticleRepository.Table

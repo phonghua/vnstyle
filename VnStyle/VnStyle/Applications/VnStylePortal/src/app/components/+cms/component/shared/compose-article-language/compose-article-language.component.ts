@@ -1,14 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { SettingsService } from '../../../../../services';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
+import { SettingsService, AuthService } from "../../../../../services";
 
 @Component({
-  selector: 'app-compose-article-language',
-  templateUrl: './compose-article-language.component.html',
-  styleUrls: ['./compose-article-language.component.css']
+  selector: "app-compose-article-language",
+  templateUrl: "./compose-article-language.component.html",
+  styleUrls: ["./compose-article-language.component.css"]
 })
 export class ComposeArticleLanguageComponent implements OnInit {
   @Input() public language: any = null;
-
 
   public articleLanguageValue = {
     content: "",
@@ -18,7 +25,9 @@ export class ComposeArticleLanguageComponent implements OnInit {
   };
 
   public editorOptions = {
-    key : ""
+    key: "",
+    imageUploadURL: "",
+    requestHeaders: null
   };
 
   @Input()
@@ -30,17 +39,23 @@ export class ComposeArticleLanguageComponent implements OnInit {
     this.articleLanguageValue = val;
   }
 
+  public initialized = false;
 
+  constructor(
+    private settingService: SettingsService,
+    private authService: AuthService
+  ) {
+    this.editorOptions.key = this.settingService.froalaKey;
+    this.editorOptions.imageUploadURL =
+      this.settingService.portal + "api/media/editor-upload";
 
-  constructor(private settingService: SettingsService) {
-    this.editorOptions.key = this.settingService.froalaKey
+    this.editorOptions.requestHeaders = {
+      Authorization: this.authService.currentUser.token_type + " " + this.authService.currentUser.access_token
+    };
+
+    this.initialized = true;
+    console.log("...", this.editorOptions);
   }
 
-  ngOnInit() {
-  }
-
-
-
-
-
+  ngOnInit() {}
 }

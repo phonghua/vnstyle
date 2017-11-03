@@ -277,7 +277,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/16/2017 22:17:16</publishTime>
     </File>
     <File Include="bin/VnStyle.Web.dll">
-      <publishTime>10/16/2017 23:56:24</publishTime>
+      <publishTime>10/18/2017 17:17:00</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>
@@ -583,7 +583,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/28/2017 08:13:05</publishTime>
     </File>
     <File Include="Content/theme2/screen.css">
-      <publishTime>10/15/2017 20:32:24</publishTime>
+      <publishTime>10/24/2017 21:34:00</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>08/26/2017 12:40:20</publishTime>
@@ -799,7 +799,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/04/2017 17:21:19</publishTime>
     </File>
     <File Include="Views/Shared/_Layout2.cshtml">
-      <publishTime>10/16/2017 21:35:41</publishTime>
+      <publishTime>10/24/2017 21:34:38</publishTime>
     </File>
     <File Include="Views/Shared/_NotFound.cshtml">
       <publishTime>09/11/2017 11:31:54</publishTime>
@@ -811,7 +811,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/05/2017 03:02:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/16/2017 23:56:26</publishTime>
+      <publishTime>10/24/2017 21:38:30</publishTime>
     </File>
   </ItemGroup>
 </Project>
